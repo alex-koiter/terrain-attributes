@@ -1,0 +1,568 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  number]{elsarticle}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+\makeatletter
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{plain}
+\@ifundefined{c@chapter}{\newfloat{suppfig}{h}{losuppfig}}{\newfloat{suppfig}{h}{losuppfig}[chapter]}
+\floatname{suppfig}{Figure S}
+\newcommand*\quartosuppfigref[1]{Figure \hyperref[#1]{S\ref{#1}}}
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\DeclareCaptionLabelFormat{quartosuppfigreflabelformat}{#1#2}
+\captionsetup[suppfig]{labelformat=quartosuppfigreflabelformat}
+\newcommand*\listofsuppfigs{\listof{suppfig}{List of Supplementary Figures}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{plain}
+\@ifundefined{c@chapter}{\newfloat{supptab}{h}{losupptab}}{\newfloat{supptab}{h}{losupptab}[chapter]}
+\floatname{supptab}{Table S}
+\newcommand*\quartosupptabref[1]{Table \hyperref[#1]{S\ref{#1}}}
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\DeclareCaptionLabelFormat{quartosupptabreflabelformat}{#1#2}
+\captionsetup[supptab]{labelformat=quartosupptabreflabelformat}
+\newcommand*\listofsupptabs{\listof{supptab}{List of Supplementary Tables}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\usepackage[]{natbib}
+\bibliographystyle{elsarticle-num}
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Investigating the Spatial Variability in Soil Geochemical and Colour Properties Across Two Contrasting Land Uses in South-Central Manitoba},
+  pdfauthor={Maria Luna Miño; Alexander J Koiter; Taras E Lychuk; Arnie Waddel; Alan Moulin},
+  pdfkeywords={Soil geochemistry, Soil colour, Spatial analysis, Terrain
+attributes},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\setlength{\parindent}{6pt}
+\begin{document}
+
+\begin{frontmatter}
+\title{Investigating the Spatial Variability in Soil Geochemical and
+Colour Properties Across Two Contrasting Land Uses in South-Central
+Manitoba}
+\author[1]{Maria Luna Miño%
+%
+}
+ \ead{LUNAMIMA56@brandonu.ca} 
+\author[2]{Alexander J Koiter%
+\corref{cor1}%
+}
+ \ead{koitera@brandonu.ca} 
+\author[3]{Taras E Lychuk%
+%
+}
+ \ead{taras.lychuk@AGR.GC.CA} 
+\author[3]{Arnie Waddel%
+%
+}
+ \ead{arnie.waddell@AGR.GC.CA} 
+\author[3]{Alan Moulin%
+%
+}
+ \ead{apmaafc7788@gmail.com} 
+
+\affiliation[1]{organization={Brandon University, Masters in
+Environmental and Life Sciences},addressline={270 18th
+St},city={Brandon},postcode={R7A 6A9},postcodesep={}}
+\affiliation[2]{organization={Brandon University, Department of
+Geography and Environment},addressline={270 18th
+St},city={Brandon},postcode={R7A 6A9},postcodesep={}}
+\affiliation[3]{organization={Agriculture and Agri-Food Canada, Brandon
+Research and Development Centre},addressline={2701 Grand Valley
+Road},city={Brandon},postcode={R7A 5Y3},postcodesep={}}
+
+\cortext[cor1]{Corresponding author}
+
+
+
+
+
+        
+\begin{abstract}
+Quantification and accurate assessment of the spatial variability and
+distribution of soil physical and biogeochemical properties are vital
+components of agri-environmental research and modeling, including
+sediment source fingerprinting. Understanding the distribution of soil
+properties is crucial in the development of appropriate, reliable, and
+efficient sampling campaigns. This study was aimed at investigating the
+spatial variability in soil geochemical and colour (i.e., spectral
+reflectance) soil properties (\textless63um) across two contrasting land
+uses. The main objectives of this study are to: 1) quantify the spatial
+variability of geochemical and colour properties at a field-scale
+(\textasciitilde{} 40 ha) across agricultural and forested sites; 2)
+assess the spatial variability and distribution of soil properties and
+its relation to seven terrain attributes (e.g., catchment area,
+elevation). A combination of univariate analysis and geostatistical
+methods were applied to characterize the soil geochemistry and colour
+properties. This information was used to both quantify and assess the
+variability in soil properties. The variability and spatial
+autocorrelation were generally both site and soil property specific. For
+a selection of soil properties exhibiting some spatial autocorrelation,
+random forest regression was used to identify the relative importance of
+terrain attributes on observed patterns of soil geochemical and colour
+properties. Elevation was found to explain the greatest amount of the
+variation in soil properties followed by the SAGA wetness index and
+relative slope position. These findings can be used to help create
+efficient soil sampling designs by providing information that can inform
+sampling locations and number of samples collected in order to meet
+research needs and objectives.
+\end{abstract}
+
+
+
+
+
+\begin{keyword}
+    Soil geochemistry \sep Soil colour \sep Spatial analysis \sep 
+    Terrain attributes
+\end{keyword}
+\end{frontmatter}
+    
+
+\begin{longtable}[]{@{}ccccccc@{}}
+
+\caption{\label{tbl-univariate-summary}Summary univariate statistics of
+selected geochemical and colour soil properties for each site (n = 49).
+Geochemical concentrations are reported in ppm, excecpt Ca and Fe(\%).}
+
+\tabularnewline
+
+\toprule\noalign{}
+Property & Mean & SD & Max & Min & Skewness & CV \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\multicolumn{7}{@{}c@{}}{%
+Agriculture} \\
+Ca & 4.00 & 2.19 & 8.78 & 0.95 & 0.28 & 54.66 \\
+Co & 8.76 & 0.83 & 10.60 & 7.50 & 0.52 & 9.48 \\
+Cs & 0.75 & 0.15 & 1.07 & 0.47 & 0.18 & 19.93 \\
+Fe & 1.92 & 0.09 & 2.11 & 1.71 & −0.25 & 4.70 \\
+Li & 15.62 & 1.42 & 19.80 & 12.80 & 0.62 & 9.11 \\
+La & 18.23 & 1.22 & 20.20 & 15.50 & −0.29 & 6.71 \\
+Nb & 0.59 & 0.06 & 0.73 & 0.46 & 0.45 & 9.67 \\
+Ni & 29.63 & 2.72 & 35.70 & 25.00 & 0.36 & 9.17 \\
+Rb & 18.43 & 4.33 & 26.70 & 10.20 & 0.24 & 23.48 \\
+Sr & 91.31 & 38.98 & 163.50 & 38.60 & 0.09 & 42.69 \\
+a* & 3.38 & 0.32 & 4.15 & 2.59 & −0.03 & 9.53 \\
+b* & 8.84 & 0.97 & 10.59 & 6.69 & −0.18 & 11.00 \\
+c* & 9.47 & 1.02 & 11.32 & 7.17 & −0.19 & 10.74 \\
+h* & 1.20 & 0.01 & 1.23 & 1.18 & 0.19 & 1.12 \\
+x & 0.47 & 0.00 & 0.48 & 0.47 & 0.06 & 0.46 \\
+\multicolumn{7}{@{}c@{}}{%
+Forest} \\
+Ca & 1.89 & 1.53 & 5.46 & 0.47 & 1.07 & 81.12 \\
+Co & 6.76 & 1.39 & 9.60 & 4.00 & 0.03 & 20.62 \\
+Cs & 0.55 & 0.12 & 0.78 & 0.34 & 0.25 & 21.73 \\
+Fe & 1.18 & 0.13 & 1.46 & 0.83 & −0.58 & 11.24 \\
+Li & 6.47 & 0.90 & 8.60 & 4.30 & −0.02 & 13.89 \\
+La & 15.00 & 2.60 & 21.80 & 10.30 & 0.33 & 17.31 \\
+Nb & 0.37 & 0.06 & 0.56 & 0.17 & −0.68 & 17.10 \\
+Ni & 18.09 & 3.90 & 28.00 & 11.00 & 0.33 & 21.55 \\
+Rb & 13.83 & 1.85 & 18.10 & 9.90 & 0.27 & 13.40 \\
+Sr & 32.43 & 12.60 & 64.20 & 15.30 & 0.98 & 38.87 \\
+a* & 5.73 & 0.41 & 6.56 & 4.41 & −0.38 & 7.10 \\
+b* & 12.47 & 2.01 & 15.91 & 8.02 & 0.22 & 16.11 \\
+c* & 13.74 & 1.94 & 17.00 & 9.15 & 0.15 & 14.15 \\
+h* & 1.13 & 0.05 & 1.23 & 1.06 & 0.34 & 4.13 \\
+x & 0.49 & 0.00 & 0.49 & 0.48 & −0.21 & 0.47 \\
+
+\end{longtable}
+
+\textsubscript{Source:
+\href{https://alex-koiter.github.io/terrain-attributes/notebooks/univariate_analysis.qmd.html\#cell-tbl-univariate-summary}{Univariate
+summary}}
+
+\begin{longtable}[]{@{}ccccccc@{}}
+
+\caption{\label{tbl-univariate-summary2}Summary univariate statistics of
+terrain attributes for each site (n = 49).}
+
+\tabularnewline
+
+\toprule\noalign{}
+name & mean & sd & max & min & skewness & cv \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\multicolumn{7}{@{}c@{}}{%
+Agriculture} \\
+Catchment Area & 454.54 & 1,033.10 & 6,442.41 & 8.41 & 4.46 & 227.29 \\
+Vert. Dist. Channel & 0.06 & 0.05 & 0.22 & 0.01 & 1.14 & 81.39 \\
+Elevation & 309.96 & 0.69 & 311.78 & 309.03 & 0.68 & 0.22 \\
+Plan Curvature & 0.00 & 0.00 & 0.00 & 0.00 & −0.10 & −3,103.61 \\
+Profile Curvature & 0.00 & 0.00 & 0.00 & 0.00 & −0.31 & −1,309.29 \\
+Rel. Slope Position & 0.67 & 0.33 & 1.00 & 0.05 & −0.73 & 49.05 \\
+SAGA Wetness Index & 9.57 & 0.81 & 10.88 & 7.86 & −0.23 & 8.50 \\
+\multicolumn{7}{@{}c@{}}{%
+Forest} \\
+Catchment Area & 987.43 & 3,567.87 & 23,581.83 & 4.34 & 5.53 & 361.33 \\
+Vert. Dist. Channel & 0.48 & 0.49 & 2.83 & 0.05 & 2.68 & 103.92 \\
+Elevation & 368.81 & 3.51 & 375.93 & 360.86 & 0.09 & 0.95 \\
+Plan Curvature & 0.00 & 0.01 & 0.03 & −0.01 & 2.25 & 396.75 \\
+Profile Curvature & 0.00 & 0.02 & 0.05 & −0.07 & −1.66 & 2,724.16 \\
+Rel. Slope Position & 0.23 & 0.23 & 0.87 & 0.02 & 1.39 & 100.24 \\
+SAGA Wetness Index & 5.79 & 1.17 & 8.00 & 2.64 & −0.56 & 20.17 \\
+
+\end{longtable}
+
+\textsubscript{Source:
+\href{https://alex-koiter.github.io/terrain-attributes/notebooks/univariate_analysis.qmd.html\#cell-tbl-univariate-summary2}{Univariate
+summary}}
+
+\begin{longtable}[]{@{}cccccccc@{}}
+
+\caption{\label{tbl-correlation}Pearson's correlation coefficients for
+select soil properties and terrain attributes (n=49).}
+
+\tabularnewline
+
+\toprule\noalign{}
+Property & Elevation & SAGA Wetness Index & Rel. Slope Position & Vert.
+Dist. Channel & Catchment Area & Plan Curvature & Profile Curvature \\
+\midrule\noalign{}
+\endhead
+\midrule\noalign{}
+\multicolumn{8}{@{}c@{}}{%
+*** p \textless{} 0.001; ** p \textless{} 0.01; * p \textless{} 0.05; NS
+= non-significant at p = 0.05} \\
+\bottomrule\noalign{}
+\endlastfoot
+\multicolumn{8}{@{}c@{}}{%
+Agriculture} \\
+{Ca} & -0.71*** & 0.61*** & NS & -0.32* & NS & NS & NS \\
+{Co} & -0.52*** & 0.56*** & NS & NS & NS & NS & NS \\
+{Cs} & 0.56*** & -0.5*** & NS & NS & NS & NS & NS \\
+{Fe} & NS & 0.33* & NS & NS & NS & NS & NS \\
+{Li} & -0.39** & 0.38** & -0.56*** & -0.39** & NS & NS & NS \\
+{La} & 0.51*** & -0.39** & NS & NS & NS & NS & NS \\
+{Nb} & 0.41** & -0.41** & NS & NS & NS & NS & NS \\
+{Ni} & -0.72*** & 0.73*** & -0.29* & -0.32* & NS & NS & NS \\
+{Rb} & 0.78*** & -0.72*** & NS & 0.32* & NS & NS & NS \\
+{Sr} & -0.78*** & 0.7*** & -0.39** & -0.38** & NS & NS & NS \\
+{*a**} & 0.6*** & -0.49*** & 0.43** & 0.36* & NS & NS & NS \\
+{*b**} & 0.39** & -0.31* & NS & NS & NS & NS & NS \\
+{*c**} & 0.4** & -0.31* & NS & NS & NS & NS & NS \\
+{*h**} & NS & NS & NS & NS & NS & NS & -0.3* \\
+{\emph{x}} & 0.48*** & -0.55*** & 0.5*** & 0.41** & -0.37** & NS & NS \\
+\multicolumn{8}{@{}c@{}}{%
+Forest} \\
+{Ca} & NS & -0.58*** & NS & 0.45** & 0.35* & NS & NS \\
+{Co} & NS & NS & NS & NS & NS & NS & NS \\
+{Cs} & NS & NS & NS & NS & 0.33* & NS & NS \\
+{Li} & NS & NS & NS & NS & NS & NS & NS \\
+{La} & NS & NS & NS & NS & NS & NS & NS \\
+{Nb} & NS & 0.57*** & NS & -0.45** & NS & NS & NS \\
+{Ni} & NS & NS & NS & NS & NS & NS & NS \\
+{Sr} & -0.35* & -0.58*** & NS & 0.44** & 0.31* & NS & NS \\
+{*h**} & NS & NS & NS & 0.31* & 0.33* & NS & NS \\
+
+\end{longtable}
+
+\textsubscript{Source:
+\href{https://alex-koiter.github.io/terrain-attributes/notebooks/univariate_analysis.qmd.html\#cell-tbl-correlation}{Univariate
+summary}}
+
+\begin{longtable}[]{@{}cccccccc@{}}
+
+\caption{\label{tbl-geocol-semivariogram}Geostatistical parameters of
+the fitted semivariogram models of selected colour and geochemical
+properties within the agricultural and forested sites.}
+
+\tabularnewline
+
+\toprule\noalign{}
+Property & Kriging Type{\textsuperscript{1}} & Nugget (Co) & Sill (Co +
+C) & C/(C + Co) (\%) & Range (m) & r{\textsuperscript{2}} & Spatial
+Class{\textsuperscript{2}} \\
+\midrule\noalign{}
+\endhead
+\midrule\noalign{}
+\multicolumn{8}{@{}c@{}}{%
+{\textsuperscript{1}} Models are all isotropic.} \\
+\multicolumn{8}{@{}c@{}}{%
+{\textsuperscript{2}} Strong spatial dependency (C/(C + Co) \%
+\textgreater75); Moderate spatial dependency (C/(C + Co) \% between 75
+and 25); Low spatial dependency (C/(C + Co) \% \textless25).} \\
+\bottomrule\noalign{}
+\endlastfoot
+\multicolumn{8}{@{}c@{}}{%
+Agriculture} \\
+Ca & Universal & 0.0 & 7.2 & 100 & 580 & 0.9 & Strong \\
+Co & Simple & 0.0 & 0.7 & 100 & 208 & 0.4 & Strong \\
+Cs & Ordinary & 0.0 & 0.0 & 100 & 210 & 0.5 & Strong \\
+Fe & Ordinary & 0.0 & 0.0 & 100 & 185 & 0.2 & Strong \\
+Li & Universal & 0.3 & 1.5 & 81 & 185 & 0.6 & Strong \\
+La & Simple & 0.4 & 1.0 & 56 & 308 & 0.5 & Moderate \\
+Nb & Universal & 0.0 & 0.0 & 91 & 210 & 0.7 & Strong \\
+Ni & Ordinary & 1.4 & 8.9 & 84 & 352 & 0.6 & Strong \\
+Rb & Ordinary & 1.4 & 27.6 & 95 & 551 & 0.9 & Strong \\
+Sr & Ordinary & 0.9 & 900.2 & 100 & 220 & 1.0 & Strong \\
+a* & Ordinary & 0.4 & 1.0 & 59 & 288 & 0.3 & Moderate \\
+b* & Simple & 0.2 & 0.9 & 83 & 199 & 0.3 & Strong \\
+c* & Simple & 0.1 & 0.9 & 87 & 199 & 0.3 & Strong \\
+h* & Simple & 0.0 & 1.1 & 100 & 185 & 0.2 & Strong \\
+x & Simple & 0.4 & 1.0 & 58 & 220 & 0.1 & Moderate \\
+\multicolumn{8}{@{}c@{}}{%
+Forest} \\
+Ca & Ordinary & 1.6 & 2.7 & 41 & 269 & 0.2 & Moderate \\
+Co & Ordinary & 0.0 & 2.1 & 100 & 298 & 0.1 & Strong \\
+Cs & Ordinary & 0.0 & 0.0 & 83 & 237 & 0.2 & Strong \\
+Li & Ordinary & 0.0 & 0.8 & 100 & 222 & 0.3 & Strong \\
+La & Ordinary & 3.1 & 7.4 & 59 & 176 & 0.1 & Moderate \\
+Nb & Ordinary & 0.0 & 0.0 & 51 & 224 & 0.2 & Moderate \\
+Ni & Universal & 6.7 & 15.8 & 57 & 187 & 0.2 & Moderate \\
+Sr & Simple & 0.4 & 1.0 & 65 & 229 & 0.4 & Moderate \\
+h* & Universal & 0.0 & 0.0 & 100 & 230 & 0.3 & Strong \\
+
+\end{longtable}
+
+\textsubscript{Source:
+\href{https://alex-koiter.github.io/terrain-attributes/notebooks/semivariogram.qmd.html\#cell-tbl-geocol-semivariogram}{Semivariograms}}
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}@{}}
+
+\caption{\label{tbl-rf-summary}Model summary and performance statistics
+for the random forest regression using the training and test data sets.}
+
+\tabularnewline
+
+\toprule\noalign{}
+\multirow{2}{=}{\begin{minipage}[b]{\linewidth}\raggedright
+Property
+\end{minipage}} &
+\multicolumn{2}{>{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.4000} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\centering
+Training
+\end{minipage}} &
+\multicolumn{2}{>{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.4000} + 2\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\centering
+Test
+\end{minipage}} \\
+& \begin{minipage}[b]{\linewidth}\raggedright
+\% Variance{\textsuperscript{1}}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MSE{\textsuperscript{2}}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+R{\textsuperscript{2}}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MSE{\textsuperscript{2}}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\midrule\noalign{}
+\multicolumn{5}{@{}>{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{1.0000} + 8\tabcolsep}@{}}{%
+{\textsuperscript{1}} Percent variance explained} \\
+\multicolumn{5}{@{}>{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{1.0000} + 8\tabcolsep}@{}}{%
+{\textsuperscript{2}} Mean square error} \\
+\bottomrule\noalign{}
+\endlastfoot
+\multicolumn{5}{@{}>{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{1.0000} + 8\tabcolsep}@{}}{%
+Agriculture} \\
+Co & 0.3 & 0.43 & 0.11 & 0.51 \\
+Cs & 0.6 & 0.01 & 0.29 & 0.01 \\
+Fe & 0.3 & 0.01 & 0.01 & 0.01 \\
+Li & −0.1 & 1.86 & 0.43 & 0.84 \\
+La & 0.4 & 0.39 & 0.81 & 0.38 \\
+Nb & 0.2 & 0.00 & 0.00 & 0.00 \\
+Ni & 0.7 & 1.89 & 0.70 & 1.46 \\
+Rb & 0.8 & 3.75 & 0.85 & 2.71 \\
+Sr & 0.6 & 441.33 & 0.85 & 365.51 \\
+a* & 0.4 & 0.03 & 0.48 & 0.02 \\
+b* & 0.3 & 0.53 & 0.09 & 0.40 \\
+c* & 0.3 & 0.64 & 0.10 & 0.49 \\
+h* & 0.2 & 0.00 & 0.03 & 0.00 \\
+x & 0.3 & 0.00 & 0.31 & 0.00 \\
+\multicolumn{5}{@{}>{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{1.0000} + 8\tabcolsep}@{}}{%
+Forest} \\
+Ca & 0.4 & 0.32 & 0.25 & 0.58 \\
+Co & −0.2 & 0.97 & 0.01 & 1.03 \\
+Cs & −0.1 & 0.01 & 0.02 & 0.01 \\
+Li & −0.1 & 0.55 & 0.05 & 1.33 \\
+La & −0.3 & 2.49 & 0.02 & 3.77 \\
+Ni & −0.4 & 7.78 & 0.02 & 6.98 \\
+Sr & 0.4 & 44.47 & 0.17 & 58.18 \\
+h* & −0.1 & 0.00 & 0.01 & 0.00 \\
+
+\end{longtable}
+
+\textsubscript{Source:
+\href{https://alex-koiter.github.io/terrain-attributes/notebooks/RF_summary.qmd.html\#cell-tbl-rf-summary}{Random
+Forest summary}}
+
+\begin{figure}[H]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-RF_summary-fig-rf-results-output-1.png}}
+
+}
+
+\caption{\label{fig-rf-results}Heat map of the Random Forest regression
+results showing the ranking of the importance of terrain attributes
+(based on \% increase in Mean Squared Error) in explaining the spatial
+variabilty of selected colour and geochemical properties within the
+agricultural and forested sites. Top panel shows an average ranking for
+each site and across both sites.}
+
+\end{figure}%
+
+\textsubscript{Source:
+\href{https://alex-koiter.github.io/terrain-attributes/notebooks/RF_summary.qmd.html\#cell-fig-rf-results}{Random
+Forest summary}}
+
+
+  \bibliography{references.bib}
+
+
+
+\end{document}

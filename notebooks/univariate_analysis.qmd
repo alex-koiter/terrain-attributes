@@ -1,0 +1,176 @@
+---
+title: "Univariate summary"
+author: "Alex Koiter"
+html-table-processing: none
+---
+
+## Load libraries
+```{r}
+library(tidyverse)
+library(gt)
+library(sf)
+library(terra)
+```
+
+## Terrain summary
+```{r}
+
+attribute <- c("plan_curvature", "profile_curvature", "saga_wetness_index", "catchment_area", "relative_slope_position", "channel_network_distance", "elevation")
+
+ag_data <- read_csv(here::here("./notebooks/ag_data_49.csv")) |>
+  mutate(site = "Agriculture")
+
+for_data <- read_csv(here::here("./notebooks/forest_data_49.csv")) |>
+  mutate(site = "Forest")
+
+all_terrain <- ag_data |>
+  bind_rows(for_data) |>
+  select(any_of(attribute), site) |>
+  pivot_longer(plan_curvature:elevation) |>
+  group_by(name, site) |>
+  summarise(mean = mean(value, na.rm = T),
+            sd = sd(value, na.rm = T),
+            max = max(value, na.rm = T),
+            min = min(value, na.rm = T),
+            se = sd(value)/ sqrt(length(value)),
+            skewness = moments::skewness(value),
+            cv = sd(value, na.rm = TRUE) / mean(value, na.rm = TRUE) * 100, .groups = "drop") |>
+  mutate(name = as.character(fct_recode(name,  "Elevation" = "elevation", "Catchment Area" = "catchment_area", "Plan Curvature" = "plan_curvature", "Profile Curvature" = "profile_curvature", "Rel. Slope Position" = "relative_slope_position", "SAGA Wetness Index" = "saga_wetness_index", "Vert. Dist. Channel" = "channel_network_distance")))
+
+```
+
+```{r}
+#| label: tbl-univariate-summary2
+#| tbl-cap: Summary univariate statistics of terrain attributes for each site (n = 49).
+
+all_terrain |>
+  group_by(site) |>
+  select( -se) |>
+  gt() |>
+  #fmt_markdown(columns = Element)|>
+  fmt_number(decimals = 2) |>
+  #cols_align(align = "left") |>
+  tab_style(style =  cell_text(weight = "bold", align = "center"), locations =  cells_row_groups()) |>
+  tab_options(column_labels.font.weight = "bold")
+```
+
+## Fingerprint summary
+
+```{r}
+
+data <- read_csv(here::here("./notebooks/soil_data.csv"))
+
+all_fingerprints <- data %>%
+  group_by(element) %>%
+  group_by(element, site, group) %>%
+  summarise(mean = mean(value, na.rm = T),
+            sd = sd(value, na.rm = T),
+            max = max(value, na.rm = T),
+            min = min(value, na.rm = T),
+            se = sd(value)/ sqrt(length(value)),
+            skewness = moments::skewness(value),
+            cv = sd(value, na.rm = TRUE) / mean(value, na.rm = TRUE) * 100, .groups = "drop") |>
+  filter(element %in% c("Li", "a_col", "Fe", "Co", "x_col", "Cs", "La", "Ni", "Nb", "h_col", "b_col", "Rb", "Ca", "Sr", "c_col")) |>
+  mutate(element = as.character(fct_recode(element, "a*" = "a_col", "b*" = "b_col", "c*" = "c_col", "h*" = "h_col", "x" = "x_col"))) %>%
+  rename("Property" = "element", "Mean" = "mean", "SD" = "sd", "Max" = "max", "Min" = "min", "Skewness" = "skewness", "CV" = "cv") %>%
+   mutate(Property = fct_relevel(Property, "Ca", "Co", "Cs", "Fe", "Li", "La", "Nb", "Ni", "Rb", "Sr", "a*", "b*", "c*", "h*", "x")) %>%
+  arrange(Property) |>
+  mutate(Property = as.character(Property))
+```
+
+```{r}
+#| label: tbl-univariate-summary
+#| tbl-cap: Summary univariate statistics of selected geochemical and colour soil properties for each site (n = 49). Geochemical concentrations are reported in ppm, excecpt Ca and Fe(%).
+
+all_fingerprints |>
+  group_by(site) |>
+  select(-group, -se) |>
+  gt() |>
+  #fmt_markdown(columns = Element)|>
+  fmt_number(decimals = 2) |>
+  #cols_align(align = "left") |>
+  tab_style(style =  cell_text(weight = "bold", align = "center"), locations =  cells_row_groups()) |>
+  tab_options(column_labels.font.weight = "bold") |>
+tab_style(
+    style = list(cell_text(style = "italic")),
+    locations = cells_body(
+      columns = Property,
+      rows = Property %in% c("a*", "b*", "c*", "h*", "x")))
+```
+
+## Correlation
+
+```{r}
+forest_r <- as.data.frame(Hmisc::rcorr(as.matrix(select(for_data, -site)))$r) %>%
+  select("plan_curvature", "profile_curvature", "saga_wetness_index", "catchment_area", "relative_slope_position", "channel_network_distance", "elevation") %>%
+  rownames_to_column() %>%
+  filter(rowname %in% c("ca", "co", "cs", "fe", "li", "la", "nb", "ni", "rb", "sr", "a_c", "b_c", "c_c", "h_c", "x_c")) %>%
+  pivot_longer(cols = plan_curvature:elevation, names_to = "Terrain", values_to = "r")
+
+forest_p <- as.data.frame(Hmisc::rcorr(as.matrix(select(for_data, -site)))$P) %>%
+  select("plan_curvature", "profile_curvature", "saga_wetness_index", "catchment_area", "relative_slope_position", "channel_network_distance", "elevation") %>%
+  rownames_to_column() %>%
+  filter(rowname %in% c("ca", "co", "cs", "fe", "li", "la", "nb", "ni", "rb", "sr", "a_c", "b_c", "c_c", "h_c", "x_c")) %>%
+  pivot_longer(cols = plan_curvature:elevation, names_to = "Terrain", values_to = "P")
+
+temp3 <- forest_r %>%
+  full_join(forest_p) %>%
+  mutate(label = case_when(P < 0.05 & P >= 0.01 ~ paste0(round(r,2), "*"),
+                           P < 0.01 & P >= 0.001 ~ paste0(round(r,2), "**"),
+                           P < 0.001  ~ paste0(round(r,2), "***"),
+                           P >= 0.05 ~ "NS")) %>%
+  mutate(site = "Forest")
+
+ag_r <- as.data.frame(Hmisc::rcorr(as.matrix(select(ag_data, -site)))$r) %>%
+  select("plan_curvature", "profile_curvature", "saga_wetness_index", "catchment_area", "relative_slope_position", "channel_network_distance", "elevation") %>%
+  rownames_to_column() %>%
+  filter(rowname %in% c("ca", "co", "cs", "fe", "li", "la", "nb", "ni", "rb", "sr", "a_c", "b_c", "c_c", "h_c", "x_c")) %>%
+  pivot_longer(cols = plan_curvature:elevation, names_to = "Terrain", values_to = "r")
+
+ag_p <- as.data.frame(Hmisc::rcorr(as.matrix(select(ag_data, -site)))$P) %>%
+  select("plan_curvature", "profile_curvature", "saga_wetness_index", "catchment_area", "relative_slope_position", "channel_network_distance", "elevation") %>%
+  rownames_to_column() %>%
+  filter(rowname %in% c("ca", "co", "cs", "fe", "li", "la", "nb", "ni", "rb", "sr", "a_c", "b_c", "c_c", "h_c", "x_c")) %>%
+  pivot_longer(cols = plan_curvature:elevation, names_to = "Terrain", values_to = "P")
+
+temp4 <- ag_r %>%
+  full_join(ag_p) %>%
+  mutate(label = case_when(P < 0.05 & P >= 0.01 ~ paste0(round(r,2), "*"),
+                           P < 0.01 & P >= 0.001 ~ paste0(round(r,2), "**"),
+                           P < 0.001  ~ paste0(round(r,2), "***"),
+                           P >= 0.05 ~ "NS")) %>%
+  mutate(site = "Agriculture")
+
+corr_tab <- temp3 %>%
+  bind_rows(temp4) %>%
+  pivot_wider(id_cols = c(rowname, site), names_from = "Terrain", values_from = "label") %>%
+  select("site", "Property" = "rowname", "Elevation" = "elevation", "SAGA Wetness Index" = "saga_wetness_index", "Rel. Slope Position" = "relative_slope_position", "Vert. Dist. Channel" = "channel_network_distance", "Catchment Area" = "catchment_area", "Plan Curvature" = "plan_curvature", "Profile Curvature" = "profile_curvature") %>%
+  mutate(Property = (fct_recode(Property, "*h**" = "h_c", "*a**" = "a_c", "*c**" = "c_c", "*b**" = "b_c", "*x*" = "x_c", "Ca" = "ca", "Co" = "co", "Cs" = "cs", "Fe" = "fe", "Li" = "li", "La" = "la", "Nb" = "nb", "Rb" = "rb", "Ni" = "ni", "Sr" = "sr"))) %>%
+  mutate(Property = fct_relevel(Property, c("Ca", "Co", "Cs", "Fe", "Li", "La", "Nb", "Ni", "Rb", "Sr", "*a**", "*b**", "*c**", "*h**", "*x*"))) %>%
+    arrange(Property) %>%
+  mutate(Property = as.character(Property))
+  
+#write.csv(x = corr_tab, file = "correlation.csv", row.names = FALSE)
+```
+
+```{r}
+#| label: tbl-correlation
+#| tbl-cap: Pearson’s correlation coefficients for select soil properties and terrain attributes (n=49).
+
+correlation <- corr_tab |>
+  group_by(site) |>
+  gt() |>
+  fmt_markdown(columns = Property) |>
+    tab_style(style =  cell_text(weight = "bold", align = "center"), locations =  cells_row_groups()) |>
+  tab_options(column_labels.font.weight = "bold") |>
+    row_group_order(groups = c("Agriculture", "Forest"))|>
+  tab_footnote(
+    footnote = "*** p < 0.001; ** p < 0.01; * p < 0.05; NS = non-significant at p = 0.05"
+  )
+
+correlation
+
+#saveRDS(correlation, file = here::here("./images/correlation.rds"))
+```
+
+

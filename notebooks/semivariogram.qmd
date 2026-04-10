@@ -1,0 +1,50 @@
+---
+title: "Semivariograms"
+author: "Alex Koiter"
+html-table-processing: none
+---
+## Load libraries
+```{r}
+suppressPackageStartupMessages({
+  library(tidyverse)
+  library(readODS)
+  library(gt)
+})
+```
+
+## Data
+```{r}
+vario <- read_ods(here::here("./notebooks/semivariogram.ods")) %>%
+  mutate(sill = p_sill + nugget, 
+         `C/(C + Co) (%)` = 100 * p_sill/sill,
+         `Spatial Class` = case_when(`C/(C + Co) (%)` > 75 ~ "Strong",
+                           `C/(C + Co) (%)`<=75 & `C/(C + Co) (%)` >25 ~ "Moderate",
+                           `C/(C + Co) (%)` < 0.25 ~ "Low")) %>%
+  select("Property" = "property", "Kriging Type" = "model", "Nugget (Co)" = "nugget", "Sill (Co + C)" = "sill", "C/(C + Co) (%)", "Range (m)" = "range", "site", "r2", "Spatial Class") %>%
+  #select(-p_sill) %>%
+  mutate(Property = fct_relevel(Property, "Ca", "Co", "Cs", "Fe", "Li", "La", "Nb", "Ni", "Rb", "Sr", "a*", "b*", "c*", "h*", "x")) %>%
+  arrange(Property)
+
+```
+
+```{r}
+
+#| label: tbl-geocol-semivariogram
+#| tbl-cap: Geostatistical parameters of the fitted semivariogram models of selected colour and geochemical properties within the agricultural and forested sites.
+
+vario |>
+  group_by(site) |>
+  gt() |>
+  fmt_number(decimal = 1) |>
+  fmt_number(columns = c("Range (m)", "C/(C + Co) (%)"), decimal = 0) |>
+  cols_label(r2 = "{{r^2}}") |>
+  tab_footnote(
+    footnote = "Models are all isotropic.",
+    locations = cells_column_labels(columns = "Kriging Type"))  |>
+  tab_footnote(
+    footnote = "Strong spatial dependency (C/(C + Co) % >75); Moderate spatial dependency (C/(C + Co) % between 75 and 25); Low spatial dependency (C/(C + Co) % <25).",
+    locations = cells_column_labels(columns = `Spatial Class`))  |>
+  tab_style(style =  cell_text(weight = "bold", align = "center"), locations =  cells_row_groups()) |>
+  tab_options(column_labels.font.weight = "bold")
+```
+

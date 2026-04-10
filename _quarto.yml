@@ -1,17 +1,41 @@
 project:
   type: manuscript
+  output-dir: docs
+
+manuscript:
+  meca-bundle: false
 
 execute:
   freeze: auto
 
 format:
-  html:
+  elsevier-html:
     toc: true
     comments:
-      hypothesis: true
-  docx: default
+      hypothesis: false
+  docx:
+    reference-doc: custom-reference-doc.docx
+    link-citations: true
+    link-bibliography: true
+  elsevier-pdf: default
   jats: default
-  agu-pdf: default
+  
+engine: knitr
 
+crossref:
+  custom:
+    - kind: float
+      key: suppfig
+      latex-env: suppfig
+      reference-prefix: Figure S
+      space-before-numbering: false
+      latex-list-of-description: Supplementary Figure
+    - kind: float
+      key: supptab
+      latex-env: supptab
+      reference-prefix: Table S
+      space-before-numbering: false
+      latex-list-of-description: Supplementary Table
 
-
+supptab-cap-location: top
+suppplot-cap-location: bottom

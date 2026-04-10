@@ -1,0 +1,216 @@
+---
+title: "Niobium (Nb) Agriculture site RF_Regression"
+author: "Alex Koiter"
+---
+
+## Load libraries
+```{r}
+suppressPackageStartupMessages({
+  library(tidyverse)
+  library(randomForest)
+  library(terra)
+  library(caret)
+  library(patchwork)
+  library(sf)
+})
+```
+
+## Load data
+```{r}
+ attribute <- c("plan_curvature", "profile_curvature", "saga_wetness_index", "catchment_area", "relative_slope_position", "channel_network_distance", "elevation")
+
+data <- read_csv(here::here("./notebooks/ag_terrain_data.csv"), show_col_types = FALSE) %>%
+  select("x", "y", "nb", any_of(attribute))
+```
+
+## Map soil property
+```{r}
+temp_rast <- rast(data)
+crs(x = temp_rast, warn=FALSE) <- "epsg:26914"
+
+coords <- read_csv(here::here("./notebooks/coords.csv"), show_col_types = FALSE) %>% 
+  st_as_sf(coords = c("long", "lat"),  crs = 4326) %>%
+  st_transform(crs = 26914)
+
+p1<- ggplot() +
+  tidyterra::geom_spatraster(data = temp_rast, aes(fill = nb)) +
+  scale_fill_viridis_c(name = "Nb", breaks = seq(4, 9, 1)) +
+  geom_sf(data = filter(coords, site == "Agriculture")) +
+  theme_bw(base_size = 12) +
+  theme(axis.title = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        legend.position = "bottom") +
+  scale_y_continuous(expand = c(0,0)) +
+  scale_x_continuous(expand = c(0,0)) +
+  ggspatial::annotation_scale(location = "bl") +
+  ggspatial::annotation_north_arrow(location = "br")
+
+p2 <- ggplot() +
+  tidyterra::geom_spatraster(data = temp_rast, aes(fill = elevation)) +
+  scale_fill_viridis_c(name = "Elevation (m)", option = "inferno") +
+  geom_sf(data = filter(coords, site == "Agriculture")) +
+  theme_bw(base_size = 12) +
+  theme(axis.title = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        legend.position = "bottom") +
+  scale_y_continuous(expand = c(0,0)) +
+  scale_x_continuous(expand = c(0,0)) +
+  ggspatial::annotation_scale(location = "bl") +
+  ggspatial::annotation_north_arrow(location = "br")
+```
+
+```{r}
+#| fig-width: 12
+#| fig-asp: 0.5
+p1+p2  
+```
+
+## RF model original 49 data points
+```{r}
+x <- "nb"
+data <- orig_data <- read_csv(here::here("./notebooks/ag_data_49.csv")) |>
+  select(x, any_of(attribute))
+
+```
+
+### Training and test data sets
+```{r}
+
+set.seed(222)
+ind <- sample(2, nrow(data), replace = TRUE, prob = c(0.7, 0.3))
+train <- data[ind==1,]
+test <- data[ind==2,]
+```
+
+### Feature selection
+```{r}
+features <- usdm::vifstep(data.frame(select(train, all_of(attribute))), th = 10)
+
+train <- train %>% 
+  usdm::exclude(features)
+
+test <- test %>% 
+  usdm::exclude(features)
+
+```
+
+### Tune RF
+```{r}
+my_mtry <- tuneRF(y = train[[x]], x = train[attribute], trace = TRUE, plot = TRUE) |>
+  data.frame() |>
+  slice(which.min(OOBError)) |>
+  pull(mtry)
+```
+
+### Fit Model
+```{r}
+rf.fit <- randomForest(nb ~ ., data = train, 
+                       ntree = 500, keep.forest = TRUE, importance = TRUE, mtry = my_mtry)
+rf.fit
+plot(rf.fit)
+```
+
+
+### Test Model
+Uses the RF model to predict the test dataset. We compare predicted against actual
+```{r}
+prediction <- predict(rf.fit, newdata = test)
+test_plot <- data.frame(pred = prediction, obs = test[[x]])
+
+r_sq <- summary(lm(pred~obs, data = test_plot))
+r_sq
+
+ggplot(data = test_plot, aes(y = pred, x = obs)) +
+  geom_point() +
+  ggpmisc::stat_poly_line() +
+  ggpmisc::stat_poly_eq() +
+  theme_bw() +
+  geom_abline(slope = 1, intercept = 0) +
+  coord_fixed(ratio = 1)
+
+
+mse_test <- test_plot %>%
+  summarise(mse = mean((obs - pred)^2))
+
+mse_test 
+```
+
+## Importance
+```{r}
+ImpData <- as.data.frame(importance(rf.fit)) %>%
+  mutate(Var.Names = row.names(.)) %>%
+ `row.names<-`(as.character(1:nrow(importance(rf.fit))))
+```
+### Top based on IncNodePurity
+```{r}
+slice_max(ImpData,order_by = IncNodePurity, n = 10)
+```
+
+```{r}
+p1 <- ggplot(slice_max(ImpData,order_by = IncNodePurity, n = 10), aes(x = fct_reorder(Var.Names, IncNodePurity), y = IncNodePurity)) +
+  geom_segment(aes(x = fct_reorder(Var.Names, IncNodePurity), xend = fct_reorder(Var.Names, IncNodePurity), y = 0, yend = IncNodePurity), color="skyblue") +
+  geom_point(aes(size = `%IncMSE`), color = "blue", alpha = 0.6) +
+  theme_bw() +
+  coord_flip() +
+  labs(x = "Terrain Attribute", y = "IncNodePurity") +
+  theme(legend.position="bottom")
+```
+
+### Top 10 based on %IncMSE
+```{r}
+slice_max(ImpData,order_by = `%IncMSE`, n = 10)
+```
+
+```{r}
+p2<- ggplot(slice_max(ImpData,order_by = `%IncMSE`, n = 10), aes(x = fct_reorder(Var.Names, `%IncMSE`), y = `%IncMSE`)) +
+  geom_segment(aes(x = fct_reorder(Var.Names, `%IncMSE`), xend = fct_reorder(Var.Names, `%IncMSE`), y = 0, yend = `%IncMSE`), color="skyblue") +
+  geom_point(aes(size = IncNodePurity), color = "blue", alpha = 0.6) +
+  theme_bw() +
+  coord_flip() +
+  labs(x = "Terrain Attribute", y = "%IncMSE") +
+  theme(legend.position="bottom")
+```
+
+### Combined
+
+```{r}
+#| label: Original data
+#| fig-cap: Ag Nb 
+p1+p2
+```
+
+## Write data
+
+```{r}
+
+importance_data <- ImpData %>%
+  mutate(MSE_rank = rank(-`%IncMSE`)) %>%
+  mutate(Purity_rank = rank(-IncNodePurity)) %>%
+  mutate(site = "Agriculture",
+        property = "Nb")
+
+if(file.exists(here::here("./notebooks/importance_data_49.csv"))) {
+  importance_data_final <- read_csv(here::here("./notebooks/importance_data_49.csv")) |>
+    rows_upsert(importance_data, by = c("MSE_rank", "site", "property")) 
+} else importance_data_final <- importance_data
+
+write_csv(importance_data_final, here::here("./notebooks/importance_data_49.csv"))
+
+
+model_performance <- tibble(MSE = rf.fit$mse[length(rf.fit$mse)],
+       Var_exp = rf.fit$rsq[length(rf.fit$rsq)],
+       R2 = r_sq$r.squared, 
+       mse_test = mse_test$mse,
+       site = "Agriculture",
+       property = "Nb")
+
+if(file.exists(here::here("./notebooks/model_performance_data_49.csv"))) {
+  model_performance_final <- read_csv(here::here("./notebooks/model_performance_data_49.csv")) |>
+    rows_upsert(model_performance, by = c("site", "property")) 
+} else model_performance_final <- model_performance
+
+
+write_csv(model_performance_final, here::here("./notebooks/model_performance_data_49.csv"))
+```
