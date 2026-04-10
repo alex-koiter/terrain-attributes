@@ -163,7 +163,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
-  pdftitle={Investigating the Spatial Variability in Soil Geochemical and Colour Properties Across Two Contrasting Land Uses in South-Central Manitoba},
+  pdftitle={Investigating the Use of Terrain Attributes in Characterizing Soil Geochemistry and Colour Properties},
   pdfauthor={Maria Luna Miño; Alexander J Koiter; Taras E Lychuk; Arnie Waddel; Alan Moulin},
   pdfkeywords={Soil geochemistry, Soil colour, Spatial analysis, Terrain
 attributes},
@@ -179,9 +179,8 @@ attributes},
 \begin{document}
 
 \begin{frontmatter}
-\title{Investigating the Spatial Variability in Soil Geochemical and
-Colour Properties Across Two Contrasting Land Uses in South-Central
-Manitoba}
+\title{Investigating the Use of Terrain Attributes in Characterizing
+Soil Geochemistry and Colour Properties}
 \author[1]{Maria Luna Miño%
 %
 }
@@ -221,33 +220,7 @@ Road},city={Brandon},postcode={R7A 5Y3},postcodesep={}}
 
         
 \begin{abstract}
-Quantification and accurate assessment of the spatial variability and
-distribution of soil physical and biogeochemical properties are vital
-components of agri-environmental research and modeling, including
-sediment source fingerprinting. Understanding the distribution of soil
-properties is crucial in the development of appropriate, reliable, and
-efficient sampling campaigns. This study was aimed at investigating the
-spatial variability in soil geochemical and colour (i.e., spectral
-reflectance) soil properties (\textless63um) across two contrasting land
-uses. The main objectives of this study are to: 1) quantify the spatial
-variability of geochemical and colour properties at a field-scale
-(\textasciitilde{} 40 ha) across agricultural and forested sites; 2)
-assess the spatial variability and distribution of soil properties and
-its relation to seven terrain attributes (e.g., catchment area,
-elevation). A combination of univariate analysis and geostatistical
-methods were applied to characterize the soil geochemistry and colour
-properties. This information was used to both quantify and assess the
-variability in soil properties. The variability and spatial
-autocorrelation were generally both site and soil property specific. For
-a selection of soil properties exhibiting some spatial autocorrelation,
-random forest regression was used to identify the relative importance of
-terrain attributes on observed patterns of soil geochemical and colour
-properties. Elevation was found to explain the greatest amount of the
-variation in soil properties followed by the SAGA wetness index and
-relative slope position. These findings can be used to help create
-efficient soil sampling designs by providing information that can inform
-sampling locations and number of samples collected in order to meet
-research needs and objectives.
+test
 \end{abstract}
 
 
@@ -260,6 +233,11 @@ research needs and objectives.
 \end{keyword}
 \end{frontmatter}
     
+
+Everything is base on the 49 points only to compare to interpolated data
+see
+
+\subsection{Univariate}\label{univariate}
 
 \begin{longtable}[]{@{}ccccccc@{}}
 
@@ -407,6 +385,8 @@ Forest} \\
 \href{https://alex-koiter.github.io/terrain-attributes/notebooks/univariate_analysis.qmd.html\#cell-tbl-correlation}{Univariate
 summary}}
 
+\subsection{Spatial}\label{spatial}
+
 \begin{longtable}[]{@{}cccccccc@{}}
 
 \caption{\label{tbl-geocol-semivariogram}Geostatistical parameters of
@@ -464,6 +444,8 @@ h* & Universal & 0.0 & 0.0 & 100 & 230 & 0.3 & Strong \\
 \textsubscript{Source:
 \href{https://alex-koiter.github.io/terrain-attributes/notebooks/semivariogram.qmd.html\#cell-tbl-geocol-semivariogram}{Semivariograms}}
 
+\subsection{Random Forest}\label{random-forest}
+
 \begin{longtable}[]{@{}
   >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
   >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
@@ -508,30 +490,31 @@ MSE{\textsuperscript{2}}
 \endlastfoot
 \multicolumn{5}{@{}>{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{1.0000} + 8\tabcolsep}@{}}{%
 Agriculture} \\
-Co & 0.3 & 0.43 & 0.11 & 0.51 \\
-Cs & 0.6 & 0.01 & 0.29 & 0.01 \\
-Fe & 0.3 & 0.01 & 0.01 & 0.01 \\
-Li & −0.1 & 1.86 & 0.43 & 0.84 \\
-La & 0.4 & 0.39 & 0.81 & 0.38 \\
-Nb & 0.2 & 0.00 & 0.00 & 0.00 \\
-Ni & 0.7 & 1.89 & 0.70 & 1.46 \\
-Rb & 0.8 & 3.75 & 0.85 & 2.71 \\
-Sr & 0.6 & 441.33 & 0.85 & 365.51 \\
-a* & 0.4 & 0.03 & 0.48 & 0.02 \\
-b* & 0.3 & 0.53 & 0.09 & 0.40 \\
-c* & 0.3 & 0.64 & 0.10 & 0.49 \\
-h* & 0.2 & 0.00 & 0.03 & 0.00 \\
-x & 0.3 & 0.00 & 0.31 & 0.00 \\
+Co & 33.2 & 0.43 & 0.11 & 0.51 \\
+Cs & 57.4 & 0.01 & 0.29 & 0.01 \\
+Fe & 34.4 & 0.01 & 0.01 & 0.01 \\
+Li & −14.9 & 1.86 & 0.43 & 0.84 \\
+La & 37.4 & 0.39 & 0.81 & 0.38 \\
+Nb & 17.2 & 0.00 & 0.00 & 0.00 \\
+Ni & 65.1 & 1.89 & 0.70 & 1.46 \\
+Rb & 76.1 & 3.75 & 0.85 & 2.71 \\
+Sr & 64.4 & 441.33 & 0.85 & 365.51 \\
+a* & 41.5 & 0.03 & 0.48 & 0.02 \\
+b* & 31.8 & 0.53 & 0.09 & 0.40 \\
+c* & 29.2 & 0.64 & 0.10 & 0.49 \\
+h* & 20.2 & 0.00 & 0.03 & 0.00 \\
+x & 34.5 & 0.00 & 0.31 & 0.00 \\
 \multicolumn{5}{@{}>{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{1.0000} + 8\tabcolsep}@{}}{%
 Forest} \\
-Ca & 0.4 & 0.32 & 0.25 & 0.58 \\
-Co & −0.2 & 0.97 & 0.01 & 1.03 \\
-Cs & −0.1 & 0.01 & 0.02 & 0.01 \\
-Li & −0.1 & 0.55 & 0.05 & 1.33 \\
-La & −0.3 & 2.49 & 0.02 & 3.77 \\
-Ni & −0.4 & 7.78 & 0.02 & 6.98 \\
-Sr & 0.4 & 44.47 & 0.17 & 58.18 \\
-h* & −0.1 & 0.00 & 0.01 & 0.00 \\
+Ca & 41.5 & 0.32 & 0.25 & 0.58 \\
+Co & −17.3 & 0.97 & 0.01 & 1.03 \\
+Cs & −5.6 & 0.01 & 0.02 & 0.01 \\
+Li & −8.1 & 0.55 & 0.05 & 1.33 \\
+La & −31.2 & 2.49 & 0.02 & 3.77 \\
+Nb & 36.1 & 0.00 & 0.16 & 0.00 \\
+Ni & −43.7 & 7.78 & 0.02 & 6.98 \\
+Sr & 40.1 & 44.47 & 0.17 & 58.18 \\
+h* & −13.7 & 0.00 & 0.01 & 0.00 \\
 
 \end{longtable}
 

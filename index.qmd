@@ -1,5 +1,5 @@
 ---
-title: Investigating the Spatial Variability in Soil Geochemical and Colour Properties Across Two Contrasting Land Uses in South-Central Manitoba
+title: Investigating the Use of Terrain Attributes in Characterizing Soil Geochemistry and Colour Properties
 author:
   - name: Maria Luna Miño 
     orcid: 0009-0004-3739-5103
@@ -77,7 +77,7 @@ keywords:
   - Spatial analysis
   - Terrain attributes
 abstract: |
-  Quantification and accurate assessment of the spatial variability and distribution of soil physical and biogeochemical properties are vital components of agri-environmental research and modeling, including sediment source fingerprinting. Understanding the distribution of soil properties is crucial in the development of appropriate, reliable, and efficient sampling campaigns. This study was aimed at investigating the spatial variability in soil geochemical and colour (i.e., spectral reflectance) soil properties (<63um) across two contrasting land uses. The main objectives of this study are to: 1) quantify the spatial variability of geochemical and colour properties at a field-scale (~ 40 ha) across agricultural and forested sites; 2) assess the spatial variability and distribution of soil properties and its relation to seven terrain attributes (e.g., catchment area, elevation). A combination of univariate analysis and geostatistical methods were applied to characterize the soil geochemistry and colour properties. This information was used to both quantify and assess the variability in soil properties. The variability and spatial autocorrelation were generally both site and soil property specific. For a selection of soil properties exhibiting some spatial autocorrelation, random forest regression was used to identify the relative importance of terrain attributes on observed patterns of soil geochemical and colour properties. Elevation was found to explain the greatest amount of the variation in soil properties followed by the SAGA wetness index and relative slope position. These findings can be used to help create efficient soil sampling designs by providing information that can inform sampling locations and number of samples collected in order to meet research needs and objectives.
+  test
   
   
 plain-language-summary: |
@@ -94,13 +94,22 @@ citation:
 number-sections: true
 ---
 
+Everything is base on the 49 points only
+to compare to interpolated data see 
+
+## Univariate
+
 {{< embed notebooks/univariate_analysis.qmd#tbl-univariate-summary >}}
 
 {{< embed notebooks/univariate_analysis.qmd#tbl-univariate-summary2 >}}
 
 {{< embed notebooks/univariate_analysis.qmd#tbl-correlation >}}
 
+## Spatial
+
 {{< embed notebooks/semivariogram.qmd#tbl-geocol-semivariogram >}}
+
+## Random Forest
 
 {{< embed notebooks/RF_summary.qmd#tbl-rf-summary >}}
 

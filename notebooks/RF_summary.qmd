@@ -85,7 +85,8 @@ m_performance <- read_csv(here::here("./notebooks/model_performance_data_49.csv"
   mutate(property = fct_recode(property, "a*" = "a_col", "b*" = "b_col", "c*" = "c_col", "h*" = "h_col", "x" = "x_col")) |>
   mutate(property = fct_relevel(property, "Ca", "Co", "Cs", "Fe", "Li", "La", "Nb", "Ni", "Rb", "Sr", "a*", "b*", "c*", "h*", "x")) |>
   rename("MSE_org" ="MSE", "R2_org" = "R2") |>
-  arrange(property) 
+  arrange(property) |>
+  mutate(Var_exp = Var_exp*100)
 ```
 
 

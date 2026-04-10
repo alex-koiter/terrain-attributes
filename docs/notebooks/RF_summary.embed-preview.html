@@ -217,7 +217,7 @@
        <p>Alex Koiter</p>
 <section id="load-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="load-libraries">Load libraries</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="f39ee6a4-4f36-4ee8-9905-5ca828c86539" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="901dcf52-01d5-4c58-95c8-f9cae6621994" class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>suppressPackageStartupMessages({</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  library(tidyverse)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  library(patchwork)</span>
@@ -227,7 +227,7 @@
 </section>
 <section id="importance" class="level2">
 <h2 class="anchored" data-anchor-id="importance">Importance</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="535000d8-68e0-4b98-a399-e19608516775" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="c29cbed5-ceca-453a-9f24-3ad36f33631c" class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>imp_data <span class="op">&lt;-</span> read_csv(here::here(<span class="st">"./notebooks/importance_data_49.csv"</span>)) <span class="op">%&gt;%</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  rename(<span class="st">"Terrain Attribute"</span> <span class="op">=</span> <span class="st">"Var.Names"</span>) <span class="op">%&gt;%</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  mutate(`Terrain Attribute` <span class="op">=</span> fct_recode(`Terrain Attribute`, <span class="st">"Elevation"</span> <span class="op">=</span> <span class="st">"elevation"</span>, </span>
@@ -241,7 +241,7 @@
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  mutate(<span class="bu">property</span> <span class="op">=</span> fct_recode(<span class="bu">property</span>, <span class="st">"italic(`a*`)"</span> <span class="op">=</span> <span class="st">"a_col"</span>, <span class="st">"italic(`b*`)"</span> <span class="op">=</span> <span class="st">"b_col"</span>, <span class="st">"italic(`c*`)"</span> <span class="op">=</span> <span class="st">"c_col"</span>, <span class="st">"italic(`h*`)"</span> <span class="op">=</span> <span class="st">"h_col"</span>, <span class="st">"italic(`x`)"</span> <span class="op">=</span> <span class="st">"x_col"</span>)) <span class="op">%&gt;%</span></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  mutate(<span class="bu">property</span> <span class="op">=</span> fct_relevel(<span class="bu">property</span>, <span class="st">"Ca"</span>, <span class="st">"Co"</span>, <span class="st">"Cs"</span>, <span class="st">"Fe"</span>, <span class="st">"Li"</span>, <span class="st">"La"</span>, <span class="st">"Nb"</span>, <span class="st">"Ni"</span>, <span class="st">"Rb"</span>, <span class="st">"Sr"</span>, <span class="st">"italic(`a*`)"</span>, <span class="st">"italic(`b*`)"</span>, <span class="st">"italic(`c*`)"</span>, <span class="st">"italic(`h*`)"</span>, <span class="st">"italic(`x`)"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Rows: 154 Columns: 7
+<pre><code>Rows: 161 Columns: 7
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: ","
 chr (3): Var.Names, site, property
@@ -272,14 +272,15 @@ Figure&nbsp;1: Heat map of the Random Forest regression results showing the rank
 </section>
 <section id="performance" class="level2">
 <h2 class="anchored" data-anchor-id="performance">Performance</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="0505aced-4f09-44b0-8aa8-100c1635a993" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="9295bc17-b3e3-4ca3-acbe-5f1587da86f5" class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>m_performance <span class="op">&lt;-</span> read_csv(here::here(<span class="st">"./notebooks/model_performance_data_49.csv"</span>)) <span class="op">|&gt;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  mutate(<span class="bu">property</span> <span class="op">=</span> fct_recode(<span class="bu">property</span>, <span class="st">"a*"</span> <span class="op">=</span> <span class="st">"a_col"</span>, <span class="st">"b*"</span> <span class="op">=</span> <span class="st">"b_col"</span>, <span class="st">"c*"</span> <span class="op">=</span> <span class="st">"c_col"</span>, <span class="st">"h*"</span> <span class="op">=</span> <span class="st">"h_col"</span>, <span class="st">"x"</span> <span class="op">=</span> <span class="st">"x_col"</span>)) <span class="op">|&gt;</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  mutate(<span class="bu">property</span> <span class="op">=</span> fct_relevel(<span class="bu">property</span>, <span class="st">"Ca"</span>, <span class="st">"Co"</span>, <span class="st">"Cs"</span>, <span class="st">"Fe"</span>, <span class="st">"Li"</span>, <span class="st">"La"</span>, <span class="st">"Nb"</span>, <span class="st">"Ni"</span>, <span class="st">"Rb"</span>, <span class="st">"Sr"</span>, <span class="st">"a*"</span>, <span class="st">"b*"</span>, <span class="st">"c*"</span>, <span class="st">"h*"</span>, <span class="st">"x"</span>)) <span class="op">|&gt;</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  rename(<span class="st">"MSE_org"</span> <span class="op">=</span><span class="st">"MSE"</span>, <span class="st">"R2_org"</span> <span class="op">=</span> <span class="st">"R2"</span>) <span class="op">|&gt;</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  arrange(<span class="bu">property</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  arrange(<span class="bu">property</span>) <span class="op">|&gt;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  mutate(Var_exp <span class="op">=</span> Var_exp<span class="op">*</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Rows: 22 Columns: 6
+<pre><code>Rows: 23 Columns: 6
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: ","
 chr (2): site, property
@@ -324,23 +325,23 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
 </figcaption>
 <div aria-describedby="tbl-rf-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display">
-<div id="cejcgdheud" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#cejcgdheud table {
+<div id="wkavvfymtw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wkavvfymtw table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#cejcgdheud thead, #cejcgdheud tbody, #cejcgdheud tfoot, #cejcgdheud tr, #cejcgdheud td, #cejcgdheud th {
+#wkavvfymtw thead, #wkavvfymtw tbody, #wkavvfymtw tfoot, #wkavvfymtw tr, #wkavvfymtw td, #wkavvfymtw th {
   border-style: none;
 }
 
-#cejcgdheud p {
+#wkavvfymtw p {
   margin: 0;
   padding: 0;
 }
 
-#cejcgdheud .gt_table {
+#wkavvfymtw .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -366,12 +367,12 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-left-color: #D3D3D3;
 }
 
-#cejcgdheud .gt_caption {
+#wkavvfymtw .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#cejcgdheud .gt_title {
+#wkavvfymtw .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -383,7 +384,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-bottom-width: 0;
 }
 
-#cejcgdheud .gt_subtitle {
+#wkavvfymtw .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -395,7 +396,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-top-width: 0;
 }
 
-#cejcgdheud .gt_heading {
+#wkavvfymtw .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -407,13 +408,13 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-right-color: #D3D3D3;
 }
 
-#cejcgdheud .gt_bottom_border {
+#wkavvfymtw .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#cejcgdheud .gt_col_headings {
+#wkavvfymtw .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -428,7 +429,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-right-color: #D3D3D3;
 }
 
-#cejcgdheud .gt_col_heading {
+#wkavvfymtw .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -448,7 +449,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   overflow-x: hidden;
 }
 
-#cejcgdheud .gt_column_spanner_outer {
+#wkavvfymtw .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -460,15 +461,15 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   padding-right: 4px;
 }
 
-#cejcgdheud .gt_column_spanner_outer:first-child {
+#wkavvfymtw .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#cejcgdheud .gt_column_spanner_outer:last-child {
+#wkavvfymtw .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#cejcgdheud .gt_column_spanner {
+#wkavvfymtw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -480,11 +481,11 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   width: 100%;
 }
 
-#cejcgdheud .gt_spanner_row {
+#wkavvfymtw .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#cejcgdheud .gt_group_heading {
+#wkavvfymtw .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -510,7 +511,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   text-align: left;
 }
 
-#cejcgdheud .gt_empty_group_heading {
+#wkavvfymtw .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -525,15 +526,15 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   vertical-align: middle;
 }
 
-#cejcgdheud .gt_from_md > :first-child {
+#wkavvfymtw .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#cejcgdheud .gt_from_md > :last-child {
+#wkavvfymtw .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#cejcgdheud .gt_row {
+#wkavvfymtw .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -552,7 +553,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   overflow-x: hidden;
 }
 
-#cejcgdheud .gt_stub {
+#wkavvfymtw .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -565,7 +566,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   padding-right: 5px;
 }
 
-#cejcgdheud .gt_stub_row_group {
+#wkavvfymtw .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -579,15 +580,15 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   vertical-align: top;
 }
 
-#cejcgdheud .gt_row_group_first td {
+#wkavvfymtw .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#cejcgdheud .gt_row_group_first th {
+#wkavvfymtw .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#cejcgdheud .gt_summary_row {
+#wkavvfymtw .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -597,16 +598,16 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   padding-right: 5px;
 }
 
-#cejcgdheud .gt_first_summary_row {
+#wkavvfymtw .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#cejcgdheud .gt_first_summary_row.thick {
+#wkavvfymtw .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#cejcgdheud .gt_last_summary_row {
+#wkavvfymtw .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -616,7 +617,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-bottom-color: #D3D3D3;
 }
 
-#cejcgdheud .gt_grand_summary_row {
+#wkavvfymtw .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -626,7 +627,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   padding-right: 5px;
 }
 
-#cejcgdheud .gt_first_grand_summary_row {
+#wkavvfymtw .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -636,7 +637,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-top-color: #D3D3D3;
 }
 
-#cejcgdheud .gt_last_grand_summary_row_top {
+#wkavvfymtw .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -646,11 +647,11 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-bottom-color: #D3D3D3;
 }
 
-#cejcgdheud .gt_striped {
+#wkavvfymtw .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#cejcgdheud .gt_table_body {
+#wkavvfymtw .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -659,7 +660,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-bottom-color: #D3D3D3;
 }
 
-#cejcgdheud .gt_footnotes {
+#wkavvfymtw .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -673,7 +674,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-right-color: #D3D3D3;
 }
 
-#cejcgdheud .gt_footnote {
+#wkavvfymtw .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -682,7 +683,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   padding-right: 5px;
 }
 
-#cejcgdheud .gt_sourcenotes {
+#wkavvfymtw .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -696,7 +697,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-right-color: #D3D3D3;
 }
 
-#cejcgdheud .gt_sourcenote {
+#wkavvfymtw .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -704,72 +705,72 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   padding-right: 5px;
 }
 
-#cejcgdheud .gt_left {
+#wkavvfymtw .gt_left {
   text-align: left;
 }
 
-#cejcgdheud .gt_center {
+#wkavvfymtw .gt_center {
   text-align: center;
 }
 
-#cejcgdheud .gt_right {
+#wkavvfymtw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#cejcgdheud .gt_font_normal {
+#wkavvfymtw .gt_font_normal {
   font-weight: normal;
 }
 
-#cejcgdheud .gt_font_bold {
+#wkavvfymtw .gt_font_bold {
   font-weight: bold;
 }
 
-#cejcgdheud .gt_font_italic {
+#wkavvfymtw .gt_font_italic {
   font-style: italic;
 }
 
-#cejcgdheud .gt_super {
+#wkavvfymtw .gt_super {
   font-size: 65%;
 }
 
-#cejcgdheud .gt_footnote_marks {
+#wkavvfymtw .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#cejcgdheud .gt_asterisk {
+#wkavvfymtw .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#cejcgdheud .gt_indent_1 {
+#wkavvfymtw .gt_indent_1 {
   text-indent: 5px;
 }
 
-#cejcgdheud .gt_indent_2 {
+#wkavvfymtw .gt_indent_2 {
   text-indent: 10px;
 }
 
-#cejcgdheud .gt_indent_3 {
+#wkavvfymtw .gt_indent_3 {
   text-indent: 15px;
 }
 
-#cejcgdheud .gt_indent_4 {
+#wkavvfymtw .gt_indent_4 {
   text-indent: 20px;
 }
 
-#cejcgdheud .gt_indent_5 {
+#wkavvfymtw .gt_indent_5 {
   text-indent: 25px;
 }
 
-#cejcgdheud .katex-display {
+#wkavvfymtw .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#cejcgdheud div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#wkavvfymtw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -805,98 +806,98 @@ Test
 </tr>
 <tr class="gt_row_group_first even">
 <td class="gt_row gt_center" style="text-align: left;" headers="Agriculture  property">Co</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">0.3</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">33.2</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  MSE_org">0.43</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  R2_org">0.11</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  mse_test">0.51</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" style="text-align: left;" headers="Agriculture  property">Cs</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">0.6</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">57.4</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  MSE_org">0.01</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  R2_org">0.29</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  mse_test">0.01</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_center" style="text-align: left;" headers="Agriculture  property">Fe</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">0.3</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">34.4</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  MSE_org">0.01</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  R2_org">0.01</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  mse_test">0.01</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" style="text-align: left;" headers="Agriculture  property">Li</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">−0.1</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">−14.9</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  MSE_org">1.86</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  R2_org">0.43</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  mse_test">0.84</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_center" style="text-align: left;" headers="Agriculture  property">La</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">0.4</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">37.4</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  MSE_org">0.39</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  R2_org">0.81</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  mse_test">0.38</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" style="text-align: left;" headers="Agriculture  property">Nb</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">0.2</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">17.2</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  MSE_org">0.00</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  R2_org">0.00</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  mse_test">0.00</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_center" style="text-align: left;" headers="Agriculture  property">Ni</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">0.7</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">65.1</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  MSE_org">1.89</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  R2_org">0.70</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  mse_test">1.46</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" style="text-align: left;" headers="Agriculture  property">Rb</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">0.8</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">76.1</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  MSE_org">3.75</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  R2_org">0.85</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  mse_test">2.71</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_center" style="text-align: left;" headers="Agriculture  property">Sr</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">0.6</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">64.4</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  MSE_org">441.33</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  R2_org">0.85</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  mse_test">365.51</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" headers="Agriculture  property" style="text-align: left; font-style: italic;">a*</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">0.4</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">41.5</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  MSE_org">0.03</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  R2_org">0.48</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  mse_test">0.02</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_center" headers="Agriculture  property" style="text-align: left; font-style: italic;">b*</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">0.3</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">31.8</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  MSE_org">0.53</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  R2_org">0.09</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  mse_test">0.40</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" headers="Agriculture  property" style="text-align: left; font-style: italic;">c*</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">0.3</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">29.2</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  MSE_org">0.64</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  R2_org">0.10</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  mse_test">0.49</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_center" headers="Agriculture  property" style="text-align: left; font-style: italic;">h*</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">0.2</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">20.2</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  MSE_org">0.00</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  R2_org">0.03</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  mse_test">0.00</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" headers="Agriculture  property" style="text-align: left; font-style: italic;">x</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">0.3</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  Var_exp">34.5</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  MSE_org">0.00</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  R2_org">0.31</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Agriculture  mse_test">0.00</td>
@@ -906,56 +907,63 @@ Test
 </tr>
 <tr class="gt_row_group_first odd">
 <td class="gt_row gt_center" style="text-align: left;" headers="Forest  property">Ca</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="Forest  Var_exp">0.4</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Forest  Var_exp">41.5</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Forest  MSE_org">0.32</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Forest  R2_org">0.25</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Forest  mse_test">0.58</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_center" style="text-align: left;" headers="Forest  property">Co</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="Forest  Var_exp">−0.2</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Forest  Var_exp">−17.3</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Forest  MSE_org">0.97</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Forest  R2_org">0.01</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Forest  mse_test">1.03</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" style="text-align: left;" headers="Forest  property">Cs</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="Forest  Var_exp">−0.1</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Forest  Var_exp">−5.6</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Forest  MSE_org">0.01</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Forest  R2_org">0.02</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Forest  mse_test">0.01</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_center" style="text-align: left;" headers="Forest  property">Li</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="Forest  Var_exp">−0.1</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Forest  Var_exp">−8.1</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Forest  MSE_org">0.55</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Forest  R2_org">0.05</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Forest  mse_test">1.33</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" style="text-align: left;" headers="Forest  property">La</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="Forest  Var_exp">−0.3</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Forest  Var_exp">−31.2</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Forest  MSE_org">2.49</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Forest  R2_org">0.02</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Forest  mse_test">3.77</td>
 </tr>
 <tr class="even">
+<td class="gt_row gt_center" style="text-align: left;" headers="Forest  property">Nb</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Forest  Var_exp">36.1</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Forest  MSE_org">0.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Forest  R2_org">0.16</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Forest  mse_test">0.00</td>
+</tr>
+<tr class="odd">
 <td class="gt_row gt_center" style="text-align: left;" headers="Forest  property">Ni</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="Forest  Var_exp">−0.4</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Forest  Var_exp">−43.7</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Forest  MSE_org">7.78</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Forest  R2_org">0.02</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Forest  mse_test">6.98</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_center" style="text-align: left;" headers="Forest  property">Sr</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="Forest  Var_exp">0.4</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Forest  Var_exp">40.1</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Forest  MSE_org">44.47</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Forest  R2_org">0.17</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Forest  mse_test">58.18</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_center" headers="Forest  property" style="text-align: left; font-style: italic;">h*</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="Forest  Var_exp">−0.1</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="Forest  Var_exp">−13.7</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Forest  MSE_org">0.00</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Forest  R2_org">0.01</td>
 <td class="gt_row gt_right" style="text-align: left;" headers="Forest  mse_test">0.00</td>
