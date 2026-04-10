@@ -1437,32 +1437,32 @@ data see</p>
 <back>
 </back>
 
-<!-- (F2ED4C6E)[nb-1]:/home/alex/Dropbox/terrain-attributes/notebooks/semivariogram.qmd -->
-<!-- (F2ED4C6E)[nb-2]:/home/alex/Dropbox/terrain-attributes/notebooks/La_Ag_RF.qmd -->
-<!-- (F2ED4C6E)[nb-3]:/home/alex/Dropbox/terrain-attributes/notebooks/Li_For_RF.qmd -->
-<!-- (F2ED4C6E)[nb-4]:/home/alex/Dropbox/terrain-attributes/notebooks/h_col_Ag_RF.qmd -->
-<!-- (F2ED4C6E)[nb-5]:/home/alex/Dropbox/terrain-attributes/notebooks/Ni_Ag_RF.qmd -->
-<!-- (F2ED4C6E)[nb-6]:/home/alex/Dropbox/terrain-attributes/notebooks/x_col_Ag_RF.qmd -->
-<!-- (F2ED4C6E)[nb-7]:/home/alex/Dropbox/terrain-attributes/notebooks/Rb_Ag_RF.qmd -->
-<!-- (F2ED4C6E)[nb-8]:/home/alex/Dropbox/terrain-attributes/notebooks/Sr_For_RF.qmd -->
-<!-- (F2ED4C6E)[nb-9]:/home/alex/Dropbox/terrain-attributes/notebooks/property_maps.qmd -->
-<!-- (F2ED4C6E)[nb-10]:/home/alex/Dropbox/terrain-attributes/notebooks/Ca_For_RF.qmd -->
-<!-- (F2ED4C6E)[nb-11]:/home/alex/Dropbox/terrain-attributes/notebooks/Ni_For_RF.qmd -->
-<!-- (F2ED4C6E)[nb-12]:/home/alex/Dropbox/terrain-attributes/notebooks/b_col_Ag_RF.qmd -->
-<!-- (F2ED4C6E)[nb-13]:/home/alex/Dropbox/terrain-attributes/notebooks/Co_Ag_RF.qmd -->
-<!-- (F2ED4C6E)[nb-14]:/home/alex/Dropbox/terrain-attributes/notebooks/Co_For_RF.qmd -->
-<!-- (F2ED4C6E)[nb-15]:/home/alex/Dropbox/terrain-attributes/notebooks/Nb_Ag_RF.qmd -->
-<!-- (F2ED4C6E)[nb-16]:/home/alex/Dropbox/terrain-attributes/notebooks/Sr_Ag_RF.qmd -->
-<!-- (F2ED4C6E)[nb-17]:/home/alex/Dropbox/terrain-attributes/notebooks/Fe_Ag_RF.qmd -->
-<!-- (F2ED4C6E)[nb-18]:/home/alex/Dropbox/terrain-attributes/notebooks/a_col_Ag_RF.qmd -->
-<!-- (F2ED4C6E)[nb-19]:/home/alex/Dropbox/terrain-attributes/notebooks/c_col_Ag_RF.qmd -->
-<!-- (F2ED4C6E)[nb-20]:/home/alex/Dropbox/terrain-attributes/notebooks/Li_Ag_RF.qmd -->
-<!-- (F2ED4C6E)[nb-21]:/home/alex/Dropbox/terrain-attributes/notebooks/univariate_analysis.qmd -->
-<!-- (F2ED4C6E)[nb-22]:/home/alex/Dropbox/terrain-attributes/notebooks/h_col_For_RF.qmd -->
-<!-- (F2ED4C6E)[nb-23]:/home/alex/Dropbox/terrain-attributes/notebooks/RF_summary.qmd -->
-<!-- (F2ED4C6E)[nb-24]:/home/alex/Dropbox/terrain-attributes/notebooks/Nb_For_RF.qmd -->
-<!-- (F2ED4C6E)[nb-25]:/home/alex/Dropbox/terrain-attributes/notebooks/Cs_For_RF.qmd -->
-<!-- (F2ED4C6E)[nb-26]:/home/alex/Dropbox/terrain-attributes/notebooks/Cs_Ag_RF.qmd -->
-<!-- (F2ED4C6E)[nb-27]:/home/alex/Dropbox/terrain-attributes/notebooks/La_For_RF.qmd -->
+<!-- (F2ED4C6E)[nb-1]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\a_col_Ag_RF.qmd -->
+<!-- (F2ED4C6E)[nb-2]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\b_col_Ag_RF.qmd -->
+<!-- (F2ED4C6E)[nb-3]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\Ca_For_RF.qmd -->
+<!-- (F2ED4C6E)[nb-4]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\Co_Ag_RF.qmd -->
+<!-- (F2ED4C6E)[nb-5]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\Co_For_RF.qmd -->
+<!-- (F2ED4C6E)[nb-6]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\Cs_Ag_RF.qmd -->
+<!-- (F2ED4C6E)[nb-7]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\Cs_For_RF.qmd -->
+<!-- (F2ED4C6E)[nb-8]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\c_col_Ag_RF.qmd -->
+<!-- (F2ED4C6E)[nb-9]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\Fe_Ag_RF.qmd -->
+<!-- (F2ED4C6E)[nb-10]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\h_col_Ag_RF.qmd -->
+<!-- (F2ED4C6E)[nb-11]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\h_col_For_RF.qmd -->
+<!-- (F2ED4C6E)[nb-12]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\La_Ag_RF.qmd -->
+<!-- (F2ED4C6E)[nb-13]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\La_For_RF.qmd -->
+<!-- (F2ED4C6E)[nb-14]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\Li_Ag_RF.qmd -->
+<!-- (F2ED4C6E)[nb-15]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\Li_For_RF.qmd -->
+<!-- (F2ED4C6E)[nb-16]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\Nb_Ag_RF.qmd -->
+<!-- (F2ED4C6E)[nb-17]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\Nb_For_RF.qmd -->
+<!-- (F2ED4C6E)[nb-18]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\Ni_Ag_RF.qmd -->
+<!-- (F2ED4C6E)[nb-19]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\Ni_For_RF.qmd -->
+<!-- (F2ED4C6E)[nb-20]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\property_maps.qmd -->
+<!-- (F2ED4C6E)[nb-21]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\Rb_Ag_RF.qmd -->
+<!-- (F2ED4C6E)[nb-22]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\RF_summary.qmd -->
+<!-- (F2ED4C6E)[nb-23]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\semivariogram.qmd -->
+<!-- (F2ED4C6E)[nb-24]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\Sr_Ag_RF.qmd -->
+<!-- (F2ED4C6E)[nb-25]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\Sr_For_RF.qmd -->
+<!-- (F2ED4C6E)[nb-26]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\univariate_analysis.qmd -->
+<!-- (F2ED4C6E)[nb-27]:C:\Users\koitera\Dropbox\terrain-attributes\notebooks\x_col_Ag_RF.qmd -->
 
 </article>

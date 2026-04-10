@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
     <meta charset="utf-8">
-    <meta name="generator" content="quarto-1.6.39">
+    <meta name="generator" content="quarto-1.6.40">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -128,7 +128,7 @@
             // if location was not changed in 100 ms, then there is no history back
             if(currentUrl === window.location.href){              
                 // redirect to site root
-                window.location.href = "../index.html";
+                window.location.href = "...html";
             }
         }, 100);
       }
@@ -152,10 +152,10 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-bb3eb020369cb14e268a6b18491f71f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-a1ff8711b79ae3724c050874b28d9907.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>  
@@ -215,7 +215,7 @@
        <p>Alex Koiter</p>
 <section id="load-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="load-libraries">Load libraries</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="a7b19f23-fe15-42da-afed-ea4b5a6984f0" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="79799ea4-f111-4e0a-94fe-94be0bdfe751" class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>library(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
@@ -239,7 +239,7 @@ The following object is masked from 'package:tidyr':
 </section>
 <section id="terrain-summary" class="level2">
 <h2 class="anchored" data-anchor-id="terrain-summary">Terrain summary</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="e345df80-c7fb-49a2-9c09-e019b00da414" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="23760275-05c7-446a-810c-fcd3cdf38bb3" class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>attribute <span class="op">&lt;-</span> c(<span class="st">"plan_curvature"</span>, <span class="st">"profile_curvature"</span>, <span class="st">"saga_wetness_index"</span>, <span class="st">"catchment_area"</span>, <span class="st">"relative_slope_position"</span>, <span class="st">"channel_network_distance"</span>, <span class="st">"elevation"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ag_data <span class="op">&lt;-</span> read_csv(here::here(<span class="st">"./notebooks/ag_data_49.csv"</span>)) <span class="op">|&gt;</span></span>
@@ -884,7 +884,7 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
 </section>
 <section id="fingerprint-summary" class="level2">
 <h2 class="anchored" data-anchor-id="fingerprint-summary">Fingerprint summary</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="b1980004-fb6b-4247-bb4e-2b420df255a8" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="4930d142-d0d9-443c-b356-be05c899d5f1" class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">&lt;-</span> read_csv(here::here(<span class="st">"./notebooks/soil_data.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 6076 Columns: 5
@@ -1670,7 +1670,7 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
 </section>
 <section id="correlation" class="level2">
 <h2 class="anchored" data-anchor-id="correlation">Correlation</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="e76326c7-bd75-4d09-b5d5-4628c72f97c0" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="31d6650b-6671-4b74-8bc5-daad183ad62e" class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>forest_r <span class="op">&lt;-</span> <span class="im">as</span>.data.frame(Hmisc::rcorr(<span class="im">as</span>.matrix(select(for_data, <span class="op">-</span>site)))$r) <span class="op">%&gt;%</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  select(<span class="st">"plan_curvature"</span>, <span class="st">"profile_curvature"</span>, <span class="st">"saga_wetness_index"</span>, <span class="st">"catchment_area"</span>, <span class="st">"relative_slope_position"</span>, <span class="st">"channel_network_distance"</span>, <span class="st">"elevation"</span>) <span class="op">%&gt;%</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  rownames_to_column() <span class="op">%&gt;%</span></span>
