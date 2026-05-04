@@ -80,7 +80,7 @@ all_fingerprints <- data %>%
 
 ```{r}
 #| label: tbl-univariate-summary
-#| tbl-cap: Summary univariate statistics of selected geochemical and colour soil properties for each site (n = 49). Geochemical concentrations are reported in ppm, excecpt Ca and Fe(%).
+#| tbl-cap: Summary univariate statistics of selected geochemical and colour soil properties for each site (n = 49). Geochemical concentrations are reported in ppm, excecpt Ca and Fe (%).
 
 all_fingerprints |>
   group_by(site) |>

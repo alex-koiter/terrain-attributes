@@ -110,38 +110,38 @@ In practice, sample spacing on the order of the semivariogram range (∼200–23
 
 Spatial variation in soil properties arises from soil-forming factors (parent material, relief, biota, climate, time) and is further modified by land use and management practices.
 Characterizing the patterns and drivers of this variation is an important component of many agri-environmental studies.
-For example, to meet the desired level of precision for agronomic and environmental nutrient management plans the spatial variability in soil nutrients will influence the soil sampling design in terms of number and locations of soil samples [@kariuki2009](Kariuki et al., 2009; Starr et al., 1995).
-Similarly, accounting for spatial variability extends to sediment source fingerprinting, as unaccounted spatial heterogeneity within sources of sediment can compromise the source apportionment results (Du and Walling, 2017).
+For example, to meet the desired level of precision for agronomic and environmental nutrient management plans the spatial variability in soil nutrients will influence the soil sampling design in terms of number and locations of soil samples [@kariuki2009; @starr1995].
+Similarly, accounting for spatial variability extends to sediment source fingerprinting, as unaccounted spatial heterogeneity within sources of sediment can compromise the source apportionment results [@du2017].
 
 Sediment source fingerprinting is a watershed-scale technique that is used to quantify the relative proportions of sediment derived from unique sources.
 This technique uses naturally occurring biogeochemical properties as fingerprints (i.e., tracers) to link potential sources of sediment to downstream sediment.
-Investigating the spatial variability at a watershed-scale can be advantageous to identify, classify, and distinguish between potential sources of sediment (Pulley et al., 2017).
-However, investigating spatial variability at smaller scales is less common (e.g., Du and Walling, 2017; Pulley et al., 2018; Collins et al., 2019; Luna Miño et al., 2024) and remains a research priority (Collins et al., 2020).
+Investigating the spatial variability at a watershed-scale can be advantageous to identify, classify, and distinguish between potential sources of sediment [@collins2020].
+However, investigating spatial variability at smaller scales is less common [@du2017; @pulley2018; @collins2019; @lunamiño2024] and remains a research priority [@collins2020].
 Within the sediment source fingerprinting approach field-scale (\<1 km²) variability is important for (i) designing efficient, representative source sampling, (ii) integrating spatial variability with erosion/delivery gradients for mixing models, and (iii) selecting fingerprints supported by process-based reasoning.
 Previous work has highlighted spatial variability issues and the need for more robust, process-informed fingerprint selection and sampling strategies.
 
 Characterization of fingerprint properties requires representative sampling, particularly because variability in some properties is not random but follows systematic spatial patterns across the landscape.
-For example, the pattern of fallout radionuclides will reflect the long-term patterns of soil erosion and deposition (Wilkinson et al., 2015).
-Designing and implementing source sampling campaigns must consider this, as the sampling design used has been shown to influence the characterization of a wide range of commonly used fingerprints (Luna Miño et al., 2024).
-The lack of standardization in sediment source sampling designs makes it difficult to compare results across studies and creates uncertainties in the interpretation of results (Luna Miño et al., 2024)
+For example, the pattern of fallout radionuclides will reflect the long-term patterns of soil erosion and deposition [@wilkinson2015].
+Designing and implementing source sampling campaigns must consider this, as the sampling design used has been shown to influence the characterization of a wide range of commonly used fingerprints [@lunamiño2024].
+The lack of standardization in sediment source sampling designs makes it difficult to compare results across studies and creates uncertainties in the interpretation of results [@lunamiño2024].
 
 Characterization of sources is further complicated by variations in erosion and sediment delivery rates across the landscape.
 Many mixing models use well defined inputs (sources) and outputs (sediment) characterized by mean and standard deviation, but do not consider the spatial distribution of fingerprint properties.
 This is a limitation of the methodology as samples collected closer to and more hydrologically connected with the stream network may better represent the source, even if they deviate from the mean value.
 Strategic/judgment sampling targeting the likely to eroded areas may improve representativeness, but it prevents an overview of the broader spatial patterns, limiting the interpretation of landscape processes across the entire source area.
-There has been progress using information on erosion rates to calculate an erosion rate-weighted mean (Wilkinson et al., 2015; Du and Walling, 2017) and using spatially interpolated maps of fingerprint values to provide a finer resolution of the fingerprint variability within each source (Haddadchi et al., 2019).
+There has been progress using information on erosion rates to calculate an erosion rate-weighted mean [@wilkinson2015; @du2017] and using spatially interpolated maps of fingerprint values to provide a finer resolution of the fingerprint variability within each source [@haddadchi2019].
 Characterizing the geomorphic, hydrologic, and biochemical processes underlying spatial variability supports the selection of reliable fingerprints and informs sampling design for source characterization.
-While many studies use a statistical-based approach (Collins et al., 1997) to select suitable fingerprints there are concerns that this approach may result in the inclusion of false positives (i.e., type I error) in which a fingerprint is incorrectly identified as having discriminatory power between sources when it does not, or non-conservative fingerprints (Koiter et al., 2013a).
-Consequently, there has been a call for the inclusion of a process-based (e.g., weathering, erosion) or geologic-based explanation of the fingerprints selected to address these concerns (Collins et al., 2020).
+While many studies use a statistical-based approach [@collins1997] to select suitable fingerprints there are concerns that this approach may result in the inclusion of false positives (i.e., type I error) in which a fingerprint is incorrectly identified as having discriminatory power between sources when it does not, or non-conservative fingerprints [@koiter2013].
+Consequently, there has been a call for the inclusion of a process-based (e.g., weathering, erosion) or geologic-based explanation of the fingerprints selected to address these concerns [@collins2020].
 This remains challenging due to limited data on soil properties, particularly with geochemical properties, as routine lab analysis often measures more than 50 elements.
-The spatial patterns of some soil properties are well studied because of their agronomic importance or ability to infer other important soil properties and processes and include fallout radionuclides (e.g., ^137^Cs, 7Be; Ritchie et al. 1970), plant nutrients (e.g., N, P; Vasu et al. 2017), soil colour (e.g., hue, value; Viscarra Rossel et al. 2006), major non-acid forming cations (e.g., Ca, Na; Sun et al. 2021a).
+The spatial patterns of some soil properties are well studied because of their agronomic importance or ability to infer other important soil properties and processes and include fallout radionuclides [e.g., ^137^Cs, ^7^Be @ritchie1970], plant nutrients [e.g., N, P @vasu2017], soil colour [e.g., hue, value @viscarrarossel2006], major non-acid forming cations [e.g., Ca, Na @sun2021].
 In contrast, the processes that control the distribution of rare earth elements and trace metals, are less well studied or tend to be site-specific, making it difficult to draw generalizations.
 
-Terrain attributes such as elevation, slope curvature, slope position, and soil wetness indices have been shown to be useful information in the characterization and modelling of a range of soil properties including soil moisture (Beaudette et al., 2013), texture (Kokulan et al., 2018), colour (Brown et al., 2004), organic matter (Zhang et al., 2012), conductivity (Umali et al., 2012), and geochemistry (Lima et al., 2023).
+Terrain attributes such as elevation, slope curvature, slope position, and soil wetness indices have been shown to be useful information in the characterization and modelling of a range of soil properties including soil moisture [@beaudette2013], texture [@kokulan2018], colour [@brown2004], organic matter [@zhang2012], conductivity [@umali2012], and geochemistry [@lima2023].
 Similar techniques may provide additional insight into the pedologic and geomorphic processes that drive the observed patterns of fingerprint properties within a given source.
 Digital elevation models (DEMs) are more widely available through public databases and can be generated using drone imagery, whereas soil property data are more limited in availability and spatial coverage.
 As a result, terrain attributes derived from DEMs offer a practical and more readily available basis for guiding efficient and spatially informed soil sampling designs.
-This study builds on the previous work of Luna Miño (2024) where the impact of three different sampling designs on the characterization of source materials, within the framework of the sediment fingerprinting approach, was assessed.
+This study builds on the previous work of Luna Miño [-@lunamiño2024] where the impact of three different sampling designs on the characterization of source materials, within the framework of the sediment fingerprinting approach, was assessed.
 This study expands that study by using the data from grid sampling approach to assess the spatial autocorrelation, and identify important terrain attributes driving the observed patterns.
 The objectives of this study were to: (1) quantify the spatial variability and spatial dependence of 15 fingerprint-relevant soil properties across an agricultural and forested field site; and (2) test the relation between these soil properties and seven terrain attributes (derived from DEMs), using correlation and Random Forest regression to identify terrain controls and their relative importance.
 Together, these objectives address how terrain attributes may be used to understand spatial distributions of soil properties and help guide sampling design.
@@ -151,11 +151,11 @@ Together, these objectives address how terrain attributes may be used to underst
 ### Site description
 
 Two sites within \~4 km of each other in the Wilson Creek Watershed (WCW), near McCreary, Manitoba, Canada were sampled (@fig-location_map).
-The mixedwood forest site (50°43'35"N, 99°33'36"W; 369.2 masl) in Riding Mountain National Park consists of white spruce (Picea glauca), black spruce (Picea mariana), balsam fir (Abies balsamea), larch (Larix laricina), and trembling aspen (Populus tremuloides), with soils likely part of the Grey Wooded soil association (Luvisol) developed on boulder till of mostly shale with some limestone and granitic rocks (Ehrlich et al., 1958).
+The mixedwood forest site (50°43'35"N, 99°33'36"W; 369.2 masl) in Riding Mountain National Park consists of white spruce (*Picea glauca*), black spruce (*Picea mariana*), balsam fir (*Abies balsamea*), larch (*Larix laricina*), and trembling aspen (*Populus tremuloides*), with soils likely part of the Grey Wooded soil association (Luvisol) developed on boulder till of mostly shale with some limestone and granitic rocks [@ehrlich1958].
 This site has a local relief of 17.9 m and moderately complex terrain, dissected by Wilson Creek, a meandering stream with a gradient of approximately 0.006 m m-1, featuring a small floodplain 5 to 25 m wide and adjacent upland areas (@fig-location_map).
-The agricultural site (50°45'15”N, 99°30'49"W; 309.9 masl) includes grain and forage rotations and is mapped to the Edwards Soil Series (Cumulic Regosol) with silty clay loam to silty clay soils developed on alluvial deposits (Ehrlich et al., 1958).
+The agricultural site (50°45'15”N, 99°30'49"W; 309.9 masl) includes grain and forage rotations and is mapped to the Edwards Soil Series (Cumulic Regosol) with silty clay loam to silty clay soils developed on alluvial deposits [@ehrlich1958].
 The site has relatively simple terrain with a local relief of 2.8 m and drains toward the northeast corner of the field, where Wilson Creek runs along the northern edge as a straight, engineered channel (@fig-location_map).
-The region has a Dfb climate (Beck et al., 2018), with a mean annual temperature of 3.0°C, annual precipitation of 539 mm (\~27% as snow) (Environment and Canada, 2024), and snowmelt-dominated runoff, with about 80% occurring in May and June (MacKay, 1970).
+The region has a Dfb climate [@beck2018], with a mean annual temperature of 3.0°C, annual precipitation of 539 mm (\~27% as snow) environmentandclimatechangecanada2026, and snowmelt-dominated runoff, with about 80% occurring in May and June [@mackay1970].
 
 {{< embed notebooks/location_map.qmd#fig-location_map >}}
 
@@ -169,14 +169,13 @@ Spectral measurements were made with a spectroradiometer (ASD FieldSpecPro Malve
 Spectral reflectance measurements were taken in 1 nm increments over the 0.4-2.5 μm wavelength range.
 Both samples and the Spectralon standard (white reference) were illuminated with a white light source using a halogen-based lamp (12 VDC, 20 Watt).
 Dark-current correction and white reference were completed between samples.
-Fifteen colour coefficients (@supptab-abbrev) were computed from each sample, where each sample represents the average of 10 spectra, following published methods.
-(Koiter, 2021; Boudreault et al. (2018).
-Based on the results of Luna Miño (2024), a composite fingerprint consisting of 10 geochemical elements (Ca, Co, Cs, Fe, Li, La, Nb, Ni, Rb, and Sr) and five colour coefficients (*a\*, b\*, c\*, h\*,* and *x*) were identified as providing a strong discrimination between the agricultural and forested surface soils.
+Fifteen colour coefficients (@supptab-abbrev) were computed from each sample, where each sample represents the average of 10 spectra, following published methods [@koiter2021; @boudreault2018].
+Based on the results of Luna Miño [-@lunamiño2024], a composite fingerprint consisting of 10 geochemical elements (Ca, Co, Cs, Fe, Li, La, Nb, Ni, Rb, and Sr) and five colour coefficients (*a\*, b\*, c\*, h\*,* and *x*) were identified as providing a strong discrimination between the agricultural and forested surface soils.
 These fifteen soil properties are the focus of the detailed spatial analysis detailed in this study.
 
 ### Geospatial and terrain analysis
 
-All geostatistics were performed with ArcGIS Pro (v 3.3.0 Esri, 2024).
+All geostatistics were performed with ArcGIS Pro [v 3.3.0 @esri2024].
 Semivariograms were used to quantify spatial correlation for each of the 15 soil properties.
 The optimization tool, based on minimizing the mean square error, was used to parameterize the semivariogram model.
 In all cases the Stable model type was used as it offers greater flexibility in fitting the spatial correlation structure.
@@ -185,22 +184,22 @@ Kriging was used to interpolate and generate maps of each soil property.
 The exploratory interpolation tool (Geostatistical Analyst extension) was used to select the kriging type with the highest ranked prediction accuracy.
 Cross-validation was used assess the performance of the spatial interpolation and the measured and predicted values were plotted and the r^2^ was reported.
 
-The forested digital elevation model (DEM) was derived from Natural Resources Canada's High-Resolution DEM Mosaic (HRDEM) (Natural Resources Canada, 2024), while the agricultural DEM was generated using UAV photogrammetry processed in Agisoft Metashape (v1.8.2 Agisoft, 2021) with ground control points.
+The forested digital elevation model (DEM) was derived from Natural Resources Canada's High-Resolution DEM Mosaic (HRDEM) [@naturalresourcescanada2024], while the agricultural DEM was generated using UAV photogrammetry processed in Agisoft Metashape [v1.8.2 @agisoft2021] with ground control points.
 Both DEMs were interpolated to 1 m resolution grids using ordinary kriging.
-Terrain attributes including elevation, plan and profile curvature, SAGA wetness index, catchment area, relative slope position, and vertical distance to channel network were computed in SAGA GIS (SAGA v2.1.4 Conrad et al., 2015) (@supptab-terrain).
+Terrain attributes including elevation, plan and profile curvature, SAGA wetness index, catchment area, relative slope position, and vertical distance to channel network were computed in SAGA GIS [v2.1.4 @conrad2015] (@supptab-terrain).
 The native resolution between the HRDEM and UAV-derived DEM differ, which may affect curvature metrics.
-All rasters were resampled to 10 m resolution (terra v1.8.29 Hijmans, 2024) prior to statistical analysis to harmonize spatial support.
+All rasters were resampled to 10 m resolution [`terra` v`r packageVersion("terra")` @hijmans2024] prior to statistical analysis to harmonize spatial support.
 
 ### Data analysis
 
-All subsequent statistical analysis was undertaken using R statistical Software v4.4.0 (R Core Team, 2024) through RStudio Integrated Development Environment v2024.04.2 (RStudio, 2024).
-Plots and maps were created using the R package ggplot2 v 3.5.2 (Wickham, 2016).
+All subsequent statistical analysis was undertaken using R statistical Software v4.5.3 [@rcoreteam2026] through RStudio Integrated Development Environment v2026.04.0 [@rstudio2026]).
+Plots and maps were created using the R package `ggplot2` v3.5.2 [@wickham2016].
 Univariate summaries included CV classes (low \<15%, moderate 15–35%, high 35–75%, very high \>75%) and skewness categories (symmetric: −0.5 to 0.5; moderate: −1.0 to −0.5 or 0.5 to 1.0; high: \<−1.0 or \>1.0).
 
-Random forest regression (RF) (randomForest v4.7.1.2 Liaw and Wiener, 2002) was used to assess the relative importance of the terrain attributes on the spatial distribution of soil properties.
+Random forest regression (RF) [`randomForest` v4.7.1.2 @liaw2002] was used to assess the relative importance of the terrain attributes on the spatial distribution of soil properties.
 The dataset was randomly split into training (70%) and testing (30%) datasets.
-Multicollinearity among the terrain attributed was assessed using the Variance Inflation Factor with a threshold of eight (usdm v2.1.7 Naimi et al., 2014).
-The number of variables randomly sampled as candidates (mtry) at each split within the RF model was tuned using the training data set (caret v7.0.1 Kuhn and Max, 2008).
+Multicollinearity among the terrain attributed was assessed using the Variance Inflation Factor with a threshold of eight [`usdm` v2.1.7 @Naimi2014].
+The number of variables randomly sampled as candidates (mtry) at each split within the RF model was tuned using the training data set [`caret` v7.0.1 @kuhn2008].
 The number of trees to grow was set to 500 to ensure the error has stabilized and that additional trees provide diminishing returns.
 Model performance was assessed using the Mean Square Error (MSE) and percent variance explained for both the training (Out of Bag Error) and the validation data sets.
 To test the model, measured and predicted values were plotted and the r^2^ and MSE were calculated using the testing data set.
@@ -238,7 +237,8 @@ Semivariogram ranges spanned \~185–580 m (median ≈210 m).
 Ca and Rb exhibited large ranges (580 m and 551 m), while colour metrics such as *b\** and *c\** had ranges \~199 m.
 The nugget (Co) was small for all soil properties (\<1.5).
 A few of the soil properties presented a pattern that roughly matches (e.g., Rb) or mirrors (e.g., Ca, Sr) the overall topography of the site with a gradation between the highest point in the south-west corner towards the lowest points in the north-east (@fig-ag_map).
-Other properties appear to have more localized high and low concentrations/values (e.g., c*, h). Within the forested site nine properties showed spatial dependence (moderate to strong) with ranges 176–298 m; Fe, Rb and colour a*, b*, c*, x lacked detectable autocorrelation, consistent with more complex depositional/topographic features found at this site (@tbl-geocol-semivariogram).
+Other properties appear to have more localized high and low concentrations/values (e.g., *c\**, *h\**).
+Within the forested site nine properties showed spatial dependence (moderate to strong) with ranges 176–298 m; Fe, Rb and colour *a\**, *b\**, *c\**, *x* lacked detectable autocorrelation, consistent with more complex depositional/topographic features found at this site (@tbl-geocol-semivariogram).
 This complexity also resulted in poorer spatial interpolation performance compared to the agricultural site.
 The nugget (Co) was generally small for most soil properties (\<2) with the exception of La and Ni.
 Overall, the influence of the channel and floodplain environment can be seen in the pattern of the nine soil properties (@fig-forest_map).
@@ -280,26 +280,26 @@ The importance ranking varied considerably between soil properties; however, the
 
 ### Variability of soil properties
 
-Variability in soil geochemical properties has been studied at a range of scales including continental (Drew et al., 2010), regional (Rattenbury et al., 2018), watershed (Nanos and Rodríguez Martín, 2012), hillslope/catena, and farm field (Sun et al., 2021b).
-The objectives of these studies included addressing issues of pollution/contamination, providing benchmark/baseline information, investigating pedological and weathering properties and processes, and soil surveying and mapping (Wilson et al., 2008).
+Variability in soil geochemical properties has been studied at a range of scales including continental [@drew2010], regional [@rattenbury2018], watershed [@nanos2012], hillslope/catena, and farm field [@sun2021a].
+The objectives of these studies included addressing issues of pollution/contamination, providing benchmark/baseline information, investigating pedological and weathering properties and processes, and soil surveying and mapping [@wilson2008].
 Variability in soil colour, typically using the Munsell colour system, is a commonly reported diagnostic feature used in soil classification and ranges in spatial scales from reconnaissance to detailed soil surveys and maps.
 For sediment fingerprinting studies, these types of studies are often too site-specific or focus on a smaller subset of soil properties to effectively guide sample design to ensure the desired confidence is met characterizing sources of sediment.
 Data distributions in soil science commonly exhibit a positively skewed distribution.
 This is likely due to several factors including that data of this nature are a semi-bounded distribution, with a lower bound of zero and no upper bound.
-Hot spots of soil processes, local variations in soil forming factors, and soil/land management practices can also lead to more extreme values (e.g., Vidon et al., 2010).
+Hot spots of soil processes, local variations in soil forming factors, and soil/land management practices can also lead to more extreme values [e.g., @vidon2010].
 In many cases the cumulative effects of these processes, factors, and practices are multiplicative (i.e., interact) and not linearly additive, resulting in a skewed data distribution.
 Lastly, the distribution of data will also be a product of the scale of observation, number of samples, and sampling design.
-Soil colour properties exhibited a near-normal distribution with a low CV which is consistent with claims that soil hue and value (Munsell colour system) have a low CV (Pennock et al., 2008).
+Soil colour properties exhibited a near-normal distribution with a low CV which is consistent with claims that soil hue and value (Munsell colour system) have a low CV [@pennock2008].
 These data distribution properties are ideal for statistical and environmental modeling as it typically meets the model assumptions with out requiring transformations.
-Soil colour coefficients (\*a\*\*, \*b\*\*, \*c\*\*, \*h\*\*, x) showed near-normal distributions and low CVs (Table 1), supporting their suitability for mixing models that assume normality and require low within-source variability.
+Soil colour coefficients (*a\**, *b\**, *c\**, *h\**, *x*) showed near-normal distributions and low CVs (@tbl-univariate-summary), supporting their suitability for mixing models that assume normality and require low within-source variability.
 
 The geochemical properties exhibited greater variability and skewness despite removing coarse fraction, reflecting site-specific pedogenic and geomorphic processes and organic matter differences.
-Trace elements correlate strongly with fine material (\<2 μm) due to its high surface area and reactivity (Horowitz, 1991).
+Trace elements correlate strongly with fine material (\<2 μm) due to its high surface area and reactivity [@horowitz1991].
 Removing sand-sized material reduced grain-size effects, likely resulting in lower variability than in bulk soil studies (\<2 mm).
 In particular, the forest site exhibited a greater amount of variability which is likely due to the more complex topography and geomorphic setting.
-The floodplain within the forested site is likely accumulating shale-rich material derived from the Manitoba Escarpment which is enriched in trace metals (Nicolas and Bamburak, 2011).
+The floodplain within the forested site is likely accumulating shale-rich material derived from the Manitoba Escarpment which is enriched in trace metals [@nicolas2011].
 This creates a zone of high concentrations relative to upland areas (@fig-forest_map).
-The forested site also had a higher and much more variable soil organic matter content (x̄ = 8.5 %, CV = 51.9 %) as compared to the agricultural site (x̄ = 11.6 %, CV = 16.1 %), which similarly to the grain size distribution, can influence the concentration of many major and trace elements (Horowitz, 1991).
+The forested site also had a higher and much more variable soil organic matter content (x̄ = 8.5 %, CV = 51.9 %) as compared to the agricultural site (x̄ = 11.6 %, CV = 16.1 %), which similarly to the grain size distribution, can influence the concentration of many major and trace elements [@horowitz1991].
 These results provide evidence that land use and landscape complexity play a role in driving soil property variability that can be considered when developing a strategic sampling design.
 
 ### Spatial distribution
@@ -309,14 +309,14 @@ The agricultural site, which has a simpler topography and a higher degree of spa
 In contrast, the forested site, which has a more complex geomorphic setting and a lower degree of spatial autocorrelation, a stratified sampling design is recommended.
 At the forested site the stratas could include near-stream and hillslope environments.
 When the spatial distribution of soil properties are unknown, often the case in fingerprinting studies, it is recommended that sampling include irregularly spaced points (including \<100 m) to better resolve short-range structure.
-This is important for improving variogram modeling and kriging interpolation (Lark and Marchant, 2018).
-Properties lacking spatial autocorrelation at the forest site (Fe, Rb, *a\*, b\**, c\*, x) likely reflect mixed depositional environments and fine-scale heterogeneity that exceed the sampling resolution; acknowledging their behavior is critical when selecting fingerprints.
+This is important for improving variogram modeling and kriging interpolation [@lark2018].
+Properties lacking spatial autocorrelation at the forest site (Fe, Rb, *a\**, *b\**, *c\**, *x*) likely reflect mixed depositional environments and fine-scale heterogeneity that exceed the sampling resolution; acknowledging their behavior is critical when selecting fingerprints.
 
 Mapping the soil properties that have a moderate to high spatial dependence can provide information on underlying soil forming processes and properties.
 At both sites, to some extent, the patterns appear to reflect the topography of the sites suggesting that geomorphic and hydrologic processes and properties are likely driving the observed patterns.
-Koiter et al. (2013) discussed the issues surrounding the use of a statistical only approach to selecting fingerprints and that consideration of how fingerprints have developed improves the robustness of the sediment fingerprinting approach.
+Koiter et al. [-@koiter2013] discussed the issues surrounding the use of a statistical only approach to selecting fingerprints and that consideration of how fingerprints have developed improves the robustness of the sediment fingerprinting approach.
 However, local information on the spatial distribution of geochemical and colour properties at field scales (\< 1 km²) is often unavailable, and the processes driving these patterns are also not well documented or studied.
-When such information does exist, it typically focuses on agronomically important properties (e.g., Mzuku et al., 2005) or is used for soil classification (e.g., Soil Classification Working Group, 1998).
+When such information does exist, it typically focuses on agronomically important properties [e.g., @mzuku2005] or is used for soil classification [e.g., @soilclassificationworkinggroup1998].
 These datasets usually include geochemical properties such as N, P, K, S, Ca, Mg, Na, Fe, and Al.
 They may also include colour characteristics, such as Munsell hue, value, and chroma, as well as other soil properties like texture, organic matter content, and pH. The lack of information on the wide range of soil properties used in fingerprinting studies means the researchers are relying on other data, most often elevation and geomorphic/topographic features, for informing sampling designs.
 The results from this study support this approach.
@@ -326,18 +326,18 @@ The results from this study support this approach.
 The correlation analysis identified elevation and wetness as being significantly correlated to most of the fingerprint properties at the agricultural site.
 Similarly, the RF regression identified elevation, wetness, and relative slope position as important attributes in explaining most of the observed variation in soil geochemical and colour properties.
 These terrain attributes align with established pedogenic and geomorphic processes, including eluviation–illuviation of Fe and clay, carbonate dissolution and transport, and organic matter accumulation in lower positions, and thereby indirectly influence soil geochemistry and colour.
-The results of this study are consistent with the findings of Mashalaba et al. (2020) who also found that similar terrain attributes were important in predicting a range of other soil properties including texture, bulk density, and hydaulic conductivity.
-These attributes likely emerged as the most important factor in explaining the observed variability as they are strongly linked to a range of geomorphic and hydrologic process and conditions (Libohova et al., 2024; Mello et al., 2022).
-For example, in eroded landscapes in the Prairie region of Canada, Ca concentrations have been found to be higher in upper slope positions from erosion and subsequent exposure of high-carbonate subsoil (Papiernik et al., 2005).
+The results of this study are consistent with the findings of Mashalaba et al. [-@mashalaba2020] who also found that similar terrain attributes were important in predicting a range of other soil properties including texture, bulk density, and hydaulic conductivity.
+These attributes likely emerged as the most important factor in explaining the observed variability as they are strongly linked to a range of geomorphic and hydrologic process and conditions [@mello2022; @libohova2024].
+For example, in eroded landscapes in the Prairie region of Canada, Ca concentrations have been found to be higher in upper slope positions from erosion and subsequent exposure of high-carbonate subsoil [@papiernik2005].
 In contrast, higher Ca concentrations have been noted in lower slope and depressional areas due to higher solubility of many Ca-minerals (e.g., CaCO3) and the subsequent downslope transport in solution and reduced leaching losses in these accumulation zones.
-Landscape position can also have a strong influence on pedogenic process; for example, the translocation of Fe and clay down the soil profile is a diagnostic criteria used in classifying soils (Stonehouse and St. Arnaud, 1971).
+Landscape position can also have a strong influence on pedogenic process; for example, the translocation of Fe and clay down the soil profile is a diagnostic criteria used in classifying soils [@stonehouse1971].
 Soil colour also tends to change in a predictable manner in relation to local relief.
-Tillage and water erosion results in the net loss of darker organic-rich topsoil from upper slope positions resulting in the exposure of the lighter subsoil (Papiernik et al., 2005).
+Tillage and water erosion results in the net loss of darker organic-rich topsoil from upper slope positions resulting in the exposure of the lighter subsoil [@papiernik2005].
 Moisture availability is also greater in the lower slope and depressional areas resulting in increased organic matter production resulting in darker organic-rich topsoil as compared to the upper slope positions.
-There is also evidence that suggests that soil texture varies with elevation and slope position, with coarser material on upper slopes and finer material accumulating in lower positions (Cox et al., 2003; Kokulan et al., 2018).
-Given the strong correlation of organic matter and texture with soil geochemistry (Horowitz, 1991) and colour (Viscarra Rossel et al., 2009), these properties may also help explain the observed spatial patterns .
+There is also evidence that suggests that soil texture varies with elevation and slope position, with coarser material on upper slopes and finer material accumulating in lower positions [@kokulan2018; @cox2003].
+Given the strong correlation of organic matter and texture with soil geochemistry [@horowitz1991] and colour [@viscarrarossel2009], these properties may also help explain the observed spatial patterns .
 Compared to the forest site, the RF regression model showed greater explanatory power and predictive performance for the agricultural site, likely due to its simpler topography.
-In these settings, terrain attributes can serve as an initial step in developing efficient and effective sampling designs (Pham et al. 2025).
+In these settings, terrain attributes can serve as an initial step in developing efficient and effective sampling designs [@pham2025].
 As high-quality LiDAR data and digital elevation models (DEMs) become increasingly available in many regions, researchers have the opportunity to integrate terrain attributes into their sampling frameworks.
 This integration ensures adequate representation of key geomorphic and topographic features.
 However, at the forested site, the RF model showed poor fit, and terrain variables were largely uninformative; this likely reflects the increased geomorphic complexity of the site and the limitations of sparse sampling.
@@ -345,10 +345,10 @@ Additional work is needed to fully assess the utility of terrain mapping in pred
 
 ### Limitations and Future Work
 
-The impact of sampling design the characterization of fingerprints can be substantial (Luna Miño et al., 2024), which in turn can affect the apportionment results, and the conclusion and recommendations drawn from them.
-However, due to the high cost of sample collection, preparation, and analysis, small sample sizes collected across a single season are commonplace and a source of uncertainty in sediment fingerprinting studies (Evrard et al. 2022).
+The impact of sampling design the characterization of fingerprints can be substantial [@lunamiño2024], which in turn can affect the apportionment results, and the conclusion and recommendations drawn from them.
+However, due to the high cost of sample collection, preparation, and analysis, small sample sizes collected across a single season are commonplace and a source of uncertainty in sediment fingerprinting studies [@evrard2022].
 Therefore, the development of low-cost, easy, and accurate mapping of fingerprinting properties would be advantageous.
-Terrain attributes have been successfully used in digital soil mapping exercises, demonstrating their value in spatially characterizing soil properties (Rizzo et al. 2016).
+Terrain attributes have been successfully used in digital soil mapping exercises, demonstrating their value in spatially characterizing soil properties [@rizzo2016].
 Building on this success, integrating terrain analysis into sediment source fingerprinting is promising, not only as a mechanism to improve the quality of source characterization, but to also better link source material to downstream sediment.
 However, the inclusion of only two sites within in this study limits the generalizability of the findings to geomorphic settings with similar characteristics, highlighting the need for future research across a broader range of environments.
 
@@ -356,7 +356,7 @@ The relatively small sample size (n=49 per site) in this study compromises the s
 Similarly, the 100 m sample spacing likely misses fine-scale heterogeneity limiting the semivariogram models ability to capture short-range spatial variability.
 As a result, additional sampling at irregular spacing is highly recommended.
 Because this study relies on single season of sampling there is no information on the stability of soil properties over time.
-While sediment fingerprinting assumes consistent source signatures over time, few studies validate this due to the challenges associated with repeated sample collection (Evrard et al. 2022).
+While sediment fingerprinting assumes consistent source signatures over time, few studies validate this due to the challenges associated with repeated sample collection [@evrard2022].
 
 The continued integration of DEM-based sampling strategies and fingerprint mapping into sediment source fingerprinting approach will benefit from the development of a standardized framework, workflow, and set of best practices to ensure both robust and reliable results.
 For example, differences in DEM resolution between sites in this study could influence curvature-based terrain attributes, introducing potential bias.
@@ -428,39 +428,23 @@ Variable importance, expressed as the percentage increase in Mean Squared Error,
 ## Supplemental tables {.unnumbered}
 
 ::: {#supptab-abbrev}
-+------------------------+---------------------------------------------------+---------------+
-| **Colour space model** | Parameter                                         | Abbreviation  |
-+========================+===================================================+===============+
-| RGB                    | Red                                               | R             |
-+------------------------+---------------------------------------------------+---------------+
-| RGB                    | Green                                             | G             |
-+------------------------+---------------------------------------------------+---------------+
-| RGB                    | Blue                                              | B             |
-+------------------------+---------------------------------------------------+---------------+
-| CIE xyY                | Chromatic Coordinate x                            | x             |
-+------------------------+---------------------------------------------------+---------------+
-| CIE xyY                | Chromatic Coordinate y                            | y             |
-+------------------------+---------------------------------------------------+---------------+
-| CIE xyY                | Brightness                                        | Y             |
-+------------------------+---------------------------------------------------+---------------+
-| CIE XYZ                | Virtual component X                               | X             |
-+------------------------+---------------------------------------------------+---------------+
-| CIE XYZ                | Virtual component Z                               | Z             |
-+------------------------+---------------------------------------------------+---------------+
-| CIE LAB                | Metric lightness function                         | L             |
-+------------------------+---------------------------------------------------+---------------+
-| CIE LAB                | Chromatic coordinate opponent red--green scales   | *a\**         |
-+------------------------+---------------------------------------------------+---------------+
-| CIE LAB                | Chromatic coordinate opponent red--green scales   | *b\**         |
-+------------------------+---------------------------------------------------+---------------+
-| CIE LUV                | Chromatic coordinate opponent blue--yellow scales | *u\**         |
-+------------------------+---------------------------------------------------+---------------+
-| CIE LUV                | Chromatic oordinate opponent red--green scales    | *v\**         |
-+------------------------+---------------------------------------------------+---------------+
-| CIE LCH                | CIE hue                                           | *c\**         |
-+------------------------+---------------------------------------------------+---------------+
-| CIE LCH                | CIE chroma                                        | *h\**         |
-+------------------------+---------------------------------------------------+---------------+
+| **Colour space model** | Parameter | Abbreviation |
+|----|----|----|
+| RGB | Red | R |
+| RGB | Green | G |
+| RGB | Blue | B |
+| CIE xyY | Chromatic Coordinate x | x |
+| CIE xyY | Chromatic Coordinate y | y |
+| CIE xyY | Brightness | Y |
+| CIE XYZ | Virtual component X | X |
+| CIE XYZ | Virtual component Z | Z |
+| CIE LAB | Metric lightness function | L |
+| CIE LAB | Chromatic coordinate opponent red--green scales | *a\** |
+| CIE LAB | Chromatic coordinate opponent red--green scales | *b\** |
+| CIE LUV | Chromatic coordinate opponent blue--yellow scales | *u\** |
+| CIE LUV | Chromatic oordinate opponent red--green scales | *v\** |
+| CIE LCH | CIE hue | *c\** |
+| CIE LCH | CIE chroma | *h\** |
 
 : Description of spectral reflectance colour coefficients used as fingerprints. Reproduced from Boudreault et al. (2018)
 :::
