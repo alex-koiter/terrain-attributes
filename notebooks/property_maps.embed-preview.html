@@ -229,7 +229,7 @@
        <p>Alex Koiter</p>
 <section id="load-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="load-libraries">Load libraries</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="b5a39ced-5c1c-4ffb-bf9c-75c06088b6bf" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="9e41ccdc-e11c-4193-aa89-1ee03bcde0ae" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>suppressPackageStartupMessages({</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  library(tidyverse)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  library(terra)</span>
@@ -240,13 +240,13 @@
 </section>
 <section id="load-data" class="level2">
 <h2 class="anchored" data-anchor-id="load-data">Load data</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="b2357cda-c1a5-42f9-aff8-dd6a1b12d9f1" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="89d8c698-9f33-4d03-89da-c03d3c28baa6" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ag_data <span class="op">&lt;-</span> read_csv(here::here(<span class="st">"./notebooks/ag_terrain_data.csv"</span>), show_col_types <span class="op">=</span> FALSE) </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>forest_data <span class="op">&lt;-</span> read_csv(here::here(<span class="st">"./notebooks/forest_terrain_data.csv"</span>), show_col_types <span class="op">=</span> FALSE) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [3]:</pre></div><div id="e3015e93-1a72-406e-8443-881a87bfc5af" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [3]:</pre></div><div id="0d524779-c667-49a2-a88c-7cb4aa1f3784" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>theme_right <span class="op">&lt;-</span>  theme(axis.title <span class="op">=</span> element_blank(),</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>        axis.text <span class="op">=</span> element_blank(),</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        axis.ticks <span class="op">=</span> element_blank(),</span>
@@ -280,7 +280,7 @@
 <h2 class="anchored" data-anchor-id="agricultural-soil-properties">Agricultural soil properties</h2>
 <section id="geochemisty-and-colour" class="level3">
 <h3 class="anchored" data-anchor-id="geochemisty-and-colour">Geochemisty and colour</h3>
-<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="475967d1-391d-491a-9933-defb47b2fc27" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="fcfb36f5-5a59-40d4-a49b-3172ab872630" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ag_rast <span class="op">&lt;-</span> rast(ag_data)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>crs(x <span class="op">=</span> ag_rast, warn<span class="op">=</span>FALSE) <span class="op">&lt;-</span> <span class="st">"epsg:26914"</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -427,7 +427,7 @@
 </section>
 <section id="grain-size-om-elevation" class="level3">
 <h3 class="anchored" data-anchor-id="grain-size-om-elevation">Grain size, OM, elevation</h3>
-<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="8338d506-8c35-4295-b3f2-510b7c775a5e" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="9cc287a4-ef19-493a-8afb-b836e16012ea" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dem <span class="op">&lt;-</span> ggplot() <span class="op">+</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  tidyterra::geom_spatraster(data <span class="op">=</span> ag_rast, aes(fill <span class="op">=</span> elevation)) <span class="op">+</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  scale_fill_viridis_c(name <span class="op">=</span> <span class="st">"Elev."</span>, option <span class="op">=</span> <span class="st">"inferno"</span>, limits <span class="op">=</span> c(<span class="dv">309</span>, <span class="dv">312</span>)) <span class="op">+</span></span>
@@ -486,7 +486,7 @@ Figure&nbsp;1: Kriged maps of select colour and geochemical properties and eleva
 <h2 class="anchored" data-anchor-id="forest-soil-properties">Forest soil properties</h2>
 <section id="geochemisty-and-colour-1" class="level3">
 <h3 class="anchored" data-anchor-id="geochemisty-and-colour-1">Geochemisty and colour</h3>
-<div class="cell-container"><div class="cell-decorator"><pre>In [7]:</pre></div><div id="ada6371a-e902-4f95-8800-403abbb04912" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [7]:</pre></div><div id="0ffb70bb-699c-4a9e-b432-a8f6efb8e8a1" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>forest_rast <span class="op">&lt;-</span> rast(forest_data)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>crs(x <span class="op">=</span> forest_rast, warn<span class="op">=</span>FALSE) <span class="op">&lt;-</span> <span class="st">"epsg:26914"</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -574,7 +574,7 @@ Figure&nbsp;1: Kriged maps of select colour and geochemical properties and eleva
 </section>
 <section id="grain-size-om-elevation-1" class="level3">
 <h3 class="anchored" data-anchor-id="grain-size-om-elevation-1">Grain size, OM, elevation</h3>
-<div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="f6d94775-fc17-443e-819a-5c54c2161713" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="1944ece3-51c8-4fe7-90f8-75271a33f196" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dem_forest <span class="op">&lt;-</span> ggplot() <span class="op">+</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  tidyterra::geom_spatraster(data <span class="op">=</span> forest_rast, aes(fill <span class="op">=</span> elevation)) <span class="op">+</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  scale_fill_viridis_c(name <span class="op">=</span> <span class="st">"Elev."</span>, option <span class="op">=</span> <span class="st">"inferno"</span>) <span class="op">+</span></span>

@@ -206,13 +206,15 @@ forested terrains.</p>
   level of precision for agronomic and environmental nutrient management
   plans the spatial variability in soil nutrients will influence the
   soil sampling design in terms of number and locations of soil samples
-  <ext-link ext-link-type="uri" xlink:href="Kariuki%20et%20al.,%202009;%20Starr%20et%20al.,%201995">Kariuki
-  et al.
-  (<xref alt="2009" rid="ref-kariuki2009" ref-type="bibr">2009</xref>)</ext-link>.
-  Similarly, accounting for spatial variability extends to sediment
-  source fingerprinting, as unaccounted spatial heterogeneity within
-  sources of sediment can compromise the source apportionment results
-  (Du and Walling, 2017).</p>
+  (<xref alt="Kariuki et al., 2009" rid="ref-kariuki2009" ref-type="bibr">Kariuki
+  et al., 2009</xref>;
+  <xref alt="Starr et al., 1995" rid="ref-starr1995" ref-type="bibr">Starr
+  et al., 1995</xref>). Similarly, accounting for spatial variability
+  extends to sediment source fingerprinting, as unaccounted spatial
+  heterogeneity within sources of sediment can compromise the source
+  apportionment results
+  (<xref alt="Du and Walling, 2017" rid="ref-du2017" ref-type="bibr">Du
+  and Walling, 2017</xref>).</p>
   <p>Sediment source fingerprinting is a watershed-scale technique that
   is used to quantify the relative proportions of sediment derived from
   unique sources. This technique uses naturally occurring biogeochemical
@@ -220,29 +222,42 @@ forested terrains.</p>
   of sediment to downstream sediment. Investigating the spatial
   variability at a watershed-scale can be advantageous to identify,
   classify, and distinguish between potential sources of sediment
-  (Pulley et al., 2017). However, investigating spatial variability at
-  smaller scales is less common (e.g., Du and Walling, 2017; Pulley et
-  al., 2018; Collins et al., 2019; Luna Miño et al., 2024) and remains a
-  research priority (Collins et al., 2020). Within the sediment source
-  fingerprinting approach field-scale (&lt;1 km²) variability is
-  important for (i) designing efficient, representative source sampling,
-  (ii) integrating spatial variability with erosion/delivery gradients
-  for mixing models, and (iii) selecting fingerprints supported by
-  process-based reasoning. Previous work has highlighted spatial
-  variability issues and the need for more robust, process-informed
-  fingerprint selection and sampling strategies.</p>
+  (<xref alt="Collins et al., 2020" rid="ref-collins2020" ref-type="bibr">Collins
+  et al., 2020</xref>). However, investigating spatial variability at
+  smaller scales is less common
+  (<xref alt="Collins et al., 2019" rid="ref-collins2019" ref-type="bibr">Collins
+  et al., 2019</xref>;
+  <xref alt="Du and Walling, 2017" rid="ref-du2017" ref-type="bibr">Du
+  and Walling, 2017</xref>;
+  <xref alt="Luna Miño et al., 2024" rid="ref-lunamiño2024" ref-type="bibr">Luna
+  Miño et al., 2024</xref>;
+  <xref alt="Pulley et al., 2018" rid="ref-pulley2018" ref-type="bibr">Pulley
+  et al., 2018</xref>) and remains a research priority
+  (<xref alt="Collins et al., 2020" rid="ref-collins2020" ref-type="bibr">Collins
+  et al., 2020</xref>). Within the sediment source fingerprinting
+  approach field-scale (&lt;1 km²) variability is important for (i)
+  designing efficient, representative source sampling, (ii) integrating
+  spatial variability with erosion/delivery gradients for mixing models,
+  and (iii) selecting fingerprints supported by process-based reasoning.
+  Previous work has highlighted spatial variability issues and the need
+  for more robust, process-informed fingerprint selection and sampling
+  strategies.</p>
   <p>Characterization of fingerprint properties requires representative
   sampling, particularly because variability in some properties is not
   random but follows systematic spatial patterns across the landscape.
   For example, the pattern of fallout radionuclides will reflect the
-  long-term patterns of soil erosion and deposition (Wilkinson et al.,
-  2015). Designing and implementing source sampling campaigns must
-  consider this, as the sampling design used has been shown to influence
-  the characterization of a wide range of commonly used fingerprints
-  (Luna Miño et al., 2024). The lack of standardization in sediment
+  long-term patterns of soil erosion and deposition
+  (<xref alt="Wilkinson et al., 2015" rid="ref-wilkinson2015" ref-type="bibr">Wilkinson
+  et al., 2015</xref>). Designing and implementing source sampling
+  campaigns must consider this, as the sampling design used has been
+  shown to influence the characterization of a wide range of commonly
+  used fingerprints
+  (<xref alt="Luna Miño et al., 2024" rid="ref-lunamiño2024" ref-type="bibr">Luna
+  Miño et al., 2024</xref>). The lack of standardization in sediment
   source sampling designs makes it difficult to compare results across
   studies and creates uncertainties in the interpretation of results
-  (Luna Miño et al., 2024)</p>
+  (<xref alt="Luna Miño et al., 2024" rid="ref-lunamiño2024" ref-type="bibr">Luna
+  Miño et al., 2024</xref>).</p>
   <p>Characterization of sources is further complicated by variations in
   erosion and sediment delivery rates across the landscape. Many mixing
   models use well defined inputs (sources) and outputs (sediment)
@@ -256,56 +271,82 @@ forested terrains.</p>
   spatial patterns, limiting the interpretation of landscape processes
   across the entire source area. There has been progress using
   information on erosion rates to calculate an erosion rate-weighted
-  mean (Wilkinson et al., 2015; Du and Walling, 2017) and using
-  spatially interpolated maps of fingerprint values to provide a finer
-  resolution of the fingerprint variability within each source
-  (Haddadchi et al., 2019). Characterizing the geomorphic, hydrologic,
-  and biochemical processes underlying spatial variability supports the
+  mean
+  (<xref alt="Du and Walling, 2017" rid="ref-du2017" ref-type="bibr">Du
+  and Walling, 2017</xref>;
+  <xref alt="Wilkinson et al., 2015" rid="ref-wilkinson2015" ref-type="bibr">Wilkinson
+  et al., 2015</xref>) and using spatially interpolated maps of
+  fingerprint values to provide a finer resolution of the fingerprint
+  variability within each source
+  (<xref alt="Haddadchi et al., 2019" rid="ref-haddadchi2019" ref-type="bibr">Haddadchi
+  et al., 2019</xref>). Characterizing the geomorphic, hydrologic, and
+  biochemical processes underlying spatial variability supports the
   selection of reliable fingerprints and informs sampling design for
   source characterization. While many studies use a statistical-based
-  approach (Collins et al., 1997) to select suitable fingerprints there
-  are concerns that this approach may result in the inclusion of false
+  approach
+  (<xref alt="Collins et al., 1997" rid="ref-collins1997" ref-type="bibr">Collins
+  et al., 1997</xref>) to select suitable fingerprints there are
+  concerns that this approach may result in the inclusion of false
   positives (i.e., type I error) in which a fingerprint is incorrectly
   identified as having discriminatory power between sources when it does
-  not, or non-conservative fingerprints (Koiter et al., 2013a).
-  Consequently, there has been a call for the inclusion of a
-  process-based (e.g., weathering, erosion) or geologic-based
-  explanation of the fingerprints selected to address these concerns
-  (Collins et al., 2020). This remains challenging due to limited data
-  on soil properties, particularly with geochemical properties, as
-  routine lab analysis often measures more than 50 elements. The spatial
+  not, or non-conservative fingerprints
+  (<xref alt="Koiter et al., 2013" rid="ref-koiter2013" ref-type="bibr">Koiter
+  et al., 2013</xref>). Consequently, there has been a call for the
+  inclusion of a process-based (e.g., weathering, erosion) or
+  geologic-based explanation of the fingerprints selected to address
+  these concerns
+  (<xref alt="Collins et al., 2020" rid="ref-collins2020" ref-type="bibr">Collins
+  et al., 2020</xref>). This remains challenging due to limited data on
+  soil properties, particularly with geochemical properties, as routine
+  lab analysis often measures more than 50 elements. The spatial
   patterns of some soil properties are well studied because of their
   agronomic importance or ability to infer other important soil
   properties and processes and include fallout radionuclides (e.g.,
-  <sup>137</sup>Cs, 7Be; Ritchie et al. 1970), plant nutrients (e.g., N,
-  P; Vasu et al. 2017), soil colour (e.g., hue, value; Viscarra Rossel
-  et al. 2006), major non-acid forming cations (e.g., Ca, Na; Sun et
-  al. 2021a). In contrast, the processes that control the distribution
-  of rare earth elements and trace metals, are less well studied or tend
-  to be site-specific, making it difficult to draw generalizations.</p>
+  <sup>137</sup>Cs, <sup>7</sup>Be
+  <xref alt="Ritchie et al., 1970" rid="ref-ritchie1970" ref-type="bibr">Ritchie
+  et al., 1970</xref>), plant nutrients (e.g., N, P
+  <xref alt="Vasu et al., 2017" rid="ref-vasu2017" ref-type="bibr">Vasu
+  et al., 2017</xref>), soil colour (e.g., hue, value
+  <xref alt="Viscarra Rossel et al., 2006" rid="ref-viscarrarossel2006" ref-type="bibr">Viscarra
+  Rossel et al., 2006</xref>), major non-acid forming cations (e.g., Ca,
+  Na <xref alt="Sun et al., 2021a" rid="ref-sun2021" ref-type="bibr">Sun
+  et al., 2021a</xref>). In contrast, the processes that control the
+  distribution of rare earth elements and trace metals, are less well
+  studied or tend to be site-specific, making it difficult to draw
+  generalizations.</p>
   <p>Terrain attributes such as elevation, slope curvature, slope
   position, and soil wetness indices have been shown to be useful
   information in the characterization and modelling of a range of soil
-  properties including soil moisture (Beaudette et al., 2013), texture
-  (Kokulan et al., 2018), colour (Brown et al., 2004), organic matter
-  (Zhang et al., 2012), conductivity (Umali et al., 2012), and
-  geochemistry (Lima et al., 2023). Similar techniques may provide
-  additional insight into the pedologic and geomorphic processes that
-  drive the observed patterns of fingerprint properties within a given
-  source. Digital elevation models (DEMs) are more widely available
-  through public databases and can be generated using drone imagery,
-  whereas soil property data are more limited in availability and
-  spatial coverage. As a result, terrain attributes derived from DEMs
-  offer a practical and more readily available basis for guiding
-  efficient and spatially informed soil sampling designs. This study
-  builds on the previous work of Luna Miño (2024) where the impact of
-  three different sampling designs on the characterization of source
-  materials, within the framework of the sediment fingerprinting
-  approach, was assessed. This study expands that study by using the
-  data from grid sampling approach to assess the spatial
-  autocorrelation, and identify important terrain attributes driving the
-  observed patterns. The objectives of this study were to: (1) quantify
-  the spatial variability and spatial dependence of 15
+  properties including soil moisture
+  (<xref alt="Beaudette et al., 2013" rid="ref-beaudette2013" ref-type="bibr">Beaudette
+  et al., 2013</xref>), texture
+  (<xref alt="Kokulan et al., 2018" rid="ref-kokulan2018" ref-type="bibr">Kokulan
+  et al., 2018</xref>), colour
+  (<xref alt="Brown et al., 2004" rid="ref-brown2004" ref-type="bibr">Brown
+  et al., 2004</xref>), organic matter
+  (<xref alt="Zhang et al., 2012" rid="ref-zhang2012" ref-type="bibr">Zhang
+  et al., 2012</xref>), conductivity
+  (<xref alt="Umali et al., 2012" rid="ref-umali2012" ref-type="bibr">Umali
+  et al., 2012</xref>), and geochemistry
+  (<xref alt="Lima et al., 2023" rid="ref-lima2023" ref-type="bibr">Lima
+  et al., 2023</xref>). Similar techniques may provide additional
+  insight into the pedologic and geomorphic processes that drive the
+  observed patterns of fingerprint properties within a given source.
+  Digital elevation models (DEMs) are more widely available through
+  public databases and can be generated using drone imagery, whereas
+  soil property data are more limited in availability and spatial
+  coverage. As a result, terrain attributes derived from DEMs offer a
+  practical and more readily available basis for guiding efficient and
+  spatially informed soil sampling designs. This study builds on the
+  previous work of Luna Miño
+  (<xref alt="2024" rid="ref-lunamiño2024" ref-type="bibr">2024</xref>)
+  where the impact of three different sampling designs on the
+  characterization of source materials, within the framework of the
+  sediment fingerprinting approach, was assessed. This study expands
+  that study by using the data from grid sampling approach to assess the
+  spatial autocorrelation, and identify important terrain attributes
+  driving the observed patterns. The objectives of this study were to:
+  (1) quantify the spatial variability and spatial dependence of 15
   fingerprint-relevant soil properties across an agricultural and
   forested field site; and (2) test the relation between these soil
   properties and seven terrain attributes (derived from DEMs), using
@@ -322,28 +363,37 @@ forested terrains.</p>
     Watershed (WCW), near McCreary, Manitoba, Canada were sampled
     (<xref alt="Figure 1" rid="fig-location_map">Figure 1</xref>). The
     mixedwood forest site (50°43’35”N, 99°33’36”W; 369.2 masl) in Riding
-    Mountain National Park consists of white spruce (Picea glauca),
-    black spruce (Picea mariana), balsam fir (Abies balsamea), larch
-    (Larix laricina), and trembling aspen (Populus tremuloides), with
-    soils likely part of the Grey Wooded soil association (Luvisol)
-    developed on boulder till of mostly shale with some limestone and
-    granitic rocks (Ehrlich et al., 1958). This site has a local relief
-    of 17.9 m and moderately complex terrain, dissected by Wilson Creek,
-    a meandering stream with a gradient of approximately 0.006 m m-1,
-    featuring a small floodplain 5 to 25 m wide and adjacent upland
-    areas (<xref alt="Figure 1" rid="fig-location_map">Figure 1</xref>).
-    The agricultural site (50°45’15”N, 99°30’49”W; 309.9 masl) includes
+    Mountain National Park consists of white spruce (<italic>Picea
+    glauca</italic>), black spruce (<italic>Picea mariana</italic>),
+    balsam fir (<italic>Abies balsamea</italic>), larch (<italic>Larix
+    laricina</italic>), and trembling aspen (<italic>Populus
+    tremuloides</italic>), with soils likely part of the Grey Wooded
+    soil association (Luvisol) developed on boulder till of mostly shale
+    with some limestone and granitic rocks
+    (<xref alt="Ehrlich et al., 1958" rid="ref-ehrlich1958" ref-type="bibr">Ehrlich
+    et al., 1958</xref>). This site has a local relief of 17.9 m and
+    moderately complex terrain, dissected by Wilson Creek, a meandering
+    stream with a gradient of approximately 0.006 m m-1, featuring a
+    small floodplain 5 to 25 m wide and adjacent upland areas
+    (<xref alt="Figure 1" rid="fig-location_map">Figure 1</xref>). The
+    agricultural site (50°45’15”N, 99°30’49”W; 309.9 masl) includes
     grain and forage rotations and is mapped to the Edwards Soil Series
     (Cumulic Regosol) with silty clay loam to silty clay soils developed
-    on alluvial deposits (Ehrlich et al., 1958). The site has relatively
-    simple terrain with a local relief of 2.8 m and drains toward the
-    northeast corner of the field, where Wilson Creek runs along the
-    northern edge as a straight, engineered channel
+    on alluvial deposits
+    (<xref alt="Ehrlich et al., 1958" rid="ref-ehrlich1958" ref-type="bibr">Ehrlich
+    et al., 1958</xref>). The site has relatively simple terrain with a
+    local relief of 2.8 m and drains toward the northeast corner of the
+    field, where Wilson Creek runs along the northern edge as a
+    straight, engineered channel
     (<xref alt="Figure 1" rid="fig-location_map">Figure 1</xref>). The
-    region has a Dfb climate (Beck et al., 2018), with a mean annual
-    temperature of 3.0°C, annual precipitation of 539 mm (~27% as snow)
-    (Environment and Canada, 2024), and snowmelt-dominated runoff, with
-    about 80% occurring in May and June (MacKay, 1970).</p>
+    region has a Dfb climate
+    (<xref alt="Beck et al., 2018" rid="ref-beck2018" ref-type="bibr">Beck
+    et al., 2018</xref>), with a mean annual temperature of 3.0°C,
+    annual precipitation of 539 mm (~27% as snow)
+    environmentandclimatechangecanada2026, and snowmelt-dominated
+    runoff, with about 80% occurring in May and June
+    (<xref alt="MacKay, 1970" rid="ref-mackay1970" ref-type="bibr">MacKay,
+    1970</xref>).</p>
     <fig id="fig-location_map">
       <caption><p>Figure 1: a) Map showing the location of the study
       sites within Canada. Location of the two study sites and nearby
@@ -378,8 +428,12 @@ forested terrains.</p>
     coefficients
     (<xref alt="Table S1" rid="supptab-abbrev">Table S1</xref>) were
     computed from each sample, where each sample represents the average
-    of 10 spectra, following published methods. (Koiter, 2021;
-    Boudreault et al. (2018). Based on the results of Luna Miño (2024),
+    of 10 spectra, following published methods
+    (<xref alt="Boudreault et al., 2018" rid="ref-boudreault2018" ref-type="bibr">Boudreault
+    et al., 2018</xref>;
+    <xref alt="Koiter, 2021" rid="ref-koiter2021" ref-type="bibr">Koiter,
+    2021</xref>). Based on the results of Luna Miño
+    (<xref alt="2024" rid="ref-lunamiño2024" ref-type="bibr">2024</xref>),
     a composite fingerprint consisting of 10 geochemical elements (Ca,
     Co, Cs, Fe, Li, La, Nb, Ni, Rb, and Sr) and five colour coefficients
     (<italic>a*, b*, c*, h*,</italic> and <italic>x</italic>) were
@@ -390,63 +444,81 @@ forested terrains.</p>
   </sec>
   <sec id="geospatial-and-terrain-analysis">
     <title>2.3 Geospatial and terrain analysis</title>
-    <p>All geostatistics were performed with ArcGIS Pro (v 3.3.0 Esri,
-    2024). Semivariograms were used to quantify spatial correlation for
-    each of the 15 soil properties. The optimization tool, based on
-    minimizing the mean square error, was used to parameterize the
-    semivariogram model. In all cases the Stable model type was used as
-    it offers greater flexibility in fitting the spatial correlation
-    structure. The semivariograms were visually inspected to ensure the
-    automated fits were reasonable. Kriging was used to interpolate and
-    generate maps of each soil property. The exploratory interpolation
-    tool (Geostatistical Analyst extension) was used to select the
-    kriging type with the highest ranked prediction accuracy.
-    Cross-validation was used assess the performance of the spatial
-    interpolation and the measured and predicted values were plotted and
-    the r<sup>2</sup> was reported.</p>
+    <p>All geostatistics were performed with ArcGIS Pro (v 3.3.0
+    <xref alt="Esri, 2024" rid="ref-esri2024" ref-type="bibr">Esri,
+    2024</xref>). Semivariograms were used to quantify spatial
+    correlation for each of the 15 soil properties. The optimization
+    tool, based on minimizing the mean square error, was used to
+    parameterize the semivariogram model. In all cases the Stable model
+    type was used as it offers greater flexibility in fitting the
+    spatial correlation structure. The semivariograms were visually
+    inspected to ensure the automated fits were reasonable. Kriging was
+    used to interpolate and generate maps of each soil property. The
+    exploratory interpolation tool (Geostatistical Analyst extension)
+    was used to select the kriging type with the highest ranked
+    prediction accuracy. Cross-validation was used assess the
+    performance of the spatial interpolation and the measured and
+    predicted values were plotted and the r<sup>2</sup> was
+    reported.</p>
     <p>The forested digital elevation model (DEM) was derived from
     Natural Resources Canada’s High-Resolution DEM Mosaic (HRDEM)
-    (Natural Resources Canada, 2024), while the agricultural DEM was
-    generated using UAV photogrammetry processed in Agisoft Metashape
-    (v1.8.2 Agisoft, 2021) with ground control points. Both DEMs were
-    interpolated to 1 m resolution grids using ordinary kriging. Terrain
-    attributes including elevation, plan and profile curvature, SAGA
-    wetness index, catchment area, relative slope position, and vertical
-    distance to channel network were computed in SAGA GIS (SAGA v2.1.4
-    Conrad et al., 2015)
+    (<xref alt="Canada, 2024" rid="ref-naturalresourcescanada2024" ref-type="bibr">Canada,
+    2024</xref>), while the agricultural DEM was generated using UAV
+    photogrammetry processed in Agisoft Metashape (v1.8.2
+    <xref alt="Agisoft, 2021" rid="ref-agisoft2021" ref-type="bibr">Agisoft,
+    2021</xref>) with ground control points. Both DEMs were interpolated
+    to 1 m resolution grids using ordinary kriging. Terrain attributes
+    including elevation, plan and profile curvature, SAGA wetness index,
+    catchment area, relative slope position, and vertical distance to
+    channel network were computed in SAGA GIS (v2.1.4
+    <xref alt="Conrad et al., 2015" rid="ref-conrad2015" ref-type="bibr">Conrad
+    et al., 2015</xref>)
     (<xref alt="Table S2" rid="supptab-terrain">Table S2</xref>). The
     native resolution between the HRDEM and UAV-derived DEM differ,
     which may affect curvature metrics. All rasters were resampled to 10
-    m resolution (terra v1.8.29 Hijmans, 2024) prior to statistical
-    analysis to harmonize spatial support.</p>
+    m resolution (<monospace>terra</monospace>
+    v<monospace>r packageVersion(&quot;terra&quot;)</monospace>
+    <xref alt="Hijmans, 2024" rid="ref-hijmans2024" ref-type="bibr">Hijmans,
+    2024</xref>) prior to statistical analysis to harmonize spatial
+    support.</p>
   </sec>
   <sec id="data-analysis">
     <title>2.4 Data analysis</title>
     <p>All subsequent statistical analysis was undertaken using R
-    statistical Software v4.4.0 (R Core Team, 2024) through RStudio
-    Integrated Development Environment v2024.04.2 (RStudio, 2024). Plots
-    and maps were created using the R package ggplot2 v 3.5.2 (Wickham,
-    2016). Univariate summaries included CV classes (low &lt;15%,
+    statistical Software v4.5.3
+    (<xref alt="Team, 2026" rid="ref-rcoreteam2026" ref-type="bibr">Team,
+    2026</xref>) through RStudio Integrated Development Environment
+    v2026.04.0
+    (<xref alt="RStudio, 2026" rid="ref-rstudio2026" ref-type="bibr">RStudio,
+    2026</xref>)). Plots and maps were created using the R package
+    <monospace>ggplot2</monospace> v3.5.2
+    (<xref alt="Wickham, 2016" rid="ref-wickham2016" ref-type="bibr">Wickham,
+    2016</xref>). Univariate summaries included CV classes (low &lt;15%,
     moderate 15–35%, high 35–75%, very high &gt;75%) and skewness
     categories (symmetric: −0.5 to 0.5; moderate: −1.0 to −0.5 or 0.5 to
     1.0; high: &lt;−1.0 or &gt;1.0).</p>
-    <p>Random forest regression (RF) (randomForest v4.7.1.2 Liaw and
-    Wiener, 2002) was used to assess the relative importance of the
-    terrain attributes on the spatial distribution of soil properties.
-    The dataset was randomly split into training (70%) and testing (30%)
-    datasets. Multicollinearity among the terrain attributed was
-    assessed using the Variance Inflation Factor with a threshold of
-    eight (usdm v2.1.7 Naimi et al., 2014). The number of variables
-    randomly sampled as candidates (mtry) at each split within the RF
-    model was tuned using the training data set (caret v7.0.1 Kuhn and
-    Max, 2008). The number of trees to grow was set to 500 to ensure the
-    error has stabilized and that additional trees provide diminishing
-    returns. Model performance was assessed using the Mean Square Error
-    (MSE) and percent variance explained for both the training (Out of
-    Bag Error) and the validation data sets. To test the model, measured
-    and predicted values were plotted and the r<sup>2</sup> and MSE were
-    calculated using the testing data set. Variable importance is
-    reported as percent increase in MSE.</p>
+    <p>Random forest regression (RF)
+    (<monospace>randomForest</monospace> v4.7.1.2
+    <xref alt="Liaw and Wiener, 2002" rid="ref-liaw2002" ref-type="bibr">Liaw
+    and Wiener, 2002</xref>) was used to assess the relative importance
+    of the terrain attributes on the spatial distribution of soil
+    properties. The dataset was randomly split into training (70%) and
+    testing (30%) datasets. Multicollinearity among the terrain
+    attributed was assessed using the Variance Inflation Factor with a
+    threshold of eight (<monospace>usdm</monospace> v2.1.7
+    <xref alt="Naimi et al., 2014" rid="ref-Naimi2014" ref-type="bibr">Naimi
+    et al., 2014</xref>). The number of variables randomly sampled as
+    candidates (mtry) at each split within the RF model was tuned using
+    the training data set (<monospace>caret</monospace> v7.0.1
+    <xref alt="Kuhn and Max, 2008" rid="ref-kuhn2008" ref-type="bibr">Kuhn
+    and Max, 2008</xref>). The number of trees to grow was set to 500 to
+    ensure the error has stabilized and that additional trees provide
+    diminishing returns. Model performance was assessed using the Mean
+    Square Error (MSE) and percent variance explained for both the
+    training (Out of Bag Error) and the validation data sets. To test
+    the model, measured and predicted values were plotted and the
+    r<sup>2</sup> and MSE were calculated using the testing data set.
+    Variable importance is reported as percent increase in MSE.</p>
   </sec>
 </sec>
 <sec id="results">
@@ -483,8 +555,8 @@ forested terrains.</p>
     <fig id="tbl-univariate-summary">
       <caption><p>Table 1: Summary univariate statistics of selected
       geochemical and colour soil properties for each site (n = 49).
-      Geochemical concentrations are reported in ppm, excecpt Ca and
-      Fe(%).</p></caption>
+      Geochemical concentrations are reported in ppm, excecpt Ca and Fe
+      (%).</p></caption>
       <table-wrap>
         <table>
           <thead>
@@ -960,11 +1032,13 @@ forested terrains.</p>
     corner towards the lowest points in the north-east
     (<xref alt="Figure 2" rid="fig-ag_map">Figure 2</xref>). Other
     properties appear to have more localized high and low
-    concentrations/values (e.g., c<italic>, h). Within the forested site
-    nine properties showed spatial dependence (moderate to strong) with
-    ranges 176–298 m; Fe, Rb and colour a</italic>, b<italic>,
-    c</italic>, x lacked detectable autocorrelation, consistent with
-    more complex depositional/topographic features found at this site
+    concentrations/values (e.g., <italic>c*</italic>,
+    <italic>h*</italic>). Within the forested site nine properties
+    showed spatial dependence (moderate to strong) with ranges 176–298
+    m; Fe, Rb and colour <italic>a*</italic>, <italic>b*</italic>,
+    <italic>c*</italic>, <italic>x</italic> lacked detectable
+    autocorrelation, consistent with more complex
+    depositional/topographic features found at this site
     (<xref alt="Table 3" rid="tbl-geocol-semivariogram">Table 3</xref>).
     This complexity also resulted in poorer spatial interpolation
     performance compared to the agricultural site. The nugget (Co) was
@@ -1822,62 +1896,79 @@ forested terrains.</p>
   <sec id="variability-of-soil-properties">
     <title>4.1 Variability of soil properties</title>
     <p>Variability in soil geochemical properties has been studied at a
-    range of scales including continental (Drew et al., 2010), regional
-    (Rattenbury et al., 2018), watershed (Nanos and Rodríguez Martín,
-    2012), hillslope/catena, and farm field (Sun et al., 2021b). The
-    objectives of these studies included addressing issues of
-    pollution/contamination, providing benchmark/baseline information,
-    investigating pedological and weathering properties and processes,
-    and soil surveying and mapping (Wilson et al., 2008). Variability in
-    soil colour, typically using the Munsell colour system, is a
-    commonly reported diagnostic feature used in soil classification and
-    ranges in spatial scales from reconnaissance to detailed soil
-    surveys and maps. For sediment fingerprinting studies, these types
-    of studies are often too site-specific or focus on a smaller subset
-    of soil properties to effectively guide sample design to ensure the
-    desired confidence is met characterizing sources of sediment. Data
-    distributions in soil science commonly exhibit a positively skewed
-    distribution. This is likely due to several factors including that
-    data of this nature are a semi-bounded distribution, with a lower
-    bound of zero and no upper bound. Hot spots of soil processes, local
-    variations in soil forming factors, and soil/land management
-    practices can also lead to more extreme values (e.g., Vidon et al.,
-    2010). In many cases the cumulative effects of these processes,
-    factors, and practices are multiplicative (i.e., interact) and not
-    linearly additive, resulting in a skewed data distribution. Lastly,
-    the distribution of data will also be a product of the scale of
-    observation, number of samples, and sampling design. Soil colour
-    properties exhibited a near-normal distribution with a low CV which
-    is consistent with claims that soil hue and value (Munsell colour
-    system) have a low CV (Pennock et al., 2008). These data
-    distribution properties are ideal for statistical and environmental
-    modeling as it typically meets the model assumptions with out
-    requiring transformations. Soil colour coefficients (*a**, *b**,
-    *c**, *h**, x) showed near-normal distributions and low CVs
-    (Table 1), supporting their suitability for mixing models that
-    assume normality and require low within-source variability.</p>
+    range of scales including continental
+    (<xref alt="Drew et al., 2010" rid="ref-drew2010" ref-type="bibr">Drew
+    et al., 2010</xref>), regional
+    (<xref alt="Rattenbury et al., 2018" rid="ref-rattenbury2018" ref-type="bibr">Rattenbury
+    et al., 2018</xref>), watershed
+    (<xref alt="Nanos and Rodríguez Martín, 2012" rid="ref-nanos2012" ref-type="bibr">Nanos
+    and Rodríguez Martín, 2012</xref>), hillslope/catena, and farm field
+    (<xref alt="Sun et al., 2021b" rid="ref-sun2021a" ref-type="bibr">Sun
+    et al., 2021b</xref>). The objectives of these studies included
+    addressing issues of pollution/contamination, providing
+    benchmark/baseline information, investigating pedological and
+    weathering properties and processes, and soil surveying and mapping
+    (<xref alt="Wilson et al., 2008" rid="ref-wilson2008" ref-type="bibr">Wilson
+    et al., 2008</xref>). Variability in soil colour, typically using
+    the Munsell colour system, is a commonly reported diagnostic feature
+    used in soil classification and ranges in spatial scales from
+    reconnaissance to detailed soil surveys and maps. For sediment
+    fingerprinting studies, these types of studies are often too
+    site-specific or focus on a smaller subset of soil properties to
+    effectively guide sample design to ensure the desired confidence is
+    met characterizing sources of sediment. Data distributions in soil
+    science commonly exhibit a positively skewed distribution. This is
+    likely due to several factors including that data of this nature are
+    a semi-bounded distribution, with a lower bound of zero and no upper
+    bound. Hot spots of soil processes, local variations in soil forming
+    factors, and soil/land management practices can also lead to more
+    extreme values (e.g.,
+    <xref alt="Vidon et al., 2010" rid="ref-vidon2010" ref-type="bibr">Vidon
+    et al., 2010</xref>). In many cases the cumulative effects of these
+    processes, factors, and practices are multiplicative (i.e.,
+    interact) and not linearly additive, resulting in a skewed data
+    distribution. Lastly, the distribution of data will also be a
+    product of the scale of observation, number of samples, and sampling
+    design. Soil colour properties exhibited a near-normal distribution
+    with a low CV which is consistent with claims that soil hue and
+    value (Munsell colour system) have a low CV
+    (<xref alt="Pennock et al., 2008" rid="ref-pennock2008" ref-type="bibr">Pennock
+    et al., 2008</xref>). These data distribution properties are ideal
+    for statistical and environmental modeling as it typically meets the
+    model assumptions with out requiring transformations. Soil colour
+    coefficients (<italic>a*</italic>, <italic>b*</italic>,
+    <italic>c*</italic>, <italic>h*</italic>, <italic>x</italic>) showed
+    near-normal distributions and low CVs
+    (<xref alt="Table 1" rid="tbl-univariate-summary">Table 1</xref>),
+    supporting their suitability for mixing models that assume normality
+    and require low within-source variability.</p>
     <p>The geochemical properties exhibited greater variability and
     skewness despite removing coarse fraction, reflecting site-specific
     pedogenic and geomorphic processes and organic matter differences.
     Trace elements correlate strongly with fine material (&lt;2 μm) due
-    to its high surface area and reactivity (Horowitz, 1991). Removing
-    sand-sized material reduced grain-size effects, likely resulting in
-    lower variability than in bulk soil studies (&lt;2 mm). In
-    particular, the forest site exhibited a greater amount of
-    variability which is likely due to the more complex topography and
-    geomorphic setting. The floodplain within the forested site is
-    likely accumulating shale-rich material derived from the Manitoba
-    Escarpment which is enriched in trace metals (Nicolas and Bamburak,
-    2011). This creates a zone of high concentrations relative to upland
-    areas (<xref alt="Figure 3" rid="fig-forest_map">Figure 3</xref>).
-    The forested site also had a higher and much more variable soil
-    organic matter content (x̄ = 8.5 %, CV = 51.9 %) as compared to the
+    to its high surface area and reactivity
+    (<xref alt="Horowitz, 1991" rid="ref-horowitz1991" ref-type="bibr">Horowitz,
+    1991</xref>). Removing sand-sized material reduced grain-size
+    effects, likely resulting in lower variability than in bulk soil
+    studies (&lt;2 mm). In particular, the forest site exhibited a
+    greater amount of variability which is likely due to the more
+    complex topography and geomorphic setting. The floodplain within the
+    forested site is likely accumulating shale-rich material derived
+    from the Manitoba Escarpment which is enriched in trace metals
+    (<xref alt="Nicolas and Bamburak, 2011" rid="ref-nicolas2011" ref-type="bibr">Nicolas
+    and Bamburak, 2011</xref>). This creates a zone of high
+    concentrations relative to upland areas
+    (<xref alt="Figure 3" rid="fig-forest_map">Figure 3</xref>). The
+    forested site also had a higher and much more variable soil organic
+    matter content (x̄ = 8.5 %, CV = 51.9 %) as compared to the
     agricultural site (x̄ = 11.6 %, CV = 16.1 %), which similarly to the
     grain size distribution, can influence the concentration of many
-    major and trace elements (Horowitz, 1991). These results provide
-    evidence that land use and landscape complexity play a role in
-    driving soil property variability that can be considered when
-    developing a strategic sampling design.</p>
+    major and trace elements
+    (<xref alt="Horowitz, 1991" rid="ref-horowitz1991" ref-type="bibr">Horowitz,
+    1991</xref>). These results provide evidence that land use and
+    landscape complexity play a role in driving soil property
+    variability that can be considered when developing a strategic
+    sampling design.</p>
   </sec>
   <sec id="spatial-distribution">
     <title>4.2 Spatial distribution</title>
@@ -1895,37 +1986,42 @@ forested terrains.</p>
     in fingerprinting studies, it is recommended that sampling include
     irregularly spaced points (including &lt;100 m) to better resolve
     short-range structure. This is important for improving variogram
-    modeling and kriging interpolation (Lark and Marchant, 2018).
-    Properties lacking spatial autocorrelation at the forest site (Fe,
-    Rb, <italic>a*, b*</italic>, c*, x) likely reflect mixed
-    depositional environments and fine-scale heterogeneity that exceed
-    the sampling resolution; acknowledging their behavior is critical
-    when selecting fingerprints.</p>
+    modeling and kriging interpolation
+    (<xref alt="Lark and Marchant, 2018" rid="ref-lark2018" ref-type="bibr">Lark
+    and Marchant, 2018</xref>). Properties lacking spatial
+    autocorrelation at the forest site (Fe, Rb, <italic>a*</italic>,
+    <italic>b*</italic>, <italic>c*</italic>, <italic>x</italic>) likely
+    reflect mixed depositional environments and fine-scale heterogeneity
+    that exceed the sampling resolution; acknowledging their behavior is
+    critical when selecting fingerprints.</p>
     <p>Mapping the soil properties that have a moderate to high spatial
     dependence can provide information on underlying soil forming
     processes and properties. At both sites, to some extent, the
     patterns appear to reflect the topography of the sites suggesting
     that geomorphic and hydrologic processes and properties are likely
-    driving the observed patterns. Koiter et al. (2013) discussed the
-    issues surrounding the use of a statistical only approach to
-    selecting fingerprints and that consideration of how fingerprints
-    have developed improves the robustness of the sediment
+    driving the observed patterns. Koiter et al.
+    (<xref alt="2013" rid="ref-koiter2013" ref-type="bibr">2013</xref>)
+    discussed the issues surrounding the use of a statistical only
+    approach to selecting fingerprints and that consideration of how
+    fingerprints have developed improves the robustness of the sediment
     fingerprinting approach. However, local information on the spatial
     distribution of geochemical and colour properties at field scales
     (&lt; 1 km²) is often unavailable, and the processes driving these
     patterns are also not well documented or studied. When such
     information does exist, it typically focuses on agronomically
-    important properties (e.g., Mzuku et al., 2005) or is used for soil
-    classification (e.g., Soil Classification Working Group, 1998).
-    These datasets usually include geochemical properties such as N, P,
-    K, S, Ca, Mg, Na, Fe, and Al. They may also include colour
-    characteristics, such as Munsell hue, value, and chroma, as well as
-    other soil properties like texture, organic matter content, and pH.
-    The lack of information on the wide range of soil properties used in
-    fingerprinting studies means the researchers are relying on other
-    data, most often elevation and geomorphic/topographic features, for
-    informing sampling designs. The results from this study support this
-    approach.</p>
+    important properties (e.g.,
+    <xref alt="Mzuku et al., 2005" rid="ref-mzuku2005" ref-type="bibr">Mzuku
+    et al., 2005</xref>) or is used for soil classification (e.g.,
+    <xref alt="Group, 1998" rid="ref-soilclassificationworkinggroup1998" ref-type="bibr">Group,
+    1998</xref>). These datasets usually include geochemical properties
+    such as N, P, K, S, Ca, Mg, Na, Fe, and Al. They may also include
+    colour characteristics, such as Munsell hue, value, and chroma, as
+    well as other soil properties like texture, organic matter content,
+    and pH. The lack of information on the wide range of soil properties
+    used in fingerprinting studies means the researchers are relying on
+    other data, most often elevation and geomorphic/topographic
+    features, for informing sampling designs. The results from this
+    study support this approach.</p>
   </sec>
   <sec id="terrain-attributes-and-soil-properties">
     <title>4.3 Terrain attributes and soil properties</title>
@@ -1940,75 +2036,97 @@ forested terrains.</p>
     transport, and organic matter accumulation in lower positions, and
     thereby indirectly influence soil geochemistry and colour. The
     results of this study are consistent with the findings of Mashalaba
-    et al. (2020) who also found that similar terrain attributes were
-    important in predicting a range of other soil properties including
-    texture, bulk density, and hydaulic conductivity. These attributes
-    likely emerged as the most important factor in explaining the
-    observed variability as they are strongly linked to a range of
-    geomorphic and hydrologic process and conditions (Libohova et al.,
-    2024; Mello et al., 2022). For example, in eroded landscapes in the
+    et al.
+    (<xref alt="2020" rid="ref-mashalaba2020" ref-type="bibr">2020</xref>)
+    who also found that similar terrain attributes were important in
+    predicting a range of other soil properties including texture, bulk
+    density, and hydaulic conductivity. These attributes likely emerged
+    as the most important factor in explaining the observed variability
+    as they are strongly linked to a range of geomorphic and hydrologic
+    process and conditions
+    (<xref alt="Libohova et al., 2024" rid="ref-libohova2024" ref-type="bibr">Libohova
+    et al., 2024</xref>;
+    <xref alt="Mello et al., 2022" rid="ref-mello2022" ref-type="bibr">Mello
+    et al., 2022</xref>). For example, in eroded landscapes in the
     Prairie region of Canada, Ca concentrations have been found to be
     higher in upper slope positions from erosion and subsequent exposure
-    of high-carbonate subsoil (Papiernik et al., 2005). In contrast,
-    higher Ca concentrations have been noted in lower slope and
-    depressional areas due to higher solubility of many Ca-minerals
-    (e.g., CaCO3) and the subsequent downslope transport in solution and
-    reduced leaching losses in these accumulation zones. Landscape
-    position can also have a strong influence on pedogenic process; for
-    example, the translocation of Fe and clay down the soil profile is a
-    diagnostic criteria used in classifying soils (Stonehouse and
-    St. Arnaud, 1971). Soil colour also tends to change in a predictable
-    manner in relation to local relief. Tillage and water erosion
-    results in the net loss of darker organic-rich topsoil from upper
-    slope positions resulting in the exposure of the lighter subsoil
-    (Papiernik et al., 2005). Moisture availability is also greater in
-    the lower slope and depressional areas resulting in increased
-    organic matter production resulting in darker organic-rich topsoil
-    as compared to the upper slope positions. There is also evidence
-    that suggests that soil texture varies with elevation and slope
-    position, with coarser material on upper slopes and finer material
-    accumulating in lower positions (Cox et al., 2003; Kokulan et al.,
-    2018). Given the strong correlation of organic matter and texture
-    with soil geochemistry (Horowitz, 1991) and colour (Viscarra Rossel
-    et al., 2009), these properties may also help explain the observed
-    spatial patterns . Compared to the forest site, the RF regression
-    model showed greater explanatory power and predictive performance
-    for the agricultural site, likely due to its simpler topography. In
-    these settings, terrain attributes can serve as an initial step in
-    developing efficient and effective sampling designs (Pham et
-    al. 2025). As high-quality LiDAR data and digital elevation models
-    (DEMs) become increasingly available in many regions, researchers
-    have the opportunity to integrate terrain attributes into their
-    sampling frameworks. This integration ensures adequate
-    representation of key geomorphic and topographic features. However,
-    at the forested site, the RF model showed poor fit, and terrain
-    variables were largely uninformative; this likely reflects the
-    increased geomorphic complexity of the site and the limitations of
-    sparse sampling. Additional work is needed to fully assess the
+    of high-carbonate subsoil
+    (<xref alt="Papiernik et al., 2005" rid="ref-papiernik2005" ref-type="bibr">Papiernik
+    et al., 2005</xref>). In contrast, higher Ca concentrations have
+    been noted in lower slope and depressional areas due to higher
+    solubility of many Ca-minerals (e.g., CaCO3) and the subsequent
+    downslope transport in solution and reduced leaching losses in these
+    accumulation zones. Landscape position can also have a strong
+    influence on pedogenic process; for example, the translocation of Fe
+    and clay down the soil profile is a diagnostic criteria used in
+    classifying soils
+    (<xref alt="Stonehouse and St. Arnaud, 1971" rid="ref-stonehouse1971" ref-type="bibr">Stonehouse
+    and St. Arnaud, 1971</xref>). Soil colour also tends to change in a
+    predictable manner in relation to local relief. Tillage and water
+    erosion results in the net loss of darker organic-rich topsoil from
+    upper slope positions resulting in the exposure of the lighter
+    subsoil
+    (<xref alt="Papiernik et al., 2005" rid="ref-papiernik2005" ref-type="bibr">Papiernik
+    et al., 2005</xref>). Moisture availability is also greater in the
+    lower slope and depressional areas resulting in increased organic
+    matter production resulting in darker organic-rich topsoil as
+    compared to the upper slope positions. There is also evidence that
+    suggests that soil texture varies with elevation and slope position,
+    with coarser material on upper slopes and finer material
+    accumulating in lower positions
+    (<xref alt="Cox et al., 2003" rid="ref-cox2003" ref-type="bibr">Cox
+    et al., 2003</xref>;
+    <xref alt="Kokulan et al., 2018" rid="ref-kokulan2018" ref-type="bibr">Kokulan
+    et al., 2018</xref>). Given the strong correlation of organic matter
+    and texture with soil geochemistry
+    (<xref alt="Horowitz, 1991" rid="ref-horowitz1991" ref-type="bibr">Horowitz,
+    1991</xref>) and colour
+    (<xref alt="Viscarra Rossel et al., 2009" rid="ref-viscarrarossel2009" ref-type="bibr">Viscarra
+    Rossel et al., 2009</xref>), these properties may also help explain
+    the observed spatial patterns . Compared to the forest site, the RF
+    regression model showed greater explanatory power and predictive
+    performance for the agricultural site, likely due to its simpler
+    topography. In these settings, terrain attributes can serve as an
+    initial step in developing efficient and effective sampling designs
+    (<xref alt="Pham et al., 2025" rid="ref-pham2025" ref-type="bibr">Pham
+    et al., 2025</xref>). As high-quality LiDAR data and digital
+    elevation models (DEMs) become increasingly available in many
+    regions, researchers have the opportunity to integrate terrain
+    attributes into their sampling frameworks. This integration ensures
+    adequate representation of key geomorphic and topographic features.
+    However, at the forested site, the RF model showed poor fit, and
+    terrain variables were largely uninformative; this likely reflects
+    the increased geomorphic complexity of the site and the limitations
+    of sparse sampling. Additional work is needed to fully assess the
     utility of terrain mapping in predicting and mapping fingerprint
     properties, particularly in complex terrains.</p>
   </sec>
   <sec id="limitations-and-future-work">
     <title>4.4 Limitations and Future Work</title>
     <p>The impact of sampling design the characterization of
-    fingerprints can be substantial (Luna Miño et al., 2024), which in
-    turn can affect the apportionment results, and the conclusion and
-    recommendations drawn from them. However, due to the high cost of
-    sample collection, preparation, and analysis, small sample sizes
-    collected across a single season are commonplace and a source of
-    uncertainty in sediment fingerprinting studies (Evrard et al. 2022).
-    Therefore, the development of low-cost, easy, and accurate mapping
-    of fingerprinting properties would be advantageous. Terrain
-    attributes have been successfully used in digital soil mapping
-    exercises, demonstrating their value in spatially characterizing
-    soil properties (Rizzo et al. 2016). Building on this success,
-    integrating terrain analysis into sediment source fingerprinting is
-    promising, not only as a mechanism to improve the quality of source
-    characterization, but to also better link source material to
-    downstream sediment. However, the inclusion of only two sites within
-    in this study limits the generalizability of the findings to
-    geomorphic settings with similar characteristics, highlighting the
-    need for future research across a broader range of environments.</p>
+    fingerprints can be substantial
+    (<xref alt="Luna Miño et al., 2024" rid="ref-lunamiño2024" ref-type="bibr">Luna
+    Miño et al., 2024</xref>), which in turn can affect the
+    apportionment results, and the conclusion and recommendations drawn
+    from them. However, due to the high cost of sample collection,
+    preparation, and analysis, small sample sizes collected across a
+    single season are commonplace and a source of uncertainty in
+    sediment fingerprinting studies
+    (<xref alt="Evrard et al., 2022" rid="ref-evrard2022" ref-type="bibr">Evrard
+    et al., 2022</xref>). Therefore, the development of low-cost, easy,
+    and accurate mapping of fingerprinting properties would be
+    advantageous. Terrain attributes have been successfully used in
+    digital soil mapping exercises, demonstrating their value in
+    spatially characterizing soil properties
+    (<xref alt="Rizzo et al., 2016" rid="ref-rizzo2016" ref-type="bibr">Rizzo
+    et al., 2016</xref>). Building on this success, integrating terrain
+    analysis into sediment source fingerprinting is promising, not only
+    as a mechanism to improve the quality of source characterization,
+    but to also better link source material to downstream sediment.
+    However, the inclusion of only two sites within in this study limits
+    the generalizability of the findings to geomorphic settings with
+    similar characteristics, highlighting the need for future research
+    across a broader range of environments.</p>
     <p>The relatively small sample size (n=49 per site) in this study
     compromises the stability of the RF-derived importance metrics.
     Similarly, the 100 m sample spacing likely misses fine-scale
@@ -2019,7 +2137,9 @@ forested terrains.</p>
     stability of soil properties over time. While sediment
     fingerprinting assumes consistent source signatures over time, few
     studies validate this due to the challenges associated with repeated
-    sample collection (Evrard et al. 2022).</p>
+    sample collection
+    (<xref alt="Evrard et al., 2022" rid="ref-evrard2022" ref-type="bibr">Evrard
+    et al., 2022</xref>).</p>
     <p>The continued integration of DEM-based sampling strategies and
     fingerprint mapping into sediment source fingerprinting approach
     will benefit from the development of a standardized framework,
@@ -2134,11 +2254,6 @@ forested terrains.</p>
     al. (2018)</p></caption>
     <table-wrap>
       <table>
-        <colgroup>
-          <col width="27%" />
-          <col width="55%" />
-          <col width="17%" />
-        </colgroup>
         <thead>
           <tr>
             <th><bold>Colour space model</bold></th>
@@ -2311,6 +2426,1068 @@ forested terrains.</p>
       <uri>http://www.tandfonline.com/doi/abs/10.1080/00103620902832089</uri>
       <fpage>16741687</fpage>
       <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-starr1995">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Starr</surname><given-names>J. L.</given-names></name>
+        <name><surname>Meisinger</surname><given-names>J. J.</given-names></name>
+        <name><surname>Parkin</surname><given-names>T. B.</given-names></name>
+      </person-group>
+      <article-title>Influence of sample size on chemical and physical soil measurements</article-title>
+      <source>Soil Science Society of America Journal</source>
+      <year iso-8601-date="1995">1995</year>
+      <volume>59</volume>
+      <issue>3</issue>
+      <uri>https://onlinelibrary.wiley.com/doi/abs/10.2136/sssaj1995.03615995005900030012x</uri>
+      <pub-id pub-id-type="doi">10.2136/sssaj1995.03615995005900030012x</pub-id>
+      <fpage>713</fpage>
+      <lpage>719</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-du2017">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Du</surname><given-names>Pengfei</given-names></name>
+        <name><surname>Walling</surname><given-names>Des E.</given-names></name>
+      </person-group>
+      <article-title>Fingerprinting surficial sediment sources: Exploring some potential problems associated with the spatial variability of source material properties</article-title>
+      <source>Journal of Environmental Management</source>
+      <year iso-8601-date="2017">2017</year>
+      <volume>194</volume>
+      <issue>1</issue>
+      <uri>http://www.sciencedirect.com/science/article/pii/S0301479716303218</uri>
+      <pub-id pub-id-type="doi">https://doi.org/10.1016/j.jenvman.2016.05.066</pub-id>
+      <fpage>4</fpage>
+      <lpage>15</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-lunamiño2024">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Luna Miño</surname><given-names>Maria Alejandra</given-names></name>
+        <name><surname>Koiter</surname><given-names>Alexander J.</given-names></name>
+        <name><surname>Lobb</surname><given-names>David A.</given-names></name>
+      </person-group>
+      <article-title>Effect of sampling design on characterizing surface soil fingerprinting properties</article-title>
+      <source>Journal of Soils and Sediments</source>
+      <year iso-8601-date="2024-05-01">2024</year><month>05</month><day>01</day>
+      <volume>24</volume>
+      <issue>5</issue>
+      <uri>https://doi.org/10.1007/s11368-024-03805-x</uri>
+      <pub-id pub-id-type="doi">10.1007/s11368-024-03805-x</pub-id>
+      <fpage>2180</fpage>
+      <lpage>2198</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-wilkinson2015">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Wilkinson</surname><given-names>Scott N.</given-names></name>
+        <name><surname>Olley</surname><given-names>Jon M.</given-names></name>
+        <name><surname>Furuichi</surname><given-names>Takahisa</given-names></name>
+        <name><surname>Burton</surname><given-names>Joanne</given-names></name>
+        <name><surname>Kinsey-Henderson</surname><given-names>Anne E.</given-names></name>
+      </person-group>
+      <article-title>Sediment source tracing with stratified sampling and weightings based on spatial gradients in soil erosion</article-title>
+      <source>Journal of Soils and Sediments</source>
+      <year iso-8601-date="2015-04-24">2015</year><month>04</month><day>24</day>
+      <volume>15</volume>
+      <issue>10</issue>
+      <uri>http://proxy.library.unbc.ca:2118/article/10.1007/s11368-015-1134-2</uri>
+      <pub-id pub-id-type="doi">10.1007/s11368-015-1134-2</pub-id>
+      <fpage>2038</fpage>
+      <lpage>2051</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-collins2019">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Collins</surname><given-names>Adrian L.</given-names></name>
+        <name><surname>Burak</surname><given-names>Emma</given-names></name>
+        <name><surname>Harris</surname><given-names>Paul</given-names></name>
+        <name><surname>Pulley</surname><given-names>Simon</given-names></name>
+        <name><surname>Cardenas</surname><given-names>Laura</given-names></name>
+        <name><surname>Tang</surname><given-names>Qiang</given-names></name>
+      </person-group>
+      <article-title>Field scale temporal and spatial variability of δ13C, δ15N, TC and TN soil properties: Implications for sediment source tracing</article-title>
+      <source>Geoderma</source>
+      <year iso-8601-date="2019-01-01">2019</year><month>01</month><day>01</day>
+      <volume>333</volume>
+      <uri>https://www.sciencedirect.com/science/article/pii/S0016706118303185</uri>
+      <pub-id pub-id-type="doi">10.1016/j.geoderma.2018.07.019</pub-id>
+      <fpage>108</fpage>
+      <lpage>122</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-collins2020">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Collins</surname><given-names>Adrian L.</given-names></name>
+        <name><surname>Blackwell</surname><given-names>Martin</given-names></name>
+        <name><surname>Boeckx</surname><given-names>Pascal</given-names></name>
+        <name><surname>Chivers</surname><given-names>Charlotte-Anne</given-names></name>
+        <name><surname>Emelko</surname><given-names>Monica</given-names></name>
+        <name><surname>Evrard</surname><given-names>Olivier</given-names></name>
+        <name><surname>Foster</surname><given-names>Ian</given-names></name>
+        <name><surname>Gellis</surname><given-names>Allen</given-names></name>
+        <name><surname>Gholami</surname><given-names>Hamid</given-names></name>
+        <name><surname>Granger</surname><given-names>Steve</given-names></name>
+        <name><surname>Harris</surname><given-names>Paul</given-names></name>
+        <name><surname>Horowitz</surname><given-names>Arthur J.</given-names></name>
+        <name><surname>Laceby</surname><given-names>J. Patrick</given-names></name>
+        <name><surname>Martinez-Carreras</surname><given-names>Nuria</given-names></name>
+        <name><surname>Minella</surname><given-names>Jean</given-names></name>
+        <name><surname>Mol</surname><given-names>Lisa</given-names></name>
+        <name><surname>Nosrati</surname><given-names>Kazem</given-names></name>
+        <name><surname>Pulley</surname><given-names>Simon</given-names></name>
+        <name><surname>Silins</surname><given-names>Uldis</given-names></name>
+        <name><surname>Silva</surname><given-names>Yuri Jacques da</given-names></name>
+        <name><surname>Stone</surname><given-names>Micheal</given-names></name>
+        <name><surname>Tiecher</surname><given-names>Tales</given-names></name>
+        <name><surname>Upadhayay</surname><given-names>Hari Ram</given-names></name>
+        <name><surname>Zhang</surname><given-names>Yusheng</given-names></name>
+      </person-group>
+      <article-title>Sediment source fingerprinting: Benchmarking recent outputs, remaining challenges and emerging themes</article-title>
+      <source>Journal of Soils and Sediments</source>
+      <year iso-8601-date="2020-12-01">2020</year><month>12</month><day>01</day>
+      <volume>20</volume>
+      <issue>12</issue>
+      <uri>https://doi.org/10.1007/s11368-020-02755-4</uri>
+      <pub-id pub-id-type="doi">10.1007/s11368-020-02755-4</pub-id>
+      <fpage>4160</fpage>
+      <lpage>4193</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-pulley2018">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Pulley</surname><given-names>S.</given-names></name>
+        <name><surname>Collins</surname><given-names>A. L.</given-names></name>
+        <name><surname>Van der Waal</surname><given-names>B.</given-names></name>
+      </person-group>
+      <article-title>Variability in the mineral magnetic properties of soils and sediments within a single field in the cape fold mountains, south africa: Implications for sediment source tracing</article-title>
+      <source>CATENA</source>
+      <year iso-8601-date="2018-04-01">2018</year><month>04</month><day>01</day>
+      <volume>163</volume>
+      <uri>https://www.sciencedirect.com/science/article/pii/S0341816217304216</uri>
+      <pub-id pub-id-type="doi">10.1016/j.catena.2017.12.019</pub-id>
+      <fpage>172</fpage>
+      <lpage>183</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-haddadchi2019">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Haddadchi</surname><given-names>Arman</given-names></name>
+        <name><surname>Hicks</surname><given-names>Murray</given-names></name>
+        <name><surname>Olley</surname><given-names>Jon M.</given-names></name>
+        <name><surname>Singh</surname><given-names>Shailesh</given-names></name>
+        <name><surname>Srinivasan</surname><given-names>M.s.</given-names></name>
+      </person-group>
+      <article-title>Grid-based sediment tracing approach to determine sediment sources</article-title>
+      <source>Land Degradation and Development</source>
+      <year iso-8601-date="2019">2019</year>
+      <volume>30</volume>
+      <issue>17</issue>
+      <uri>https://onlinelibrary.wiley.com/doi/abs/10.1002/ldr.3407</uri>
+      <pub-id pub-id-type="doi">10.1002/ldr.3407</pub-id>
+      <fpage>2088</fpage>
+      <lpage>2106</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-lima2023">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Lima</surname><given-names>Francielle R. D.</given-names></name>
+        <name><surname>Pereira</surname><given-names>Polyana</given-names></name>
+        <name><surname>Vasques</surname><given-names>Isabela C. F.</given-names></name>
+        <name><surname>Silva Junior</surname><given-names>Ediu C.</given-names></name>
+        <name><surname>Mancini</surname><given-names>Marcelo</given-names></name>
+        <name><surname>Oliveira</surname><given-names>Jakeline R.</given-names></name>
+        <name><surname>Prianti</surname><given-names>Marcelo T. A.</given-names></name>
+        <name><surname>Windmöller</surname><given-names>Cláudia C.</given-names></name>
+        <name><surname>Weindorf</surname><given-names>David C.</given-names></name>
+        <name><surname>Curi</surname><given-names>Nilton</given-names></name>
+        <name><surname>Ribeiro</surname><given-names>Bruno T.</given-names></name>
+        <name><surname>Richardson</surname><given-names>Jacob</given-names></name>
+        <name><surname>Marques</surname><given-names>João José</given-names></name>
+        <name><surname>Guilherme</surname><given-names>Luiz Roberto G.</given-names></name>
+      </person-group>
+      <article-title>Predictive modeling of total hg background concentration in soils of the amazon rainforest biome with support of proximal sensors and auxiliary variables</article-title>
+      <source>Journal of South American Earth Sciences</source>
+      <year iso-8601-date="2023-09-01">2023</year><month>09</month><day>01</day>
+      <volume>129</volume>
+      <uri>https://www.sciencedirect.com/science/article/pii/S0895981123003218</uri>
+      <pub-id pub-id-type="doi">10.1016/j.jsames.2023.104510</pub-id>
+      <fpage>104510</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-umali2012">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Umali</surname><given-names>Beng P.</given-names></name>
+        <name><surname>Oliver</surname><given-names>Danielle P.</given-names></name>
+        <name><surname>Forrester</surname><given-names>Sean</given-names></name>
+        <name><surname>Chittleborough</surname><given-names>David J.</given-names></name>
+        <name><surname>Hutson</surname><given-names>John L.</given-names></name>
+        <name><surname>Kookana</surname><given-names>Rai S.</given-names></name>
+        <name><surname>Ostendorf</surname><given-names>Bertram</given-names></name>
+      </person-group>
+      <article-title>The effect of terrain and management on the spatial variability of soil properties in an apple orchard</article-title>
+      <source>CATENA</source>
+      <year iso-8601-date="2012-06-01">2012</year><month>06</month><day>01</day>
+      <volume>93</volume>
+      <uri>https://www.sciencedirect.com/science/article/pii/S0341816212000136</uri>
+      <pub-id pub-id-type="doi">10.1016/j.catena.2012.01.010</pub-id>
+      <fpage>38</fpage>
+      <lpage>48</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-beaudette2013">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Beaudette</surname><given-names>Dylan E.</given-names></name>
+        <name><surname>Dahlgren</surname><given-names>Randy A.</given-names></name>
+        <name><surname>O’Geen</surname><given-names>Anthony T.</given-names></name>
+      </person-group>
+      <article-title>Terrain-shape indices for modeling soil moisture dynamics</article-title>
+      <source>Soil Science Society of America Journal</source>
+      <year iso-8601-date="2013">2013</year>
+      <volume>77</volume>
+      <issue>5</issue>
+      <uri>https://onlinelibrary.wiley.com/doi/abs/10.2136/sssaj2013.02.0048</uri>
+      <pub-id pub-id-type="doi">10.2136/sssaj2013.02.0048</pub-id>
+      <fpage>1696</fpage>
+      <lpage>1710</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-kokulan2018">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Kokulan</surname><given-names>Vivekananthan</given-names></name>
+        <name><surname>Akinremi</surname><given-names>Olalekan</given-names></name>
+        <name><surname>Moulin</surname><given-names>Alan Pierre</given-names></name>
+        <name><surname>Kumaragamage</surname><given-names>Darshani</given-names></name>
+      </person-group>
+      <article-title>Importance of terrain attributes in relation to the spatial distribution of soil properties at the micro scale: A case study</article-title>
+      <source>Canadian Journal of Soil Science</source>
+      <year iso-8601-date="2018-06">2018</year><month>06</month>
+      <volume>98</volume>
+      <issue>2</issue>
+      <uri>https://cdnsciencepub.com/doi/10.1139/cjss-2017-0128</uri>
+      <pub-id pub-id-type="doi">10.1139/cjss-2017-0128</pub-id>
+      <fpage>292</fpage>
+      <lpage>305</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-brown2004">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Brown</surname><given-names>David J.</given-names></name>
+        <name><surname>Clayton</surname><given-names>Murray K.</given-names></name>
+        <name><surname>McSweeney</surname><given-names>Kevin</given-names></name>
+      </person-group>
+      <article-title>Potential terrain controls on soil color, texture contrast and grain-size deposition for the original catena landscape in uganda</article-title>
+      <source>Geoderma</source>
+      <year iso-8601-date="2004-09-01">2004</year><month>09</month><day>01</day>
+      <volume>122</volume>
+      <issue>1</issue>
+      <uri>https://www.sciencedirect.com/science/article/pii/S0016706104000035</uri>
+      <pub-id pub-id-type="doi">10.1016/j.geoderma.2003.12.004</pub-id>
+      <fpage>51</fpage>
+      <lpage>72</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-zhang2012">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Zhang</surname><given-names>Shiwen</given-names></name>
+        <name><surname>Huang</surname><given-names>Yuanfang</given-names></name>
+        <name><surname>Shen</surname><given-names>Chongyang</given-names></name>
+        <name><surname>Ye</surname><given-names>Huichun</given-names></name>
+        <name><surname>Du</surname><given-names>Yichun</given-names></name>
+      </person-group>
+      <article-title>Spatial prediction of soil organic matter using terrain indices and categorical variables as auxiliary information</article-title>
+      <source>Geoderma</source>
+      <year iso-8601-date="2012-02-01">2012</year><month>02</month><day>01</day>
+      <volume>171-172</volume>
+      <uri>https://www.sciencedirect.com/science/article/pii/S001670611100214X</uri>
+      <pub-id pub-id-type="doi">10.1016/j.geoderma.2011.07.012</pub-id>
+      <fpage>35</fpage>
+      <lpage>43</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-ritchie1970">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Ritchie</surname><given-names>J. C.</given-names></name>
+        <name><surname>Clebsch</surname><given-names>E. E. C.</given-names></name>
+        <name><surname>Rudolph</surname><given-names>W. K.</given-names></name>
+      </person-group>
+      <article-title>Distribution of fallout and natural gamma radionuclides in litter, humus and surface mineral soil layers under natural vegetation in the great smoky mountains, north carolina-tennessee</article-title>
+      <source>Health Physics</source>
+      <year iso-8601-date="1970-05">1970</year><month>05</month>
+      <volume>18</volume>
+      <issue>5</issue>
+      <uri>https://journals.lww.com/health-physics/Abstract/1970/05000/Distribution_of_Fallout_and_Natural_Gamma.3.aspx</uri>
+      <fpage>479</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-vasu2017">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Vasu</surname><given-names>Duraisamy</given-names></name>
+        <name><surname>Singh</surname><given-names>S. K.</given-names></name>
+        <name><surname>Sahu</surname><given-names>Nisha</given-names></name>
+        <name><surname>Tiwary</surname><given-names>Pramod</given-names></name>
+        <name><surname>Chandran</surname><given-names>P.</given-names></name>
+        <name><surname>Duraisami</surname><given-names>V. P.</given-names></name>
+        <name><surname>Ramamurthy</surname><given-names>V.</given-names></name>
+        <name><surname>Lalitha</surname><given-names>M.</given-names></name>
+        <name><surname>Kalaiselvi</surname><given-names>B.</given-names></name>
+      </person-group>
+      <article-title>Assessment of spatial variability of soil properties using geospatial techniques for farm level nutrient management</article-title>
+      <source>Soil and Tillage Research</source>
+      <year iso-8601-date="2017-06-01">2017</year><month>06</month><day>01</day>
+      <volume>169</volume>
+      <uri>https://www.sciencedirect.com/science/article/pii/S0167198717300065</uri>
+      <pub-id pub-id-type="doi">10.1016/j.still.2017.01.006</pub-id>
+      <fpage>25</fpage>
+      <lpage>34</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-viscarrarossel2006">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Viscarra Rossel</surname><given-names>R. A.</given-names></name>
+        <name><surname>Minasny</surname><given-names>B.</given-names></name>
+        <name><surname>Roudier</surname><given-names>P.</given-names></name>
+        <name><surname>McBratney</surname><given-names>A. B.</given-names></name>
+      </person-group>
+      <article-title>Colour space models for soil science</article-title>
+      <source>Geoderma</source>
+      <year iso-8601-date="2006">2006</year>
+      <volume>133</volume>
+      <issue>3</issue>
+      <fpage>320337</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-sun2021">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Sun</surname><given-names>Yazhou</given-names></name>
+        <name><surname>Guo</surname><given-names>Wenxuan</given-names></name>
+        <name><surname>Weindorf</surname><given-names>David C.</given-names></name>
+        <name><surname>Sun</surname><given-names>Fujun</given-names></name>
+        <name><surname>Deb</surname><given-names>Sanjit</given-names></name>
+        <name><surname>Cao</surname><given-names>Guofeng</given-names></name>
+        <name><surname>Neupane</surname><given-names>Jasmine</given-names></name>
+        <name><surname>Lin</surname><given-names>Zhe</given-names></name>
+        <name><surname>Raihan</surname><given-names>Abir</given-names></name>
+      </person-group>
+      <article-title>Field-scale spatial variability of soil calcium in a semi-arid region: Implications for soil erosion and site-specific management</article-title>
+      <source>PEDOSPHERE</source>
+      <year iso-8601-date="2021-10">2021</year><month>10</month>
+      <volume>31</volume>
+      <issue>5</issue>
+      <uri>https://www.webofscience.com/wos/woscc/summary/a5c79ace-f964-4a0b-90b2-d726580a394c-fae59ae2/relevance/1</uri>
+      <pub-id pub-id-type="doi">10.1016/S1002-0160(21)60019-X</pub-id>
+      <fpage>705</fpage>
+      <lpage>714</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-koiter2013">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Koiter</surname><given-names>A. J.</given-names></name>
+        <name><surname>Owens</surname><given-names>P. N.</given-names></name>
+        <name><surname>Petticrew</surname><given-names>E. L.</given-names></name>
+        <name><surname>Lobb</surname><given-names>D. A.</given-names></name>
+      </person-group>
+      <article-title>The behavioural characteristics of sediment properties and their implications for sediment fingerprinting as an approach for identifying sediment sources in river basins</article-title>
+      <source>Earth-Science Reviews</source>
+      <year iso-8601-date="2013-10">2013</year><month>10</month>
+      <volume>125</volume>
+      <uri>http://www.sciencedirect.com/science/article/pii/S0012825213001074</uri>
+      <pub-id pub-id-type="doi">https://doi.org/10.1016/j.earscirev.2013.05.009</pub-id>
+      <fpage>24</fpage>
+      <lpage>42</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-collins1997">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Collins</surname><given-names>A. L.</given-names></name>
+        <name><surname>Walling</surname><given-names>D. E.</given-names></name>
+        <name><surname>Leeks</surname><given-names>G. J. L.</given-names></name>
+      </person-group>
+      <article-title>Source type ascription for fluvial suspended sediment based on a quantitative composite fingerprinting technique</article-title>
+      <source>Catena</source>
+      <year iso-8601-date="1997-03">1997</year><month>03</month>
+      <volume>29</volume>
+      <issue>1</issue>
+      <uri>http://www.sciencedirect.com/science/article/B6VCG-3SVY7CV-1/2/17d8e824e1b6c26e15fcd31608eb6d05</uri>
+      <pub-id pub-id-type="doi">https://doi.org/10.1016/S0341-8162(96)00064-1</pub-id>
+      <fpage>1</fpage>
+      <lpage>27</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-ehrlich1958">
+    <element-citation publication-type="report">
+      <person-group person-group-type="author">
+        <name><surname>Ehrlich</surname><given-names>W. A</given-names></name>
+        <name><surname>Pratt</surname><given-names>L. E.</given-names></name>
+        <name><surname>Leclaire</surname><given-names>F. P.</given-names></name>
+      </person-group>
+      <article-title>Reconnaissance soil survey of west-lake map sheet area</article-title>
+      <year iso-8601-date="1958">1958</year>
+    </element-citation>
+  </ref>
+  <ref id="ref-beck2018">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Beck</surname><given-names>Hylke E.</given-names></name>
+        <name><surname>Zimmermann</surname><given-names>Niklaus E.</given-names></name>
+        <name><surname>McVicar</surname><given-names>Tim R.</given-names></name>
+        <name><surname>Vergopolan</surname><given-names>Noemi</given-names></name>
+        <name><surname>Berg</surname><given-names>Alexis</given-names></name>
+        <name><surname>Wood</surname><given-names>Eric F.</given-names></name>
+      </person-group>
+      <article-title>Present and future köppen-geiger climate classification maps at 1-km resolution</article-title>
+      <source>Scientific Data</source>
+      <year iso-8601-date="2018-10-30">2018</year><month>10</month><day>30</day>
+      <volume>5</volume>
+      <issue>1</issue>
+      <uri>https://www.nature.com/articles/sdata2018214</uri>
+      <pub-id pub-id-type="doi">10.1038/sdata.2018.214</pub-id>
+      <fpage>180214</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-mackay1970">
+    <element-citation publication-type="thesis">
+      <person-group person-group-type="author">
+        <name><surname>MacKay</surname><given-names>G. H</given-names></name>
+      </person-group>
+      <article-title>A quantitative study of geomorphology of the wilson creek watershed, manitoba</article-title>
+      <publisher-name>University of Manitoba</publisher-name>
+      <publisher-loc>Winnipeg, MB</publisher-loc>
+      <year iso-8601-date="1970">1970</year>
+    </element-citation>
+  </ref>
+  <ref id="ref-boudreault2018">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Boudreault</surname><given-names>Monica</given-names></name>
+        <name><surname>Koiter</surname><given-names>A J</given-names></name>
+        <name><surname>Lobb</surname><given-names>D A</given-names></name>
+        <name><surname>Owens</surname><given-names>P N</given-names></name>
+        <name><surname>Liu</surname><given-names>K</given-names></name>
+        <name><surname>Benoy</surname><given-names>Glenn</given-names></name>
+        <name><surname>Danielescu</surname><given-names>S</given-names></name>
+        <name><surname>Li</surname><given-names>S.</given-names></name>
+      </person-group>
+      <article-title>Using colour, shape and radionuclide sediment fingerprints to identify sources of sediment in an agricultural watershed in atlantic canada</article-title>
+      <source>Canadian Water Resources Journal</source>
+      <year iso-8601-date="2018">2018</year>
+      <volume>43</volume>
+      <issue>3</issue>
+      <pub-id pub-id-type="doi">https://doi.org/10.1080/07011784.2018.1451781</pub-id>
+      <fpage>347</fpage>
+      <lpage>365</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-koiter2021">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Koiter</surname><given-names>Alex</given-names></name>
+      </person-group>
+      <article-title>Colour analysis r scripts</article-title>
+      <year iso-8601-date="2021-07-22">2021</year><month>07</month><day>22</day>
+      <uri>https://github.com/alex-koiter/Colour-analysis</uri>
+      <pub-id pub-id-type="doi">10.5281/zenodo.5123327</pub-id>
+    </element-citation>
+  </ref>
+  <ref id="ref-naturalresourcescanada2024">
+    <element-citation>
+      <person-group person-group-type="author">
+        <name><surname>Canada</surname><given-names>Natural Resources</given-names></name>
+      </person-group>
+      <article-title>High Resolution Digital Elevation Model Mosaic (HRDEM Mosaic) - CanElevation Series</article-title>
+      <year iso-8601-date="2024">2024</year>
+      <uri>https://open.canada.ca/data/en/dataset/0fe65119-e96e-4a57-8bfe-9d9245fba06b</uri>
+    </element-citation>
+  </ref>
+  <ref id="ref-agisoft2021">
+    <element-citation>
+      <person-group person-group-type="author">
+        <name><surname>Agisoft</surname></name>
+      </person-group>
+      <article-title>Agisoft metashape: installer</article-title>
+      <year iso-8601-date="2021">2021</year>
+      <uri>https://www.agisoft.com/downloads/installer/</uri>
+    </element-citation>
+  </ref>
+  <ref id="ref-conrad2015">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Conrad</surname><given-names>O.</given-names></name>
+        <name><surname>Bechtel</surname><given-names>B.</given-names></name>
+        <name><surname>Bock</surname><given-names>M.</given-names></name>
+        <name><surname>Dietrich</surname><given-names>H.</given-names></name>
+        <name><surname>Fischer</surname><given-names>E.</given-names></name>
+        <name><surname>Gerlitz</surname><given-names>L.</given-names></name>
+        <name><surname>Wehberg</surname><given-names>J.</given-names></name>
+        <name><surname>Wichmann</surname><given-names>V.</given-names></name>
+        <name><surname>Böhner</surname><given-names>J.</given-names></name>
+      </person-group>
+      <article-title>System for automated geoscientific analyses (SAGA) v. 2.1.4</article-title>
+      <source>Geoscientific Model Development</source>
+      <year iso-8601-date="2015-07-07">2015</year><month>07</month><day>07</day>
+      <volume>8</volume>
+      <issue>7</issue>
+      <uri>https://gmd.copernicus.org/articles/8/1991/2015/</uri>
+      <pub-id pub-id-type="doi">10.5194/gmd-8-1991-2015</pub-id>
+      <fpage>1991</fpage>
+      <lpage>2007</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-esri2024">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Esri</surname></name>
+      </person-group>
+      <source>ArcGIS pro</source>
+      <publisher-name>Esri</publisher-name>
+      <year iso-8601-date="2024">2024</year>
+      <uri>https://www.esri.ca/</uri>
+    </element-citation>
+  </ref>
+  <ref id="ref-rcoreteam2026">
+    <element-citation>
+      <person-group person-group-type="author">
+        <name><surname>Team</surname><given-names>R Core</given-names></name>
+      </person-group>
+      <article-title>R: A language and environment for statistical computing</article-title>
+      <year iso-8601-date="2026">2026</year>
+      <uri>http://www.R-project.org</uri>
+    </element-citation>
+  </ref>
+  <ref id="ref-rstudio2026">
+    <element-citation>
+      <person-group person-group-type="author">
+        <name><surname>RStudio</surname></name>
+      </person-group>
+      <article-title>RStudio: Integrated development environment for r</article-title>
+      <year iso-8601-date="2026">2026</year>
+      <uri>http://www.rstudio.org/</uri>
+    </element-citation>
+  </ref>
+  <ref id="ref-wickham2016">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Wickham</surname><given-names>H</given-names></name>
+      </person-group>
+      <source>ggplot2: Elegant graphics for data analysis</source>
+      <publisher-name>Springer-Verlag</publisher-name>
+      <publisher-loc>New York NY U.S.A</publisher-loc>
+      <year iso-8601-date="2016">2016</year>
+    </element-citation>
+  </ref>
+  <ref id="ref-hijmans2024">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Hijmans</surname><given-names>Robert J.</given-names></name>
+      </person-group>
+      <source>Terra: Spatial data analysis</source>
+      <year iso-8601-date="2024">2024</year>
+      <uri>https://CRAN.R-project.org/package=terra</uri>
+    </element-citation>
+  </ref>
+  <ref id="ref-liaw2002">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Liaw</surname><given-names>Andy</given-names></name>
+        <name><surname>Wiener</surname><given-names>Matthew</given-names></name>
+      </person-group>
+      <article-title>Classification and regression by randomForest</article-title>
+      <source>R News</source>
+      <year iso-8601-date="2002">2002</year>
+      <volume>2</volume>
+      <issue>3</issue>
+      <uri>https://CRAN.R-project.org/doc/Rnews/</uri>
+      <fpage>18</fpage>
+      <lpage>22</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-Naimi2014">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Naimi</surname><given-names>Babak</given-names></name>
+        <name><surname>Hamm</surname><given-names>Nicholas a.s.</given-names></name>
+        <name><surname>Groen</surname><given-names>Thomas A.</given-names></name>
+        <name><surname>Skidmore</surname><given-names>Andrew K.</given-names></name>
+        <name><surname>Toxopeus</surname><given-names>Albertus G.</given-names></name>
+      </person-group>
+      <article-title>Where is positional uncertainty a problem for species distribution modelling</article-title>
+      <source>Ecography</source>
+      <year iso-8601-date="2014">2014</year>
+      <volume>37</volume>
+      <pub-id pub-id-type="doi">10.1111/j.1600-0587.2013.00205.x</pub-id>
+      <fpage>191</fpage>
+      <lpage>203</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-kuhn2008">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <string-name>Kuhn</string-name>
+        <string-name>Max</string-name>
+      </person-group>
+      <article-title>Building predictive models in r using the caret package</article-title>
+      <source>Journal of Statistical Software</source>
+      <year iso-8601-date="2008">2008</year>
+      <volume>28</volume>
+      <issue>5</issue>
+      <uri>https://www.jstatsoft.org/index.php/jss/article/view/v028i05</uri>
+      <pub-id pub-id-type="doi">10.18637/jss.v028.i05</pub-id>
+      <fpage>1</fpage>
+      <lpage>26</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-drew2010">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Drew</surname><given-names>Lawrence J.</given-names></name>
+        <name><surname>Grunsky</surname><given-names>Eric C.</given-names></name>
+        <name><surname>Sutphin</surname><given-names>David M.</given-names></name>
+        <name><surname>Woodruff</surname><given-names>Laurel G.</given-names></name>
+      </person-group>
+      <article-title>Multivariate analysis of the geochemistry and mineralogy of soils along two continental-scale transects in north america</article-title>
+      <source>Science of The Total Environment</source>
+      <year iso-8601-date="2010-12-01">2010</year><month>12</month><day>01</day>
+      <volume>409</volume>
+      <issue>1</issue>
+      <uri>https://www.sciencedirect.com/science/article/pii/S0048969710008375</uri>
+      <pub-id pub-id-type="doi">10.1016/j.scitotenv.2010.08.004</pub-id>
+      <fpage>218</fpage>
+      <lpage>227</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-rattenbury2018">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Rattenbury</surname><given-names>Mark</given-names></name>
+        <name><given-names>Martin ,Adam</given-names></name>
+        <name><given-names>Baisden ,Troy</given-names></name>
+        <name><given-names>Turnbull ,Rose</given-names></name>
+        <name><surname>Rogers</surname><given-names>Karyne</given-names></name>
+      </person-group>
+      <article-title>Geochemical baseline soil surveys for understanding element and isotope variation across new zealand</article-title>
+      <source>New Zealand Journal of Agricultural Research</source>
+      <year iso-8601-date="2018-07-03">2018</year><month>07</month><day>03</day>
+      <volume>61</volume>
+      <issue>3</issue>
+      <uri>https://doi.org/10.1080/00288233.2018.1426616</uri>
+      <pub-id pub-id-type="doi">10.1080/00288233.2018.1426616</pub-id>
+      <fpage>347</fpage>
+      <lpage>357</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-nanos2012">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Nanos</surname><given-names>Nikos</given-names></name>
+        <name><surname>Rodríguez Martín</surname><given-names>José Antonio</given-names></name>
+      </person-group>
+      <article-title>Multiscale analysis of heavy metal contents in soils: Spatial variability in the duero river basin (spain)</article-title>
+      <source>Geoderma</source>
+      <year iso-8601-date="2012-11-01">2012</year><month>11</month><day>01</day>
+      <volume>189-190</volume>
+      <uri>https://www.sciencedirect.com/science/article/pii/S0016706112002418</uri>
+      <pub-id pub-id-type="doi">10.1016/j.geoderma.2012.06.006</pub-id>
+      <fpage>554</fpage>
+      <lpage>562</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-sun2021a">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Sun</surname><given-names>Yazhou</given-names></name>
+        <name><surname>Guo</surname><given-names>Wenxuan</given-names></name>
+        <name><surname>Weindorf</surname><given-names>David C.</given-names></name>
+        <name><surname>Sun</surname><given-names>Fujun</given-names></name>
+        <name><surname>Deb</surname><given-names>Sanjit</given-names></name>
+        <name><surname>Cao</surname><given-names>Guofeng</given-names></name>
+        <name><surname>Neupane</surname><given-names>Jasmine</given-names></name>
+        <name><surname>Lin</surname><given-names>Zhe</given-names></name>
+        <name><surname>Raihan</surname><given-names>Abir</given-names></name>
+      </person-group>
+      <article-title>Field-scale spatial variability of soil calcium in a semi-arid region: Implications for soil erosion and site-specific management</article-title>
+      <source>PEDOSPHERE</source>
+      <year iso-8601-date="2021-10">2021</year><month>10</month>
+      <volume>31</volume>
+      <issue>5</issue>
+      <uri>https://www.webofscience.com/wos/woscc/summary/a5c79ace-f964-4a0b-90b2-d726580a394c-fae59ae2/relevance/1</uri>
+      <pub-id pub-id-type="doi">10.1016/S1002-0160(21)60019-X</pub-id>
+      <fpage>705</fpage>
+      <lpage>714</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-wilson2008">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Wilson</surname><given-names>M. A.</given-names></name>
+        <name><surname>Burt</surname><given-names>R.</given-names></name>
+        <name><surname>Indorante</surname><given-names>S. J.</given-names></name>
+        <name><surname>Jenkins</surname><given-names>A. B.</given-names></name>
+        <name><surname>Chiaretti</surname><given-names>J. V.</given-names></name>
+        <name><surname>Ulmer</surname><given-names>M. G.</given-names></name>
+        <name><surname>Scheyer</surname><given-names>J. M.</given-names></name>
+      </person-group>
+      <article-title>Geochemistry in the modern soil survey program</article-title>
+      <source>Environmental Monitoring and Assessment</source>
+      <year iso-8601-date="2008-04">2008</year><month>04</month>
+      <volume>139</volume>
+      <issue>1-3</issue>
+      <uri>http://link.springer.com/10.1007/s10661-007-9822-z</uri>
+      <pub-id pub-id-type="doi">10.1007/s10661-007-9822-z</pub-id>
+      <fpage>151</fpage>
+      <lpage>171</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-pennock2008">
+    <element-citation publication-type="chapter">
+      <person-group person-group-type="author">
+        <name><surname>Pennock</surname><given-names>D</given-names></name>
+        <name><surname>Yates</surname><given-names>T</given-names></name>
+        <name><surname>Braidek</surname><given-names>J</given-names></name>
+      </person-group>
+      <article-title>Soil sampling designs</article-title>
+      <person-group person-group-type="editor">
+        <name><surname>Carter</surname><given-names>M. R.</given-names></name>
+        <name><surname>Gregorich</surname><given-names>E. G</given-names></name>
+      </person-group>
+      <publisher-name>CRC Press</publisher-name>
+      <publisher-loc>Boca Raton, FL, USA</publisher-loc>
+      <year iso-8601-date="2008">2008</year>
+      <edition>2</edition>
+      <fpage>1</fpage>
+      <lpage>14</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-horowitz1991">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Horowitz</surname><given-names>Arthur J</given-names></name>
+      </person-group>
+      <source>A primer on sediment-trace element chemistry</source>
+      <publisher-name>Lewis Publishers</publisher-name>
+      <publisher-loc>Chelsea, Michigan, USA</publisher-loc>
+      <year iso-8601-date="1991">1991</year>
+      <edition>2nd ed</edition>
+    </element-citation>
+  </ref>
+  <ref id="ref-nicolas2011">
+    <element-citation publication-type="report">
+      <person-group person-group-type="author">
+        <name><surname>Nicolas</surname><given-names>M. P. B.</given-names></name>
+        <name><surname>Bamburak</surname><given-names>J. D.</given-names></name>
+      </person-group>
+      <article-title>Geochemistry and mineralogy of cretaceous shale, southwestern manitoba (parts of NTS 62F, g, j, k, n, 63C): Phase 2 results</article-title>
+      <publisher-name>Manitoba Innovation, Energy; Mines, Manitoba Geological Survey</publisher-name>
+      <year iso-8601-date="2011">2011</year>
+    </element-citation>
+  </ref>
+  <ref id="ref-cox2003">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Cox</surname><given-names>M. S.</given-names></name>
+        <name><surname>Gerard</surname><given-names>P. D.</given-names></name>
+        <name><surname>Wardlaw</surname><given-names>M. C.</given-names></name>
+        <name><surname>Abshire</surname><given-names>M. J.</given-names></name>
+      </person-group>
+      <article-title>Variability of selected soil properties and their relationships with soybean yield</article-title>
+      <source>Soil Science Society of America Journal</source>
+      <year iso-8601-date="2003">2003</year>
+      <volume>67</volume>
+      <issue>4</issue>
+      <uri>https://onlinelibrary.wiley.com/doi/abs/10.2136/sssaj2003.1296</uri>
+      <pub-id pub-id-type="doi">10.2136/sssaj2003.1296</pub-id>
+      <fpage>1296</fpage>
+      <lpage>1302</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-stonehouse1971">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Stonehouse</surname><given-names>H. B.</given-names></name>
+        <name><surname>St. Arnaud</surname><given-names>R. J.</given-names></name>
+      </person-group>
+      <article-title>Distribution of iron, clay and extractable iron and aluminum in some saskatchewan soils</article-title>
+      <source>Canadian Journal of Soil Science</source>
+      <year iso-8601-date="1971-06">1971</year><month>06</month>
+      <volume>51</volume>
+      <issue>2</issue>
+      <uri>https://cdnsciencepub.com/doi/10.4141/cjss71-036</uri>
+      <pub-id pub-id-type="doi">10.4141/cjss71-036</pub-id>
+      <fpage>283</fpage>
+      <lpage>292</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-lark2018">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Lark</surname><given-names>R. M.</given-names></name>
+        <name><surname>Marchant</surname><given-names>B. P.</given-names></name>
+      </person-group>
+      <article-title>How should a spatial-coverage sample design for a geostatistical soil survey be supplemented to support estimation of spatial covariance parameters?</article-title>
+      <source>Geoderma</source>
+      <year iso-8601-date="2018-06-01">2018</year><month>06</month><day>01</day>
+      <volume>319</volume>
+      <uri>https://www.sciencedirect.com/science/article/pii/S0016706117309187</uri>
+      <pub-id pub-id-type="doi">10.1016/j.geoderma.2017.12.022</pub-id>
+      <fpage>89</fpage>
+      <lpage>99</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-viscarrarossel2009">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Viscarra Rossel</surname><given-names>R. A.</given-names></name>
+        <name><surname>Cattle</surname><given-names>S. R.</given-names></name>
+        <name><surname>Ortega</surname><given-names>A.</given-names></name>
+        <name><surname>Fouad</surname><given-names>Y.</given-names></name>
+      </person-group>
+      <article-title>In situ measurements of soil colour, mineral composition and clay content by visNIR spectroscopy</article-title>
+      <source>Geoderma</source>
+      <year iso-8601-date="2009-05-15">2009</year><month>05</month><day>15</day>
+      <volume>150</volume>
+      <issue>3</issue>
+      <uri>http://www.sciencedirect.com/science/article/pii/S0016706109000408</uri>
+      <pub-id pub-id-type="doi">10.1016/j.geoderma.2009.01.025</pub-id>
+      <fpage>253</fpage>
+      <lpage>266</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-mello2022">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Mello</surname><given-names>Fellipe A. O.</given-names></name>
+        <name><surname>Demattê</surname><given-names>José A. M.</given-names></name>
+        <name><surname>Rizzo</surname><given-names>Rodnei</given-names></name>
+        <name><surname>Mello</surname><given-names>Danilo C. de</given-names></name>
+        <name><surname>Poppiel</surname><given-names>Raul R.</given-names></name>
+        <name><surname>Silvero</surname><given-names>Nélida E. Q.</given-names></name>
+        <name><surname>Safanelli</surname><given-names>José L.</given-names></name>
+        <name><surname>Bellinaso</surname><given-names>Henrique</given-names></name>
+        <name><surname>Bonfatti</surname><given-names>Benito R.</given-names></name>
+        <name><surname>Gomez</surname><given-names>Andres M. R.</given-names></name>
+        <name><surname>Sousa</surname><given-names>Gabriel P. B.</given-names></name>
+      </person-group>
+      <article-title>Complex hydrological knowledge to support digital soil mapping</article-title>
+      <source>Geoderma</source>
+      <year iso-8601-date="2022-03-01">2022</year><month>03</month><day>01</day>
+      <volume>409</volume>
+      <uri>https://www.sciencedirect.com/science/article/pii/S0016706121007187</uri>
+      <pub-id pub-id-type="doi">10.1016/j.geoderma.2021.115638</pub-id>
+      <fpage>115638</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-libohova2024">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Libohova</surname><given-names>Zamir</given-names></name>
+        <name><surname>Mancini</surname><given-names>Marcelo</given-names></name>
+        <name><surname>Winzeler</surname><given-names>H. Edwin</given-names></name>
+        <name><surname>Read</surname><given-names>Quentin D.</given-names></name>
+        <name><surname>Sun</surname><given-names>Ning</given-names></name>
+        <name><surname>Beaudette</surname><given-names>Dylan</given-names></name>
+        <name><surname>Williams</surname><given-names>Candiss</given-names></name>
+        <name><surname>Blackstock</surname><given-names>Joshua</given-names></name>
+        <name><surname>Silva</surname><given-names>Sérgio H. G.</given-names></name>
+        <name><surname>Curi</surname><given-names>Nilton</given-names></name>
+        <name><surname>Adhikari</surname><given-names>Kabindra</given-names></name>
+        <name><surname>Ashworth</surname><given-names>Amanda</given-names></name>
+        <name><surname>Minai</surname><given-names>Joshua O.</given-names></name>
+        <name><surname>Owens</surname><given-names>Phillip R.</given-names></name>
+      </person-group>
+      <article-title>Interpreting the spatial distribution of soil properties with a physically-based distributed hydrological model</article-title>
+      <source>Geoderma Regional</source>
+      <year iso-8601-date="2024-12-01">2024</year><month>12</month><day>01</day>
+      <volume>39</volume>
+      <uri>https://www.sciencedirect.com/science/article/pii/S235200942400110X</uri>
+      <pub-id pub-id-type="doi">10.1016/j.geodrs.2024.e00863</pub-id>
+      <fpage>e00863</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-mzuku2005">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Mzuku</surname><given-names>M</given-names></name>
+        <name><surname>Khosla</surname><given-names>R</given-names></name>
+        <name><surname>Reich</surname><given-names>R</given-names></name>
+        <name><surname>Inman</surname><given-names>D</given-names></name>
+        <name><surname>Smith</surname><given-names>F</given-names></name>
+        <name><surname>MacDonald</surname><given-names>L</given-names></name>
+      </person-group>
+      <article-title>Spatial variability of measured soil properties across site-specific management zones</article-title>
+      <source>Soil Science Society of America Journal</source>
+      <year iso-8601-date="2005-10">2005</year><month>10</month>
+      <volume>69</volume>
+      <issue>5</issue>
+      <pub-id pub-id-type="doi">10.2136/sssaj2005.0062</pub-id>
+      <fpage>1572</fpage>
+      <lpage>1579</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-soilclassificationworkinggroup1998">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Group</surname><given-names>Soil Classification Working</given-names></name>
+      </person-group>
+      <source>The canadian system of soil classification</source>
+      <publisher-name>NRC Research Press</publisher-name>
+      <publisher-loc>Ottawa, ON, Canada</publisher-loc>
+      <year iso-8601-date="1998">1998</year>
+      <edition>3</edition>
+      <uri>https://sis.agr.gc.ca/cansis/taxa/cssc3/index.html</uri>
+    </element-citation>
+  </ref>
+  <ref id="ref-papiernik2005">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Papiernik</surname><given-names>S K</given-names></name>
+        <name><surname>Lindstrom</surname><given-names>M J</given-names></name>
+        <name><surname>Schumacher</surname><given-names>J A</given-names></name>
+        <name><surname>Farenhorst</surname><given-names>A</given-names></name>
+        <name><surname>Stephens</surname><given-names>K D</given-names></name>
+        <name><surname>Schumacher</surname><given-names>T E</given-names></name>
+        <name><surname>Lobb</surname><given-names>D A</given-names></name>
+      </person-group>
+      <article-title>Variation in soil properties and crop yield across an eroded prairie landscape</article-title>
+      <source>Journal of Soil and Water Conservation</source>
+      <year iso-8601-date="2005">2005</year>
+      <volume>60</volume>
+      <issue>6</issue>
+      <fpage>8</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-mashalaba2020">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Mashalaba</surname><given-names>Lwando</given-names></name>
+        <name><surname>Galleguillos</surname><given-names>Mauricio</given-names></name>
+        <name><surname>Seguel</surname><given-names>Oscar</given-names></name>
+        <name><surname>Poblete-Olivares</surname><given-names>Javiera</given-names></name>
+      </person-group>
+      <article-title>Predicting spatial variability of selected soil properties using digital soil mapping in a rainfed vineyard of central chile</article-title>
+      <source>Geoderma Regional</source>
+      <year iso-8601-date="2020-09-01">2020</year><month>09</month><day>01</day>
+      <volume>22</volume>
+      <uri>https://www.sciencedirect.com/science/article/pii/S2352009420300389</uri>
+      <pub-id pub-id-type="doi">10.1016/j.geodrs.2020.e00289</pub-id>
+      <fpage>e00289</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-vidon2010">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Vidon</surname><given-names>Philippe</given-names></name>
+        <name><surname>Allan</surname><given-names>C.</given-names></name>
+        <name><surname>Burns</surname><given-names>Douglas</given-names></name>
+        <name><surname>Duval</surname><given-names>Tim P.</given-names></name>
+        <name><surname>Gurwick</surname><given-names>Noel</given-names></name>
+        <name><surname>Inamdar</surname><given-names>Shreeram</given-names></name>
+        <name><surname>Lowrance</surname><given-names>Richard</given-names></name>
+        <name><surname>Okay</surname><given-names>Judy</given-names></name>
+        <name><surname>Scott</surname><given-names>Durelle</given-names></name>
+        <name><surname>Sebestyen</surname><given-names>Steve</given-names></name>
+      </person-group>
+      <article-title>Hot spots and hot moments in riparian zones: Potential for improved water quality management</article-title>
+      <source>Journal of the American Water Resources Association</source>
+      <year iso-8601-date="2010-04">2010</year><month>04</month>
+      <volume>46</volume>
+      <issue>2</issue>
+      <uri>http://onlinelibrary.wiley.com/doi/10.1111/j.1752-1688.2010.00420.x/pdf</uri>
+      <pub-id pub-id-type="doi">10.1111/j.1752-1688.2010.00420.x</pub-id>
+      <fpage>278</fpage>
+      <lpage>298</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-pham2025">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Pham</surname><given-names>Tan-Hanh</given-names></name>
+        <name><surname>Osterloh</surname><given-names>Kristopher</given-names></name>
+        <name><surname>Nguyen</surname><given-names>Kim-Doang</given-names></name>
+      </person-group>
+      <article-title>Mapping of soil sampling sites using terrain and hydrological attributes</article-title>
+      <source>Artificial Intelligence in Agriculture</source>
+      <year iso-8601-date="2025-09">2025</year><month>09</month>
+      <volume>15</volume>
+      <issue>3</issue>
+      <uri>http://dx.doi.org/10.1016/j.aiia.2025.04.007</uri>
+      <pub-id pub-id-type="doi">10.1016/j.aiia.2025.04.007</pub-id>
+      <fpage>470</fpage>
+      <lpage>481</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-evrard2022">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Evrard</surname><given-names>Olivier</given-names></name>
+        <name><surname>Batista</surname><given-names>Pedro V. G.</given-names></name>
+        <name><surname>Company</surname><given-names>Jaume</given-names></name>
+        <name><surname>Dabrin</surname><given-names>Aymeric</given-names></name>
+        <name><surname>Foucher</surname><given-names>Anthony</given-names></name>
+        <name><surname>Frankl</surname><given-names>Amaury</given-names></name>
+        <name><surname>García-Comendador</surname><given-names>Julián</given-names></name>
+        <name><surname>Huguet</surname><given-names>Arnaud</given-names></name>
+        <name><surname>Lake</surname><given-names>Niels</given-names></name>
+        <name><surname>Lizaga</surname><given-names>Ivan</given-names></name>
+        <name><surname>Martínez-Carreras</surname><given-names>Núria</given-names></name>
+        <name><surname>Navratil</surname><given-names>Oldrich</given-names></name>
+        <name><surname>Pignol</surname><given-names>Cécile</given-names></name>
+        <name><surname>Sellier</surname><given-names>Virginie</given-names></name>
+      </person-group>
+      <article-title>Improving the design and implementation of sediment fingerprinting studies: Summary and outcomes of the TRACING 2021 scientific school</article-title>
+      <source>Journal of Soils and Sediments</source>
+      <year iso-8601-date="2022-04-23">2022</year><month>04</month><day>23</day>
+      <volume>22</volume>
+      <issue>6</issue>
+      <uri>http://dx.doi.org/10.1007/s11368-022-03203-1</uri>
+      <pub-id pub-id-type="doi">10.1007/s11368-022-03203-1</pub-id>
+      <fpage>1648</fpage>
+      <lpage>1661</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-rizzo2016">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Rizzo</surname><given-names>Rodnei</given-names></name>
+        <name><surname>Demattê</surname><given-names>José A.M.</given-names></name>
+        <name><surname>Lepsch</surname><given-names>Igo F.</given-names></name>
+        <name><surname>Gallo</surname><given-names>Bruna C.</given-names></name>
+        <name><surname>Fongaro</surname><given-names>Caio T.</given-names></name>
+      </person-group>
+      <article-title>Digital soil mapping at local scale using a multi-depth visNIR spectral library and terrain attributes</article-title>
+      <source>Geoderma</source>
+      <year iso-8601-date="2016-07">2016</year><month>07</month>
+      <volume>274</volume>
+      <uri>http://dx.doi.org/10.1016/j.geoderma.2016.03.019</uri>
+      <pub-id pub-id-type="doi">10.1016/j.geoderma.2016.03.019</pub-id>
+      <fpage>18</fpage>
+      <lpage>27</lpage>
     </element-citation>
   </ref>
 </ref-list>
@@ -10487,8 +11664,8 @@ tab_style(
   <fig id="tbl-univariate-summary-nb-23">
     <caption><p>Summary univariate statistics of selected geochemical
     and colour soil properties for each site (n = 49). Geochemical
-    concentrations are reported in ppm, excecpt Ca and
-    Fe(%).</p></caption>
+    concentrations are reported in ppm, excecpt Ca and Fe
+    (%).</p></caption>
   </fig>
   </sec>
 </sec>
