@@ -98,6 +98,55 @@ tab_style(
       rows = Property %in% c("a*", "b*", "c*", "h*", "x")))
 ```
 
+
+
+## Univariate summary
+
+```{r}
+
+all_fingerprints |>
+  filter(group %in% c("geochem", "colour"))|>
+  group_by(site) |>
+  summarise(skew_small = sum(Skewness <=0.5 & Skewness >=-0.5),
+            skew_moderate = sum(Skewness > 0.5 & Skewness <1| Skewness < -0.5 & Skewness > -1),
+            skew_large = sum(Skewness >= 1 | Skewness <= -1),
+            pos_skew = sum(Skewness > 0),
+            neg_skew = sum(Skewness < 0),
+            CV_low = sum(CV <15),
+            CV_mod = sum(CV >= 15 & CV < 35),
+            CV_high = sum(CV >= 35 & CV <= 75),
+            CV_v_high = sum(CV > 75),
+            n = n())
+
+all_fingerprints |>
+  filter(group %in% c("geochem", "colour")) |>
+  group_by(site, group) |>
+  summarise(skew_small = sum(Skewness <=0.5 & Skewness >=-0.5),
+            skew_moderate = sum(Skewness > 0.5 & Skewness <1| Skewness < -0.5 & Skewness > -1),
+            skew_large = sum(Skewness >= 1 | Skewness <= -1),
+            #pos_skew = sum(Skewness > 0),
+            #neg_skew = sum(Skewness < 0),
+            CV_low = sum(CV <15),
+            CV_mod = sum(CV >= 15 & CV < 35),
+            CV_high = sum(CV >= 35 & CV <= 75),
+            CV_v_high = sum(CV > 75))
+
+# all_fingerprints |>
+#   #filter(Skewness >= 0.5 | Skewness <= -0.5) |>
+#   filter(CV >= 35)|>
+#   filter(site == "Forest")
+#   #filter(group %in% c("geochem", "colour")) |>
+#   group_by(site, group) |>
+#   summarise(pos_skew = sum(Skewness > 0),
+#             neg_skew = sum(Skewness < 0),
+#             CV_low = sum(CV <15),
+#             CV_mod = sum(CV >= 15 & CV < 35),
+#             CV_high = sum(CV >= 35 & CV <= 75),
+#             CV_v_high = sum(CV > 75),
+#             n = n())
+```
+
+
 ## Correlation
 
 ```{r}

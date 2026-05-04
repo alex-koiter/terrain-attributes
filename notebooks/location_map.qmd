@@ -1,0 +1,289 @@
+---
+title: "Research Site Locations"
+author: "Alex Koiter"
+---
+
+```{r}
+suppressPackageStartupMessages({library(tidyverse)
+library(ggspatial)
+library(sf)
+library(rnaturalearth)
+library(ggrepel)
+library(raster)
+library(patchwork)
+library(terra)
+})
+```
+
+## Bounding box of region and sites
+```{r}
+box = c(xmin = 455200, ymin = 5616000, xmax = 466200, ymax = 5626500)
+
+ag_site <- data.frame(x = c(464124, 463318),
+                         y = c(5622932, 5622121)) %>% 
+  st_as_sf(coords = c("x", "y"), crs = 3158) %>% 
+  st_bbox() %>% 
+  st_as_sfc()
+
+forest_site <- data.frame(x = c(460822, 460189),
+                         y = c(5619887, 5619206)) %>% 
+  st_as_sf(coords = c("x", "y"), crs = 3158) %>% 
+  st_bbox() %>% 
+  st_as_sfc()
+
+locations <- data.frame(name = c("Forest", "Agriculture"), 
+                        long = c(-99.560041, -99.513808), 
+                        lat = c( 50.726076,  50.752731)) %>%
+  st_as_sf(coords = c("long", "lat"),  crs = 4326)
+
+  #st_transform(crs = st_crs(land))
+
+cities <- data.frame(name = "McCreary", long = -99.493, lat = 50.775) %>%
+  st_as_sf(coords = c("long", "lat"),  crs = 4326) 
+```
+
+## Land use data of region
+### Get data
+```{r}
+minnedosa_data <- "lcv_minnedosa_2004_2006_shp"
+if (file.exists(minnedosa_data)) {
+  print("The data already exists!")
+} else {
+  download.file("https://mli.gov.mb.ca/landuse/shp_zip_files/lcv_minnedosa_2004_2006_shp.zip", 
+                destfile = "lcv_minnedosa_2004_2006_shp.zip")
+  unzip("lcv_minnedosa_2004_2006_shp.zip", exdir = "lcv_minnedosa_2004_2006_shp")
+}
+```
+
+### Summarize and crop
+```{r}
+land <- st_read(here::here("./notebooks/lcv_minnedosa_2004_2006_shp/lcv_minnedosa_2004_2006.shp")) %>%
+  st_crop(st_bbox(box)) %>%
+  st_transform(4269) %>%
+  mutate(Land_use = recode(CLASSNAME, "Agricultural Field" = "Agriculture", "Agri - Forage Field" = "Agriculture", "Water Body" = "Water", "Wetland - Treed Bog" = "Wetland", "Wetland - Marsh" = "Wetland", "Decidious Forest" = "Forest", "Open Decidious Forest" = "Forest", "Mixedwood Forest" = "Forest", "Forest Cut Blocks" = "Forest", "Coniferous Forest" = "Forest","Roads Trails Rail Lines" = "Other", "Sand and Gravel" = "Other", "Cultural Features" = "Other", "Range and Grassland" = "Forage")) %>%
+  st_make_valid() %>%
+  st_simplify(dTolerance = 0.0001, preserveTopology = F) %>%
+  group_by(Land_use) %>%
+  summarise(do_union = TRUE) %>%
+  mutate(Land_use = factor(Land_use, levels=c("Agriculture", "Forest", "Forage", "Water", "Wetland", "Other")))
+```
+
+## DEM data
+Freely available from <https://maps.canada.ca/czs/index-en.html>
+Data type is Elevation. You provide the clipping area and then submit the data request
+
+```{r}
+topo <- raster::aggregate(raster(here::here("./notebooks/DEM.tif")), fact = 3) %>%
+  crop(extent(land)) %>%
+  as.data.frame(xy = T)
+```
+
+## Hydro data
+Freely available from <https://maps.canada.ca/czs/index-en.html>
+Data type is the CanVec. You provide the clipping area and then submit the data request
+
+```{r}
+water_linear <- st_read(here::here("./notebooks/canvec_190514_89905/water_linear_flow_1.shp")) %>%
+  st_transform(crs = st_crs(land)) %>%
+  st_make_valid() %>%
+  st_crop(st_bbox(land))
+```
+
+## Canada wide map
+```{r}
+canada <- ne_states(country = "Canada", returnclass = "sf") %>%
+  st_transform(crs = 3348)
+
+locations2 <- data.frame(name = c("Center"), long = c(-99.989671), lat = c(50.742554)) %>%
+  st_as_sf(coords = c("long", "lat"),  crs = 4326) %>%
+  st_transform(crs = st_crs(land))
+```
+
+## Maps
+### Canada
+
+```{r}
+p1 <- ggplot() +
+  theme_bw() +
+  layer_spatial(canada, fill = "white") +
+  layer_spatial(locations2, shape = 23, colour = "red", fill = "red", size = 2) +
+  annotation_scale(location = "bl",
+                   height = unit(0.05, "cm")) +
+  annotation_north_arrow(location = "br", 
+                         height = unit(0.5, "cm"),
+                         width = unit(0.5, "cm")) +
+  theme(axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        axis.title = element_blank(),
+        plot.margin = unit(c(0,0,0,0), "mm"))
+```
+
+### Land use
+```{r}
+p2 <- ggplot() +
+  theme_bw(base_size = 10) +
+  geom_sf(data = land, aes(fill = Land_use)) +
+  scale_fill_manual(values=c("#458B00", "#006400", "#CDAD00", "#009ACD", "#CDB38B",  "#C1CDCD"), name = "Land use") +
+  geom_sf(data = water_linear, colour = "#009ACD", lwd = 0.5) +
+  geom_label_repel(
+    data = head(locations),
+    aes(label = name, geometry = geometry),
+    stat = "sf_coordinates",
+    min.segment.length = 0,
+    nudge_y = 0.01, 
+    size = 3) +
+  geom_label_repel(
+    data = head(locations),
+    aes(label = name, geometry = geometry),
+    stat = "sf_coordinates",
+    min.segment.length = 0,
+    nudge_y = 0.01, 
+    size = 3) +
+  geom_sf(data = ag_site, fill = NA, colour = "red", lwd = 1) +
+  geom_sf(data = forest_site, fill = NA, colour = "red", lwd = 1) +
+  geom_label_repel(
+    data = head(cities),
+    aes(label = name, geometry = geometry),
+    stat = "sf_coordinates",
+    min.segment.length = 0,
+    nudge_y = 0.01,
+    size = 2) +
+  annotation_scale(location = "bl",
+                   height = unit(0.05, "cm")) +
+  annotation_north_arrow(location = "br", 
+                         height = unit(0.5, "cm"),
+                         width = unit(0.5, "cm")) +
+  theme(axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        axis.title = element_blank(),
+        plot.margin = unit(c(0,0,0,0), "mm"),
+        legend.position = "bottom",
+        legend.title = element_blank(),
+        legend.key.size = unit(5, 'mm'),
+        legend.box.spacing = unit(0, "pt")) +
+  scale_x_continuous(expand = c(0,0)) +
+  scale_y_continuous(expand = c(0,0))
+```
+
+### DEM
+```{r}
+p3 <- ggplot() +
+  theme_bw(base_size = 10) +
+  geom_raster(data = topo , aes(x = x, y = y, fill = DEM)) + 
+  scale_fill_viridis_c(name = "Elev. (m)  ", limits = c(282, 800), breaks = c(300, 550, 800)) +
+  geom_label_repel(
+    data = head(locations),
+    aes(label = name, geometry = geometry),
+    stat = "sf_coordinates",
+    min.segment.length = 0,
+    nudge_y = 0.01,
+    size = 3) +
+  geom_sf(data = ag_site, fill = NA, colour = "red", lwd = 1) +
+  geom_sf(data = forest_site, fill = NA, colour = "red", lwd = 1) +
+  geom_label_repel(
+    data = head(cities),
+    aes(label = name, geometry = geometry),
+    stat = "sf_coordinates",
+    min.segment.length = 0,
+    nudge_y = 0.01,
+    size = 3) +
+  scale_x_continuous(expand = c(0,0)) +
+  scale_y_continuous(expand = c(0,0)) +
+  annotation_scale(location = "bl",
+                   height = unit(0.05, "cm")) +
+  annotation_north_arrow(location = "br", 
+                         height = unit(0.5, "cm"),
+                         width = unit(0.5, "cm")) +
+  theme(axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        axis.title = element_blank(),
+        plot.margin = unit(c(0,0,0,0), "mm"),
+        legend.position = "bottom",
+        legend.box.spacing = unit(0, "pt")) 
+```
+
+```{r}
+coords <- read_csv(here::here("./notebooks/coords.csv"), show_col_types = FALSE) %>% 
+  st_as_sf(coords = c("long", "lat"),  crs = 4326) %>%
+  st_transform(crs = 26914)
+```
+
+
+```{r}
+ag_topo <- read_csv(here::here("./notebooks/ag_terrain_data.csv"), show_col_types = FALSE) %>%
+  dplyr::select("x", "y", "elevation")
+ag_topo <- rast(ag_topo)
+crs(x = ag_topo, warn=FALSE) <- "epsg:26914"
+
+p4 <- ggplot() +
+  tidyterra::geom_spatraster(data = ag_topo, aes(fill = elevation)) +
+  scale_fill_viridis_c(name = "Elev. (m)", option = "viridis", limits = c(309, 312), breaks = seq(309, 312, 1)) +
+  geom_sf(data = filter(coords, site == "Agriculture")) +
+  theme_bw(base_size = 10) +
+theme(axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        axis.title = element_blank(),
+        plot.margin = unit(c(0,0,0,0), "mm"),
+        legend.position = "bottom",
+        legend.box.spacing = unit(0, "pt")) +
+  scale_y_continuous(expand = c(0,0)) +
+  scale_x_continuous(expand = c(0,0)) +
+  annotation_scale(location = "bl",
+                   height = unit(0.05, "cm")) +
+  annotation_north_arrow(location = "br", 
+                         height = unit(0.5, "cm"),
+                         width = unit(0.5, "cm"))
+```
+
+
+```{r}
+forest_topo <- read_csv(here::here("./notebooks/forest_terrain_data.csv"), show_col_types = FALSE) %>%
+  dplyr::select("x", "y", "elevation")
+forest_topo <- rast(forest_topo)
+crs(x = forest_topo, warn=FALSE) <- "epsg:26914"
+
+p5 <- ggplot() +
+  tidyterra::geom_spatraster(data = forest_topo, aes(fill = elevation)) +
+  scale_fill_viridis_c(name = "Elev. (m)", option = "viridis") +
+  geom_sf(data = filter(coords, site == "Forest")) +
+  theme_bw(base_size = 10) +
+theme(axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        axis.title = element_blank(),
+        plot.margin = unit(c(0,0,0,0), "mm"),
+        legend.position = "bottom",
+        legend.box.spacing = unit(0, "pt")) +
+  scale_y_continuous(expand = c(0,0)) +
+  scale_x_continuous(expand = c(0,0)) +
+  annotation_scale(location = "bl",
+                   height = unit(0.05, "cm")) +
+  annotation_north_arrow(location = "br", 
+                         height = unit(0.5, "cm"),
+                         width = unit(0.5, "cm"))
+```
+
+
+
+```{r}
+#| label: fig-location_map
+#| fig-cap: a) Map showing the location of the study sites within Canada. Location of the two study sites and nearby town of McCreary, and regional  b) land use, and c) topography. Local topography and soil sampling locations at the d) forested site and e) agricultural site
+
+# p6 <- p1 + guide_area() + p2 + p3 + plot_layout(guides = "collect") + plot_annotation(tag_levels = 'a', tag_suffix = ')')
+# 
+# 
+# p7 <- p5 + p4 
+# 
+# 
+# p6/p7 + plot_annotation(tag_levels = 'a', tag_suffix = ')')
+# 
+# p6 / (p7)
+
+  
+# p8 <- p1 + plot_spacer() + p2 +p3+ p5 + p4 + plot_layout(ncol = 2) + plot_annotation(tag_levels = 'a', tag_suffix = ')')
+# p8
+
+p8 <- p1  + p2 +p3+ p5 + p4 + plot_spacer() + plot_layout(ncol = 3, heights = c(1, 1)) + plot_annotation(tag_levels = 'a', tag_suffix = ')')
+p8
+
+#ggsave(filename = "../Submission/Figure 1.png", plot = p6, height = 130, width = 140, units = "mm", dpi = 600)
+```

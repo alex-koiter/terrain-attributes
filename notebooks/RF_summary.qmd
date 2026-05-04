@@ -10,6 +10,7 @@ suppressPackageStartupMessages({
   library(tidyverse)
   library(patchwork)
   library(gt)
+  library(tidytext)
 })
 
 ```
@@ -79,6 +80,45 @@ p
 # ggsave(filename = "../Submission/Figure 4.png", plot = p, height = 130, width = 140, units = "mm", dpi = 600)
 ```
 
+
+
+```{r}
+# Reorder Terrain Attribute within each property by %IncMSE
+ag_imp_data_filtered <- filter(imp_data, site == "Agriculture") %>%
+  mutate(`Terrain Attribute` = reorder_within(`Terrain Attribute`, `%IncMSE`, property))
+
+# Create the plot with properly ordered x-axis in each facet
+ag_imp_data <- ggplot(ag_imp_data_filtered, aes(x = `Terrain Attribute`, y = `%IncMSE`)) +
+  geom_segment(aes(x = `Terrain Attribute`, xend = `Terrain Attribute`, y = 0, yend = `%IncMSE`), color = "black", size = 3) +
+  theme_bw() +
+  coord_flip() +
+  labs(x = "Terrain Attribute", y = "% increase in Mean Squared Error") +
+  theme(legend.position = "bottom") +
+  facet_wrap(~ property, scales = "free", labeller = label_parsed, ncol = 3) +
+  scale_x_reordered()  # Applies correct labels after reorder_within
+ag_imp_data
+#ggsave(plot = ag_imp_data, filename = here::here("./images/Ag_RF_summary.png"), width = 200, height = 200, units = "mm")
+```
+
+```{r}
+forest_imp_data_filtered <- filter(imp_data, site == "Forest") %>%
+  mutate(`Terrain Attribute` = reorder_within(`Terrain Attribute`, `%IncMSE`, property))
+
+forest_imp_data <- ggplot(forest_imp_data_filtered, aes(x = `Terrain Attribute`, y = `%IncMSE`)) +
+  geom_segment(aes(x = `Terrain Attribute`, xend = `Terrain Attribute`, y = 0, yend = `%IncMSE`), color = "black", size = 3) +
+  theme_bw() +
+  coord_flip() +
+  labs(x = "Terrain Attribute", y = "% increase in Mean Squared Error") +
+  theme(legend.position = "bottom") +
+  facet_wrap(~ property, scales = "free", labeller = label_parsed) +
+  scale_x_reordered()  # Applies correct labels after reorder_within
+forest_imp_data
+
+#ggsave(plot = forest_imp_data, filename = here::here("./images/Forest_RF_summary.png"), width = 200, height =100, units = "mm")
+```
+
+
+
 ## Performance
 ```{r}
 m_performance <- read_csv(here::here("./notebooks/model_performance_data_49.csv")) |>
@@ -110,7 +150,7 @@ m_performance |>
   tab_style(style =  cell_text(weight = "bold", align = "center"), locations =  cells_row_groups()) |>
   tab_style(style =  cell_text(align = "left"), locations =  cells_body()) |>
   tab_style(style =  cell_text(weight = "bold", align = "left"), locations =  cells_column_labels()) |>
-  cols_label(Var_exp = "% Variance", MSE_org = "MSE", R2_org = "{{R^2}}", property = "Property", mse_test = "MSE") |>
+  cols_label(Var_exp = "% Variance", MSE_org = "MSE", R2_org = "{{r^2}}", property = "Property", mse_test = "MSE") |>
   row_group_order(groups = c("Agriculture", "Forest"))  |>
   tab_style(
     style = list(cell_text(style = "italic")),
@@ -124,4 +164,3 @@ m_performance |>
     footnote = "Percent variance explained",
     locations = cells_column_labels(columns = c("Var_exp"))) 
 ```
-

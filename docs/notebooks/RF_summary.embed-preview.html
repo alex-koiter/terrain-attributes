@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
     <meta charset="utf-8">
-    <meta name="generator" content="quarto-1.6.40">
+    <meta name="generator" content="quarto-1.6.39">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -128,7 +128,7 @@
             // if location was not changed in 100 ms, then there is no history back
             if(currentUrl === window.location.href){              
                 // redirect to site root
-                window.location.href = "...html";
+                window.location.href = "../index.html";
             }
         }, 100);
       }
@@ -152,10 +152,10 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-a1ff8711b79ae3724c050874b28d9907.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-bb3eb020369cb14e268a6b18491f71f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -217,17 +217,18 @@
        <p>Alex Koiter</p>
 <section id="load-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="load-libraries">Load libraries</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="30d782e6-4942-4d65-9538-b00491143cfe" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="b9560733-fba6-408f-bd3f-95084418e34a" class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>suppressPackageStartupMessages({</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  library(tidyverse)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  library(patchwork)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  library(gt)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  library(tidytext)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 </section>
 <section id="importance" class="level2">
 <h2 class="anchored" data-anchor-id="importance">Importance</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="64b26785-bece-4534-ba7c-b441dd9188e1" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="865bc726-f512-4b72-9fe9-fec18d00ae23" class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>imp_data <span class="op">&lt;-</span> read_csv(here::here(<span class="st">"./notebooks/importance_data_49.csv"</span>)) <span class="op">%&gt;%</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  rename(<span class="st">"Terrain Attribute"</span> <span class="op">=</span> <span class="st">"Var.Names"</span>) <span class="op">%&gt;%</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  mutate(`Terrain Attribute` <span class="op">=</span> fct_recode(`Terrain Attribute`, <span class="st">"Elevation"</span> <span class="op">=</span> <span class="st">"elevation"</span>, </span>
@@ -269,16 +270,63 @@ Figure&nbsp;1: Heat map of the Random Forest regression results showing the rank
 </div>
 </div>
 </div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="7046f084-f1d5-40ce-a02b-d9a4509d2ee4" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reorder Terrain Attribute within each property by %IncMSE</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ag_imp_data_filtered <span class="op">&lt;-</span> <span class="bu">filter</span>(imp_data, site <span class="op">==</span> <span class="st">"Agriculture"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  mutate(`Terrain Attribute` <span class="op">=</span> reorder_within(`Terrain Attribute`, `<span class="op">%</span>IncMSE`, <span class="bu">property</span>))</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the plot with properly ordered x-axis in each facet</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>ag_imp_data <span class="op">&lt;-</span> ggplot(ag_imp_data_filtered, aes(x <span class="op">=</span> `Terrain Attribute`, y <span class="op">=</span> `<span class="op">%</span>IncMSE`)) <span class="op">+</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  geom_segment(aes(x <span class="op">=</span> `Terrain Attribute`, xend <span class="op">=</span> `Terrain Attribute`, y <span class="op">=</span> <span class="dv">0</span>, yend <span class="op">=</span> `<span class="op">%</span>IncMSE`), color <span class="op">=</span> <span class="st">"black"</span>, size <span class="op">=</span> <span class="dv">3</span>) <span class="op">+</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  theme_bw() <span class="op">+</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  coord_flip() <span class="op">+</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Terrain Attribute"</span>, y <span class="op">=</span> <span class="st">"</span><span class="sc">% i</span><span class="st">ncrease in Mean Squared Error"</span>) <span class="op">+</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  theme(legend.position <span class="op">=</span> <span class="st">"bottom"</span>) <span class="op">+</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  facet_wrap(<span class="op">~</span> <span class="bu">property</span>, scales <span class="op">=</span> <span class="st">"free"</span>, labeller <span class="op">=</span> label_parsed, ncol <span class="op">=</span> <span class="dv">3</span>) <span class="op">+</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  scale_x_reordered()  <span class="co"># Applies correct labels after reorder_within</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div class="">
+<figure class="figure">
+<p class=""><a href="RF_summary.embed_files/figure-html/cell-5-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="RF_summary.embed_files/figure-html/cell-5-output-2.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="cf99e226-5975-4d95-9b7a-588015f7529f" class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>forest_imp_data_filtered <span class="op">&lt;-</span> <span class="bu">filter</span>(imp_data, site <span class="op">==</span> <span class="st">"Forest"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  mutate(`Terrain Attribute` <span class="op">=</span> reorder_within(`Terrain Attribute`, `<span class="op">%</span>IncMSE`, <span class="bu">property</span>))</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>forest_imp_data <span class="op">&lt;-</span> ggplot(forest_imp_data_filtered, aes(x <span class="op">=</span> `Terrain Attribute`, y <span class="op">=</span> `<span class="op">%</span>IncMSE`)) <span class="op">+</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  geom_segment(aes(x <span class="op">=</span> `Terrain Attribute`, xend <span class="op">=</span> `Terrain Attribute`, y <span class="op">=</span> <span class="dv">0</span>, yend <span class="op">=</span> `<span class="op">%</span>IncMSE`), color <span class="op">=</span> <span class="st">"black"</span>, size <span class="op">=</span> <span class="dv">3</span>) <span class="op">+</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  theme_bw() <span class="op">+</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  coord_flip() <span class="op">+</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Terrain Attribute"</span>, y <span class="op">=</span> <span class="st">"</span><span class="sc">% i</span><span class="st">ncrease in Mean Squared Error"</span>) <span class="op">+</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  theme(legend.position <span class="op">=</span> <span class="st">"bottom"</span>) <span class="op">+</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  facet_wrap(<span class="op">~</span> <span class="bu">property</span>, scales <span class="op">=</span> <span class="st">"free"</span>, labeller <span class="op">=</span> label_parsed) <span class="op">+</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  scale_x_reordered()  <span class="co"># Applies correct labels after reorder_within</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>forest_imp_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="">
+<figure class="figure">
+<p class=""><a href="RF_summary.embed_files/figure-html/cell-6-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="RF_summary.embed_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div></div>
 </section>
 <section id="performance" class="level2">
 <h2 class="anchored" data-anchor-id="performance">Performance</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="83e72740-1015-44a9-b790-833a0fa26e31" class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>m_performance <span class="op">&lt;-</span> read_csv(here::here(<span class="st">"./notebooks/model_performance_data_49.csv"</span>)) <span class="op">|&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  mutate(<span class="bu">property</span> <span class="op">=</span> fct_recode(<span class="bu">property</span>, <span class="st">"a*"</span> <span class="op">=</span> <span class="st">"a_col"</span>, <span class="st">"b*"</span> <span class="op">=</span> <span class="st">"b_col"</span>, <span class="st">"c*"</span> <span class="op">=</span> <span class="st">"c_col"</span>, <span class="st">"h*"</span> <span class="op">=</span> <span class="st">"h_col"</span>, <span class="st">"x"</span> <span class="op">=</span> <span class="st">"x_col"</span>)) <span class="op">|&gt;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  mutate(<span class="bu">property</span> <span class="op">=</span> fct_relevel(<span class="bu">property</span>, <span class="st">"Ca"</span>, <span class="st">"Co"</span>, <span class="st">"Cs"</span>, <span class="st">"Fe"</span>, <span class="st">"Li"</span>, <span class="st">"La"</span>, <span class="st">"Nb"</span>, <span class="st">"Ni"</span>, <span class="st">"Rb"</span>, <span class="st">"Sr"</span>, <span class="st">"a*"</span>, <span class="st">"b*"</span>, <span class="st">"c*"</span>, <span class="st">"h*"</span>, <span class="st">"x"</span>)) <span class="op">|&gt;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  rename(<span class="st">"MSE_org"</span> <span class="op">=</span><span class="st">"MSE"</span>, <span class="st">"R2_org"</span> <span class="op">=</span> <span class="st">"R2"</span>) <span class="op">|&gt;</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  arrange(<span class="bu">property</span>) <span class="op">|&gt;</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  mutate(Var_exp <span class="op">=</span> Var_exp<span class="op">*</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [6]:</pre></div><div id="03a536f0-5e2d-436a-839a-9cf228b99aa1" class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>m_performance <span class="op">&lt;-</span> read_csv(here::here(<span class="st">"./notebooks/model_performance_data_49.csv"</span>)) <span class="op">|&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  mutate(<span class="bu">property</span> <span class="op">=</span> fct_recode(<span class="bu">property</span>, <span class="st">"a*"</span> <span class="op">=</span> <span class="st">"a_col"</span>, <span class="st">"b*"</span> <span class="op">=</span> <span class="st">"b_col"</span>, <span class="st">"c*"</span> <span class="op">=</span> <span class="st">"c_col"</span>, <span class="st">"h*"</span> <span class="op">=</span> <span class="st">"h_col"</span>, <span class="st">"x"</span> <span class="op">=</span> <span class="st">"x_col"</span>)) <span class="op">|&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  mutate(<span class="bu">property</span> <span class="op">=</span> fct_relevel(<span class="bu">property</span>, <span class="st">"Ca"</span>, <span class="st">"Co"</span>, <span class="st">"Cs"</span>, <span class="st">"Fe"</span>, <span class="st">"Li"</span>, <span class="st">"La"</span>, <span class="st">"Nb"</span>, <span class="st">"Ni"</span>, <span class="st">"Rb"</span>, <span class="st">"Sr"</span>, <span class="st">"a*"</span>, <span class="st">"b*"</span>, <span class="st">"c*"</span>, <span class="st">"h*"</span>, <span class="st">"x"</span>)) <span class="op">|&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  rename(<span class="st">"MSE_org"</span> <span class="op">=</span><span class="st">"MSE"</span>, <span class="st">"R2_org"</span> <span class="op">=</span> <span class="st">"R2"</span>) <span class="op">|&gt;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  arrange(<span class="bu">property</span>) <span class="op">|&gt;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  mutate(Var_exp <span class="op">=</span> Var_exp<span class="op">*</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 23 Columns: 6
 ── Column specification ────────────────────────────────────────────────────────
@@ -290,58 +338,58 @@ dbl (4): MSE, Var_exp, R2, mse_test
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [7]:</pre></div><div class="cell">
 
-<div class="cell-container"><div class="cell-decorator"><pre>In [6]:</pre></div><div><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>m_performance <span class="op">|&gt;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  group_by(site) <span class="op">|&gt;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  gt() <span class="op">|&gt;</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  tab_spanner(label <span class="op">=</span> <span class="st">"Training"</span>,</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>               columns <span class="op">=</span> c(Var_exp, MSE_org)) <span class="op">|&gt;</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  tab_spanner(label <span class="op">=</span> <span class="st">"Test"</span>,</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>              columns <span class="op">=</span> c(R2_org, mse_test)) <span class="op">|&gt;</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  cols_move_to_start(columns <span class="op">=</span> <span class="bu">property</span>) <span class="op">|&gt;</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  fmt_number(columns <span class="op">=</span> c(<span class="st">"mse_test"</span>, <span class="st">"MSE_org"</span>), decimal <span class="op">=</span> <span class="dv">2</span>) <span class="op">|&gt;</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  fmt_number(columns <span class="op">=</span> c(<span class="st">"Var_exp"</span>), decimal <span class="op">=</span> <span class="dv">1</span>) <span class="op">|&gt;</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  fmt_number(columns <span class="op">=</span> c(<span class="st">"R2_org"</span>), decimal <span class="op">=</span> <span class="dv">2</span>) <span class="op">|&gt;</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  tab_style(style <span class="op">=</span>  cell_text(weight <span class="op">=</span> <span class="st">"bold"</span>, align <span class="op">=</span> <span class="st">"center"</span>), locations <span class="op">=</span>  cells_row_groups()) <span class="op">|&gt;</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  tab_style(style <span class="op">=</span>  cell_text(align <span class="op">=</span> <span class="st">"left"</span>), locations <span class="op">=</span>  cells_body()) <span class="op">|&gt;</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  tab_style(style <span class="op">=</span>  cell_text(weight <span class="op">=</span> <span class="st">"bold"</span>, align <span class="op">=</span> <span class="st">"left"</span>), locations <span class="op">=</span>  cells_column_labels()) <span class="op">|&gt;</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  cols_label(Var_exp <span class="op">=</span> <span class="st">"% Variance"</span>, MSE_org <span class="op">=</span> <span class="st">"MSE"</span>, R2_org <span class="op">=</span> <span class="st">"</span><span class="sc">{{</span><span class="st">R^2</span><span class="sc">}}</span><span class="st">"</span>, <span class="bu">property</span> <span class="op">=</span> <span class="st">"Property"</span>, mse_test <span class="op">=</span> <span class="st">"MSE"</span>) <span class="op">|&gt;</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  row_group_order(groups <span class="op">=</span> c(<span class="st">"Agriculture"</span>, <span class="st">"Forest"</span>))  <span class="op">|&gt;</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  tab_style(</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    style <span class="op">=</span> <span class="bu">list</span>(cell_text(style <span class="op">=</span> <span class="st">"italic"</span>)),</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    locations <span class="op">=</span> cells_body(</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>      columns <span class="op">=</span> <span class="bu">property</span>,</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>      rows <span class="op">=</span> <span class="bu">property</span> <span class="op">%</span><span class="kw">in</span><span class="op">%</span> c(<span class="st">"a*"</span>, <span class="st">"b*"</span>, <span class="st">"c*"</span>, <span class="st">"h*"</span>, <span class="st">"x"</span>))) <span class="op">|&gt;</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    tab_footnote(</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    footnote <span class="op">=</span> <span class="st">"Mean square error"</span>,</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    locations <span class="op">=</span> cells_column_labels(columns <span class="op">=</span> c(<span class="st">"mse_test"</span>, <span class="st">"MSE_org"</span>))) <span class="op">|&gt;</span></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>  tab_footnote(</span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    footnote <span class="op">=</span> <span class="st">"Percent variance explained"</span>,</span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    locations <span class="op">=</span> cells_column_labels(columns <span class="op">=</span> c(<span class="st">"Var_exp"</span>))) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div><div id="tbl-rf-summary" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>m_performance <span class="op">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  group_by(site) <span class="op">|&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  gt() <span class="op">|&gt;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  tab_spanner(label <span class="op">=</span> <span class="st">"Training"</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>               columns <span class="op">=</span> c(Var_exp, MSE_org)) <span class="op">|&gt;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  tab_spanner(label <span class="op">=</span> <span class="st">"Test"</span>,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>              columns <span class="op">=</span> c(R2_org, mse_test)) <span class="op">|&gt;</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  cols_move_to_start(columns <span class="op">=</span> <span class="bu">property</span>) <span class="op">|&gt;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  fmt_number(columns <span class="op">=</span> c(<span class="st">"mse_test"</span>, <span class="st">"MSE_org"</span>), decimal <span class="op">=</span> <span class="dv">2</span>) <span class="op">|&gt;</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  fmt_number(columns <span class="op">=</span> c(<span class="st">"Var_exp"</span>), decimal <span class="op">=</span> <span class="dv">1</span>) <span class="op">|&gt;</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  fmt_number(columns <span class="op">=</span> c(<span class="st">"R2_org"</span>), decimal <span class="op">=</span> <span class="dv">2</span>) <span class="op">|&gt;</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  tab_style(style <span class="op">=</span>  cell_text(weight <span class="op">=</span> <span class="st">"bold"</span>, align <span class="op">=</span> <span class="st">"center"</span>), locations <span class="op">=</span>  cells_row_groups()) <span class="op">|&gt;</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  tab_style(style <span class="op">=</span>  cell_text(align <span class="op">=</span> <span class="st">"left"</span>), locations <span class="op">=</span>  cells_body()) <span class="op">|&gt;</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  tab_style(style <span class="op">=</span>  cell_text(weight <span class="op">=</span> <span class="st">"bold"</span>, align <span class="op">=</span> <span class="st">"left"</span>), locations <span class="op">=</span>  cells_column_labels()) <span class="op">|&gt;</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  cols_label(Var_exp <span class="op">=</span> <span class="st">"% Variance"</span>, MSE_org <span class="op">=</span> <span class="st">"MSE"</span>, R2_org <span class="op">=</span> <span class="st">"</span><span class="sc">{{</span><span class="st">r^2</span><span class="sc">}}</span><span class="st">"</span>, <span class="bu">property</span> <span class="op">=</span> <span class="st">"Property"</span>, mse_test <span class="op">=</span> <span class="st">"MSE"</span>) <span class="op">|&gt;</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  row_group_order(groups <span class="op">=</span> c(<span class="st">"Agriculture"</span>, <span class="st">"Forest"</span>))  <span class="op">|&gt;</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  tab_style(</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    style <span class="op">=</span> <span class="bu">list</span>(cell_text(style <span class="op">=</span> <span class="st">"italic"</span>)),</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    locations <span class="op">=</span> cells_body(</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>      columns <span class="op">=</span> <span class="bu">property</span>,</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>      rows <span class="op">=</span> <span class="bu">property</span> <span class="op">%</span><span class="kw">in</span><span class="op">%</span> c(<span class="st">"a*"</span>, <span class="st">"b*"</span>, <span class="st">"c*"</span>, <span class="st">"h*"</span>, <span class="st">"x"</span>))) <span class="op">|&gt;</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    tab_footnote(</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    footnote <span class="op">=</span> <span class="st">"Mean square error"</span>,</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    locations <span class="op">=</span> cells_column_labels(columns <span class="op">=</span> c(<span class="st">"mse_test"</span>, <span class="st">"MSE_org"</span>))) <span class="op">|&gt;</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  tab_footnote(</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    footnote <span class="op">=</span> <span class="st">"Percent variance explained"</span>,</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>    locations <span class="op">=</span> cells_column_labels(columns <span class="op">=</span> c(<span class="st">"Var_exp"</span>))) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div><div id="tbl-rf-summary" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rf-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;1: Model summary and performance statistics for the random forest regression using the training and test data sets.
 </figcaption>
 <div aria-describedby="tbl-rf-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display">
-<div id="wkavvfymtw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#wkavvfymtw table {
+<div id="pffogxhrmo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#pffogxhrmo table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#wkavvfymtw thead, #wkavvfymtw tbody, #wkavvfymtw tfoot, #wkavvfymtw tr, #wkavvfymtw td, #wkavvfymtw th {
+#pffogxhrmo thead, #pffogxhrmo tbody, #pffogxhrmo tfoot, #pffogxhrmo tr, #pffogxhrmo td, #pffogxhrmo th {
   border-style: none;
 }
 
-#wkavvfymtw p {
+#pffogxhrmo p {
   margin: 0;
   padding: 0;
 }
 
-#wkavvfymtw .gt_table {
+#pffogxhrmo .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -367,12 +415,12 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-left-color: #D3D3D3;
 }
 
-#wkavvfymtw .gt_caption {
+#pffogxhrmo .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#wkavvfymtw .gt_title {
+#pffogxhrmo .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -384,7 +432,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-bottom-width: 0;
 }
 
-#wkavvfymtw .gt_subtitle {
+#pffogxhrmo .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -396,7 +444,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-top-width: 0;
 }
 
-#wkavvfymtw .gt_heading {
+#pffogxhrmo .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -408,13 +456,13 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-right-color: #D3D3D3;
 }
 
-#wkavvfymtw .gt_bottom_border {
+#pffogxhrmo .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#wkavvfymtw .gt_col_headings {
+#pffogxhrmo .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -429,7 +477,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-right-color: #D3D3D3;
 }
 
-#wkavvfymtw .gt_col_heading {
+#pffogxhrmo .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -449,7 +497,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   overflow-x: hidden;
 }
 
-#wkavvfymtw .gt_column_spanner_outer {
+#pffogxhrmo .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -461,15 +509,15 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   padding-right: 4px;
 }
 
-#wkavvfymtw .gt_column_spanner_outer:first-child {
+#pffogxhrmo .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wkavvfymtw .gt_column_spanner_outer:last-child {
+#pffogxhrmo .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wkavvfymtw .gt_column_spanner {
+#pffogxhrmo .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -481,11 +529,11 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   width: 100%;
 }
 
-#wkavvfymtw .gt_spanner_row {
+#pffogxhrmo .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#wkavvfymtw .gt_group_heading {
+#pffogxhrmo .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -511,7 +559,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   text-align: left;
 }
 
-#wkavvfymtw .gt_empty_group_heading {
+#pffogxhrmo .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -526,15 +574,15 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   vertical-align: middle;
 }
 
-#wkavvfymtw .gt_from_md > :first-child {
+#pffogxhrmo .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wkavvfymtw .gt_from_md > :last-child {
+#pffogxhrmo .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wkavvfymtw .gt_row {
+#pffogxhrmo .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -553,7 +601,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   overflow-x: hidden;
 }
 
-#wkavvfymtw .gt_stub {
+#pffogxhrmo .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -566,7 +614,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   padding-right: 5px;
 }
 
-#wkavvfymtw .gt_stub_row_group {
+#pffogxhrmo .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -580,15 +628,15 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   vertical-align: top;
 }
 
-#wkavvfymtw .gt_row_group_first td {
+#pffogxhrmo .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#wkavvfymtw .gt_row_group_first th {
+#pffogxhrmo .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#wkavvfymtw .gt_summary_row {
+#pffogxhrmo .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -598,16 +646,16 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   padding-right: 5px;
 }
 
-#wkavvfymtw .gt_first_summary_row {
+#pffogxhrmo .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#wkavvfymtw .gt_first_summary_row.thick {
+#pffogxhrmo .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#wkavvfymtw .gt_last_summary_row {
+#pffogxhrmo .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -617,7 +665,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-bottom-color: #D3D3D3;
 }
 
-#wkavvfymtw .gt_grand_summary_row {
+#pffogxhrmo .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -627,7 +675,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   padding-right: 5px;
 }
 
-#wkavvfymtw .gt_first_grand_summary_row {
+#pffogxhrmo .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -637,7 +685,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-top-color: #D3D3D3;
 }
 
-#wkavvfymtw .gt_last_grand_summary_row_top {
+#pffogxhrmo .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -647,11 +695,11 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-bottom-color: #D3D3D3;
 }
 
-#wkavvfymtw .gt_striped {
+#pffogxhrmo .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#wkavvfymtw .gt_table_body {
+#pffogxhrmo .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -660,7 +708,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-bottom-color: #D3D3D3;
 }
 
-#wkavvfymtw .gt_footnotes {
+#pffogxhrmo .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -674,7 +722,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-right-color: #D3D3D3;
 }
 
-#wkavvfymtw .gt_footnote {
+#pffogxhrmo .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -683,7 +731,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   padding-right: 5px;
 }
 
-#wkavvfymtw .gt_sourcenotes {
+#pffogxhrmo .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -697,7 +745,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-right-color: #D3D3D3;
 }
 
-#wkavvfymtw .gt_sourcenote {
+#pffogxhrmo .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -705,72 +753,72 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   padding-right: 5px;
 }
 
-#wkavvfymtw .gt_left {
+#pffogxhrmo .gt_left {
   text-align: left;
 }
 
-#wkavvfymtw .gt_center {
+#pffogxhrmo .gt_center {
   text-align: center;
 }
 
-#wkavvfymtw .gt_right {
+#pffogxhrmo .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wkavvfymtw .gt_font_normal {
+#pffogxhrmo .gt_font_normal {
   font-weight: normal;
 }
 
-#wkavvfymtw .gt_font_bold {
+#pffogxhrmo .gt_font_bold {
   font-weight: bold;
 }
 
-#wkavvfymtw .gt_font_italic {
+#pffogxhrmo .gt_font_italic {
   font-style: italic;
 }
 
-#wkavvfymtw .gt_super {
+#pffogxhrmo .gt_super {
   font-size: 65%;
 }
 
-#wkavvfymtw .gt_footnote_marks {
+#pffogxhrmo .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#wkavvfymtw .gt_asterisk {
+#pffogxhrmo .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#wkavvfymtw .gt_indent_1 {
+#pffogxhrmo .gt_indent_1 {
   text-indent: 5px;
 }
 
-#wkavvfymtw .gt_indent_2 {
+#pffogxhrmo .gt_indent_2 {
   text-indent: 10px;
 }
 
-#wkavvfymtw .gt_indent_3 {
+#pffogxhrmo .gt_indent_3 {
   text-indent: 15px;
 }
 
-#wkavvfymtw .gt_indent_4 {
+#pffogxhrmo .gt_indent_4 {
   text-indent: 20px;
 }
 
-#wkavvfymtw .gt_indent_5 {
+#pffogxhrmo .gt_indent_5 {
   text-indent: 25px;
 }
 
-#wkavvfymtw .katex-display {
+#pffogxhrmo .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#wkavvfymtw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#pffogxhrmo div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -796,7 +844,7 @@ Test
 <tr class="gt_col_headings even">
 <th id="Var_exp" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;" scope="col">% Variance<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
 <th id="MSE_org" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;" scope="col">MSE<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>2</sup></span></th>
-<th id="R2_org" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;" scope="col">R<span style="white-space:nowrap;"><sup>2</sup></span></th>
+<th id="R2_org" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;" scope="col">r<span style="white-space:nowrap;"><sup>2</sup></span></th>
 <th id="mse_test" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;" scope="col">MSE<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>2</sup></span></th>
 </tr>
 </thead>

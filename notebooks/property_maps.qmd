@@ -217,7 +217,7 @@ dem <- ggplot() +
   theme_bottom +
   scale_y_continuous(expand = c(0,0)) +
   scale_x_continuous(expand = c(0,0))
-# 
+
 # ssa <- ggplot() +
 #   tidyterra::geom_spatraster(data = ag_rast, aes(fill = ssa)) +
 #   scale_fill_viridis_c(name = "SSA") +
@@ -250,7 +250,7 @@ scale_p <- ggplot() +
 #| label: fig-ag_map
 #| fig-cap: Kriged maps of select colour and geochemical properties and elevation across the agricultural site.
  
-p_ag <- ca + co + cs + fe + li + la + nb + ni + rb + sr + a_col + b_col + c_col + h_col + x_col + dem + plot_layout(ncol = 4) 
+p_ag <- ca + co + cs + fe + li + la + nb + ni + rb + sr + a_col + b_col + c_col + h_col + x_col + scale_p + plot_layout(ncol = 4) 
 
 p_ag
 
@@ -395,15 +395,10 @@ scale_p_forest <- ggplot() +
 #| label: fig-forest_map
 #| fig-cap: Kriged map of select colour and geochemical properties and elevation across the forested site.
  
-p_for <- ca_forest + co_forest + cs_forest + la_forest + li_forest + nb_forest + ni_forest + sr_forest + h_col_forest + dem_forest +
+p_for <- ca_forest + co_forest + cs_forest + la_forest + li_forest + nb_forest + ni_forest + sr_forest + h_col_forest + scale_p +
   plot_layout(ncol = 4) 
 p_for
 
 #ggsave(filename = "../Submission/Figure 3.png", plot = p_for,  height = 175, width = 190, units = "mm", dpi = 600)
 ```
-
-
-
-
-
 
