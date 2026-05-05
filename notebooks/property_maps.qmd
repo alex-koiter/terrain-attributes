@@ -254,7 +254,7 @@ p_ag <- ca + co + cs + fe + li + la + nb + ni + rb + sr + a_col + b_col + c_col 
 
 p_ag
 
-#ggsave(filename = "../Submission/Figure 2.png", plot = p_ag,  height = 240, width = 190, units = "mm", dpi = 600)
+#ggsave(filename = "./Submission/Figure 2.png", plot = p_ag,  height = 240, width = 190, units = "mm", dpi = 600)
 ```
 
 
@@ -399,6 +399,6 @@ p_for <- ca_forest + co_forest + cs_forest + la_forest + li_forest + nb_forest +
   plot_layout(ncol = 4) 
 p_for
 
-#ggsave(filename = "../Submission/Figure 3.png", plot = p_for,  height = 175, width = 190, units = "mm", dpi = 600)
+#ggsave(filename = "./Submission/Figure 3.png", plot = p_for,  height = 175, width = 190, units = "mm", dpi = 600)
 ```
 

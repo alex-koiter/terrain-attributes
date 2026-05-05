@@ -135,8 +135,8 @@ While many studies use a statistical-based approach [@collins1997] to select sui
 Consequently, there has been a call for the inclusion of a process-based (e.g., weathering, erosion) or geologic-based explanation of the fingerprints selected to address these concerns [@collins2020].
 This remains challenging due to limited data on soil properties, particularly with geochemical properties, as routine lab analysis often measures more than 50 elements.
 The spatial patterns of some soil properties are well studied because of their agronomic importance or ability to infer other important soil properties and processes and include fallout radionuclides [e.g., ^137^Cs, ^7^Be @ritchie1970], plant nutrients [e.g., N, P @vasu2017], soil colour [e.g., hue, value @viscarrarossel2006], major non-acid forming cations [e.g., Ca, Na @sun2021].
-In contrast, the processes that control the distribution of rare earth elements and trace metals, are less well studied or tend to be site-specific, making it difficult to draw generalizations.
-
+In contrast, the processes that control the distribution of rare earth elements and trace metals, are less well studied or tend to be site-specific, making it difficult to draw generalizations.  With the growing adoption of DEM-based terrain analysis to guide soil sampling, there is a corresponding need for analytical approaches capable of handling complex, non-linear relationships among terrain attributes, for which Random Forest (RF) provides a suitable framework.
+ 
 Terrain attributes such as elevation, slope curvature, slope position, and soil wetness indices have been shown to be useful information in the characterization and modelling of a range of soil properties including soil moisture [@beaudette2013], texture [@kokulan2018], colour [@brown2004], organic matter [@zhang2012], conductivity [@umali2012], and geochemistry [@lima2023].
 Similar techniques may provide additional insight into the pedologic and geomorphic processes that drive the observed patterns of fingerprint properties within a given source.
 Digital elevation models (DEMs) are more widely available through public databases and can be generated using drone imagery, whereas soil property data are more limited in availability and spatial coverage.
@@ -361,7 +361,7 @@ While sediment fingerprinting assumes consistent source signatures over time, fe
 The continued integration of DEM-based sampling strategies and fingerprint mapping into sediment source fingerprinting approach will benefit from the development of a standardized framework, workflow, and set of best practices to ensure both robust and reliable results.
 For example, differences in DEM resolution between sites in this study could influence curvature-based terrain attributes, introducing potential bias.
 Furthermore, the use of isotropic variogram models may not adequately represent spatial autocorrelation in channelized landscapes, where directional variability is expected.
-Additional work is needed to establish standardized protocols for DEM processing, terrain attribute calculation, and variogram modeling to ensure that methods work across a range of landscapes.
+Additional work is needed to establish standardized protocols for DEM processing, terrain attribute calculation, and variogram modeling to ensure that methods work across a range of landscapes. Lastly, coupling machine-learning approaches, such as RF regression, with process-based soil landscape models, geophysical surveys would further clarify fundamental mechanisms underlying observed patterns.
 
 ## Conclusions
 
@@ -392,7 +392,10 @@ The authors have no competing interests to declare that are relevant to the cont
 
 ### Data and code availability {.unnumbered}
 
-Data and source code for analysis and manuscript available on GitHub: <https://github.com/alex-koiter/sampling-design-manuscript>
+Data and source code for analysis and manuscript available on GitHub: <https://github.com/alex-koiter/terrain-attributes>
+
+Additional information, including analytical notebooks with details of the analysis and intermediate steps, is available online: <https://alexkoiter.ca/terrain-attributes/>
+
 
 ### Author contributions {.unnumbered}
 
