@@ -221,15 +221,15 @@
        <p>Alex Koiter</p>
 <section id="load-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="load-libraries">Load libraries</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="fbbaea6f-b4dc-45cc-8039-fcde4af5dc8e" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="fffdc47b-c81d-496b-b2cd-b286bf43a929" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>library(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ dplyr     1.2.1     ✔ readr     2.1.5
 ✔ forcats   1.0.0     ✔ stringr   1.6.0
-✔ ggplot2   3.5.2     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.2.0     
+✔ ggplot2   3.5.2     ✔ tibble    3.3.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.2
+✔ purrr     1.2.2     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
@@ -245,7 +245,7 @@ The following object is masked from 'package:tidyr':
 </section>
 <section id="terrain-summary" class="level2">
 <h2 class="anchored" data-anchor-id="terrain-summary">Terrain summary</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="3483b7c2-9025-459b-b07c-28707bf246d1" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="3ee63a7f-5320-49b1-adeb-9bb1cf2ebd61" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>attribute <span class="op">&lt;-</span> c(<span class="st">"plan_curvature"</span>, <span class="st">"profile_curvature"</span>, <span class="st">"saga_wetness_index"</span>, <span class="st">"catchment_area"</span>, <span class="st">"relative_slope_position"</span>, <span class="st">"channel_network_distance"</span>, <span class="st">"elevation"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ag_data <span class="op">&lt;-</span> read_csv(here::here(<span class="st">"./notebooks/ag_data_49.csv"</span>)) <span class="op">|&gt;</span></span>
@@ -283,23 +283,23 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
 </figcaption>
 <div aria-describedby="tbl-univariate-summary2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display">
-<div id="havsclocjf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#havsclocjf table {
+<div id="ngqqxsrzmg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ngqqxsrzmg table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#havsclocjf thead, #havsclocjf tbody, #havsclocjf tfoot, #havsclocjf tr, #havsclocjf td, #havsclocjf th {
+#ngqqxsrzmg thead, #ngqqxsrzmg tbody, #ngqqxsrzmg tfoot, #ngqqxsrzmg tr, #ngqqxsrzmg td, #ngqqxsrzmg th {
   border-style: none;
 }
 
-#havsclocjf p {
+#ngqqxsrzmg p {
   margin: 0;
   padding: 0;
 }
 
-#havsclocjf .gt_table {
+#ngqqxsrzmg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -325,12 +325,12 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
   border-left-color: #D3D3D3;
 }
 
-#havsclocjf .gt_caption {
+#ngqqxsrzmg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#havsclocjf .gt_title {
+#ngqqxsrzmg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -342,7 +342,7 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
   border-bottom-width: 0;
 }
 
-#havsclocjf .gt_subtitle {
+#ngqqxsrzmg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -354,7 +354,7 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
   border-top-width: 0;
 }
 
-#havsclocjf .gt_heading {
+#ngqqxsrzmg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -366,13 +366,13 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
   border-right-color: #D3D3D3;
 }
 
-#havsclocjf .gt_bottom_border {
+#ngqqxsrzmg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#havsclocjf .gt_col_headings {
+#ngqqxsrzmg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -387,7 +387,7 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
   border-right-color: #D3D3D3;
 }
 
-#havsclocjf .gt_col_heading {
+#ngqqxsrzmg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -407,7 +407,7 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
   overflow-x: hidden;
 }
 
-#havsclocjf .gt_column_spanner_outer {
+#ngqqxsrzmg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -419,15 +419,15 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
   padding-right: 4px;
 }
 
-#havsclocjf .gt_column_spanner_outer:first-child {
+#ngqqxsrzmg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#havsclocjf .gt_column_spanner_outer:last-child {
+#ngqqxsrzmg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#havsclocjf .gt_column_spanner {
+#ngqqxsrzmg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -439,11 +439,11 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
   width: 100%;
 }
 
-#havsclocjf .gt_spanner_row {
+#ngqqxsrzmg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#havsclocjf .gt_group_heading {
+#ngqqxsrzmg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -469,7 +469,7 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
   text-align: left;
 }
 
-#havsclocjf .gt_empty_group_heading {
+#ngqqxsrzmg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -484,15 +484,15 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
   vertical-align: middle;
 }
 
-#havsclocjf .gt_from_md > :first-child {
+#ngqqxsrzmg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#havsclocjf .gt_from_md > :last-child {
+#ngqqxsrzmg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#havsclocjf .gt_row {
+#ngqqxsrzmg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -511,7 +511,7 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
   overflow-x: hidden;
 }
 
-#havsclocjf .gt_stub {
+#ngqqxsrzmg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -524,7 +524,7 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
   padding-right: 5px;
 }
 
-#havsclocjf .gt_stub_row_group {
+#ngqqxsrzmg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -538,15 +538,15 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
   vertical-align: top;
 }
 
-#havsclocjf .gt_row_group_first td {
+#ngqqxsrzmg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#havsclocjf .gt_row_group_first th {
+#ngqqxsrzmg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#havsclocjf .gt_summary_row {
+#ngqqxsrzmg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -556,16 +556,16 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
   padding-right: 5px;
 }
 
-#havsclocjf .gt_first_summary_row {
+#ngqqxsrzmg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#havsclocjf .gt_first_summary_row.thick {
+#ngqqxsrzmg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#havsclocjf .gt_last_summary_row {
+#ngqqxsrzmg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -575,7 +575,7 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
   border-bottom-color: #D3D3D3;
 }
 
-#havsclocjf .gt_grand_summary_row {
+#ngqqxsrzmg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -585,7 +585,7 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
   padding-right: 5px;
 }
 
-#havsclocjf .gt_first_grand_summary_row {
+#ngqqxsrzmg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -595,7 +595,7 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
   border-top-color: #D3D3D3;
 }
 
-#havsclocjf .gt_last_grand_summary_row_top {
+#ngqqxsrzmg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -605,11 +605,11 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
   border-bottom-color: #D3D3D3;
 }
 
-#havsclocjf .gt_striped {
+#ngqqxsrzmg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#havsclocjf .gt_table_body {
+#ngqqxsrzmg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -618,7 +618,7 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
   border-bottom-color: #D3D3D3;
 }
 
-#havsclocjf .gt_footnotes {
+#ngqqxsrzmg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -632,7 +632,7 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
   border-right-color: #D3D3D3;
 }
 
-#havsclocjf .gt_footnote {
+#ngqqxsrzmg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -641,7 +641,7 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
   padding-right: 5px;
 }
 
-#havsclocjf .gt_sourcenotes {
+#ngqqxsrzmg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -655,7 +655,7 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
   border-right-color: #D3D3D3;
 }
 
-#havsclocjf .gt_sourcenote {
+#ngqqxsrzmg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -663,72 +663,72 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
   padding-right: 5px;
 }
 
-#havsclocjf .gt_left {
+#ngqqxsrzmg .gt_left {
   text-align: left;
 }
 
-#havsclocjf .gt_center {
+#ngqqxsrzmg .gt_center {
   text-align: center;
 }
 
-#havsclocjf .gt_right {
+#ngqqxsrzmg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#havsclocjf .gt_font_normal {
+#ngqqxsrzmg .gt_font_normal {
   font-weight: normal;
 }
 
-#havsclocjf .gt_font_bold {
+#ngqqxsrzmg .gt_font_bold {
   font-weight: bold;
 }
 
-#havsclocjf .gt_font_italic {
+#ngqqxsrzmg .gt_font_italic {
   font-style: italic;
 }
 
-#havsclocjf .gt_super {
+#ngqqxsrzmg .gt_super {
   font-size: 65%;
 }
 
-#havsclocjf .gt_footnote_marks {
+#ngqqxsrzmg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#havsclocjf .gt_asterisk {
+#ngqqxsrzmg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#havsclocjf .gt_indent_1 {
+#ngqqxsrzmg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#havsclocjf .gt_indent_2 {
+#ngqqxsrzmg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#havsclocjf .gt_indent_3 {
+#ngqqxsrzmg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#havsclocjf .gt_indent_4 {
+#ngqqxsrzmg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#havsclocjf .gt_indent_5 {
+#ngqqxsrzmg .gt_indent_5 {
   text-indent: 25px;
 }
 
-#havsclocjf .katex-display {
+#ngqqxsrzmg .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#havsclocjf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ngqqxsrzmg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -736,13 +736,13 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
 <table class="gt_table cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
-<th id="name" class="gt_col_heading gt_columns_bottom_border gt_left" style="text-align: center;" data-quarto-table-cell-role="th" scope="col">name</th>
-<th id="mean" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: center;" data-quarto-table-cell-role="th" scope="col">mean</th>
-<th id="sd" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: center;" data-quarto-table-cell-role="th" scope="col">sd</th>
-<th id="max" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: center;" data-quarto-table-cell-role="th" scope="col">max</th>
-<th id="min" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: center;" data-quarto-table-cell-role="th" scope="col">min</th>
-<th id="skewness" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: center;" data-quarto-table-cell-role="th" scope="col">skewness</th>
-<th id="cv" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: center;" data-quarto-table-cell-role="th" scope="col">cv</th>
+<th id="Terrain-Attribute" class="gt_col_heading gt_columns_bottom_border gt_left" style="text-align: center;" data-quarto-table-cell-role="th" scope="col">Terrain Attribute</th>
+<th id="Mean" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: center;" data-quarto-table-cell-role="th" scope="col">Mean</th>
+<th id="SD" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: center;" data-quarto-table-cell-role="th" scope="col">SD</th>
+<th id="Max" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: center;" data-quarto-table-cell-role="th" scope="col">Max</th>
+<th id="Min" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: center;" data-quarto-table-cell-role="th" scope="col">Min</th>
+<th id="Skewness" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: center;" data-quarto-table-cell-role="th" scope="col">Skewness</th>
+<th id="CV" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: center;" data-quarto-table-cell-role="th" scope="col">CV</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
@@ -750,133 +750,133 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
 <th colspan="7" id="Agriculture" class="gt_group_heading" data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold;" scope="colgroup">Agriculture</th>
 </tr>
 <tr class="gt_row_group_first even">
-<td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  name">Catchment Area</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  mean">454.54</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  sd">1,033.10</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  max">6,442.41</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  min">8.41</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  skewness">4.46</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  cv">227.29</td>
+<td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Terrain Attribute">Catchment Area</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Mean">454.54</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  SD">1,033.10</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Max">6,442.41</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Min">8.41</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Skewness">4.46</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  CV">227.29</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  name">Vert. Dist. Channel</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  mean">0.06</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  sd">0.05</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  max">0.22</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  min">0.01</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  skewness">1.14</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  cv">81.39</td>
+<td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Terrain Attribute">Vert. Dist. Channel</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Mean">0.06</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  SD">0.05</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Max">0.22</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Min">0.01</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Skewness">1.14</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  CV">81.39</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  name">Elevation</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  mean">309.96</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  sd">0.69</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  max">311.78</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  min">309.03</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  skewness">0.68</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  cv">0.22</td>
+<td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Terrain Attribute">Elevation</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Mean">309.96</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  SD">0.69</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Max">311.78</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Min">309.03</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Skewness">0.68</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  CV">0.22</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  name">Plan Curvature</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  mean">0.00</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  sd">0.00</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  max">0.00</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  min">0.00</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  skewness">−0.10</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  cv">−3,103.61</td>
+<td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Terrain Attribute">Plan Curvature</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Mean">0.00</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  SD">0.00</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Max">0.00</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Min">0.00</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Skewness">−0.10</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  CV">−3,103.61</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  name">Profile Curvature</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  mean">0.00</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  sd">0.00</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  max">0.00</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  min">0.00</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  skewness">−0.31</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  cv">−1,309.29</td>
+<td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Terrain Attribute">Profile Curvature</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Mean">0.00</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  SD">0.00</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Max">0.00</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Min">0.00</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Skewness">−0.31</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  CV">−1,309.29</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  name">Rel. Slope Position</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  mean">0.67</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  sd">0.33</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  max">1.00</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  min">0.05</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  skewness">−0.73</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  cv">49.05</td>
+<td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Terrain Attribute">Rel. Slope Position</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Mean">0.67</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  SD">0.33</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Max">1.00</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Min">0.05</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Skewness">−0.73</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  CV">49.05</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  name">SAGA Wetness Index</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  mean">9.57</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  sd">0.81</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  max">10.88</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  min">7.86</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  skewness">−0.23</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  cv">8.50</td>
+<td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Terrain Attribute">SAGA Wetness Index</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Mean">9.57</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  SD">0.81</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Max">10.88</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Min">7.86</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  Skewness">−0.23</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Agriculture  CV">8.50</td>
 </tr>
 <tr class="gt_group_heading_row odd">
 <th colspan="7" id="Forest" class="gt_group_heading" data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold;" scope="colgroup">Forest</th>
 </tr>
 <tr class="gt_row_group_first even">
-<td class="gt_row gt_left" style="text-align: center;" headers="Forest  name">Catchment Area</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  mean">987.43</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  sd">3,567.87</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  max">23,581.83</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  min">4.34</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  skewness">5.53</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  cv">361.33</td>
+<td class="gt_row gt_left" style="text-align: center;" headers="Forest  Terrain Attribute">Catchment Area</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Mean">987.43</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  SD">3,567.87</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Max">23,581.83</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Min">4.34</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Skewness">5.53</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  CV">361.33</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="text-align: center;" headers="Forest  name">Vert. Dist. Channel</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  mean">0.48</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  sd">0.49</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  max">2.83</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  min">0.05</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  skewness">2.68</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  cv">103.92</td>
+<td class="gt_row gt_left" style="text-align: center;" headers="Forest  Terrain Attribute">Vert. Dist. Channel</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Mean">0.48</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  SD">0.49</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Max">2.83</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Min">0.05</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Skewness">2.68</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  CV">103.92</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="text-align: center;" headers="Forest  name">Elevation</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  mean">368.81</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  sd">3.51</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  max">375.93</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  min">360.86</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  skewness">0.09</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  cv">0.95</td>
+<td class="gt_row gt_left" style="text-align: center;" headers="Forest  Terrain Attribute">Elevation</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Mean">368.81</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  SD">3.51</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Max">375.93</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Min">360.86</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Skewness">0.09</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  CV">0.95</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="text-align: center;" headers="Forest  name">Plan Curvature</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  mean">0.00</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  sd">0.01</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  max">0.03</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  min">−0.01</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  skewness">2.25</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  cv">396.75</td>
+<td class="gt_row gt_left" style="text-align: center;" headers="Forest  Terrain Attribute">Plan Curvature</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Mean">0.00</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  SD">0.01</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Max">0.03</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Min">−0.01</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Skewness">2.25</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  CV">396.75</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="text-align: center;" headers="Forest  name">Profile Curvature</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  mean">0.00</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  sd">0.02</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  max">0.05</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  min">−0.07</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  skewness">−1.66</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  cv">2,724.16</td>
+<td class="gt_row gt_left" style="text-align: center;" headers="Forest  Terrain Attribute">Profile Curvature</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Mean">0.00</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  SD">0.02</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Max">0.05</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Min">−0.07</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Skewness">−1.66</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  CV">2,724.16</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="text-align: center;" headers="Forest  name">Rel. Slope Position</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  mean">0.23</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  sd">0.23</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  max">0.87</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  min">0.02</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  skewness">1.39</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  cv">100.24</td>
+<td class="gt_row gt_left" style="text-align: center;" headers="Forest  Terrain Attribute">Rel. Slope Position</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Mean">0.23</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  SD">0.23</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Max">0.87</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Min">0.02</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Skewness">1.39</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  CV">100.24</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="text-align: center;" headers="Forest  name">SAGA Wetness Index</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  mean">5.79</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  sd">1.17</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  max">8.00</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  min">2.64</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  skewness">−0.56</td>
-<td class="gt_row gt_right" style="text-align: center;" headers="Forest  cv">20.17</td>
+<td class="gt_row gt_left" style="text-align: center;" headers="Forest  Terrain Attribute">SAGA Wetness Index</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Mean">5.79</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  SD">1.17</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Max">8.00</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Min">2.64</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  Skewness">−0.56</td>
+<td class="gt_row gt_right" style="text-align: center;" headers="Forest  CV">20.17</td>
 </tr>
 </tbody>
 </table>
@@ -890,7 +890,7 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
 </section>
 <section id="fingerprint-summary" class="level2">
 <h2 class="anchored" data-anchor-id="fingerprint-summary">Fingerprint summary</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="55cb6b4e-6aa6-4871-9c02-fedc5a9c9244" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="1722500a-8851-4ae4-827d-fe3d2c6c4638" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">&lt;-</span> read_csv(here::here(<span class="st">"./notebooks/soil_data.csv"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 6076 Columns: 5
@@ -925,23 +925,23 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
 </figcaption>
 <div aria-describedby="tbl-univariate-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display">
-<div id="ecabdssrxn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ecabdssrxn table {
+<div id="pkwyyzwqsi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#pkwyyzwqsi table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ecabdssrxn thead, #ecabdssrxn tbody, #ecabdssrxn tfoot, #ecabdssrxn tr, #ecabdssrxn td, #ecabdssrxn th {
+#pkwyyzwqsi thead, #pkwyyzwqsi tbody, #pkwyyzwqsi tfoot, #pkwyyzwqsi tr, #pkwyyzwqsi td, #pkwyyzwqsi th {
   border-style: none;
 }
 
-#ecabdssrxn p {
+#pkwyyzwqsi p {
   margin: 0;
   padding: 0;
 }
 
-#ecabdssrxn .gt_table {
+#pkwyyzwqsi .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -967,12 +967,12 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
   border-left-color: #D3D3D3;
 }
 
-#ecabdssrxn .gt_caption {
+#pkwyyzwqsi .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ecabdssrxn .gt_title {
+#pkwyyzwqsi .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -984,7 +984,7 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
   border-bottom-width: 0;
 }
 
-#ecabdssrxn .gt_subtitle {
+#pkwyyzwqsi .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -996,7 +996,7 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
   border-top-width: 0;
 }
 
-#ecabdssrxn .gt_heading {
+#pkwyyzwqsi .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1008,13 +1008,13 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
   border-right-color: #D3D3D3;
 }
 
-#ecabdssrxn .gt_bottom_border {
+#pkwyyzwqsi .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ecabdssrxn .gt_col_headings {
+#pkwyyzwqsi .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1029,7 +1029,7 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
   border-right-color: #D3D3D3;
 }
 
-#ecabdssrxn .gt_col_heading {
+#pkwyyzwqsi .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1049,7 +1049,7 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
   overflow-x: hidden;
 }
 
-#ecabdssrxn .gt_column_spanner_outer {
+#pkwyyzwqsi .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1061,15 +1061,15 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
   padding-right: 4px;
 }
 
-#ecabdssrxn .gt_column_spanner_outer:first-child {
+#pkwyyzwqsi .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ecabdssrxn .gt_column_spanner_outer:last-child {
+#pkwyyzwqsi .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ecabdssrxn .gt_column_spanner {
+#pkwyyzwqsi .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1081,11 +1081,11 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
   width: 100%;
 }
 
-#ecabdssrxn .gt_spanner_row {
+#pkwyyzwqsi .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ecabdssrxn .gt_group_heading {
+#pkwyyzwqsi .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1111,7 +1111,7 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
   text-align: left;
 }
 
-#ecabdssrxn .gt_empty_group_heading {
+#pkwyyzwqsi .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1126,15 +1126,15 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
   vertical-align: middle;
 }
 
-#ecabdssrxn .gt_from_md > :first-child {
+#pkwyyzwqsi .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ecabdssrxn .gt_from_md > :last-child {
+#pkwyyzwqsi .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ecabdssrxn .gt_row {
+#pkwyyzwqsi .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1153,7 +1153,7 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
   overflow-x: hidden;
 }
 
-#ecabdssrxn .gt_stub {
+#pkwyyzwqsi .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1166,7 +1166,7 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
   padding-right: 5px;
 }
 
-#ecabdssrxn .gt_stub_row_group {
+#pkwyyzwqsi .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1180,15 +1180,15 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
   vertical-align: top;
 }
 
-#ecabdssrxn .gt_row_group_first td {
+#pkwyyzwqsi .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ecabdssrxn .gt_row_group_first th {
+#pkwyyzwqsi .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ecabdssrxn .gt_summary_row {
+#pkwyyzwqsi .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1198,16 +1198,16 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
   padding-right: 5px;
 }
 
-#ecabdssrxn .gt_first_summary_row {
+#pkwyyzwqsi .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ecabdssrxn .gt_first_summary_row.thick {
+#pkwyyzwqsi .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ecabdssrxn .gt_last_summary_row {
+#pkwyyzwqsi .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1217,7 +1217,7 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
   border-bottom-color: #D3D3D3;
 }
 
-#ecabdssrxn .gt_grand_summary_row {
+#pkwyyzwqsi .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1227,7 +1227,7 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
   padding-right: 5px;
 }
 
-#ecabdssrxn .gt_first_grand_summary_row {
+#pkwyyzwqsi .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1237,7 +1237,7 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
   border-top-color: #D3D3D3;
 }
 
-#ecabdssrxn .gt_last_grand_summary_row_top {
+#pkwyyzwqsi .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1247,11 +1247,11 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
   border-bottom-color: #D3D3D3;
 }
 
-#ecabdssrxn .gt_striped {
+#pkwyyzwqsi .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ecabdssrxn .gt_table_body {
+#pkwyyzwqsi .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1260,7 +1260,7 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
   border-bottom-color: #D3D3D3;
 }
 
-#ecabdssrxn .gt_footnotes {
+#pkwyyzwqsi .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1274,7 +1274,7 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
   border-right-color: #D3D3D3;
 }
 
-#ecabdssrxn .gt_footnote {
+#pkwyyzwqsi .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1283,7 +1283,7 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
   padding-right: 5px;
 }
 
-#ecabdssrxn .gt_sourcenotes {
+#pkwyyzwqsi .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1297,7 +1297,7 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
   border-right-color: #D3D3D3;
 }
 
-#ecabdssrxn .gt_sourcenote {
+#pkwyyzwqsi .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1305,72 +1305,72 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
   padding-right: 5px;
 }
 
-#ecabdssrxn .gt_left {
+#pkwyyzwqsi .gt_left {
   text-align: left;
 }
 
-#ecabdssrxn .gt_center {
+#pkwyyzwqsi .gt_center {
   text-align: center;
 }
 
-#ecabdssrxn .gt_right {
+#pkwyyzwqsi .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ecabdssrxn .gt_font_normal {
+#pkwyyzwqsi .gt_font_normal {
   font-weight: normal;
 }
 
-#ecabdssrxn .gt_font_bold {
+#pkwyyzwqsi .gt_font_bold {
   font-weight: bold;
 }
 
-#ecabdssrxn .gt_font_italic {
+#pkwyyzwqsi .gt_font_italic {
   font-style: italic;
 }
 
-#ecabdssrxn .gt_super {
+#pkwyyzwqsi .gt_super {
   font-size: 65%;
 }
 
-#ecabdssrxn .gt_footnote_marks {
+#pkwyyzwqsi .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ecabdssrxn .gt_asterisk {
+#pkwyyzwqsi .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ecabdssrxn .gt_indent_1 {
+#pkwyyzwqsi .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ecabdssrxn .gt_indent_2 {
+#pkwyyzwqsi .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ecabdssrxn .gt_indent_3 {
+#pkwyyzwqsi .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ecabdssrxn .gt_indent_4 {
+#pkwyyzwqsi .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ecabdssrxn .gt_indent_5 {
+#pkwyyzwqsi .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ecabdssrxn .katex-display {
+#pkwyyzwqsi .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ecabdssrxn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#pkwyyzwqsi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1676,7 +1676,7 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
 </section>
 <section id="univariate-summary" class="level2">
 <h2 class="anchored" data-anchor-id="univariate-summary">Univariate summary</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="12a5a903-5dee-4c64-9b13-6eea3732c556" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="329b235e-1724-4ee8-abda-b423c51cc646" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>all_fingerprints <span class="op">|&gt;</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">filter</span>(group <span class="op">%</span><span class="kw">in</span><span class="op">%</span> c(<span class="st">"geochem"</span>, <span class="st">"colour"</span>))<span class="op">|&gt;</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  group_by(site) <span class="op">|&gt;</span></span>
@@ -1699,8 +1699,12 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
 # ℹ 3 more variables: CV_high &lt;int&gt;, CV_v_high &lt;int&gt;, n &lt;int&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'site'. You can override using the
-`.groups` argument.</code></pre>
+<pre><code>`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by site and group.
+ℹ Output is grouped by site.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(site, group))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 9
@@ -1717,7 +1721,7 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
 </section>
 <section id="correlation" class="level2">
 <h2 class="anchored" data-anchor-id="correlation">Correlation</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [9]:</pre></div><div id="5b3bb3ee-6f74-491c-bcaf-10a2435f3b1a" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [9]:</pre></div><div id="9b60a2e5-1641-4e24-a1a5-479f29c9774e" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>forest_r <span class="op">&lt;-</span> <span class="im">as</span>.data.frame(Hmisc::rcorr(<span class="im">as</span>.matrix(select(for_data, <span class="op">-</span>site)))$r) <span class="op">%&gt;%</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  select(<span class="st">"plan_curvature"</span>, <span class="st">"profile_curvature"</span>, <span class="st">"saga_wetness_index"</span>, <span class="st">"catchment_area"</span>, <span class="st">"relative_slope_position"</span>, <span class="st">"channel_network_distance"</span>, <span class="st">"elevation"</span>) <span class="op">%&gt;%</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  rownames_to_column() <span class="op">%&gt;%</span></span>
@@ -1751,13 +1755,18 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    row_group_order(groups <span class="op">=</span> c(<span class="st">"Agriculture"</span>, <span class="st">"Forest"</span>))<span class="op">|&gt;</span></span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  tab_footnote(</span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    footnote <span class="op">=</span> <span class="st">"*** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05; NS = non-significant at p = 0.05"</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>correlation</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-correlation</span></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: Pearson’s correlation coefficients for select soil properties and terrain attributes (n=49).</span></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="co">#saveRDS(correlation, file = here::here("./images/correlation.rds"))</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="op">|&gt;</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>     tab_style(</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    style <span class="op">=</span> <span class="bu">list</span>(cell_text(style <span class="op">=</span> <span class="st">"italic"</span>)),</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    locations <span class="op">=</span> cells_body(</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>      columns <span class="op">=</span> Property,</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>      rows <span class="op">=</span> Property <span class="op">%</span><span class="kw">in</span><span class="op">%</span> c(<span class="st">"a*"</span>, <span class="st">"b*"</span>, <span class="st">"c*"</span>, <span class="st">"h*"</span>, <span class="st">"x"</span>)))</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>correlation</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-correlation</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: Pearson’s correlation coefficients for select soil properties and terrain attributes (n=49).</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="co">#saveRDS(correlation, file = here::here("./images/correlation.rds"))</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [11]:</pre></div><div id="tbl-correlation" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-correlation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1765,23 +1774,23 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
 </figcaption>
 <div aria-describedby="tbl-correlation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display">
-<div id="flfmjguspi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#flfmjguspi table {
+<div id="rzuyryjftk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rzuyryjftk table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#flfmjguspi thead, #flfmjguspi tbody, #flfmjguspi tfoot, #flfmjguspi tr, #flfmjguspi td, #flfmjguspi th {
+#rzuyryjftk thead, #rzuyryjftk tbody, #rzuyryjftk tfoot, #rzuyryjftk tr, #rzuyryjftk td, #rzuyryjftk th {
   border-style: none;
 }
 
-#flfmjguspi p {
+#rzuyryjftk p {
   margin: 0;
   padding: 0;
 }
 
-#flfmjguspi .gt_table {
+#rzuyryjftk .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1807,12 +1816,12 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
   border-left-color: #D3D3D3;
 }
 
-#flfmjguspi .gt_caption {
+#rzuyryjftk .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#flfmjguspi .gt_title {
+#rzuyryjftk .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1824,7 +1833,7 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
   border-bottom-width: 0;
 }
 
-#flfmjguspi .gt_subtitle {
+#rzuyryjftk .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1836,7 +1845,7 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
   border-top-width: 0;
 }
 
-#flfmjguspi .gt_heading {
+#rzuyryjftk .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1848,13 +1857,13 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
   border-right-color: #D3D3D3;
 }
 
-#flfmjguspi .gt_bottom_border {
+#rzuyryjftk .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#flfmjguspi .gt_col_headings {
+#rzuyryjftk .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1869,7 +1878,7 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
   border-right-color: #D3D3D3;
 }
 
-#flfmjguspi .gt_col_heading {
+#rzuyryjftk .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1889,7 +1898,7 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
   overflow-x: hidden;
 }
 
-#flfmjguspi .gt_column_spanner_outer {
+#rzuyryjftk .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1901,15 +1910,15 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
   padding-right: 4px;
 }
 
-#flfmjguspi .gt_column_spanner_outer:first-child {
+#rzuyryjftk .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#flfmjguspi .gt_column_spanner_outer:last-child {
+#rzuyryjftk .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#flfmjguspi .gt_column_spanner {
+#rzuyryjftk .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1921,11 +1930,11 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
   width: 100%;
 }
 
-#flfmjguspi .gt_spanner_row {
+#rzuyryjftk .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#flfmjguspi .gt_group_heading {
+#rzuyryjftk .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1951,7 +1960,7 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
   text-align: left;
 }
 
-#flfmjguspi .gt_empty_group_heading {
+#rzuyryjftk .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1966,15 +1975,15 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
   vertical-align: middle;
 }
 
-#flfmjguspi .gt_from_md > :first-child {
+#rzuyryjftk .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#flfmjguspi .gt_from_md > :last-child {
+#rzuyryjftk .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#flfmjguspi .gt_row {
+#rzuyryjftk .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1993,7 +2002,7 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
   overflow-x: hidden;
 }
 
-#flfmjguspi .gt_stub {
+#rzuyryjftk .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2006,7 +2015,7 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
   padding-right: 5px;
 }
 
-#flfmjguspi .gt_stub_row_group {
+#rzuyryjftk .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2020,15 +2029,15 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
   vertical-align: top;
 }
 
-#flfmjguspi .gt_row_group_first td {
+#rzuyryjftk .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#flfmjguspi .gt_row_group_first th {
+#rzuyryjftk .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#flfmjguspi .gt_summary_row {
+#rzuyryjftk .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2038,16 +2047,16 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
   padding-right: 5px;
 }
 
-#flfmjguspi .gt_first_summary_row {
+#rzuyryjftk .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#flfmjguspi .gt_first_summary_row.thick {
+#rzuyryjftk .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#flfmjguspi .gt_last_summary_row {
+#rzuyryjftk .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2057,7 +2066,7 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
   border-bottom-color: #D3D3D3;
 }
 
-#flfmjguspi .gt_grand_summary_row {
+#rzuyryjftk .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2067,7 +2076,7 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
   padding-right: 5px;
 }
 
-#flfmjguspi .gt_first_grand_summary_row {
+#rzuyryjftk .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2077,7 +2086,7 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
   border-top-color: #D3D3D3;
 }
 
-#flfmjguspi .gt_last_grand_summary_row_top {
+#rzuyryjftk .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2087,11 +2096,11 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
   border-bottom-color: #D3D3D3;
 }
 
-#flfmjguspi .gt_striped {
+#rzuyryjftk .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#flfmjguspi .gt_table_body {
+#rzuyryjftk .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2100,7 +2109,7 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
   border-bottom-color: #D3D3D3;
 }
 
-#flfmjguspi .gt_footnotes {
+#rzuyryjftk .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2114,7 +2123,7 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
   border-right-color: #D3D3D3;
 }
 
-#flfmjguspi .gt_footnote {
+#rzuyryjftk .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2123,7 +2132,7 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
   padding-right: 5px;
 }
 
-#flfmjguspi .gt_sourcenotes {
+#rzuyryjftk .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2137,7 +2146,7 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
   border-right-color: #D3D3D3;
 }
 
-#flfmjguspi .gt_sourcenote {
+#rzuyryjftk .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2145,72 +2154,72 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
   padding-right: 5px;
 }
 
-#flfmjguspi .gt_left {
+#rzuyryjftk .gt_left {
   text-align: left;
 }
 
-#flfmjguspi .gt_center {
+#rzuyryjftk .gt_center {
   text-align: center;
 }
 
-#flfmjguspi .gt_right {
+#rzuyryjftk .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#flfmjguspi .gt_font_normal {
+#rzuyryjftk .gt_font_normal {
   font-weight: normal;
 }
 
-#flfmjguspi .gt_font_bold {
+#rzuyryjftk .gt_font_bold {
   font-weight: bold;
 }
 
-#flfmjguspi .gt_font_italic {
+#rzuyryjftk .gt_font_italic {
   font-style: italic;
 }
 
-#flfmjguspi .gt_super {
+#rzuyryjftk .gt_super {
   font-size: 65%;
 }
 
-#flfmjguspi .gt_footnote_marks {
+#rzuyryjftk .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#flfmjguspi .gt_asterisk {
+#rzuyryjftk .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#flfmjguspi .gt_indent_1 {
+#rzuyryjftk .gt_indent_1 {
   text-indent: 5px;
 }
 
-#flfmjguspi .gt_indent_2 {
+#rzuyryjftk .gt_indent_2 {
   text-indent: 10px;
 }
 
-#flfmjguspi .gt_indent_3 {
+#rzuyryjftk .gt_indent_3 {
   text-indent: 15px;
 }
 
-#flfmjguspi .gt_indent_4 {
+#rzuyryjftk .gt_indent_4 {
   text-indent: 20px;
 }
 
-#flfmjguspi .gt_indent_5 {
+#rzuyryjftk .gt_indent_5 {
   text-indent: 25px;
 }
 
-#flfmjguspi .katex-display {
+#rzuyryjftk .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#flfmjguspi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#rzuyryjftk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2333,7 +2342,7 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
 <td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Profile Curvature">NS</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Property">*a**</td>
+<td class="gt_row gt_left" headers="Agriculture  Property" style="text-align: center; font-style: italic;">a*</td>
 <td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Elevation">0.6***</td>
 <td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  SAGA Wetness Index">-0.49***</td>
 <td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Rel. Slope Position">0.43**</td>
@@ -2343,7 +2352,7 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
 <td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Profile Curvature">NS</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Property">*b**</td>
+<td class="gt_row gt_left" headers="Agriculture  Property" style="text-align: center; font-style: italic;">b*</td>
 <td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Elevation">0.39**</td>
 <td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  SAGA Wetness Index">-0.31*</td>
 <td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Rel. Slope Position">NS</td>
@@ -2353,7 +2362,7 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
 <td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Profile Curvature">NS</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Property">*c**</td>
+<td class="gt_row gt_left" headers="Agriculture  Property" style="text-align: center; font-style: italic;">c*</td>
 <td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Elevation">0.4**</td>
 <td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  SAGA Wetness Index">-0.31*</td>
 <td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Rel. Slope Position">NS</td>
@@ -2363,7 +2372,7 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
 <td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Profile Curvature">NS</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Property">*h**</td>
+<td class="gt_row gt_left" headers="Agriculture  Property" style="text-align: center; font-style: italic;">h*</td>
 <td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Elevation">NS</td>
 <td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  SAGA Wetness Index">NS</td>
 <td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Rel. Slope Position">NS</td>
@@ -2373,7 +2382,7 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
 <td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Profile Curvature">-0.3*</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Property"><em>x</em></td>
+<td class="gt_row gt_left" headers="Agriculture  Property" style="text-align: center; font-style: italic;">x</td>
 <td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Elevation">0.48***</td>
 <td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  SAGA Wetness Index">-0.55***</td>
 <td class="gt_row gt_left" style="text-align: center;" headers="Agriculture  Rel. Slope Position">0.5***</td>
@@ -2466,7 +2475,7 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
 <td class="gt_row gt_left" style="text-align: center;" headers="Forest  Profile Curvature">NS</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="text-align: center;" headers="Forest  Property">*h**</td>
+<td class="gt_row gt_left" headers="Forest  Property" style="text-align: center; font-style: italic;">h*</td>
 <td class="gt_row gt_left" style="text-align: center;" headers="Forest  Elevation">NS</td>
 <td class="gt_row gt_left" style="text-align: center;" headers="Forest  SAGA Wetness Index">NS</td>
 <td class="gt_row gt_left" style="text-align: center;" headers="Forest  Rel. Slope Position">NS</td>
@@ -2475,8 +2484,8 @@ Table&nbsp;3: Pearson’s correlation coefficients for select soil properties an
 <td class="gt_row gt_left" style="text-align: center;" headers="Forest  Plan Curvature">NS</td>
 <td class="gt_row gt_left" style="text-align: center;" headers="Forest  Profile Curvature">NS</td>
 </tr>
-</tbody><tfoot class="gt_footnotes">
-<tr class="odd">
+</tbody><tfoot>
+<tr class="gt_footnotes odd">
 <td colspan="8" class="gt_footnote" style="text-align: center;">*** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05; NS = non-significant at p = 0.05</td>
 </tr>
 </tfoot>
