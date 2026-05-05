@@ -51,8 +51,11 @@ vario |>
     locations = cells_column_labels(columns = `Spatial Class`))  |>
   tab_style(style =  cell_text(weight = "bold", align = "center"), locations =  cells_row_groups()) |>
   tab_options(column_labels.font.weight = "bold")|>
-  opt_footnote_marks(marks = "standard")
-
-
+  opt_footnote_marks(marks = "standard") |>
+  tab_style(
+    style = list(cell_text(style = "italic")),
+    locations = cells_body(
+      columns = Property,
+      rows = Property %in% c("a*", "b*", "c*", "h*", "x")))
 ```
 

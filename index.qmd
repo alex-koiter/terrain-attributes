@@ -428,23 +428,39 @@ Variable importance, expressed as the percentage increase in Mean Squared Error,
 ## Supplemental tables {.unnumbered}
 
 ::: {#supptab-abbrev}
-| **Colour space model** | Parameter | Abbreviation |
-|----|----|----|
-| RGB | Red | R |
-| RGB | Green | G |
-| RGB | Blue | B |
-| CIE xyY | Chromatic Coordinate x | x |
-| CIE xyY | Chromatic Coordinate y | y |
-| CIE xyY | Brightness | Y |
-| CIE XYZ | Virtual component X | X |
-| CIE XYZ | Virtual component Z | Z |
-| CIE LAB | Metric lightness function | L |
-| CIE LAB | Chromatic coordinate opponent red--green scales | *a\** |
-| CIE LAB | Chromatic coordinate opponent red--green scales | *b\** |
-| CIE LUV | Chromatic coordinate opponent blue--yellow scales | *u\** |
-| CIE LUV | Chromatic oordinate opponent red--green scales | *v\** |
-| CIE LCH | CIE hue | *c\** |
-| CIE LCH | CIE chroma | *h\** |
++------------------------+---------------------------------------------------+---------------+
+| **Colour space model** | Parameter                                         | Abbreviation  |
++========================+===================================================+===============+
+| RGB                    | Red                                               | R             |
++------------------------+---------------------------------------------------+---------------+
+| RGB                    | Green                                             | G             |
++------------------------+---------------------------------------------------+---------------+
+| RGB                    | Blue                                              | B             |
++------------------------+---------------------------------------------------+---------------+
+| CIE xyY                | Chromatic Coordinate x                            | x             |
++------------------------+---------------------------------------------------+---------------+
+| CIE xyY                | Chromatic Coordinate y                            | y             |
++------------------------+---------------------------------------------------+---------------+
+| CIE xyY                | Brightness                                        | Y             |
++------------------------+---------------------------------------------------+---------------+
+| CIE XYZ                | Virtual component X                               | X             |
++------------------------+---------------------------------------------------+---------------+
+| CIE XYZ                | Virtual component Z                               | Z             |
++------------------------+---------------------------------------------------+---------------+
+| CIE LAB                | Metric lightness function                         | L             |
++------------------------+---------------------------------------------------+---------------+
+| CIE LAB                | Chromatic coordinate opponent red--green scales   | *a\**         |
++------------------------+---------------------------------------------------+---------------+
+| CIE LAB                | Chromatic coordinate opponent red--green scales   | *b\**         |
++------------------------+---------------------------------------------------+---------------+
+| CIE LUV                | Chromatic coordinate opponent blue--yellow scales | *u\**         |
++------------------------+---------------------------------------------------+---------------+
+| CIE LUV                | Chromatic oordinate opponent red--green scales    | *v\**         |
++------------------------+---------------------------------------------------+---------------+
+| CIE LCH                | CIE hue                                           | *c\**         |
++------------------------+---------------------------------------------------+---------------+
+| CIE LCH                | CIE chroma                                        | *h\**         |
++------------------------+---------------------------------------------------+---------------+
 
 : Description of spectral reflectance colour coefficients used as fingerprints. Reproduced from Boudreault et al. (2018)
 :::

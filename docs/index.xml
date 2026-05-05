@@ -399,7 +399,7 @@ forested terrains.</p>
       sites within Canada. Location of the two study sites and nearby
       town of McCreary, and regional b) land use, and c) topography.
       Local topography and soil sampling locations at the d) forested
-      site and e) agricultural site</p></caption>
+      site and e) agricultural site.</p></caption>
       <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/notebooks-location_map-fig-location_map-output-2.png" />
     </fig>
   </sec>
@@ -858,13 +858,14 @@ forested terrains.</p>
         <table>
           <thead>
             <tr>
-              <th align="center" id="name" scope="col">name</th>
-              <th align="center" id="mean" scope="col">mean</th>
-              <th align="center" id="sd" scope="col">sd</th>
-              <th align="center" id="max" scope="col">max</th>
-              <th align="center" id="min" scope="col">min</th>
-              <th align="center" id="skewness" scope="col">skewness</th>
-              <th align="center" id="cv" scope="col">cv</th>
+              <th align="center" id="Terrain-Attribute" scope="col">Terrain
+              Attribute</th>
+              <th align="center" id="Mean" scope="col">Mean</th>
+              <th align="center" id="SD" scope="col">SD</th>
+              <th align="center" id="Max" scope="col">Max</th>
+              <th align="center" id="Min" scope="col">Min</th>
+              <th align="center" id="Skewness" scope="col">Skewness</th>
+              <th align="center" id="CV" scope="col">CV</th>
             </tr>
           </thead>
           <tbody>
@@ -872,145 +873,145 @@ forested terrains.</p>
               <td align="center" colspan="7" id="Agriculture" style="font-weight: bold" scope="colgroup">Agriculture</td>
             </tr>
             <tr>
-              <td align="center" headers="Agriculture  name">Catchment
+              <td align="center" headers="Agriculture  Terrain Attribute">Catchment
               Area</td>
-              <td align="center" headers="Agriculture  mean">454.54</td>
-              <td align="center" headers="Agriculture  sd">1,033.10</td>
-              <td align="center" headers="Agriculture  max">6,442.41</td>
-              <td align="center" headers="Agriculture  min">8.41</td>
-              <td align="center" headers="Agriculture  skewness">4.46</td>
-              <td align="center" headers="Agriculture  cv">227.29</td>
+              <td align="center" headers="Agriculture  Mean">454.54</td>
+              <td align="center" headers="Agriculture  SD">1,033.10</td>
+              <td align="center" headers="Agriculture  Max">6,442.41</td>
+              <td align="center" headers="Agriculture  Min">8.41</td>
+              <td align="center" headers="Agriculture  Skewness">4.46</td>
+              <td align="center" headers="Agriculture  CV">227.29</td>
             </tr>
             <tr>
-              <td align="center" headers="Agriculture  name">Vert. Dist.
-              Channel</td>
-              <td align="center" headers="Agriculture  mean">0.06</td>
-              <td align="center" headers="Agriculture  sd">0.05</td>
-              <td align="center" headers="Agriculture  max">0.22</td>
-              <td align="center" headers="Agriculture  min">0.01</td>
-              <td align="center" headers="Agriculture  skewness">1.14</td>
-              <td align="center" headers="Agriculture  cv">81.39</td>
+              <td align="center" headers="Agriculture  Terrain Attribute">Vert.
+              Dist. Channel</td>
+              <td align="center" headers="Agriculture  Mean">0.06</td>
+              <td align="center" headers="Agriculture  SD">0.05</td>
+              <td align="center" headers="Agriculture  Max">0.22</td>
+              <td align="center" headers="Agriculture  Min">0.01</td>
+              <td align="center" headers="Agriculture  Skewness">1.14</td>
+              <td align="center" headers="Agriculture  CV">81.39</td>
             </tr>
             <tr>
-              <td align="center" headers="Agriculture  name">Elevation</td>
-              <td align="center" headers="Agriculture  mean">309.96</td>
-              <td align="center" headers="Agriculture  sd">0.69</td>
-              <td align="center" headers="Agriculture  max">311.78</td>
-              <td align="center" headers="Agriculture  min">309.03</td>
-              <td align="center" headers="Agriculture  skewness">0.68</td>
-              <td align="center" headers="Agriculture  cv">0.22</td>
+              <td align="center" headers="Agriculture  Terrain Attribute">Elevation</td>
+              <td align="center" headers="Agriculture  Mean">309.96</td>
+              <td align="center" headers="Agriculture  SD">0.69</td>
+              <td align="center" headers="Agriculture  Max">311.78</td>
+              <td align="center" headers="Agriculture  Min">309.03</td>
+              <td align="center" headers="Agriculture  Skewness">0.68</td>
+              <td align="center" headers="Agriculture  CV">0.22</td>
             </tr>
             <tr>
-              <td align="center" headers="Agriculture  name">Plan
+              <td align="center" headers="Agriculture  Terrain Attribute">Plan
               Curvature</td>
-              <td align="center" headers="Agriculture  mean">0.00</td>
-              <td align="center" headers="Agriculture  sd">0.00</td>
-              <td align="center" headers="Agriculture  max">0.00</td>
-              <td align="center" headers="Agriculture  min">0.00</td>
-              <td align="center" headers="Agriculture  skewness">−0.10</td>
-              <td align="center" headers="Agriculture  cv">−3,103.61</td>
+              <td align="center" headers="Agriculture  Mean">0.00</td>
+              <td align="center" headers="Agriculture  SD">0.00</td>
+              <td align="center" headers="Agriculture  Max">0.00</td>
+              <td align="center" headers="Agriculture  Min">0.00</td>
+              <td align="center" headers="Agriculture  Skewness">−0.10</td>
+              <td align="center" headers="Agriculture  CV">−3,103.61</td>
             </tr>
             <tr>
-              <td align="center" headers="Agriculture  name">Profile
+              <td align="center" headers="Agriculture  Terrain Attribute">Profile
               Curvature</td>
-              <td align="center" headers="Agriculture  mean">0.00</td>
-              <td align="center" headers="Agriculture  sd">0.00</td>
-              <td align="center" headers="Agriculture  max">0.00</td>
-              <td align="center" headers="Agriculture  min">0.00</td>
-              <td align="center" headers="Agriculture  skewness">−0.31</td>
-              <td align="center" headers="Agriculture  cv">−1,309.29</td>
+              <td align="center" headers="Agriculture  Mean">0.00</td>
+              <td align="center" headers="Agriculture  SD">0.00</td>
+              <td align="center" headers="Agriculture  Max">0.00</td>
+              <td align="center" headers="Agriculture  Min">0.00</td>
+              <td align="center" headers="Agriculture  Skewness">−0.31</td>
+              <td align="center" headers="Agriculture  CV">−1,309.29</td>
             </tr>
             <tr>
-              <td align="center" headers="Agriculture  name">Rel. Slope
-              Position</td>
-              <td align="center" headers="Agriculture  mean">0.67</td>
-              <td align="center" headers="Agriculture  sd">0.33</td>
-              <td align="center" headers="Agriculture  max">1.00</td>
-              <td align="center" headers="Agriculture  min">0.05</td>
-              <td align="center" headers="Agriculture  skewness">−0.73</td>
-              <td align="center" headers="Agriculture  cv">49.05</td>
+              <td align="center" headers="Agriculture  Terrain Attribute">Rel.
+              Slope Position</td>
+              <td align="center" headers="Agriculture  Mean">0.67</td>
+              <td align="center" headers="Agriculture  SD">0.33</td>
+              <td align="center" headers="Agriculture  Max">1.00</td>
+              <td align="center" headers="Agriculture  Min">0.05</td>
+              <td align="center" headers="Agriculture  Skewness">−0.73</td>
+              <td align="center" headers="Agriculture  CV">49.05</td>
             </tr>
             <tr>
-              <td align="center" headers="Agriculture  name">SAGA
+              <td align="center" headers="Agriculture  Terrain Attribute">SAGA
               Wetness Index</td>
-              <td align="center" headers="Agriculture  mean">9.57</td>
-              <td align="center" headers="Agriculture  sd">0.81</td>
-              <td align="center" headers="Agriculture  max">10.88</td>
-              <td align="center" headers="Agriculture  min">7.86</td>
-              <td align="center" headers="Agriculture  skewness">−0.23</td>
-              <td align="center" headers="Agriculture  cv">8.50</td>
+              <td align="center" headers="Agriculture  Mean">9.57</td>
+              <td align="center" headers="Agriculture  SD">0.81</td>
+              <td align="center" headers="Agriculture  Max">10.88</td>
+              <td align="center" headers="Agriculture  Min">7.86</td>
+              <td align="center" headers="Agriculture  Skewness">−0.23</td>
+              <td align="center" headers="Agriculture  CV">8.50</td>
             </tr>
             <tr>
               <td align="center" colspan="7" id="Forest" style="font-weight: bold" scope="colgroup">Forest</td>
             </tr>
             <tr>
-              <td align="center" headers="Forest  name">Catchment
+              <td align="center" headers="Forest  Terrain Attribute">Catchment
               Area</td>
-              <td align="center" headers="Forest  mean">987.43</td>
-              <td align="center" headers="Forest  sd">3,567.87</td>
-              <td align="center" headers="Forest  max">23,581.83</td>
-              <td align="center" headers="Forest  min">4.34</td>
-              <td align="center" headers="Forest  skewness">5.53</td>
-              <td align="center" headers="Forest  cv">361.33</td>
+              <td align="center" headers="Forest  Mean">987.43</td>
+              <td align="center" headers="Forest  SD">3,567.87</td>
+              <td align="center" headers="Forest  Max">23,581.83</td>
+              <td align="center" headers="Forest  Min">4.34</td>
+              <td align="center" headers="Forest  Skewness">5.53</td>
+              <td align="center" headers="Forest  CV">361.33</td>
             </tr>
             <tr>
-              <td align="center" headers="Forest  name">Vert. Dist.
-              Channel</td>
-              <td align="center" headers="Forest  mean">0.48</td>
-              <td align="center" headers="Forest  sd">0.49</td>
-              <td align="center" headers="Forest  max">2.83</td>
-              <td align="center" headers="Forest  min">0.05</td>
-              <td align="center" headers="Forest  skewness">2.68</td>
-              <td align="center" headers="Forest  cv">103.92</td>
+              <td align="center" headers="Forest  Terrain Attribute">Vert.
+              Dist. Channel</td>
+              <td align="center" headers="Forest  Mean">0.48</td>
+              <td align="center" headers="Forest  SD">0.49</td>
+              <td align="center" headers="Forest  Max">2.83</td>
+              <td align="center" headers="Forest  Min">0.05</td>
+              <td align="center" headers="Forest  Skewness">2.68</td>
+              <td align="center" headers="Forest  CV">103.92</td>
             </tr>
             <tr>
-              <td align="center" headers="Forest  name">Elevation</td>
-              <td align="center" headers="Forest  mean">368.81</td>
-              <td align="center" headers="Forest  sd">3.51</td>
-              <td align="center" headers="Forest  max">375.93</td>
-              <td align="center" headers="Forest  min">360.86</td>
-              <td align="center" headers="Forest  skewness">0.09</td>
-              <td align="center" headers="Forest  cv">0.95</td>
+              <td align="center" headers="Forest  Terrain Attribute">Elevation</td>
+              <td align="center" headers="Forest  Mean">368.81</td>
+              <td align="center" headers="Forest  SD">3.51</td>
+              <td align="center" headers="Forest  Max">375.93</td>
+              <td align="center" headers="Forest  Min">360.86</td>
+              <td align="center" headers="Forest  Skewness">0.09</td>
+              <td align="center" headers="Forest  CV">0.95</td>
             </tr>
             <tr>
-              <td align="center" headers="Forest  name">Plan
+              <td align="center" headers="Forest  Terrain Attribute">Plan
               Curvature</td>
-              <td align="center" headers="Forest  mean">0.00</td>
-              <td align="center" headers="Forest  sd">0.01</td>
-              <td align="center" headers="Forest  max">0.03</td>
-              <td align="center" headers="Forest  min">−0.01</td>
-              <td align="center" headers="Forest  skewness">2.25</td>
-              <td align="center" headers="Forest  cv">396.75</td>
+              <td align="center" headers="Forest  Mean">0.00</td>
+              <td align="center" headers="Forest  SD">0.01</td>
+              <td align="center" headers="Forest  Max">0.03</td>
+              <td align="center" headers="Forest  Min">−0.01</td>
+              <td align="center" headers="Forest  Skewness">2.25</td>
+              <td align="center" headers="Forest  CV">396.75</td>
             </tr>
             <tr>
-              <td align="center" headers="Forest  name">Profile
+              <td align="center" headers="Forest  Terrain Attribute">Profile
               Curvature</td>
-              <td align="center" headers="Forest  mean">0.00</td>
-              <td align="center" headers="Forest  sd">0.02</td>
-              <td align="center" headers="Forest  max">0.05</td>
-              <td align="center" headers="Forest  min">−0.07</td>
-              <td align="center" headers="Forest  skewness">−1.66</td>
-              <td align="center" headers="Forest  cv">2,724.16</td>
+              <td align="center" headers="Forest  Mean">0.00</td>
+              <td align="center" headers="Forest  SD">0.02</td>
+              <td align="center" headers="Forest  Max">0.05</td>
+              <td align="center" headers="Forest  Min">−0.07</td>
+              <td align="center" headers="Forest  Skewness">−1.66</td>
+              <td align="center" headers="Forest  CV">2,724.16</td>
             </tr>
             <tr>
-              <td align="center" headers="Forest  name">Rel. Slope
-              Position</td>
-              <td align="center" headers="Forest  mean">0.23</td>
-              <td align="center" headers="Forest  sd">0.23</td>
-              <td align="center" headers="Forest  max">0.87</td>
-              <td align="center" headers="Forest  min">0.02</td>
-              <td align="center" headers="Forest  skewness">1.39</td>
-              <td align="center" headers="Forest  cv">100.24</td>
+              <td align="center" headers="Forest  Terrain Attribute">Rel.
+              Slope Position</td>
+              <td align="center" headers="Forest  Mean">0.23</td>
+              <td align="center" headers="Forest  SD">0.23</td>
+              <td align="center" headers="Forest  Max">0.87</td>
+              <td align="center" headers="Forest  Min">0.02</td>
+              <td align="center" headers="Forest  Skewness">1.39</td>
+              <td align="center" headers="Forest  CV">100.24</td>
             </tr>
             <tr>
-              <td align="center" headers="Forest  name">SAGA Wetness
-              Index</td>
-              <td align="center" headers="Forest  mean">5.79</td>
-              <td align="center" headers="Forest  sd">1.17</td>
-              <td align="center" headers="Forest  max">8.00</td>
-              <td align="center" headers="Forest  min">2.64</td>
-              <td align="center" headers="Forest  skewness">−0.56</td>
-              <td align="center" headers="Forest  cv">20.17</td>
+              <td align="center" headers="Forest  Terrain Attribute">SAGA
+              Wetness Index</td>
+              <td align="center" headers="Forest  Mean">5.79</td>
+              <td align="center" headers="Forest  SD">1.17</td>
+              <td align="center" headers="Forest  Max">8.00</td>
+              <td align="center" headers="Forest  Min">2.64</td>
+              <td align="center" headers="Forest  Skewness">−0.56</td>
+              <td align="center" headers="Forest  CV">20.17</td>
             </tr>
           </tbody>
         </table>
@@ -1494,7 +1495,7 @@ forested terrains.</p>
               <td align="center" headers="Agriculture  Profile Curvature">NS</td>
             </tr>
             <tr>
-              <td align="center" headers="Agriculture  Property">*a**</td>
+              <td align="center" headers="Agriculture  Property" style="font-style: italic">a*</td>
               <td align="center" headers="Agriculture  Elevation">0.6***</td>
               <td align="center" headers="Agriculture  SAGA Wetness Index">-0.49***</td>
               <td align="center" headers="Agriculture  Rel. Slope Position">0.43**</td>
@@ -1504,7 +1505,7 @@ forested terrains.</p>
               <td align="center" headers="Agriculture  Profile Curvature">NS</td>
             </tr>
             <tr>
-              <td align="center" headers="Agriculture  Property">*b**</td>
+              <td align="center" headers="Agriculture  Property" style="font-style: italic">b*</td>
               <td align="center" headers="Agriculture  Elevation">0.39**</td>
               <td align="center" headers="Agriculture  SAGA Wetness Index">-0.31*</td>
               <td align="center" headers="Agriculture  Rel. Slope Position">NS</td>
@@ -1514,7 +1515,7 @@ forested terrains.</p>
               <td align="center" headers="Agriculture  Profile Curvature">NS</td>
             </tr>
             <tr>
-              <td align="center" headers="Agriculture  Property">*c**</td>
+              <td align="center" headers="Agriculture  Property" style="font-style: italic">c*</td>
               <td align="center" headers="Agriculture  Elevation">0.4**</td>
               <td align="center" headers="Agriculture  SAGA Wetness Index">-0.31*</td>
               <td align="center" headers="Agriculture  Rel. Slope Position">NS</td>
@@ -1524,7 +1525,7 @@ forested terrains.</p>
               <td align="center" headers="Agriculture  Profile Curvature">NS</td>
             </tr>
             <tr>
-              <td align="center" headers="Agriculture  Property">*h**</td>
+              <td align="center" headers="Agriculture  Property" style="font-style: italic">h*</td>
               <td align="center" headers="Agriculture  Elevation">NS</td>
               <td align="center" headers="Agriculture  SAGA Wetness Index">NS</td>
               <td align="center" headers="Agriculture  Rel. Slope Position">NS</td>
@@ -1534,7 +1535,7 @@ forested terrains.</p>
               <td align="center" headers="Agriculture  Profile Curvature">-0.3*</td>
             </tr>
             <tr>
-              <td align="center" headers="Agriculture  Property"><italic>x</italic></td>
+              <td align="center" headers="Agriculture  Property" style="font-style: italic">x</td>
               <td align="center" headers="Agriculture  Elevation">0.48***</td>
               <td align="center" headers="Agriculture  SAGA Wetness Index">-0.55***</td>
               <td align="center" headers="Agriculture  Rel. Slope Position">0.5***</td>
@@ -1627,7 +1628,7 @@ forested terrains.</p>
               <td align="center" headers="Forest  Profile Curvature">NS</td>
             </tr>
             <tr>
-              <td align="center" headers="Forest  Property">*h**</td>
+              <td align="center" headers="Forest  Property" style="font-style: italic">h*</td>
               <td align="center" headers="Forest  Elevation">NS</td>
               <td align="center" headers="Forest  SAGA Wetness Index">NS</td>
               <td align="center" headers="Forest  Rel. Slope Position">NS</td>
@@ -2254,6 +2255,11 @@ forested terrains.</p>
     al. (2018)</p></caption>
     <table-wrap>
       <table>
+        <colgroup>
+          <col width="27%" />
+          <col width="55%" />
+          <col width="17%" />
+        </colgroup>
         <thead>
           <tr>
             <th><bold>Colour space model</bold></th>
@@ -3558,7 +3564,12 @@ vario |&gt;
     locations = cells_column_labels(columns = `Spatial Class`))  |&gt;
   tab_style(style =  cell_text(weight = &quot;bold&quot;, align = &quot;center&quot;), locations =  cells_row_groups()) |&gt;
   tab_options(column_labels.font.weight = &quot;bold&quot;)|&gt;
-  opt_footnote_marks(marks = &quot;standard&quot;)
+  opt_footnote_marks(marks = &quot;standard&quot;) |&gt;
+  tab_style(
+    style = list(cell_text(style = &quot;italic&quot;)),
+    locations = cells_body(
+      columns = Property,
+      rows = Property %in% c(&quot;a*&quot;, &quot;b*&quot;, &quot;c*&quot;, &quot;h*&quot;, &quot;x&quot;)))
   </code>
   </sec>
 </sec>
@@ -10911,11 +10922,11 @@ dbl (4): MSE, Var_exp, R2, mse_test
   </code>
   <boxed-text>
     <preformat>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ dplyr     1.2.1     ✔ readr     2.1.5
 ✔ forcats   1.0.0     ✔ stringr   1.6.0
-✔ ggplot2   3.5.2     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.2.0     
+✔ ggplot2   3.5.2     ✔ tibble    3.3.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.2
+✔ purrr     1.2.2     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
@@ -10981,7 +10992,8 @@ dbl (16): plan_curvature, profile_curvature, saga_wetness_index, catchment_a...
             se = sd(value)/ sqrt(length(value)),
             skewness = moments::skewness(value),
             cv = sd(value, na.rm = TRUE) / mean(value, na.rm = TRUE) * 100, .groups = &quot;drop&quot;) |&gt;
-  mutate(name = as.character(fct_recode(name,  &quot;Elevation&quot; = &quot;elevation&quot;, &quot;Catchment Area&quot; = &quot;catchment_area&quot;, &quot;Plan Curvature&quot; = &quot;plan_curvature&quot;, &quot;Profile Curvature&quot; = &quot;profile_curvature&quot;, &quot;Rel. Slope Position&quot; = &quot;relative_slope_position&quot;, &quot;SAGA Wetness Index&quot; = &quot;saga_wetness_index&quot;, &quot;Vert. Dist. Channel&quot; = &quot;channel_network_distance&quot;)))
+  mutate(name = as.character(fct_recode(name,  &quot;Elevation&quot; = &quot;elevation&quot;, &quot;Catchment Area&quot; = &quot;catchment_area&quot;, &quot;Plan Curvature&quot; = &quot;plan_curvature&quot;, &quot;Profile Curvature&quot; = &quot;profile_curvature&quot;, &quot;Rel. Slope Position&quot; = &quot;relative_slope_position&quot;, &quot;SAGA Wetness Index&quot; = &quot;saga_wetness_index&quot;, &quot;Vert. Dist. Channel&quot; = &quot;channel_network_distance&quot;))) |&gt;
+  rename(&quot;Terrain Attribute&quot; = name, Mean = mean, SD = sd, Max = max, Min = min, Skewness = skewness, CV = cv)
   </code>
   </sec>
   <sec specific-use="notebook-content">
@@ -11099,8 +11111,12 @@ tab_style(
             CV_v_high = sum(CV &gt; 75))
   </code>
   <boxed-text>
-    <preformat>`summarise()` has grouped output by 'site'. You can override using the
-`.groups` argument.</preformat>
+    <preformat>`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by site and group.
+ℹ Output is grouped by site.
+ℹ Use `summarise(.groups = &quot;drop_last&quot;)` to silence this message.
+ℹ Use `summarise(.by = c(site, group))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.</preformat>
   </boxed-text>
   <boxed-text>
     <preformat># A tibble: 4 × 9
@@ -11182,8 +11198,8 @@ temp4 &lt;- ag_r %&gt;%
   bind_rows(temp4) %&gt;%
   pivot_wider(id_cols = c(rowname, site), names_from = &quot;Terrain&quot;, values_from = &quot;label&quot;) %&gt;%
   select(&quot;site&quot;, &quot;Property&quot; = &quot;rowname&quot;, &quot;Elevation&quot; = &quot;elevation&quot;, &quot;SAGA Wetness Index&quot; = &quot;saga_wetness_index&quot;, &quot;Rel. Slope Position&quot; = &quot;relative_slope_position&quot;, &quot;Vert. Dist. Channel&quot; = &quot;channel_network_distance&quot;, &quot;Catchment Area&quot; = &quot;catchment_area&quot;, &quot;Plan Curvature&quot; = &quot;plan_curvature&quot;, &quot;Profile Curvature&quot; = &quot;profile_curvature&quot;) %&gt;%
-  mutate(Property = (fct_recode(Property, &quot;*h**&quot; = &quot;h_c&quot;, &quot;*a**&quot; = &quot;a_c&quot;, &quot;*c**&quot; = &quot;c_c&quot;, &quot;*b**&quot; = &quot;b_c&quot;, &quot;*x*&quot; = &quot;x_c&quot;, &quot;Ca&quot; = &quot;ca&quot;, &quot;Co&quot; = &quot;co&quot;, &quot;Cs&quot; = &quot;cs&quot;, &quot;Fe&quot; = &quot;fe&quot;, &quot;Li&quot; = &quot;li&quot;, &quot;La&quot; = &quot;la&quot;, &quot;Nb&quot; = &quot;nb&quot;, &quot;Rb&quot; = &quot;rb&quot;, &quot;Ni&quot; = &quot;ni&quot;, &quot;Sr&quot; = &quot;sr&quot;))) %&gt;%
-  mutate(Property = fct_relevel(Property, c(&quot;Ca&quot;, &quot;Co&quot;, &quot;Cs&quot;, &quot;Fe&quot;, &quot;Li&quot;, &quot;La&quot;, &quot;Nb&quot;, &quot;Ni&quot;, &quot;Rb&quot;, &quot;Sr&quot;, &quot;*a**&quot;, &quot;*b**&quot;, &quot;*c**&quot;, &quot;*h**&quot;, &quot;*x*&quot;))) %&gt;%
+  mutate(Property = (fct_recode(Property, &quot;h*&quot; = &quot;h_c&quot;, &quot;a*&quot; = &quot;a_c&quot;, &quot;c*&quot; = &quot;c_c&quot;, &quot;b*&quot; = &quot;b_c&quot;, &quot;x&quot; = &quot;x_c&quot;, &quot;Ca&quot; = &quot;ca&quot;, &quot;Co&quot; = &quot;co&quot;, &quot;Cs&quot; = &quot;cs&quot;, &quot;Fe&quot; = &quot;fe&quot;, &quot;Li&quot; = &quot;li&quot;, &quot;La&quot; = &quot;la&quot;, &quot;Nb&quot; = &quot;nb&quot;, &quot;Rb&quot; = &quot;rb&quot;, &quot;Ni&quot; = &quot;ni&quot;, &quot;Sr&quot; = &quot;sr&quot;))) %&gt;%
+  mutate(Property = fct_relevel(Property, c(&quot;Ca&quot;, &quot;Co&quot;, &quot;Cs&quot;, &quot;Fe&quot;, &quot;Li&quot;, &quot;La&quot;, &quot;Nb&quot;, &quot;Ni&quot;, &quot;Rb&quot;, &quot;Sr&quot;, &quot;a*&quot;, &quot;b*&quot;, &quot;c*&quot;, &quot;h*&quot;, &quot;x&quot;))) %&gt;%
     arrange(Property) %&gt;%
   mutate(Property = as.character(Property))
   
@@ -11201,7 +11217,12 @@ correlation &lt;- corr_tab |&gt;
     row_group_order(groups = c(&quot;Agriculture&quot;, &quot;Forest&quot;))|&gt;
   tab_footnote(
     footnote = &quot;*** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05; NS = non-significant at p = 0.05&quot;
-  )
+  ) |&gt;
+     tab_style(
+    style = list(cell_text(style = &quot;italic&quot;)),
+    locations = cells_body(
+      columns = Property,
+      rows = Property %in% c(&quot;a*&quot;, &quot;b*&quot;, &quot;c*&quot;, &quot;h*&quot;, &quot;x&quot;)))
 
 correlation
 
@@ -13731,7 +13752,7 @@ give correct results for longitude/latitude data</preformat>
       Canada. Location of the two study sites and nearby town of
       McCreary, and regional b) land use, and c) topography. Local
       topography and soil sampling locations at the d) forested site and
-      e) agricultural site</p></caption>
+      e) agricultural site.</p></caption>
       <graphic mimetype="image" mime-subtype="png" xlink:href="location_map_files/figure-jats/fig-location_map-1.png" />
     </fig>
     </sec>

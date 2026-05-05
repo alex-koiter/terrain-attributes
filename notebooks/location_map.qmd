@@ -266,7 +266,7 @@ theme(axis.text = element_blank(),
 
 ```{r}
 #| label: fig-location_map
-#| fig-cap: a) Map showing the location of the study sites within Canada. Location of the two study sites and nearby town of McCreary, and regional  b) land use, and c) topography. Local topography and soil sampling locations at the d) forested site and e) agricultural site
+#| fig-cap: a) Map showing the location of the study sites within Canada. Location of the two study sites and nearby town of McCreary, and regional  b) land use, and c) topography. Local topography and soil sampling locations at the d) forested site and e) agricultural site.
 
 # p6 <- p1 + guide_area() + p2 + p3 + plot_layout(guides = "collect") + plot_annotation(tag_levels = 'a', tag_suffix = ')')
 # 
