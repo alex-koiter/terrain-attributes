@@ -313,7 +313,11 @@ forested terrains.</p>
   et al., 2021a</xref>). In contrast, the processes that control the
   distribution of rare earth elements and trace metals, are less well
   studied or tend to be site-specific, making it difficult to draw
-  generalizations.</p>
+  generalizations. With the growing adoption of DEM-based terrain
+  analysis to guide soil sampling, there is a corresponding need for
+  analytical approaches capable of handling complex, non-linear
+  relationships among terrain attributes, for which Random Forest (RF)
+  provides a suitable framework.</p>
   <p>Terrain attributes such as elevation, slope curvature, slope
   position, and soil wetness indices have been shown to be useful
   information in the characterization and modelling of a range of soil
@@ -2153,7 +2157,10 @@ forested terrains.</p>
     variability is expected. Additional work is needed to establish
     standardized protocols for DEM processing, terrain attribute
     calculation, and variogram modeling to ensure that methods work
-    across a range of landscapes.</p>
+    across a range of landscapes. Lastly, coupling machine-learning
+    approaches, such as RF regression, with process-based soil landscape
+    models, geophysical surveys would further clarify fundamental
+    mechanisms underlying observed patterns.</p>
   </sec>
 </sec>
 <sec id="conclusions">
@@ -2209,7 +2216,10 @@ forested terrains.</p>
     <title>Data and code availability</title>
     <p>Data and source code for analysis and manuscript available on
     GitHub:
-    <ext-link ext-link-type="uri" xlink:href="https://github.com/alex-koiter/sampling-design-manuscript">https://github.com/alex-koiter/sampling-design-manuscript</ext-link></p>
+    <ext-link ext-link-type="uri" xlink:href="https://github.com/alex-koiter/terrain-attributes">https://github.com/alex-koiter/terrain-attributes</ext-link></p>
+    <p>Additional information, including analytical notebooks with
+    details of the analysis and intermediate steps, is available online:
+    <ext-link ext-link-type="uri" xlink:href="https://alexkoiter.ca/terrain-attributes/">https://alexkoiter.ca/terrain-attributes/</ext-link></p>
   </sec>
   <sec id="author-contributions">
     <title>Author contributions</title>
@@ -10355,7 +10365,7 @@ p_ag &lt;- ca + co + cs + fe + li + la + nb + ni + rb + sr + a_col + b_col + c_c
 
 p_ag
 
-#ggsave(filename = &quot;../Submission/Figure 2.png&quot;, plot = p_ag,  height = 240, width = 190, units = &quot;mm&quot;, dpi = 600)
+#ggsave(filename = &quot;./Submission/Figure 2.png&quot;, plot = p_ag,  height = 240, width = 190, units = &quot;mm&quot;, dpi = 600)
     </code>
     <fig id="fig-ag_map-nb-19">
       <caption><p>Kriged maps of select colour and geochemical
@@ -10500,7 +10510,7 @@ p_for &lt;- ca_forest + co_forest + cs_forest + la_forest + li_forest + nb_fores
   plot_layout(ncol = 4) 
 p_for
 
-#ggsave(filename = &quot;../Submission/Figure 3.png&quot;, plot = p_for,  height = 175, width = 190, units = &quot;mm&quot;, dpi = 600)
+#ggsave(filename = &quot;./Submission/Figure 3.png&quot;, plot = p_for,  height = 175, width = 190, units = &quot;mm&quot;, dpi = 600)
     </code>
     <fig id="fig-forest_map-nb-19">
       <caption><p>Kriged map of select colour and geochemical properties
