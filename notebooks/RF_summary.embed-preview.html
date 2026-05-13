@@ -222,7 +222,7 @@
        <p>Alex Koiter</p>
 <section id="load-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="load-libraries">Load libraries</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="4a917003-98c9-4bd5-8b05-48455996e143" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="70583a89-5df7-4881-b582-626e16ff033f" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>suppressPackageStartupMessages({</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  library(tidyverse)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  library(patchwork)</span>
@@ -233,7 +233,7 @@
 </section>
 <section id="importance" class="level2">
 <h2 class="anchored" data-anchor-id="importance">Importance</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="b27dc86b-9d97-4aff-9578-2d02506cbf4d" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="8a0f10d8-d698-4e87-89e9-861779a01e53" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>imp_data <span class="op">&lt;-</span> read_csv(here::here(<span class="st">"./notebooks/importance_data_49.csv"</span>)) <span class="op">%&gt;%</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  rename(<span class="st">"Terrain Attribute"</span> <span class="op">=</span> <span class="st">"Var.Names"</span>) <span class="op">%&gt;%</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  mutate(`Terrain Attribute` <span class="op">=</span> fct_recode(`Terrain Attribute`, <span class="st">"Elevation"</span> <span class="op">=</span> <span class="st">"elevation"</span>, </span>
@@ -265,7 +265,7 @@ dbl (4): %IncMSE, IncNodePurity, MSE_rank, Purity_rank
 <div class="cell-container"><div class="cell-decorator"><pre>In [3]:</pre></div><div id="cell-fig-rf-results" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">&lt;-</span> g2 <span class="op">+</span> g1 <span class="op">+</span> plot_layout(ncol <span class="op">=</span> <span class="dv">1</span>, heights <span class="op">=</span> c(<span class="dv">2</span>, <span class="dv">10</span>), guides <span class="op">=</span> <span class="st">"collect"</span>) <span class="op">&amp;</span> theme(legend.position <span class="op">=</span> <span class="st">'right'</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ggsave(filename = "../Submission/Figure 4.png", plot = p, height = 130, width = 140, units = "mm", dpi = 600)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ggsave(filename = "./Submission/Figure 4.png", plot = p, height = 130, width = 140, units = "mm", dpi = 600)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="fig-rf-results" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -279,7 +279,7 @@ Figure&nbsp;1: Heat map of the Random Forest regression results showing the rank
 </div>
 </div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="adc74b12-63bb-4f9d-b9ad-967fe1813815" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="295a6e9e-d231-4dd0-913b-764a66688b19" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reorder Terrain Attribute within each property by %IncMSE</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ag_imp_data_filtered <span class="op">&lt;-</span> <span class="bu">filter</span>(imp_data, site <span class="op">==</span> <span class="st">"Agriculture"</span>) <span class="op">%&gt;%</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  mutate(`Terrain Attribute` <span class="op">=</span> reorder_within(`Terrain Attribute`, `<span class="op">%</span>IncMSE`, <span class="bu">property</span>))</span>
@@ -305,7 +305,7 @@ Figure&nbsp;1: Heat map of the Random Forest regression results showing the rank
 </div>
 </div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="831eedeb-d488-4efa-9073-1b4e0499f5cf" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="4841185c-b682-4065-8e27-4015ef95c266" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>forest_imp_data_filtered <span class="op">&lt;-</span> <span class="bu">filter</span>(imp_data, site <span class="op">==</span> <span class="st">"Forest"</span>) <span class="op">%&gt;%</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  mutate(`Terrain Attribute` <span class="op">=</span> reorder_within(`Terrain Attribute`, `<span class="op">%</span>IncMSE`, <span class="bu">property</span>))</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -329,7 +329,7 @@ Figure&nbsp;1: Heat map of the Random Forest regression results showing the rank
 </section>
 <section id="performance" class="level2">
 <h2 class="anchored" data-anchor-id="performance">Performance</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [6]:</pre></div><div id="e908f6a7-9643-4d9f-9158-3b0971e1530d" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [6]:</pre></div><div id="6e5b1c03-2a08-43f8-876f-b281921b1ceb" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>m_performance_2 <span class="op">&lt;-</span> read_csv(here::here(<span class="st">"./notebooks/model_performance_data_2.csv"</span>)) <span class="op">|&gt;</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  mutate(<span class="bu">property</span> <span class="op">=</span> fct_recode(<span class="bu">property</span>, <span class="st">"a*"</span> <span class="op">=</span> <span class="st">"a_col"</span>, <span class="st">"b*"</span> <span class="op">=</span> <span class="st">"b_col"</span>, <span class="st">"c*"</span> <span class="op">=</span> <span class="st">"c_col"</span>, <span class="st">"h*"</span> <span class="op">=</span> <span class="st">"h_col"</span>, <span class="st">"x"</span> <span class="op">=</span> <span class="st">"x_col"</span>)) <span class="op">|&gt;</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  mutate(<span class="bu">property</span> <span class="op">=</span> fct_relevel(<span class="bu">property</span>, <span class="st">"Ca"</span>, <span class="st">"Co"</span>, <span class="st">"Cs"</span>, <span class="st">"Fe"</span>, <span class="st">"Li"</span>, <span class="st">"La"</span>, <span class="st">"Nb"</span>, <span class="st">"Ni"</span>, <span class="st">"Rb"</span>, <span class="st">"Sr"</span>, <span class="st">"a*"</span>, <span class="st">"b*"</span>, <span class="st">"c*"</span>, <span class="st">"h*"</span>, <span class="st">"x"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -397,23 +397,23 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
 </figcaption>
 <div aria-describedby="tbl-rf-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display">
-<div id="zpujmjyhcy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#zpujmjyhcy table {
+<div id="jluaizzazw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jluaizzazw table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#zpujmjyhcy thead, #zpujmjyhcy tbody, #zpujmjyhcy tfoot, #zpujmjyhcy tr, #zpujmjyhcy td, #zpujmjyhcy th {
+#jluaizzazw thead, #jluaizzazw tbody, #jluaizzazw tfoot, #jluaizzazw tr, #jluaizzazw td, #jluaizzazw th {
   border-style: none;
 }
 
-#zpujmjyhcy p {
+#jluaizzazw p {
   margin: 0;
   padding: 0;
 }
 
-#zpujmjyhcy .gt_table {
+#jluaizzazw .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -439,12 +439,12 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-left-color: #D3D3D3;
 }
 
-#zpujmjyhcy .gt_caption {
+#jluaizzazw .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#zpujmjyhcy .gt_title {
+#jluaizzazw .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -456,7 +456,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-bottom-width: 0;
 }
 
-#zpujmjyhcy .gt_subtitle {
+#jluaizzazw .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -468,7 +468,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-top-width: 0;
 }
 
-#zpujmjyhcy .gt_heading {
+#jluaizzazw .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -480,13 +480,13 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-right-color: #D3D3D3;
 }
 
-#zpujmjyhcy .gt_bottom_border {
+#jluaizzazw .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#zpujmjyhcy .gt_col_headings {
+#jluaizzazw .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -501,7 +501,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-right-color: #D3D3D3;
 }
 
-#zpujmjyhcy .gt_col_heading {
+#jluaizzazw .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -521,7 +521,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   overflow-x: hidden;
 }
 
-#zpujmjyhcy .gt_column_spanner_outer {
+#jluaizzazw .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -533,15 +533,15 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   padding-right: 4px;
 }
 
-#zpujmjyhcy .gt_column_spanner_outer:first-child {
+#jluaizzazw .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#zpujmjyhcy .gt_column_spanner_outer:last-child {
+#jluaizzazw .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#zpujmjyhcy .gt_column_spanner {
+#jluaizzazw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -553,11 +553,11 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   width: 100%;
 }
 
-#zpujmjyhcy .gt_spanner_row {
+#jluaizzazw .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#zpujmjyhcy .gt_group_heading {
+#jluaizzazw .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -583,7 +583,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   text-align: left;
 }
 
-#zpujmjyhcy .gt_empty_group_heading {
+#jluaizzazw .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -598,15 +598,15 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   vertical-align: middle;
 }
 
-#zpujmjyhcy .gt_from_md > :first-child {
+#jluaizzazw .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#zpujmjyhcy .gt_from_md > :last-child {
+#jluaizzazw .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#zpujmjyhcy .gt_row {
+#jluaizzazw .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -625,7 +625,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   overflow-x: hidden;
 }
 
-#zpujmjyhcy .gt_stub {
+#jluaizzazw .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -638,7 +638,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   padding-right: 5px;
 }
 
-#zpujmjyhcy .gt_stub_row_group {
+#jluaizzazw .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -652,15 +652,15 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   vertical-align: top;
 }
 
-#zpujmjyhcy .gt_row_group_first td {
+#jluaizzazw .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#zpujmjyhcy .gt_row_group_first th {
+#jluaizzazw .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#zpujmjyhcy .gt_summary_row {
+#jluaizzazw .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -670,16 +670,16 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   padding-right: 5px;
 }
 
-#zpujmjyhcy .gt_first_summary_row {
+#jluaizzazw .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#zpujmjyhcy .gt_first_summary_row.thick {
+#jluaizzazw .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#zpujmjyhcy .gt_last_summary_row {
+#jluaizzazw .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -689,7 +689,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-bottom-color: #D3D3D3;
 }
 
-#zpujmjyhcy .gt_grand_summary_row {
+#jluaizzazw .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -699,7 +699,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   padding-right: 5px;
 }
 
-#zpujmjyhcy .gt_first_grand_summary_row {
+#jluaizzazw .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -709,7 +709,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-top-color: #D3D3D3;
 }
 
-#zpujmjyhcy .gt_last_grand_summary_row_top {
+#jluaizzazw .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -719,11 +719,11 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-bottom-color: #D3D3D3;
 }
 
-#zpujmjyhcy .gt_striped {
+#jluaizzazw .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#zpujmjyhcy .gt_table_body {
+#jluaizzazw .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -732,7 +732,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-bottom-color: #D3D3D3;
 }
 
-#zpujmjyhcy .gt_footnotes {
+#jluaizzazw .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -746,7 +746,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-right-color: #D3D3D3;
 }
 
-#zpujmjyhcy .gt_footnote {
+#jluaizzazw .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -755,7 +755,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   padding-right: 5px;
 }
 
-#zpujmjyhcy .gt_sourcenotes {
+#jluaizzazw .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -769,7 +769,7 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   border-right-color: #D3D3D3;
 }
 
-#zpujmjyhcy .gt_sourcenote {
+#jluaizzazw .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -777,72 +777,72 @@ Table&nbsp;1: Model summary and performance statistics for the random forest reg
   padding-right: 5px;
 }
 
-#zpujmjyhcy .gt_left {
+#jluaizzazw .gt_left {
   text-align: left;
 }
 
-#zpujmjyhcy .gt_center {
+#jluaizzazw .gt_center {
   text-align: center;
 }
 
-#zpujmjyhcy .gt_right {
+#jluaizzazw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#zpujmjyhcy .gt_font_normal {
+#jluaizzazw .gt_font_normal {
   font-weight: normal;
 }
 
-#zpujmjyhcy .gt_font_bold {
+#jluaizzazw .gt_font_bold {
   font-weight: bold;
 }
 
-#zpujmjyhcy .gt_font_italic {
+#jluaizzazw .gt_font_italic {
   font-style: italic;
 }
 
-#zpujmjyhcy .gt_super {
+#jluaizzazw .gt_super {
   font-size: 65%;
 }
 
-#zpujmjyhcy .gt_footnote_marks {
+#jluaizzazw .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#zpujmjyhcy .gt_asterisk {
+#jluaizzazw .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#zpujmjyhcy .gt_indent_1 {
+#jluaizzazw .gt_indent_1 {
   text-indent: 5px;
 }
 
-#zpujmjyhcy .gt_indent_2 {
+#jluaizzazw .gt_indent_2 {
   text-indent: 10px;
 }
 
-#zpujmjyhcy .gt_indent_3 {
+#jluaizzazw .gt_indent_3 {
   text-indent: 15px;
 }
 
-#zpujmjyhcy .gt_indent_4 {
+#jluaizzazw .gt_indent_4 {
   text-indent: 20px;
 }
 
-#zpujmjyhcy .gt_indent_5 {
+#jluaizzazw .gt_indent_5 {
   text-indent: 25px;
 }
 
-#zpujmjyhcy .katex-display {
+#jluaizzazw .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#zpujmjyhcy div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#jluaizzazw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
