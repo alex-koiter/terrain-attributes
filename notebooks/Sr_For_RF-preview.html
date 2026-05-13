@@ -249,7 +249,9 @@
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(caret)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(patchwork)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(sf)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(boot)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(optRF)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 </section>
 <section id="load-data" class="level2">
@@ -423,11 +425,87 @@ No. of variables tried at each split: 4
 <h3 class="anchored" data-anchor-id="test-model">Test Model</h3>
 <p>Uses the RF model to predict the test dataset. We compare predicted against actual</p>
 <div class="cell-container"><div class="cell-decorator"><pre>In [10]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>prediction <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf.fit, <span class="at">newdata =</span> test)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>test_plot <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">pred =</span> prediction, <span class="at">obs =</span> test[[x]])</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>obs <span class="ot">&lt;-</span> test[[x]]</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>pred <span class="ot">&lt;-</span> prediction <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf.fit, <span class="at">newdata =</span> test)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>r_sq <span class="ot">&lt;-</span> <span class="fu">summary</span>(<span class="fu">lm</span>(pred<span class="sc">~</span>obs, <span class="at">data =</span> test_plot))</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>r_sq</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>example <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(obs, pred)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a function to compute R-squared from bootstrap samples</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>rsq <span class="ot">&lt;-</span> <span class="cf">function</span>(formula, data, indices) {</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  d <span class="ot">&lt;-</span> data[indices, ]  <span class="co"># Allows boot to select resampled cases</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(formula, <span class="at">data =</span> d)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">summary</span>(fit)<span class="sc">$</span>r.square)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform bootstrapping with 1000 replications</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: predicting mpg from wt and disp</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">boot</span>(</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> example,</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">statistic =</span> rsq,</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">R =</span> <span class="dv">1000</span>,</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> pred <span class="sc">~</span> obs</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a><span class="co"># View bootstrap results</span></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>test2 <span class="ot">&lt;-</span> <span class="fu">boot.ci</span>(results, <span class="at">type =</span> <span class="st">"perc"</span>)</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>r_sq_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(test2<span class="sc">$</span>t)</span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>r_sq_mean</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1736744</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>r_sq_upper_limits <span class="ot">&lt;-</span> test2<span class="sc">$</span>percent[<span class="dv">5</span>]</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>r_sq_upper_limits</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5973406</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>r_sq_lower_limits <span class="ot">&lt;-</span> test2<span class="sc">$</span>percent[<span class="dv">4</span>]</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>r_sq_lower_limits</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.001397861</code></pre>
+</div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [11]:</pre></div><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set seed for reproducibility</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Define function to compute MSE on bootstrap samples</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>mse_boot <span class="ot">&lt;-</span> <span class="cf">function</span>(data, indices) {</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  d <span class="ot">&lt;-</span> data[indices, ]  <span class="co"># Bootstrap sample</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  mse <span class="ot">&lt;-</span> <span class="fu">mean</span>((d<span class="sc">$</span>obs <span class="sc">-</span> d<span class="sc">$</span>pred)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(mse)</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Bootstrap with 1000 replications</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>boot_results <span class="ot">&lt;-</span> <span class="fu">boot</span>(<span class="at">data =</span> example, <span class="at">statistic =</span> mse_boot, <span class="at">R =</span> <span class="dv">1000</span>)</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Get percentile confidence interval</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>boot_ci <span class="ot">&lt;-</span> <span class="fu">boot.ci</span>(boot_results, <span class="at">type =</span> <span class="st">"perc"</span>)</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract lower and upper limits</span></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>mse_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(boot_results<span class="sc">$</span>t)</span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>mse_mean</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 58.20373</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>mse_lower_limit <span class="ot">&lt;-</span> boot_ci<span class="sc">$</span>percent[<span class="dv">4</span>]</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>mse_lower_limit</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 31.75713</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>mse_upper_limit <span class="ot">&lt;-</span> boot_ci<span class="sc">$</span>percent[<span class="dv">5</span>]</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>mse_upper_limit</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 92.05745</code></pre>
+</div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [12]:</pre></div><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>prediction <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf.fit, <span class="at">newdata =</span> test)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>test_plot <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">pred =</span> prediction, <span class="at">obs =</span> test[[x]])</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>r_sq <span class="ot">&lt;-</span> <span class="fu">summary</span>(<span class="fu">lm</span>(pred<span class="sc">~</span>obs, <span class="at">data =</span> test_plot))</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>r_sq</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -448,13 +526,13 @@ Residual standard error: 4.611 on 15 degrees of freedom
 Multiple R-squared:  0.1737,    Adjusted R-squared:  0.1186 
 F-statistic: 3.153 on 1 and 15 DF,  p-value: 0.09609</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> test_plot, <span class="fu">aes</span>(<span class="at">y =</span> pred, <span class="at">x =</span> obs)) <span class="sc">+</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  ggpmisc<span class="sc">::</span><span class="fu">stat_poly_line</span>() <span class="sc">+</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  ggpmisc<span class="sc">::</span><span class="fu">stat_poly_eq</span>() <span class="sc">+</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> test_plot, <span class="fu">aes</span>(<span class="at">y =</span> pred, <span class="at">x =</span> obs)) <span class="sc">+</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  ggpmisc<span class="sc">::</span><span class="fu">stat_poly_line</span>() <span class="sc">+</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  ggpmisc<span class="sc">::</span><span class="fu">stat_poly_eq</span>() <span class="sc">+</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Registered S3 methods overwritten by 'ggpp':
   method                  from   
@@ -464,14 +542,14 @@ F-statistic: 3.153 on 1 and 15 DF,  p-value: 0.09609</code></pre>
 <div class="cell-output-display">
 <div class="">
 <figure class="figure">
-<p class=""><a href="Sr_For_RF_files/figure-html/unnamed-chunk-10-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="Sr_For_RF_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p class=""><a href="Sr_For_RF_files/figure-html/unnamed-chunk-12-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="Sr_For_RF_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>mse_test <span class="ot">&lt;-</span> test_plot <span class="sc">%&gt;%</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mse =</span> <span class="fu">mean</span>((obs <span class="sc">-</span> pred)<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>mse_test </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>mse_test <span class="ot">&lt;-</span> test_plot <span class="sc">%&gt;%</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mse =</span> <span class="fu">mean</span>((obs <span class="sc">-</span> pred)<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>mse_test </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       mse
 1 58.18243</code></pre>
@@ -481,15 +559,45 @@ F-statistic: 3.153 on 1 and 15 DF,  p-value: 0.09609</code></pre>
 </section>
 <section id="importance" class="level2">
 <h2 class="anchored" data-anchor-id="importance">Importance</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [11]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>ImpData <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">importance</span>(rf.fit)) <span class="sc">%&gt;%</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Var.Names =</span> <span class="fu">row.names</span>(.)) <span class="sc">%&gt;%</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a> <span class="st">`</span><span class="at">row.names&lt;-</span><span class="st">`</span>(<span class="fu">as.character</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(<span class="fu">importance</span>(rf.fit))))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [13]:</pre></div><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Varibale Importance stability</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>stability_result <span class="ot">=</span> <span class="fu">measure_stability</span>(<span class="at">y =</span> train[[x]], <span class="at">X=</span>train[,<span class="sc">-</span><span class="dv">1</span>], <span class="at">num.trees=</span><span class="dv">500</span>, <span class="at">method =</span> <span class="st">"importance"</span>, <span class="at">alpha =</span> <span class="dv">3</span><span class="sc">/</span><span class="dv">8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Analysing random forest with 500 trees, progress: 10% 
+Analysing random forest
+with 500 trees, progress: 20% 
+Analysing random forest with 500 trees, progress:
+30% 
+Analysing random forest with 500 trees, progress: 40% 
+Analysing random
+forest with 500 trees, progress: 50% 
+Analysing random forest with 500 trees,
+progress: 60% 
+Analysing random forest with 500 trees, progress: 70% 
+Analysing
+random forest with 500 trees, progress: 80% 
+Analysing random forest with 500
+trees, progress: 90% 
+Analysing random forest with 500 trees, progress: 100%</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>rf_stability <span class="ot">&lt;-</span> stability_result<span class="sc">$</span>VI_stability</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>rf_stability</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9793572</code></pre>
+</div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [14]:</pre></div><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>ImpData <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">importance</span>(rf.fit)) <span class="sc">%&gt;%</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Var.Names =</span> <span class="fu">row.names</span>(.)) <span class="sc">%&gt;%</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a> <span class="st">`</span><span class="at">row.names&lt;-</span><span class="st">`</span>(<span class="fu">as.character</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(<span class="fu">importance</span>(rf.fit))))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 <section id="top-based-on-incnodepurity" class="level3">
 <h3 class="anchored" data-anchor-id="top-based-on-incnodepurity">Top based on IncNodePurity</h3>
-<div class="cell-container"><div class="cell-decorator"><pre>In [12]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">slice_max</span>(ImpData,<span class="at">order_by =</span> IncNodePurity, <span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [15]:</pre></div><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">slice_max</span>(ImpData,<span class="at">order_by =</span> IncNodePurity, <span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    %IncMSE IncNodePurity                Var.Names
 6 16.562761     839.95917 channel_network_distance
@@ -501,20 +609,20 @@ F-statistic: 3.153 on 1 and 15 DF,  p-value: 0.09609</code></pre>
 5  1.515239      87.23477  relative_slope_position</code></pre>
 </div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [13]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">slice_max</span>(ImpData,<span class="at">order_by =</span> IncNodePurity, <span class="at">n =</span> <span class="dv">10</span>), <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(Var.Names, IncNodePurity), <span class="at">y =</span> IncNodePurity)) <span class="sc">+</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(Var.Names, IncNodePurity), <span class="at">xend =</span> <span class="fu">fct_reorder</span>(Var.Names, IncNodePurity), <span class="at">y =</span> <span class="dv">0</span>, <span class="at">yend =</span> IncNodePurity), <span class="at">color=</span><span class="st">"skyblue"</span>) <span class="sc">+</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="st">`</span><span class="at">%IncMSE</span><span class="st">`</span>), <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Terrain Attribute"</span>, <span class="at">y =</span> <span class="st">"IncNodePurity"</span>) <span class="sc">+</span></span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"bottom"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [16]:</pre></div><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">slice_max</span>(ImpData,<span class="at">order_by =</span> IncNodePurity, <span class="at">n =</span> <span class="dv">10</span>), <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(Var.Names, IncNodePurity), <span class="at">y =</span> IncNodePurity)) <span class="sc">+</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(Var.Names, IncNodePurity), <span class="at">xend =</span> <span class="fu">fct_reorder</span>(Var.Names, IncNodePurity), <span class="at">y =</span> <span class="dv">0</span>, <span class="at">yend =</span> IncNodePurity), <span class="at">color=</span><span class="st">"skyblue"</span>) <span class="sc">+</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="st">`</span><span class="at">%IncMSE</span><span class="st">`</span>), <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Terrain Attribute"</span>, <span class="at">y =</span> <span class="st">"IncNodePurity"</span>) <span class="sc">+</span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"bottom"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 </section>
 <section id="top-10-based-on-incmse" class="level3">
 <h3 class="anchored" data-anchor-id="top-10-based-on-incmse">Top 10 based on %IncMSE</h3>
-<div class="cell-container"><div class="cell-decorator"><pre>In [14]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">slice_max</span>(ImpData,<span class="at">order_by =</span> <span class="st">`</span><span class="at">%IncMSE</span><span class="st">`</span>, <span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [17]:</pre></div><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">slice_max</span>(ImpData,<span class="at">order_by =</span> <span class="st">`</span><span class="at">%IncMSE</span><span class="st">`</span>, <span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    %IncMSE IncNodePurity                Var.Names
 6 16.562761     839.95917 channel_network_distance
@@ -526,22 +634,22 @@ F-statistic: 3.153 on 1 and 15 DF,  p-value: 0.09609</code></pre>
 5  1.515239      87.23477  relative_slope_position</code></pre>
 </div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [15]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>p2<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">slice_max</span>(ImpData,<span class="at">order_by =</span> <span class="st">`</span><span class="at">%IncMSE</span><span class="st">`</span>, <span class="at">n =</span> <span class="dv">10</span>), <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(Var.Names, <span class="st">`</span><span class="at">%IncMSE</span><span class="st">`</span>), <span class="at">y =</span> <span class="st">`</span><span class="at">%IncMSE</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(Var.Names, <span class="st">`</span><span class="at">%IncMSE</span><span class="st">`</span>), <span class="at">xend =</span> <span class="fu">fct_reorder</span>(Var.Names, <span class="st">`</span><span class="at">%IncMSE</span><span class="st">`</span>), <span class="at">y =</span> <span class="dv">0</span>, <span class="at">yend =</span> <span class="st">`</span><span class="at">%IncMSE</span><span class="st">`</span>), <span class="at">color=</span><span class="st">"skyblue"</span>) <span class="sc">+</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> IncNodePurity), <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Terrain Attribute"</span>, <span class="at">y =</span> <span class="st">"%IncMSE"</span>) <span class="sc">+</span></span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"bottom"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [18]:</pre></div><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>p2<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">slice_max</span>(ImpData,<span class="at">order_by =</span> <span class="st">`</span><span class="at">%IncMSE</span><span class="st">`</span>, <span class="at">n =</span> <span class="dv">10</span>), <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(Var.Names, <span class="st">`</span><span class="at">%IncMSE</span><span class="st">`</span>), <span class="at">y =</span> <span class="st">`</span><span class="at">%IncMSE</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(Var.Names, <span class="st">`</span><span class="at">%IncMSE</span><span class="st">`</span>), <span class="at">xend =</span> <span class="fu">fct_reorder</span>(Var.Names, <span class="st">`</span><span class="at">%IncMSE</span><span class="st">`</span>), <span class="at">y =</span> <span class="dv">0</span>, <span class="at">yend =</span> <span class="st">`</span><span class="at">%IncMSE</span><span class="st">`</span>), <span class="at">color=</span><span class="st">"skyblue"</span>) <span class="sc">+</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> IncNodePurity), <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Terrain Attribute"</span>, <span class="at">y =</span> <span class="st">"%IncMSE"</span>) <span class="sc">+</span></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"bottom"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 </section>
 <section id="combined" class="level3">
 <h3 class="anchored" data-anchor-id="combined">Combined</h3>
-<div class="cell-container"><div class="cell-decorator"><pre>In [16]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: Original data</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: Forest Sr </span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>p1<span class="sc">+</span>p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [19]:</pre></div><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: Original data</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: Forest Sr </span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>p1<span class="sc">+</span>p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -555,19 +663,19 @@ F-statistic: 3.153 on 1 and 15 DF,  p-value: 0.09609</code></pre>
 </section>
 <section id="write-data" class="level2">
 <h2 class="anchored" data-anchor-id="write-data">Write data</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [17]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>importance_data <span class="ot">&lt;-</span> ImpData <span class="sc">%&gt;%</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">MSE_rank =</span> <span class="fu">rank</span>(<span class="sc">-</span><span class="st">`</span><span class="at">%IncMSE</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Purity_rank =</span> <span class="fu">rank</span>(<span class="sc">-</span>IncNodePurity)) <span class="sc">%&gt;%</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">site =</span> <span class="st">"Forest"</span>,</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">property =</span> <span class="st">"Sr"</span>)</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">file.exists</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"./notebooks/importance_data_49.csv"</span>))) {</span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  importance_data_final <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"./notebooks/importance_data_49.csv"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rows_upsert</span>(importance_data, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"MSE_rank"</span>, <span class="st">"site"</span>, <span class="st">"property"</span>)) </span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> importance_data_final <span class="ot">&lt;-</span> importance_data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [20]:</pre></div><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>importance_data <span class="ot">&lt;-</span> ImpData <span class="sc">%&gt;%</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">MSE_rank =</span> <span class="fu">rank</span>(<span class="sc">-</span><span class="st">`</span><span class="at">%IncMSE</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Purity_rank =</span> <span class="fu">rank</span>(<span class="sc">-</span>IncNodePurity)) <span class="sc">%&gt;%</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">site =</span> <span class="st">"Forest"</span>,</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">property =</span> <span class="st">"Sr"</span>)</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">file.exists</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"./notebooks/importance_data_49.csv"</span>))) {</span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>  importance_data_final <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"./notebooks/importance_data_49.csv"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rows_upsert</span>(importance_data, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"MSE_rank"</span>, <span class="st">"site"</span>, <span class="st">"property"</span>)) </span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> importance_data_final <span class="ot">&lt;-</span> importance_data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Rows: 154 Columns: 7
+<pre><code>Rows: 161 Columns: 7
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: ","
 chr (3): Var.Names, site, property
@@ -576,22 +684,22 @@ dbl (4): %IncMSE, IncNodePurity, MSE_rank, Purity_rank
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(importance_data_final, here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"./notebooks/importance_data_49.csv"</span>))</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>model_performance <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">MSE =</span> rf.fit<span class="sc">$</span>mse[<span class="fu">length</span>(rf.fit<span class="sc">$</span>mse)],</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">Var_exp =</span> rf.fit<span class="sc">$</span>rsq[<span class="fu">length</span>(rf.fit<span class="sc">$</span>rsq)],</span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">R2 =</span> r_sq<span class="sc">$</span>r.squared, </span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">mse_test =</span> mse_test<span class="sc">$</span>mse,</span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">site =</span> <span class="st">"Forest"</span>,</span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">property =</span> <span class="st">"Sr"</span>)</span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">file.exists</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"./notebooks/model_performance_data_49.csv"</span>))) {</span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>  model_performance_final <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"./notebooks/model_performance_data_49.csv"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rows_upsert</span>(model_performance, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"site"</span>, <span class="st">"property"</span>)) </span>
-<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> model_performance_final <span class="ot">&lt;-</span> model_performance</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(importance_data_final, here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"./notebooks/importance_data_49.csv"</span>))</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>model_performance <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">MSE =</span> rf.fit<span class="sc">$</span>mse[<span class="fu">length</span>(rf.fit<span class="sc">$</span>mse)],</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">Var_exp =</span> rf.fit<span class="sc">$</span>rsq[<span class="fu">length</span>(rf.fit<span class="sc">$</span>rsq)],</span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">R2 =</span> r_sq<span class="sc">$</span>r.squared, </span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">mse_test =</span> mse_test<span class="sc">$</span>mse,</span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">site =</span> <span class="st">"Forest"</span>,</span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">property =</span> <span class="st">"Sr"</span>)</span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">file.exists</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"./notebooks/model_performance_data_49.csv"</span>))) {</span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a>  model_performance_final <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"./notebooks/model_performance_data_49.csv"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rows_upsert</span>(model_performance, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"site"</span>, <span class="st">"property"</span>)) </span>
+<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> model_performance_final <span class="ot">&lt;-</span> model_performance</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Rows: 22 Columns: 6
+<pre><code>Rows: 23 Columns: 6
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: ","
 chr (2): site, property
@@ -600,7 +708,29 @@ dbl (4): MSE, Var_exp, R2, mse_test
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(model_performance_final, here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"./notebooks/model_performance_data_49.csv"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(model_performance_final, here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"./notebooks/model_performance_data_49.csv"</span>))</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>model_performance2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">MSE_test =</span> <span class="fu">paste0</span>(<span class="fu">round</span>(mse_mean,<span class="dv">2</span>), <span class="st">" ("</span>, <span class="fu">round</span>(mse_lower_limit,<span class="dv">2</span>), <span class="st">", "</span>, <span class="fu">round</span>(mse_upper_limit,<span class="dv">2</span>), <span class="st">")"</span>),</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">R2_test =</span> <span class="fu">paste0</span>(<span class="fu">round</span>(r_sq_mean,<span class="dv">2</span>), <span class="st">" ("</span>, <span class="fu">round</span>(r_sq_lower_limits,<span class="dv">2</span>), <span class="st">", "</span>, <span class="fu">round</span>(r_sq_upper_limits,<span class="dv">2</span>), <span class="st">")"</span>),</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">stability =</span> <span class="fu">round</span>(rf_stability, <span class="dv">2</span>), </span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">site =</span> <span class="st">"Forest"</span>,</span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">property =</span> <span class="st">"Sr"</span>)</span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">file.exists</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"./notebooks/model_performance_data_2.csv"</span>))) {</span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a>  model_performance_final2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"./notebooks/model_performance_data_2.csv"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rows_upsert</span>(model_performance2, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"site"</span>, <span class="st">"property"</span>)) </span>
+<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> model_performance_final2 <span class="ot">&lt;-</span> model_performance2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 23 Columns: 5
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (4): MSE_test, R2_test, site, property
+dbl (1): stability
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(model_performance_final2, here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"./notebooks/model_performance_data_2.csv"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 </section>
      </main>
