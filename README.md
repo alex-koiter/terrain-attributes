@@ -1,6 +1,6 @@
 ## Preliminary Investigation of Spatial Variability of Sediment Fingerprinting Properties in Relation to Terrain Attributes at the Field-Scale
 
-This manuscript has recently been submitted to the Geoderma for peer-review. I will update the repository as the publication process proceeds
+This manuscript has recently been submitted to the CATENA for peer-review. I will update the repository as the publication process proceeds
 
 Until this manuscript has been peer-reviewed this work should be considered **very preliminary** at this stage and is not ready for public dissemination.
 
