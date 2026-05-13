@@ -221,7 +221,7 @@
        <p>Alex Koiter</p>
 <section id="load-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="load-libraries">Load libraries</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="d33bdfb3-bfec-4794-b80c-416ac4922123" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="55276cd0-ffe2-41d9-8042-c6954e3e29ed" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>library(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
@@ -245,7 +245,7 @@ The following object is masked from 'package:tidyr':
 </section>
 <section id="terrain-summary" class="level2">
 <h2 class="anchored" data-anchor-id="terrain-summary">Terrain summary</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="66f82938-df06-41b9-8909-241793c3b5ac" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="6fd4a0f7-c19d-41fb-a264-0a796e2b5ce3" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>attribute <span class="op">&lt;-</span> c(<span class="st">"plan_curvature"</span>, <span class="st">"profile_curvature"</span>, <span class="st">"saga_wetness_index"</span>, <span class="st">"catchment_area"</span>, <span class="st">"relative_slope_position"</span>, <span class="st">"channel_network_distance"</span>, <span class="st">"elevation"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ag_data <span class="op">&lt;-</span> read_csv(here::here(<span class="st">"./notebooks/ag_data_49.csv"</span>)) <span class="op">|&gt;</span></span>
@@ -890,7 +890,7 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
 </section>
 <section id="fingerprint-summary" class="level2">
 <h2 class="anchored" data-anchor-id="fingerprint-summary">Fingerprint summary</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="ebf5ff62-39b4-4ff1-b918-0a21d465c4d6" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="f76c5233-d42a-47e8-b9e0-35d5825d15f3" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">&lt;-</span> read_csv(here::here(<span class="st">"./notebooks/soil_data.csv"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 6076 Columns: 5
@@ -1676,7 +1676,7 @@ Table&nbsp;2: Summary univariate statistics of geochemical and colour soil prope
 </section>
 <section id="univariate-summary" class="level2">
 <h2 class="anchored" data-anchor-id="univariate-summary">Univariate summary</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="f5df690e-92aa-4243-ba5e-620f52fa8eb5" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="1bf57f4e-7629-4024-b4af-2916a1004177" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>all_fingerprints <span class="op">|&gt;</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">filter</span>(group <span class="op">%</span><span class="kw">in</span><span class="op">%</span> c(<span class="st">"geochem"</span>, <span class="st">"colour"</span>))<span class="op">|&gt;</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  group_by(site) <span class="op">|&gt;</span></span>
@@ -1721,7 +1721,7 @@ Table&nbsp;2: Summary univariate statistics of geochemical and colour soil prope
 </section>
 <section id="correlation" class="level2">
 <h2 class="anchored" data-anchor-id="correlation">Correlation</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [9]:</pre></div><div id="05a526c5-c386-49d6-baf1-52339ed91ec9" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [9]:</pre></div><div id="97b2545d-59e2-4523-918e-ed38b8801b50" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>forest_r <span class="op">&lt;-</span> <span class="im">as</span>.data.frame(Hmisc::rcorr(<span class="im">as</span>.matrix(select(for_data, <span class="op">-</span>site)))$r) <span class="op">%&gt;%</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  select(<span class="st">"plan_curvature"</span>, <span class="st">"profile_curvature"</span>, <span class="st">"saga_wetness_index"</span>, <span class="st">"catchment_area"</span>, <span class="st">"relative_slope_position"</span>, <span class="st">"channel_network_distance"</span>, <span class="st">"elevation"</span>) <span class="op">%&gt;%</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  rownames_to_column() <span class="op">%&gt;%</span></span>
