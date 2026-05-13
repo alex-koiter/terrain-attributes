@@ -76,6 +76,7 @@ keywords:
   - Soil colour
   - Spatial analysis
   - Terrain attributes
+  - Sediment fingerprinting
 abstract: |
   Quantifying field-scale (∼40 ha) spatial variability in soil geochemical and colour (spectral reflectance) properties is important for sediment source fingerprinting. The main objectives of this study were to: 1) quantify the spatial variability and spatial dependence for a set of 15 properties (10 geochemical elements: Ca, Co, Cs, Fe, Li, La, Nb, Ni, Rb, Sr; and 5 colour coefficients: *a\*, b\*, c\*, h\**, and *x*) measured from the <63 μm fraction at an agricultural and forested site; and 2) assess how seven terrain attributes (elevation, SAGA wetness index, relative slope position, catchment area, vertical distance to channel network, plan curvature, profile curvature) relate to these properties through correlation and Random Forest (RF) regression. Across both sites, colour properties exhibited approximately normal distributions with low coefficients of variation (CV), whereas geochemical properties were more variable and skewed. Semivariograms indicated strong spatial dependence for most properties at the agricultural site (median range ≈ 210 m) and moderate dependence at the forested site (ranges 176–298 m). RF models performed better at the agricultural site; elevation, wetness and slope position were the top-ranked predictors for most properties. These results support DEM-based sampling strategies. In practice, sample spacing on the order of the semivariogram range (∼200–230 m) can suffice for mapping in simple agricultural settings, whereas stratified designs (e.g., near-stream vs. hillslope) may be preferable in more complex forested terrains.
   
@@ -109,7 +110,7 @@ In practice, sample spacing on the order of the semivariogram range (∼200–23
 ## Introduction
 
 Spatial variation in soil properties arises from soil-forming factors (parent material, relief, biota, climate, time) and is further modified by land use and management practices.
-Characterizing the patterns and drivers of this variation is an important component of many agri-environmental studies.
+Developing a sampling design that adequately characterizes the patterns and drivers of this variation is an important component of many agricultural and environmental studies [@soligo2023; @lark2018].
 For example, to meet the desired level of precision for agronomic and environmental nutrient management plans the spatial variability in soil nutrients will influence the soil sampling design in terms of number and locations of soil samples [@kariuki2009; @starr1995].
 Similarly, accounting for spatial variability extends to sediment source fingerprinting, as unaccounted spatial heterogeneity within sources of sediment can compromise the source apportionment results [@du2017].
 
@@ -132,17 +133,21 @@ Strategic/judgment sampling targeting the likely to eroded areas may improve rep
 There has been progress using information on erosion rates to calculate an erosion rate-weighted mean [@wilkinson2015; @du2017] and using spatially interpolated maps of fingerprint values to provide a finer resolution of the fingerprint variability within each source [@haddadchi2019].
 Characterizing the geomorphic, hydrologic, and biochemical processes underlying spatial variability supports the selection of reliable fingerprints and informs sampling design for source characterization.
 While many studies employ a statistical-based approach [@collins1997] to select suitable fingerprints, concerns remain that this method may lead to the inclusion of false positives (i.e., type I errors), whereby a fingerprint is incorrectly identified as having discriminatory power between sources when it does not, resulting in the selection of non-conservative fingerprints [@koiter2013].
-Consequently, there has been a call for the inclusion of a process-based (e.g., weathering, erosion) or geologic-based explanation of the fingerprints selected to address these concerns [@collins2020].
+Consequently, there has been a call for the inclusion of a process-based (e.g., weathering, erosion) or geologic-based explanation of the fingerprints selected to address these concerns [@collins2020; @nosrati2020].
 This remains challenging due to limited data on soil properties, particularly with geochemical properties, as routine lab analysis often measures more than 50 elements.
+
 The spatial patterns of some soil properties are well studied because of their agronomic importance or ability to infer other important soil properties and processes and include fallout radionuclides [e.g., ^137^Cs, ^7^Be @ritchie1970], plant nutrients [e.g., N, P @vasu2017], soil colour [e.g., hue, value @viscarrarossel2006], major non-acid forming cations [e.g., Ca, Na @sun2021].
 In contrast, the processes that control the distribution of rare earth elements and trace metals, are less well studied or tend to be site-specific, making it difficult to draw generalizations.
 With the growing adoption of DEM-based terrain analysis to guide soil sampling, there is a corresponding need for analytical approaches capable of handling complex, non-linear relationships among terrain attributes, for which Random Forest (RF) provides a suitable framework.
 
-Terrain attributes such as elevation, slope curvature, slope position, and soil wetness indices have been shown to be useful information in the characterization and modelling of a range of soil properties including soil moisture [@beaudette2013], texture [@kokulan2018], colour [@brown2004], organic matter [@zhang2012], conductivity [@umali2012], and geochemistry [@lima2023].
+Terrain attributes such as elevation, slope curvature, slope position, and soil wetness indices have been shown to be useful information in the characterization and modelling of a range of soil properties including soil moisture [@beaudette2013], texture [@kokulan2018], colour [@brown2004], organic matter [@zhang2012], conductivity [@umali2012], enzyme activity [@tajik2012], soil depth [@mehnatkesh2013], and geochemistry [@lima2023].
 Similar techniques may provide additional insight into the pedologic and geomorphic processes that drive the observed patterns of fingerprint properties within a given source.
 Digital elevation models (DEMs) are more widely available through public databases and can be generated using drone imagery, whereas soil property data are more limited in availability and spatial coverage.
 As a result, terrain attributes derived from DEMs offer a practical and more readily available basis for guiding efficient and spatially informed soil sampling designs [@minasny2006; @degruijter2006].
+These DEM-based sampling designs include conditioned Latin hypercube [@minasny2006], feature space coverage [@ma2020], and covariate-wise [@zízala2024] sampling methods.
+
 This study builds on the previous work of Luna Miño [-@lunamiño2024] where the impact of three different sampling designs on the characterization of source materials, within the framework of the sediment fingerprinting approach, was assessed.
+Although the designs produced numerically different results, they led to the same overall conclusions.
 This study expands upon that previous work by using data obtained from a grid sampling approach to assess spatial autocorrelation and identify important terrain attributes driving the observed patterns.
 The overall goal of this research is to apply DEM-derived terrain attributes and a non-parametric importance ranking to guide the sampling process.
 The objectives of this study were to: (1) quantify the spatial variability and spatial dependence of 15 fingerprint-relevant soil properties across an agricultural and forested field site; (2) test the relation between these soil properties and seven terrain attributes, using correlation and Random Forest regression to identify terrain controls and their relative importance; and (3) identify patterns or groups in the data, using unsupervised Random Forest regression and hierarchical clustering to guide stratified sampling.
@@ -196,7 +201,7 @@ The rasters were resampled to 10 m resolution [`terra`v1.8.42 @hijmans2024] prio
 
 All subsequent statistical analysis was undertaken using R statistical Software v4.5.3 [@rcoreteam2026] through RStudio Integrated Development Environment v2026.04.0 [@rstudio2026]).
 Plots and maps were created using the R package `ggplot2` v3.5.2 [@wickham2016].
-Univariate summaries included CV classes (low \<15%, moderate 15–35%, high 35–75%, very high \>75%) and skewness categories (symmetric: −0.5 to 0.5; moderate: −1.0 to −0.5 or 0.5 to 1.0; high: \<−1.0 or \>1.0).
+Univariate summaries included CV classes (low \<15%, moderate 15–35%, high 35–75%, very high \>75%) [@pennock2008] and skewness categories (symmetric: −0.5 to 0.5; moderate: −1.0 to −0.5 or 0.5 to 1.0; high: \<−1.0 or \>1.0).
 
 Random forest regression (RF) [`randomForest` v4.7.1.2 @liaw2002] was used to assess the relative importance of the terrain attributes on the spatial distribution of soil properties.
 The dataset was randomly split into training (70%) and testing (30%) datasets.
@@ -361,7 +366,12 @@ Moisture availability is also greater in lower slope and depressional areas, res
 There is also evidence that suggests that soil texture varies with elevation and slope position, with coarser material on upper slopes and finer material accumulating in lower positions [@kokulan2018; @cox2003].
 Given the strong correlation of organic matter and texture with soil geochemistry [@horowitz1991] and colour [@viscarrarossel2009], these properties may also help explain the observed spatial patterns.
 
-Compared to the forest site, the RF regression model showed greater explanatory power and predictive performance for the agricultural site, likely due to its simpler topography.However, at the forested site, the RF model showed poor fit, and terrain variables were largely uninformative in predicting fingerprint properties (@fig-cluster); this likely reflects the increased geomorphic complexity of the site and the limitations of sparse sampling. Additional work is needed to fully assess the utility of terrain mapping in predicting and mapping fingerprint properties, particularly in complex terrains. Clustering based on terrain attributes using unsupervised RF regression (Figure 5) showed some promise in serving as an initial step in developing efficient and effective sampling designs (Pham et al., 2025). As high-quality LiDAR data and digital elevation models (DEMs) become increasingly available in many regions, researchers have the opportunity to integrate terrain attributes into their sampling frameworks. As Evrard et al. (2022) suggests, a balance between the number of samples and budget and logistical constraints needs to be made. This integration will help ensure adequate representation of key geomorphic and topographic features while reducing sampling and analytical costs by minimizing redundant sampling in similar areas. 
+Compared to the forest site, the RF regression model showed greater explanatory power and predictive performance for the agricultural site, likely due to its simpler topography.However, at the forested site, the RF model showed poor fit, and terrain variables were largely uninformative in predicting fingerprint properties (@fig-cluster); this likely reflects the increased geomorphic complexity of the site and the limitations of sparse sampling.
+Additional work is needed to fully assess the utility of terrain mapping in predicting and mapping fingerprint properties, particularly in complex terrains.
+Clustering based on terrain attributes using unsupervised RF regression (Figure 5) showed some promise in serving as an initial step in developing efficient and effective sampling designs (Pham et al., 2025).
+As high-quality LiDAR data and digital elevation models (DEMs) become increasingly available in many regions, researchers have the opportunity to integrate terrain attributes into their sampling frameworks.
+As Evrard et al. (2022) suggests, a balance between the number of samples and budget and logistical constraints needs to be made.
+This integration will help ensure adequate representation of key geomorphic and topographic features while reducing sampling and analytical costs by minimizing redundant sampling in similar areas.
 
 ### Limitations and Future Work
 

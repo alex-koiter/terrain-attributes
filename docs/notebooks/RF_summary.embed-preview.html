@@ -217,7 +217,7 @@
        <p>Alex Koiter</p>
 <section id="load-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="load-libraries">Load libraries</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="a465edd7-0799-4508-a2a2-7a8a572a6493" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="b7a7d08f-e94e-4434-a182-45fbdc64b739" class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>suppressPackageStartupMessages({</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  library(tidyverse)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  library(patchwork)</span>
@@ -228,7 +228,7 @@
 </section>
 <section id="importance" class="level2">
 <h2 class="anchored" data-anchor-id="importance">Importance</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="8bb12ed6-705e-4ac5-b253-7d0555945b46" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="54f035e3-5a76-4c27-8a7e-fdb4083fbec1" class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>imp_data <span class="op">&lt;-</span> read_csv(here::here(<span class="st">"./notebooks/importance_data_49.csv"</span>)) <span class="op">%&gt;%</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  rename(<span class="st">"Terrain Attribute"</span> <span class="op">=</span> <span class="st">"Var.Names"</span>) <span class="op">%&gt;%</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  mutate(`Terrain Attribute` <span class="op">=</span> fct_recode(`Terrain Attribute`, <span class="st">"Elevation"</span> <span class="op">=</span> <span class="st">"elevation"</span>, </span>
@@ -274,7 +274,7 @@ Figure&nbsp;1: Heat map of the Random Forest regression results showing the rank
 </div>
 </div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="340d865e-7853-45c1-a633-d7055c20df29" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="edc87160-852b-45f0-b1f6-f91b5ce571ca" class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reorder Terrain Attribute within each property by %IncMSE</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ag_imp_data_filtered <span class="op">&lt;-</span> <span class="bu">filter</span>(imp_data, site <span class="op">==</span> <span class="st">"Agriculture"</span>) <span class="op">%&gt;%</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  mutate(`Terrain Attribute` <span class="op">=</span> reorder_within(`Terrain Attribute`, `<span class="op">%</span>IncMSE`, <span class="bu">property</span>))</span>
@@ -300,7 +300,7 @@ Figure&nbsp;1: Heat map of the Random Forest regression results showing the rank
 </div>
 </div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="99d2927d-b2a5-4e7f-a31c-9c3ecb7bb08d" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="d9dd7469-8d2a-42c7-a9a4-1e82d0242778" class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>forest_imp_data_filtered <span class="op">&lt;-</span> <span class="bu">filter</span>(imp_data, site <span class="op">==</span> <span class="st">"Forest"</span>) <span class="op">%&gt;%</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  mutate(`Terrain Attribute` <span class="op">=</span> reorder_within(`Terrain Attribute`, `<span class="op">%</span>IncMSE`, <span class="bu">property</span>))</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -324,7 +324,7 @@ Figure&nbsp;1: Heat map of the Random Forest regression results showing the rank
 </section>
 <section id="performance" class="level2">
 <h2 class="anchored" data-anchor-id="performance">Performance</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [6]:</pre></div><div id="8b218433-9c47-4e98-bf2f-5fead960a650" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [6]:</pre></div><div id="55e44c68-7f8c-4e50-a033-b73be009277e" class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>m_performance_2 <span class="op">&lt;-</span> read_csv(here::here(<span class="st">"./notebooks/model_performance_data_2.csv"</span>)) <span class="op">|&gt;</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  mutate(<span class="bu">property</span> <span class="op">=</span> fct_recode(<span class="bu">property</span>, <span class="st">"a*"</span> <span class="op">=</span> <span class="st">"a_col"</span>, <span class="st">"b*"</span> <span class="op">=</span> <span class="st">"b_col"</span>, <span class="st">"c*"</span> <span class="op">=</span> <span class="st">"c_col"</span>, <span class="st">"h*"</span> <span class="op">=</span> <span class="st">"h_col"</span>, <span class="st">"x"</span> <span class="op">=</span> <span class="st">"x_col"</span>)) <span class="op">|&gt;</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  mutate(<span class="bu">property</span> <span class="op">=</span> fct_relevel(<span class="bu">property</span>, <span class="st">"Ca"</span>, <span class="st">"Co"</span>, <span class="st">"Cs"</span>, <span class="st">"Fe"</span>, <span class="st">"Li"</span>, <span class="st">"La"</span>, <span class="st">"Nb"</span>, <span class="st">"Ni"</span>, <span class="st">"Rb"</span>, <span class="st">"Sr"</span>, <span class="st">"a*"</span>, <span class="st">"b*"</span>, <span class="st">"c*"</span>, <span class="st">"h*"</span>, <span class="st">"x"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

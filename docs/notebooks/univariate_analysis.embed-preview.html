@@ -216,7 +216,7 @@
        <p>Alex Koiter</p>
 <section id="load-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="load-libraries">Load libraries</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="8339c059-4d68-44eb-9e2c-d558bc40ca5c" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="443419e3-70d2-435a-9842-0eddd1b26959" class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>library(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
@@ -240,7 +240,7 @@ The following object is masked from 'package:tidyr':
 </section>
 <section id="terrain-summary" class="level2">
 <h2 class="anchored" data-anchor-id="terrain-summary">Terrain summary</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="47a73cf7-f7c9-411b-a68d-0cf22eb5cb98" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="77ae2e66-5554-487d-839d-d5d4d7e7a706" class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>attribute <span class="op">&lt;-</span> c(<span class="st">"plan_curvature"</span>, <span class="st">"profile_curvature"</span>, <span class="st">"saga_wetness_index"</span>, <span class="st">"catchment_area"</span>, <span class="st">"relative_slope_position"</span>, <span class="st">"channel_network_distance"</span>, <span class="st">"elevation"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ag_data <span class="op">&lt;-</span> read_csv(here::here(<span class="st">"./notebooks/ag_data_49.csv"</span>)) <span class="op">|&gt;</span></span>
@@ -885,7 +885,7 @@ Table&nbsp;1: Summary univariate statistics of terrain attributes for each site 
 </section>
 <section id="fingerprint-summary" class="level2">
 <h2 class="anchored" data-anchor-id="fingerprint-summary">Fingerprint summary</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="f3d47201-a493-4986-8699-33f01a8d836a" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="f0157779-fd24-4ee2-9eaa-7c306b761dde" class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">&lt;-</span> read_csv(here::here(<span class="st">"./notebooks/soil_data.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 6076 Columns: 5
@@ -1671,7 +1671,7 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
 </section>
 <section id="univariate-summary" class="level2">
 <h2 class="anchored" data-anchor-id="univariate-summary">Univariate summary</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="dfd16366-dcc3-4d9b-8bad-61470fc483ed" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="28537df4-e0ac-4e9c-955a-b3f9b03db062" class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>all_fingerprints <span class="op">|&gt;</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">filter</span>(group <span class="op">%</span><span class="kw">in</span><span class="op">%</span> c(<span class="st">"geochem"</span>, <span class="st">"colour"</span>))<span class="op">|&gt;</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  group_by(site) <span class="op">|&gt;</span></span>
@@ -1716,7 +1716,7 @@ Table&nbsp;2: Summary univariate statistics of selected geochemical and colour s
 </section>
 <section id="correlation" class="level2">
 <h2 class="anchored" data-anchor-id="correlation">Correlation</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [9]:</pre></div><div id="7dbde660-65d3-4804-8418-518492719e69" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [9]:</pre></div><div id="76342bad-9990-486f-866b-98a9f6417550" class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>forest_r <span class="op">&lt;-</span> <span class="im">as</span>.data.frame(Hmisc::rcorr(<span class="im">as</span>.matrix(select(for_data, <span class="op">-</span>site)))$r) <span class="op">%&gt;%</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  select(<span class="st">"plan_curvature"</span>, <span class="st">"profile_curvature"</span>, <span class="st">"saga_wetness_index"</span>, <span class="st">"catchment_area"</span>, <span class="st">"relative_slope_position"</span>, <span class="st">"channel_network_distance"</span>, <span class="st">"elevation"</span>) <span class="op">%&gt;%</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  rownames_to_column() <span class="op">%&gt;%</span></span>

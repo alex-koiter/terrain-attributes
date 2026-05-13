@@ -186,6 +186,7 @@ forested terrains.</p>
 <kwd>Soil colour</kwd>
 <kwd>Spatial analysis</kwd>
 <kwd>Terrain attributes</kwd>
+<kwd>Sediment fingerprinting</kwd>
 </kwd-group>
 
 
@@ -200,12 +201,17 @@ forested terrains.</p>
   <title>1 Introduction</title>
   <p>Spatial variation in soil properties arises from soil-forming
   factors (parent material, relief, biota, climate, time) and is further
-  modified by land use and management practices. Characterizing the
-  patterns and drivers of this variation is an important component of
-  many agri-environmental studies. For example, to meet the desired
-  level of precision for agronomic and environmental nutrient management
-  plans the spatial variability in soil nutrients will influence the
-  soil sampling design in terms of number and locations of soil samples
+  modified by land use and management practices. Developing a sampling
+  design that adequately characterizes the patterns and drivers of this
+  variation is an important component of many agricultural and
+  environmental studies
+  (<xref alt="Lark and Marchant, 2018" rid="ref-lark2018" ref-type="bibr">Lark
+  and Marchant, 2018</xref>;
+  <xref alt="Soligo et al., 2023" rid="ref-soligo2023" ref-type="bibr">Soligo
+  et al., 2023</xref>). For example, to meet the desired level of
+  precision for agronomic and environmental nutrient management plans
+  the spatial variability in soil nutrients will influence the soil
+  sampling design in terms of number and locations of soil samples
   (<xref alt="Kariuki et al., 2009" rid="ref-kariuki2009" ref-type="bibr">Kariuki
   et al., 2009</xref>;
   <xref alt="Starr et al., 1995" rid="ref-starr1995" ref-type="bibr">Starr
@@ -296,13 +302,15 @@ forested terrains.</p>
   geologic-based explanation of the fingerprints selected to address
   these concerns
   (<xref alt="Collins et al., 2020" rid="ref-collins2020" ref-type="bibr">Collins
+  et al., 2020</xref>;
+  <xref alt="Nosrati et al., 2020" rid="ref-nosrati2020" ref-type="bibr">Nosrati
   et al., 2020</xref>). This remains challenging due to limited data on
   soil properties, particularly with geochemical properties, as routine
-  lab analysis often measures more than 50 elements. The spatial
-  patterns of some soil properties are well studied because of their
-  agronomic importance or ability to infer other important soil
-  properties and processes and include fallout radionuclides (e.g.,
-  <sup>137</sup>Cs, <sup>7</sup>Be
+  lab analysis often measures more than 50 elements.</p>
+  <p>The spatial patterns of some soil properties are well studied
+  because of their agronomic importance or ability to infer other
+  important soil properties and processes and include fallout
+  radionuclides (e.g., <sup>137</sup>Cs, <sup>7</sup>Be
   <xref alt="Ritchie et al., 1970" rid="ref-ritchie1970" ref-type="bibr">Ritchie
   et al., 1970</xref>), plant nutrients (e.g., N, P
   <xref alt="Vasu et al., 2017" rid="ref-vasu2017" ref-type="bibr">Vasu
@@ -331,7 +339,11 @@ forested terrains.</p>
   (<xref alt="Zhang et al., 2012" rid="ref-zhang2012" ref-type="bibr">Zhang
   et al., 2012</xref>), conductivity
   (<xref alt="Umali et al., 2012" rid="ref-umali2012" ref-type="bibr">Umali
-  et al., 2012</xref>), and geochemistry
+  et al., 2012</xref>), enzyme activity
+  (<xref alt="Tajik et al., 2012" rid="ref-tajik2012" ref-type="bibr">Tajik
+  et al., 2012</xref>), soil depth
+  (<xref alt="Mehnatkesh et al., 2013" rid="ref-mehnatkesh2013" ref-type="bibr">Mehnatkesh
+  et al., 2013</xref>), and geochemistry
   (<xref alt="Lima et al., 2023" rid="ref-lima2023" ref-type="bibr">Lima
   et al., 2023</xref>). Similar techniques may provide additional
   insight into the pedologic and geomorphic processes that drive the
@@ -345,27 +357,36 @@ forested terrains.</p>
   (<xref alt="Gruijter et al., 2006" rid="ref-degruijter2006" ref-type="bibr">Gruijter
   et al., 2006</xref>;
   <xref alt="Minasny and McBratney, 2006" rid="ref-minasny2006" ref-type="bibr">Minasny
-  and McBratney, 2006</xref>). This study builds on the previous work of
-  Luna Miño
+  and McBratney, 2006</xref>). These DEM-based sampling designs include
+  conditioned Latin hypercube
+  (<xref alt="Minasny and McBratney, 2006" rid="ref-minasny2006" ref-type="bibr">Minasny
+  and McBratney, 2006</xref>), feature space coverage
+  (<xref alt="Ma et al., 2020" rid="ref-ma2020" ref-type="bibr">Ma et
+  al., 2020</xref>), and covariate-wise
+  (<xref alt="Žížala et al., 2024" rid="ref-zízala2024" ref-type="bibr">Žížala
+  et al., 2024</xref>) sampling methods.</p>
+  <p>This study builds on the previous work of Luna Miño
   (<xref alt="2024" rid="ref-lunamiño2024" ref-type="bibr">2024</xref>)
   where the impact of three different sampling designs on the
   characterization of source materials, within the framework of the
-  sediment fingerprinting approach, was assessed. This study expands
-  upon that previous work by using data obtained from a grid sampling
-  approach to assess spatial autocorrelation and identify important
-  terrain attributes driving the observed patterns. The overall goal of
-  this research is to apply DEM-derived terrain attributes and a
-  non-parametric importance ranking to guide the sampling process. The
-  objectives of this study were to: (1) quantify the spatial variability
-  and spatial dependence of 15 fingerprint-relevant soil properties
-  across an agricultural and forested field site; (2) test the relation
-  between these soil properties and seven terrain attributes, using
-  correlation and Random Forest regression to identify terrain controls
-  and their relative importance; and (3) identify patterns or groups in
-  the data, using unsupervised Random Forest regression and hierarchical
-  clustering to guide stratified sampling. Together, these objectives
-  address how terrain attributes may be used to understand spatial
-  distributions of soil properties and help guide sampling design.</p>
+  sediment fingerprinting approach, was assessed. Although the designs
+  produced numerically different results, they led to the same overall
+  conclusions. This study expands upon that previous work by using data
+  obtained from a grid sampling approach to assess spatial
+  autocorrelation and identify important terrain attributes driving the
+  observed patterns. The overall goal of this research is to apply
+  DEM-derived terrain attributes and a non-parametric importance ranking
+  to guide the sampling process. The objectives of this study were to:
+  (1) quantify the spatial variability and spatial dependence of 15
+  fingerprint-relevant soil properties across an agricultural and
+  forested field site; (2) test the relation between these soil
+  properties and seven terrain attributes, using correlation and Random
+  Forest regression to identify terrain controls and their relative
+  importance; and (3) identify patterns or groups in the data, using
+  unsupervised Random Forest regression and hierarchical clustering to
+  guide stratified sampling. Together, these objectives address how
+  terrain attributes may be used to understand spatial distributions of
+  soil properties and help guide sampling design.</p>
 </sec>
 <sec id="methods">
   <title>2 Methods</title>
@@ -506,9 +527,11 @@ forested terrains.</p>
     <monospace>ggplot2</monospace> v3.5.2
     (<xref alt="Wickham, 2016" rid="ref-wickham2016" ref-type="bibr">Wickham,
     2016</xref>). Univariate summaries included CV classes (low &lt;15%,
-    moderate 15–35%, high 35–75%, very high &gt;75%) and skewness
-    categories (symmetric: −0.5 to 0.5; moderate: −1.0 to −0.5 or 0.5 to
-    1.0; high: &lt;−1.0 or &gt;1.0).</p>
+    moderate 15–35%, high 35–75%, very high &gt;75%)
+    (<xref alt="Pennock et al., 2008" rid="ref-pennock2008" ref-type="bibr">Pennock
+    et al., 2008</xref>) and skewness categories (symmetric: −0.5 to
+    0.5; moderate: −1.0 to −0.5 or 0.5 to 1.0; high: &lt;−1.0 or
+    &gt;1.0).</p>
     <p>Random forest regression (RF)
     (<monospace>randomForest</monospace> v4.7.1.2
     <xref alt="Liaw and Wiener, 2002" rid="ref-liaw2002" ref-type="bibr">Liaw
@@ -3713,6 +3736,128 @@ forested terrains.</p>
       <year iso-8601-date="2006">2006</year>
       <uri>http://dx.doi.org/10.1007/3-540-33161-1</uri>
       <pub-id pub-id-type="doi">10.1007/3-540-33161-1</pub-id>
+    </element-citation>
+  </ref>
+  <ref id="ref-soligo2023">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Soligo</surname><given-names>Matheus Flesch</given-names></name>
+        <name><surname>Pedron</surname><given-names>Fabrício de Araújo</given-names></name>
+        <name><surname>Moura-Bueno</surname><given-names>Jean Michel</given-names></name>
+        <name><surname>Horst</surname><given-names>Taciara Zborowski</given-names></name>
+        <name><surname>Dalmolin</surname><given-names>Ricardo Simão Diniz</given-names></name>
+        <name><surname>Nalin</surname><given-names>Renan Storno</given-names></name>
+      </person-group>
+      <article-title>Sampling Design and Spatial Modeling of Available Phosphorus in a Complex Agricultural Area in Southern Brazil</article-title>
+      <source>Journal of Soil Science and Plant Nutrition</source>
+      <year iso-8601-date="2023-11-15">2023</year><month>11</month><day>15</day>
+      <volume>23</volume>
+      <issue>4</issue>
+      <uri>http://dx.doi.org/10.1007/s42729-023-01470-6</uri>
+      <pub-id pub-id-type="doi">10.1007/s42729-023-01470-6</pub-id>
+      <fpage>6125</fpage>
+      <lpage>6138</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-nosrati2020">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Nosrati</surname><given-names>Kazem</given-names></name>
+        <name><surname>Akbari-Mahdiabad</surname><given-names>Mojtaba</given-names></name>
+        <name><surname>Ayoubi</surname><given-names>Shamsollah</given-names></name>
+        <name><surname>Degos</surname><given-names>Emilie</given-names></name>
+        <name><surname>Koubansky</surname><given-names>Axel</given-names></name>
+        <name><surname>Coquatrix</surname><given-names>Quentin</given-names></name>
+        <name><surname>Pulley</surname><given-names>Simon</given-names></name>
+        <name><surname>Collins</surname><given-names>Adrian L.</given-names></name>
+      </person-group>
+      <article-title>Storm dust source fingerprinting for different particle size fractions using colour and magnetic susceptibility and a Bayesian un-mixing model</article-title>
+      <source>Environmental Science and Pollution Research</source>
+      <year iso-8601-date="2020-06-03">2020</year><month>06</month><day>03</day>
+      <volume>27</volume>
+      <issue>25</issue>
+      <uri>http://dx.doi.org/10.1007/s11356-020-09249-3</uri>
+      <pub-id pub-id-type="doi">10.1007/s11356-020-09249-3</pub-id>
+      <fpage>31578</fpage>
+      <lpage>31594</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-tajik2012">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Tajik</surname><given-names>Samaneh</given-names></name>
+        <name><surname>Ayoubi</surname><given-names>Shamsollah</given-names></name>
+        <name><surname>Nourbakhsh</surname><given-names>Farshid</given-names></name>
+      </person-group>
+      <article-title>Prediction of Soil Enzymes Activity by Digital Terrain Analysis: Comparing Artificial Neural Network and Multiple Linear Regression Models</article-title>
+      <source>Environmental Engineering Science</source>
+      <year iso-8601-date="2012-08">2012</year><month>08</month>
+      <volume>29</volume>
+      <issue>8</issue>
+      <uri>http://dx.doi.org/10.1089/ees.2011.0313</uri>
+      <pub-id pub-id-type="doi">10.1089/ees.2011.0313</pub-id>
+      <fpage>798</fpage>
+      <lpage>806</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-mehnatkesh2013">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Mehnatkesh</surname><given-names>Abdolmohammad</given-names></name>
+        <name><surname>Ayoubi</surname><given-names>Shamsollah</given-names></name>
+        <name><surname>Jalalian</surname><given-names>Ahmad</given-names></name>
+        <name><surname>Sahrawat</surname><given-names>Kanwar L.</given-names></name>
+      </person-group>
+      <article-title>Relationships between soil depth and terrain attributes in a semi arid hilly region in western Iran</article-title>
+      <source>Journal of Mountain Science</source>
+      <year iso-8601-date="2013-01-29">2013</year><month>01</month><day>29</day>
+      <volume>10</volume>
+      <issue>1</issue>
+      <uri>http://dx.doi.org/10.1007/s11629-013-2427-9</uri>
+      <pub-id pub-id-type="doi">10.1007/s11629-013-2427-9</pub-id>
+      <fpage>163</fpage>
+      <lpage>172</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-ma2020">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Ma</surname><given-names>Tianwu</given-names></name>
+        <name><surname>Brus</surname><given-names>Dick J.</given-names></name>
+        <name><surname>Zhu</surname><given-names>A-Xing</given-names></name>
+        <name><surname>Zhang</surname><given-names>Lei</given-names></name>
+        <name><surname>Scholten</surname><given-names>Thomas</given-names></name>
+      </person-group>
+      <article-title>Comparison of conditioned Latin hypercube and feature space coverage sampling for predicting soil classes using simulation from soil maps</article-title>
+      <source>Geoderma</source>
+      <year iso-8601-date="2020-07">2020</year><month>07</month>
+      <volume>370</volume>
+      <uri>http://dx.doi.org/10.1016/j.geoderma.2020.114366</uri>
+      <pub-id pub-id-type="doi">10.1016/j.geoderma.2020.114366</pub-id>
+      <fpage>114366</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-zízala2024">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Žížala</surname><given-names>Daniel</given-names></name>
+        <name><surname>Princ</surname><given-names>Tomáš</given-names></name>
+        <name><surname>Skála</surname><given-names>Jan</given-names></name>
+        <name><surname>Juřicová</surname><given-names>Anna</given-names></name>
+        <name><surname>Lukas</surname><given-names>Vojtěch</given-names></name>
+        <name><surname>Bohovic</surname><given-names>Roman</given-names></name>
+        <name><surname>Zádorová</surname><given-names>Tereza</given-names></name>
+        <name><surname>Minařík</surname><given-names>Robert</given-names></name>
+      </person-group>
+      <article-title>Soil sampling design matters - Enhancing the efficiency of digital soil mapping at the field scale</article-title>
+      <source>Geoderma Regional</source>
+      <year iso-8601-date="2024-12">2024</year><month>12</month>
+      <volume>39</volume>
+      <uri>http://dx.doi.org/10.1016/j.geodrs.2024.e00874</uri>
+      <pub-id pub-id-type="doi">10.1016/j.geodrs.2024.e00874</pub-id>
+      <fpage>e00874</fpage>
+      <lpage></lpage>
     </element-citation>
   </ref>
 </ref-list>
