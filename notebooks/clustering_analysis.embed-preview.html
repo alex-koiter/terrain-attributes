@@ -225,7 +225,7 @@
        <p>Alex Koiter</p>
 <section id="load-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="load-libraries">Load libraries</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="ba0dd00a-552f-4410-9008-58a3994caad2" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="c9a4c347-d403-44be-a442-d54d5e427cfc" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>suppressPackageStartupMessages({</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  library(tidyverse)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  library(terra)</span>
@@ -238,7 +238,7 @@
 </section>
 <section id="load-data" class="level2">
 <h2 class="anchored" data-anchor-id="load-data">Load data</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="061ba4c8-f8ec-4ce0-a904-c472f14fdf4f" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="f9a989c9-57e6-4a12-ae82-ebd0072d767e" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ag_data <span class="op">&lt;-</span> read_csv(here::here(<span class="st">"./notebooks/ag_terrain_data.csv"</span>), show_col_types <span class="op">=</span> FALSE) </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -247,7 +247,7 @@
 </section>
 <section id="elbow-plot-functions" class="level2">
 <h2 class="anchored" data-anchor-id="elbow-plot-functions">Elbow plot functions</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [3]:</pre></div><div id="36f88ae7-b5ec-4eeb-b1c8-69d4b70af255" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [3]:</pre></div><div id="e75626a6-39da-4b38-bf13-f88400d3219b" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define function to compute WSS for a single cluster</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>wss <span class="op">&lt;-</span> function(d) {</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">sum</span>(scale(d, scale <span class="op">=</span> FALSE)<span class="op">^</span><span class="dv">2</span>)</span>
@@ -264,13 +264,13 @@
 </section>
 <section id="terrain-atributes" class="level2">
 <h2 class="anchored" data-anchor-id="terrain-atributes">Terrain Atributes</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="2f9e7a28-98e5-4c75-9bc6-e2c9b38358e9" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="4ef44404-921f-4191-8d67-015f84b012a9" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>attributes <span class="op">&lt;-</span> c(<span class="st">"saga_wetness_index"</span>, <span class="st">"relative_slope_position"</span>, <span class="st">"elevation"</span>, <span class="st">"profile_curvature"</span>, <span class="st">"plan_curvature"</span>,<span class="st">"channel_network_distance"</span>,<span class="st">"catchment_area"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 </section>
 <section id="agricultural-site" class="level2">
 <h2 class="anchored" data-anchor-id="agricultural-site">Agricultural site</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="87c966fa-dc38-41df-a96f-224929e1fba4" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="75237ba1-ab4e-44d0-a355-c13371821cc0" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span>.seed(<span class="dv">123</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Principle component</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>ag_pc <span class="op">&lt;-</span> prcomp(dplyr::select(ag_data, all_of(attributes)), center <span class="op">=</span> TRUE, scale. <span class="op">=</span> TRUE)$x <span class="op">|&gt;</span> </span>
@@ -287,7 +287,7 @@
 </div></div>
 <section id="elbow-plot" class="level3">
 <h3 class="anchored" data-anchor-id="elbow-plot">Elbow plot</h3>
-<div class="cell-container"><div class="cell-decorator"><pre>In [6]:</pre></div><div id="a48c95ff-630e-4820-86fb-8576383bcf06" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [6]:</pre></div><div id="a8d8970e-0f4f-4fd0-93a1-36e1760e25f2" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute WSS for k = 1 to 10</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>k_values <span class="op">&lt;-</span> <span class="dv">1</span>:<span class="dv">10</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>wss_values <span class="op">&lt;-</span> sapply(k_values, wrap, hc <span class="op">=</span> hclust_ag_rf, x <span class="op">=</span> dplyr::select(ag_data, any_of(attributes)))</span>
@@ -314,7 +314,7 @@
 </div>
 </div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [7]:</pre></div><div id="6a0337a2-40f2-4fa8-b2c4-580e9d65fba5" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [7]:</pre></div><div id="2cabe11d-1616-4c16-9bb9-870359560f91" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>cluster_map_ag <span class="op">&lt;-</span> ag_data <span class="op">|&gt;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  dplyr::select(x, y) <span class="op">|&gt;</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  bind_cols(rf_cluster_ag) <span class="op">|&gt;</span></span>
@@ -333,7 +333,7 @@
 </div>
 </div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="053f20c8-e185-423f-873b-838262e26388" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="c5d3e76a-50a0-4541-80f9-ff2ddc04fa8c" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>forest_pc <span class="op">&lt;-</span> prcomp(dplyr::select(forest_data, all_of(attributes)), center <span class="op">=</span> TRUE, scale. <span class="op">=</span> TRUE)$x <span class="op">|&gt;</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="im">as</span>.data.frame()</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -370,7 +370,7 @@
 </div>
 </div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [9]:</pre></div><div id="4249165e-5536-48cc-9f18-dfbb1e07017a" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [9]:</pre></div><div id="b14578b8-3601-4395-ac5a-eb8fea3b40f1" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>cluster_map <span class="op">&lt;-</span> forest_data <span class="op">|&gt;</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  dplyr::select(x, y) <span class="op">|&gt;</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  bind_cols(rf_cluster_forest) <span class="op">|&gt;</span></span>
