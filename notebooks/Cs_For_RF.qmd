@@ -12,6 +12,8 @@ suppressPackageStartupMessages({
   library(caret)
   library(patchwork)
   library(sf)
+  library(boot)
+  library(optRF)
 })
 ```
 
@@ -115,6 +117,76 @@ plot(rf.fit)
 
 ### Test Model
 Uses the RF model to predict the test dataset. We compare predicted against actual
+
+```{r}
+
+obs <- test[[x]]
+pred <- prediction <- predict(rf.fit, newdata = test)
+
+example <- data.frame(obs, pred)
+
+# Define a function to compute R-squared from bootstrap samples
+rsq <- function(formula, data, indices) {
+  d <- data[indices, ]  # Allows boot to select resampled cases
+  fit <- lm(formula, data = d)
+  return(summary(fit)$r.square)
+}
+
+# Perform bootstrapping with 1000 replications
+# Example: predicting mpg from wt and disp
+results <- boot(
+  data = example,
+  statistic = rsq,
+  R = 1000,
+  formula = pred ~ obs
+)
+
+# View bootstrap results
+test2 <- boot.ci(results, type = "perc")
+
+r_sq_mean <- mean(test2$t)
+r_sq_mean
+
+r_sq_upper_limits <- test2$percent[5]
+r_sq_upper_limits
+
+r_sq_lower_limits <- test2$percent[4]
+r_sq_lower_limits
+
+```
+
+
+
+```{r}
+# Set seed for reproducibility
+set.seed(123)
+
+
+# Define function to compute MSE on bootstrap samples
+mse_boot <- function(data, indices) {
+  d <- data[indices, ]  # Bootstrap sample
+  mse <- mean((d$obs - d$pred)^2)
+  return(mse)
+}
+
+# Bootstrap with 1000 replications
+boot_results <- boot(data = example, statistic = mse_boot, R = 1000)
+
+# Get percentile confidence interval
+boot_ci <- boot.ci(boot_results, type = "perc")
+
+# Extract lower and upper limits
+mse_mean <- mean(boot_results$t)
+mse_mean
+
+mse_lower_limit <- boot_ci$percent[4]
+mse_lower_limit
+
+mse_upper_limit <- boot_ci$percent[5]
+mse_upper_limit
+```
+
+
 ```{r}
 prediction <- predict(rf.fit, newdata = test)
 test_plot <- data.frame(pred = prediction, obs = test[[x]])
@@ -138,6 +210,19 @@ mse_test
 ```
 
 ## Importance
+
+```{r}
+# Varibale Importance stability
+
+set.seed(123)
+
+stability_result = measure_stability(y = train[[x]], X=train[,-1], num.trees=500, method = "importance", alpha = 3/8)
+
+rf_stability <- stability_result$VI_stability
+rf_stability
+
+```
+
 ```{r}
 ImpData <- as.data.frame(importance(rf.fit)) %>%
   mutate(Var.Names = row.names(.)) %>%
@@ -212,4 +297,19 @@ if(file.exists(here::here("./notebooks/model_performance_data_49.csv"))) {
 
 
 write_csv(model_performance_final, here::here("./notebooks/model_performance_data_49.csv"))
+
+
+model_performance2 <- tibble(MSE_test = paste0(round(mse_mean,2), " (", round(mse_lower_limit,2), ", ", round(mse_upper_limit,2), ")"),
+       R2_test = paste0(round(r_sq_mean,2), " (", round(r_sq_lower_limits,2), ", ", round(r_sq_upper_limits,2), ")"),
+       stability = round(rf_stability, 2), 
+       site = "Forest",
+       property = "Cs")
+
+if(file.exists(here::here("./notebooks/model_performance_data_2.csv"))) {
+  model_performance_final2 <- read_csv(here::here("./notebooks/model_performance_data_2.csv")) |>
+    rows_upsert(model_performance2, by = c("site", "property")) 
+} else model_performance_final2 <- model_performance2
+
+
+write_csv(model_performance_final2, here::here("./notebooks/model_performance_data_2.csv"))
 ```
