@@ -275,7 +275,7 @@ Interestingly, the RF analysis for Li yielded a negative percentage of variation
 Testing the model showed moderately good to poor performance with r^2^ values ranging from 0.01 (Fe) to 0.85 (Rb, Sr).
 The variable importance stability for the top three predictors was high (@tbl-rf-summary), indicating a consistent ranking across model runs.
 The SAGA Wetness Index and elevation were generally the most important terrain attributes in the model with profile and plan curvature as the least important terrain attributes (@fig-rf-results).
-Additional details on variable importance are provided in @suppfig-ag_RF_summary.
+Additional details on variable importance are provided in @suppfig-ag_RF_summary and @suppfig-forest_RF_summary.
 
 {{< embed notebooks/RF_summary.qmd#tbl-rf-summary >}}
 
@@ -445,7 +445,7 @@ Additional information, including analytical notebooks with details of the analy
 ::: {#refs}
 :::
 
-## Supplemental figures
+## Supplemental figures {.unnumbered}
 
 ::: {#suppfig-ag_RF_summary}
 ![](images/Ag_RF_summary.png){width="100%"}
@@ -453,10 +453,12 @@ Additional information, including analytical notebooks with details of the analy
 Variable importance, expressed as the percentage increase in Mean Squared Error, for soil colour and geochemical fingerprint properties derived from random forest models using terrain attributes as predictorsat the agricultural site.
 :::
 
-::: {}
+::: {#suppfig-forest_RF_summary}
+
 ![](images/Forest_RF_summary.png){width="100%"}
 
 Variable importance, expressed as the percentage increase in Mean Squared Error, for soil colour and geochemical fingerprint properties derived from random forest models using terrain attributes as predictorsat the forest site.
+
 :::
 
 ## Supplemental tables {.unnumbered}

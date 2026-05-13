@@ -81,7 +81,7 @@ all_fingerprints <- data %>%
 
 ```{r}
 #| label: tbl-univariate-summary
-#| tbl-cap: Summary univariate statistics of selected geochemical and colour soil properties for each site (n = 49). Geochemical concentrations are reported in ppm, excecpt Ca and Fe (%).
+#| tbl-cap: Summary univariate statistics of geochemical and colour soil properties for each site (n = 49). Geochemical concentrations are reported in ppm, excecpt Ca and Fe (%).
 
 all_fingerprints |>
   group_by(site) |>
@@ -205,7 +205,7 @@ corr_tab <- temp3 %>%
 
 ```{r}
 #| label: tbl-correlation
-#| tbl-cap: Pearson’s correlation coefficients for select soil properties and terrain attributes (n=49).
+#| tbl-cap: Pearson’s correlation coefficients for soil colour and geochemical properties and terrain attributes (n=49).
 
 correlation <- corr_tab |>
   group_by(site) |>

@@ -21,9 +21,9 @@ vario <- read_ods(here::here("./notebooks/semivariogram.ods")) %>%
                            `C/(C + Co) (%)`<=75 & `C/(C + Co) (%)` >25 ~ "Moderate",
                            `C/(C + Co) (%)` < 0.25 ~ "Low")) %>%
   select("Property" = "property", "Kriging Type" = "model", "Nugget (Co)" = "nugget", "Sill (Co + C)" = "sill", "C/(C + Co) (%)", "Range (m)" = "range", "site", "r2", "Spatial Class") %>%
-  mutate(Property = (fct_recode(Property, "*h**" = "h*", "*a**" = "a*", "*c**" = "c*", "*b**" = "b*", "*x*" = "x"))) %>%
+  #mutate(Property = (fct_recode(Property, "*h**" = "h*", "*a**" = "a*", "*c**" = "c*", "*b**" = "b*", "*x*" = "x"))) %>%
   #select(-p_sill) %>%
-  mutate(Property = fct_relevel(Property, "Ca", "Co", "Cs", "Fe", "Li", "La", "Nb", "Ni", "Rb", "Sr", "*a**", "*b**", "*c**", "*h**", "*x*")) %>%
+  mutate(Property = fct_relevel(Property, "Ca", "Co", "Cs", "Fe", "Li", "La", "Nb", "Ni", "Rb", "Sr", "a*", "b*", "c*", "h*", "x")) %>%
   arrange(Property)
 
 ```
@@ -31,7 +31,7 @@ vario <- read_ods(here::here("./notebooks/semivariogram.ods")) %>%
 ```{r}
 
 #| label: tbl-geocol-semivariogram
-#| tbl-cap: Geostatistical parameters of the fitted semivariogram models of selected colour and geochemical properties within the agricultural and forested sites.
+#| tbl-cap: Geostatistical parameters of the fitted semivariogram models of colour and geochemical properties within the agricultural and forested sites.
 
 vario |>
   group_by(site) |>

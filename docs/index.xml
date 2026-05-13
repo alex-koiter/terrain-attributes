@@ -608,9 +608,9 @@ forested terrains.</p>
     reflecting the presence of the stream crossing the forested
     site.</p>
     <fig id="tbl-univariate-summary">
-      <caption><p>Table 1: Summary univariate statistics of selected
-      geochemical and colour soil properties for each site (n = 49).
-      Geochemical concentrations are reported in ppm, excecpt Ca and Fe
+      <caption><p>Table 1: Summary univariate statistics of geochemical
+      and colour soil properties for each site (n = 49). Geochemical
+      concentrations are reported in ppm, excecpt Ca and Fe
       (%).</p></caption>
       <table-wrap>
         <table>
@@ -1104,8 +1104,8 @@ forested terrains.</p>
     (<xref alt="Figure 3" rid="fig-forest_map">Figure 3</xref>).</p>
     <fig id="tbl-geocol-semivariogram">
       <caption><p>Table 3: Geostatistical parameters of the fitted
-      semivariogram models of selected colour and geochemical properties
-      within the agricultural and forested sites.</p></caption>
+      semivariogram models of colour and geochemical properties within
+      the agricultural and forested sites.</p></caption>
       <table-wrap>
         <table>
           <thead>
@@ -1248,7 +1248,7 @@ forested terrains.</p>
               <td align="center" headers="Agriculture  Spatial Class">Strong</td>
             </tr>
             <tr>
-              <td align="center" headers="Agriculture  Property">*a**</td>
+              <td align="center" headers="Agriculture  Property" style="font-style: italic">a*</td>
               <td align="center" headers="Agriculture  Kriging Type">Ordinary</td>
               <td align="center" headers="Agriculture  Nugget (Co)">0.4</td>
               <td align="center" headers="Agriculture  Sill (Co + C)">1.0</td>
@@ -1258,7 +1258,7 @@ forested terrains.</p>
               <td align="center" headers="Agriculture  Spatial Class">Moderate</td>
             </tr>
             <tr>
-              <td align="center" headers="Agriculture  Property">*b**</td>
+              <td align="center" headers="Agriculture  Property" style="font-style: italic">b*</td>
               <td align="center" headers="Agriculture  Kriging Type">Simple</td>
               <td align="center" headers="Agriculture  Nugget (Co)">0.2</td>
               <td align="center" headers="Agriculture  Sill (Co + C)">0.9</td>
@@ -1268,7 +1268,7 @@ forested terrains.</p>
               <td align="center" headers="Agriculture  Spatial Class">Strong</td>
             </tr>
             <tr>
-              <td align="center" headers="Agriculture  Property">*c**</td>
+              <td align="center" headers="Agriculture  Property" style="font-style: italic">c*</td>
               <td align="center" headers="Agriculture  Kriging Type">Simple</td>
               <td align="center" headers="Agriculture  Nugget (Co)">0.1</td>
               <td align="center" headers="Agriculture  Sill (Co + C)">0.9</td>
@@ -1278,7 +1278,7 @@ forested terrains.</p>
               <td align="center" headers="Agriculture  Spatial Class">Strong</td>
             </tr>
             <tr>
-              <td align="center" headers="Agriculture  Property">*h**</td>
+              <td align="center" headers="Agriculture  Property" style="font-style: italic">h*</td>
               <td align="center" headers="Agriculture  Kriging Type">Simple</td>
               <td align="center" headers="Agriculture  Nugget (Co)">0.0</td>
               <td align="center" headers="Agriculture  Sill (Co + C)">1.1</td>
@@ -1288,7 +1288,7 @@ forested terrains.</p>
               <td align="center" headers="Agriculture  Spatial Class">Strong</td>
             </tr>
             <tr>
-              <td align="center" headers="Agriculture  Property"><italic>x</italic></td>
+              <td align="center" headers="Agriculture  Property" style="font-style: italic">x</td>
               <td align="center" headers="Agriculture  Kriging Type">Simple</td>
               <td align="center" headers="Agriculture  Nugget (Co)">0.4</td>
               <td align="center" headers="Agriculture  Sill (Co + C)">1.0</td>
@@ -1381,7 +1381,7 @@ forested terrains.</p>
               <td align="center" headers="Forest  Spatial Class">Moderate</td>
             </tr>
             <tr>
-              <td align="center" headers="Forest  Property">*h**</td>
+              <td align="center" headers="Forest  Property" style="font-style: italic">h*</td>
               <td align="center" headers="Forest  Kriging Type">Universal</td>
               <td align="center" headers="Forest  Nugget (Co)">0.0</td>
               <td align="center" headers="Forest  Sill (Co + C)">0.0</td>
@@ -1417,8 +1417,9 @@ forested terrains.</p>
     attributes at the forested site
     (<xref alt="Table 4" rid="tbl-correlation">Table 4</xref>). </p>
     <fig id="tbl-correlation">
-      <caption><p>Table 4: Pearson’s correlation coefficients for select
-      soil properties and terrain attributes (n=49).</p></caption>
+      <caption><p>Table 4: Pearson’s correlation coefficients for soil
+      colour and geochemical properties and terrain attributes
+      (n=49).</p></caption>
       <table-wrap>
         <table>
           <thead>
@@ -1717,7 +1718,9 @@ forested terrains.</p>
     important terrain attributes
     (<xref alt="Figure 4" rid="fig-rf-results">Figure 4</xref>).
     Additional details on variable importance are provided in
-    <xref alt="Figure S1" rid="suppfig-ag_RF_summary">Figure S1</xref>.</p>
+    <xref alt="Figure S1" rid="suppfig-ag_RF_summary">Figure S1</xref>
+    and
+    <xref alt="Figure S2" rid="suppfig-forest_RF_summary">Figure S2</xref>.</p>
     <fig id="tbl-rf-summary">
       <caption><p>Table 5: Model summary and performance statistics for
       the random forest regression using the training and test data
@@ -2409,7 +2412,7 @@ forested terrains.</p>
   <title>References</title>
 </sec>
 <sec id="supplemental-figures">
-  <title>6 Supplemental figures</title>
+  <title>Supplemental figures</title>
   <fig id="suppfig-ag_RF_summary">
     <caption><p>Figure S1: Variable importance, expressed as the
     percentage increase in Mean Squared Error, for soil colour and
@@ -2418,11 +2421,14 @@ forested terrains.</p>
     site.</p></caption>
     <graphic mimetype="image" mime-subtype="png" xlink:href="images/Ag_RF_summary.png" />
   </fig>
-  <graphic mimetype="image" mime-subtype="png" xlink:href="images/Forest_RF_summary.png" />
-  <p>Variable importance, expressed as the percentage increase in Mean
-  Squared Error, for soil colour and geochemical fingerprint properties
-  derived from random forest models using terrain attributes as
-  predictorsat the forest site.</p>
+  <fig id="suppfig-forest_RF_summary">
+    <caption><p>Figure S2: Variable importance, expressed as the
+    percentage increase in Mean Squared Error, for soil colour and
+    geochemical fingerprint properties derived from random forest models
+    using terrain attributes as predictorsat the forest
+    site.</p></caption>
+    <graphic mimetype="image" mime-subtype="png" xlink:href="images/Forest_RF_summary.png" />
+  </fig>
 </sec>
 <sec id="supplemental-tables">
   <title>Supplemental tables</title>
@@ -3902,9 +3908,9 @@ forested terrains.</p>
                            `C/(C + Co) (%)`&lt;=75 &amp; `C/(C + Co) (%)` &gt;25 ~ &quot;Moderate&quot;,
                            `C/(C + Co) (%)` &lt; 0.25 ~ &quot;Low&quot;)) %&gt;%
   select(&quot;Property&quot; = &quot;property&quot;, &quot;Kriging Type&quot; = &quot;model&quot;, &quot;Nugget (Co)&quot; = &quot;nugget&quot;, &quot;Sill (Co + C)&quot; = &quot;sill&quot;, &quot;C/(C + Co) (%)&quot;, &quot;Range (m)&quot; = &quot;range&quot;, &quot;site&quot;, &quot;r2&quot;, &quot;Spatial Class&quot;) %&gt;%
-  mutate(Property = (fct_recode(Property, &quot;*h**&quot; = &quot;h*&quot;, &quot;*a**&quot; = &quot;a*&quot;, &quot;*c**&quot; = &quot;c*&quot;, &quot;*b**&quot; = &quot;b*&quot;, &quot;*x*&quot; = &quot;x&quot;))) %&gt;%
+  #mutate(Property = (fct_recode(Property, &quot;*h**&quot; = &quot;h*&quot;, &quot;*a**&quot; = &quot;a*&quot;, &quot;*c**&quot; = &quot;c*&quot;, &quot;*b**&quot; = &quot;b*&quot;, &quot;*x*&quot; = &quot;x&quot;))) %&gt;%
   #select(-p_sill) %&gt;%
-  mutate(Property = fct_relevel(Property, &quot;Ca&quot;, &quot;Co&quot;, &quot;Cs&quot;, &quot;Fe&quot;, &quot;Li&quot;, &quot;La&quot;, &quot;Nb&quot;, &quot;Ni&quot;, &quot;Rb&quot;, &quot;Sr&quot;, &quot;*a**&quot;, &quot;*b**&quot;, &quot;*c**&quot;, &quot;*h**&quot;, &quot;*x*&quot;)) %&gt;%
+  mutate(Property = fct_relevel(Property, &quot;Ca&quot;, &quot;Co&quot;, &quot;Cs&quot;, &quot;Fe&quot;, &quot;Li&quot;, &quot;La&quot;, &quot;Nb&quot;, &quot;Ni&quot;, &quot;Rb&quot;, &quot;Sr&quot;, &quot;a*&quot;, &quot;b*&quot;, &quot;c*&quot;, &quot;h*&quot;, &quot;x&quot;)) %&gt;%
   arrange(Property)
   </code>
   </sec>
@@ -14174,10 +14180,9 @@ tab_style(
       rows = Property %in% c(&quot;a*&quot;, &quot;b*&quot;, &quot;c*&quot;, &quot;h*&quot;, &quot;x&quot;)))
   </code>
   <fig id="tbl-univariate-summary-nb-22">
-    <caption><p>Summary univariate statistics of selected geochemical
-    and colour soil properties for each site (n = 49). Geochemical
-    concentrations are reported in ppm, excecpt Ca and Fe
-    (%).</p></caption>
+    <caption><p>Summary univariate statistics of geochemical and colour
+    soil properties for each site (n = 49). Geochemical concentrations
+    are reported in ppm, excecpt Ca and Fe (%).</p></caption>
   </fig>
   </sec>
 </sec>
@@ -14338,8 +14343,8 @@ correlation
 #saveRDS(correlation, file = here::here(&quot;./images/correlation.rds&quot;))
   </code>
   <fig id="tbl-correlation-nb-22">
-    <caption><p>Pearson’s correlation coefficients for select soil
-    properties and terrain attributes (n=49).</p></caption>
+    <caption><p>Pearson’s correlation coefficients for soil colour and
+    geochemical properties and terrain attributes (n=49).</p></caption>
   </fig>
   </sec>
 </sec>
@@ -14981,7 +14986,7 @@ g2 &lt;- ggplot(data = overall, aes(x = as.factor(MSE_rank), y = property, fill 
   <code language="r script">
 p &lt;- g2 + g1 + plot_layout(ncol = 1, heights = c(2, 10), guides = &quot;collect&quot;) &amp; theme(legend.position = 'right')
 p
-# ggsave(filename = &quot;../Submission/Figure 4.png&quot;, plot = p, height = 130, width = 140, units = &quot;mm&quot;, dpi = 600)
+# ggsave(filename = &quot;./Submission/Figure 4.png&quot;, plot = p, height = 130, width = 140, units = &quot;mm&quot;, dpi = 600)
   </code>
   <fig id="fig-rf-results-nb-24">
     <caption><p>Heat map of the Random Forest regression results showing

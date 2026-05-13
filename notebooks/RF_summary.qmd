@@ -77,7 +77,7 @@ g2 <- ggplot(data = overall, aes(x = as.factor(MSE_rank), y = property, fill = `
 
 p <- g2 + g1 + plot_layout(ncol = 1, heights = c(2, 10), guides = "collect") & theme(legend.position = 'right')
 p
-# ggsave(filename = "../Submission/Figure 4.png", plot = p, height = 130, width = 140, units = "mm", dpi = 600)
+# ggsave(filename = "./Submission/Figure 4.png", plot = p, height = 130, width = 140, units = "mm", dpi = 600)
 ```
 
 
