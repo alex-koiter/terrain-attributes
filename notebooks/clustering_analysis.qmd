@@ -1,0 +1,343 @@
+---
+title: "Clustering analysis"
+author: "Alex Koiter"
+html-table-processing: none
+---
+
+## Load libraries
+
+```{r}
+suppressPackageStartupMessages({
+  library(tidyverse)
+  library(terra)
+  library(patchwork)
+  library(sf)
+  library(randomForest)
+  library(tidyterra)
+  library(gt)
+})
+```
+
+## Load data
+
+```{r}
+ag_data <- read_csv(here::here("./notebooks/ag_terrain_data.csv"), show_col_types = FALSE) 
+
+
+forest_data <- read_csv(here::here("./notebooks/forest_terrain_data.csv"), show_col_types = FALSE) 
+
+```
+
+
+## Elbow plot functions
+
+```{r}
+# Define function to compute WSS for a single cluster
+wss <- function(d) {
+  sum(scale(d, scale = FALSE)^2)
+}
+
+# Wrapper function to apply WSS calculation across clusters for a given k
+wrap <- function(i, hc, x) {
+  cl <- cutree(hc, i)  # Cut tree into i clusters
+  spl <- split(x, cl)  # Split data by cluster membership
+  total_wss <- sum(sapply(spl, wss))  # Sum WSS across all clusters
+  total_wss
+}
+```
+
+## Terrain Atributes
+```{r}
+attributes <- c("saga_wetness_index", "relative_slope_position", "elevation", "profile_curvature", "plan_curvature","channel_network_distance","catchment_area")
+```
+
+## Agricultural site
+```{r}
+set.seed(123)
+# Principle component
+ag_pc <- prcomp(dplyr::select(ag_data, all_of(attributes)), center = TRUE, scale. = TRUE)$x |> 
+  as.data.frame()
+
+# Unsuperivsied classification
+
+rf_ag_fit <- randomForest(x = dplyr::select(ag_data, any_of(attributes)), y = NULL, ntree = 500, importance = TRUE)
+
+# Cluster analysis
+hclust_ag_rf <- hclust(as.dist(1-rf_ag_fit$proximity), method = "ward.D2")
+
+# #plot(hclust_ag_rf)
+```
+
+### Elbow plot
+```{r}
+# Compute WSS for k = 1 to 10
+k_values <- 1:10
+wss_values <- sapply(k_values, wrap, hc = hclust_ag_rf, x = dplyr::select(ag_data, any_of(attributes)))
+
+# Plot the elbow plot
+k_plot_ag <- ggplot(data.frame(k = k_values, wss = wss_values), aes(x = k, y = wss)) +
+  geom_line() +
+  geom_point(shape = 19, size = 2) +
+  labs(
+    x = "Number of Clusters (k)",
+    y = "Total Within-Cluster Sum of Squares (WSS)",
+    title = "Agricultural Site"
+  ) +
+  theme_bw(base_size = 10)
+k_plot_ag
+  
+rf_cluster_ag <- cutree(hclust_ag_rf, k=2)
+ag_pc$rf.clusters <- rf_cluster_ag
+
+ag_pc_plot <- ggplot(data = ag_pc, aes(x= PC2, y = PC1, colour = factor(rf.clusters))) +
+  geom_point(size = 0.5) +
+  scale_colour_manual(values=c( "#D4CB92", "#80A4ED")) +
+  theme_bw(base_size = 12) +
+  labs(colour = "Cluster") +
+  theme(legend.position="none")
+
+ag_pc_plot
+
+```
+
+```{r}
+ag_dist <- as.dist(1 - rf_ag_fit$proximity)
+ag_mds <- cmdscale(ag_dist, k = nrow(ag_data) - 1, eig = TRUE)
+mds_coords <- ag_mds$points
+
+eig <- ag_mds$eig
+var_explained_2d <- sum(eig[1:2]) / sum(eig[eig > 0])
+var_explained_2d
+
+ag_mds_df <- as.data.frame(mds_coords[, 1:2])
+names(ag_mds_df) <- c("MDS1", "MDS2")
+ag_mds_df$rf.clusters <- factor(rf_cluster_ag)
+
+ag_mds_plot <- ggplot(ag_mds_df, aes(MDS1, MDS2, colour = rf.clusters)) +
+  geom_point(size = 0.5) +
+  stat_ellipse(level = 0.95) +
+  scale_colour_manual(values = c("#D4CB92", "#80A4ED")) +
+  theme_bw(base_size = 12) +
+  labs(colour = "Cluster") +
+  theme(legend.position = "none")
+ag_mds_plot
+```
+
+
+```{r}
+ag_cluster_summary <- ag_data |>
+  dplyr::select(all_of(attributes)) |>
+  dplyr::mutate(cluster = factor(cutree(hclust_ag_rf, k = 2))) |>
+  dplyr::group_by(cluster) |>
+  dplyr::summarise(dplyr::across(
+    dplyr::everything(),
+    list(mean = ~mean(.x, na.rm = TRUE),sd   = ~sd(.x,   na.rm = TRUE))
+  ), .groups = "drop") |>
+  tidyr::pivot_longer(cols = -cluster,
+    names_to  = c("attribute", ".value"), 
+    names_sep = "_(?=[^_]+$)"   ) |>
+  dplyr::mutate(value = sprintf("%.1f (%.1f)", mean, sd)) |>
+  dplyr::select(-mean, -sd) |>
+  pivot_wider(names_from  = cluster,values_from = value )
+
+ag_cluster_summary
+```
+
+```{r}
+cluster_map_ag <- ag_data |>
+  dplyr::select(x, y) |>
+  bind_cols(rf_cluster_ag) |>
+  rename(cluster = ...3) |>
+  rast()|>
+  mutate(cluster = as.factor(cluster))
+
+crs(x = cluster_map_ag, warn=FALSE) <- "epsg:26914"
+
+ag_cluster_map <- ggplot() +
+  tidyterra::geom_spatraster(data = cluster_map_ag, aes(fill = cluster)) +
+  scale_fill_manual(values=c( "#D4CB92", "#80A4ED")) +
+  labs(fill = "Cluster") +
+  theme_minimal(base_size = 12) +
+  theme(legend.position="right",
+        axis.text = element_blank(),
+        plot.title = element_text(hjust = 0.5)) +
+  scale_y_continuous(expand = c(0,0)) +
+  scale_x_continuous(expand = c(0,0)) +
+  ggspatial::annotation_scale(location = "bl") +
+  ggspatial::annotation_north_arrow(location = "br", height = grid::unit(0.6, "cm"), width = grid::unit(0.6, "cm"))
+
+ag_cluster_map
+
+```
+
+## forested site site 
+
+```{r}
+forest_pc <- prcomp(dplyr::select(forest_data, all_of(attributes)), center = TRUE, scale. = TRUE)$x |> 
+  as.data.frame()
+
+set.seed(123)
+rf_forest_fit <- randomForest(x = dplyr::select(forest_data, all_of(attributes)), y = NULL, ntree = 500, importance = TRUE)
+
+hclust_forest_rf <- hclust(as.dist(1-rf_forest_fit$proximity), method = "average")
+
+
+#plot(hclust_forest_rf)
+
+# Compute WSS for k = 1 to 10
+k_values <- 1:10
+wss_values <- sapply(k_values, wrap, hc = hclust_forest_rf, x = dplyr::select(forest_data, plan_curvature:elevation))
+
+# Plot the elbow plot
+
+k_plot_forest <- ggplot(data.frame(k = k_values, wss = wss_values), aes(x = k, y = wss)) +
+  geom_line() +
+  geom_point(shape = 19, size = 2) +
+  labs(
+    x = "Number of Clusters (k)",
+    y = "Total Within-Cluster Sum of Squares (WSS)",
+    title = "Forested Site"
+  ) +
+  theme_bw(base_size = 10)
+k_plot_forest
+
+rf_cluster_forest <- cutree(hclust_forest_rf, k=3)
+forest_pc$rf.clusters <- rf_cluster_forest
+
+forest_pc_plot <- ggplot(data = forest_pc, aes(x= PC2, y = PC1, colour = factor(rf.clusters))) +
+  geom_point(size = 0.5) +
+  scale_colour_manual(values=c("#E6E1C5", "#D4CB92", "#80A4ED")) +
+  theme_bw(base_size = 12) +
+  labs(colour = "Cluster") +
+  theme(legend.position="none")
+forest_pc_plot
+```
+
+
+
+```{r}
+forest_dist <- as.dist(1 - rf_forest_fit$proximity)
+forest_mds <- cmdscale(forest_dist, k = nrow(forest_data) - 1, eig = TRUE)
+mds_coords <- forest_mds$points
+
+eig <- forest_mds$eig
+var_explained_2d <- sum(eig[1:2]) / sum(eig[eig > 0])
+var_explained_2d
+
+forest_mds_df <- as.data.frame(mds_coords[, 1:2])
+names(forest_mds_df) <- c("MDS1", "MDS2")
+forest_mds_df$rf.clusters <- factor(rf_cluster_forest)
+
+forest_mds_plot <- ggplot(forest_mds_df, aes(MDS1, MDS2, colour = rf.clusters)) +
+  geom_point(size = 0.5) +
+  stat_ellipse(level = 0.95) +
+  scale_colour_manual(values = c("#E6E1C5", "#D4CB92", "#80A4ED")) +
+  theme_bw(base_size = 12) +
+  labs(colour = "Cluster") +
+  theme(legend.position = "none")
+forest_mds_plot
+```
+
+
+```{r}
+cluster_summary <- forest_data |>
+  dplyr::select(all_of(attributes)) |>
+  dplyr::mutate(cluster = factor(cutree(hclust_forest_rf, k = 3))) |>
+  dplyr::group_by(cluster) |>
+  dplyr::summarise(dplyr::across(
+    dplyr::everything(),
+    list(
+      mean = ~mean(.x, na.rm = TRUE),
+      sd   = ~sd(.x,   na.rm = TRUE)
+    )
+  ), .groups = "drop") |>
+  tidyr::pivot_longer(
+    cols      = -cluster,
+    names_to  = c("attribute", ".value"),
+    names_sep = "_(?=[^_]+$)"
+  ) |>
+  dplyr::mutate(
+    value = sprintf("%.1f (%.1f)", mean, sd)
+  ) |>
+  dplyr::select(-mean, -sd) |>
+  tidyr::pivot_wider(
+    names_from  = cluster,
+    values_from = value
+  )
+
+cluster_summary
+```
+
+
+```{r}
+cluster_map <- forest_data |>
+  dplyr::select(x, y) |>
+  bind_cols(rf_cluster_forest) |>
+  rename(cluster = ...3) |>
+  rast() |>
+  mutate(cluster = as.factor(cluster))
+
+crs(x = cluster_map, warn=FALSE) <- "epsg:26914"
+
+forest_cluster_map <- ggplot() +
+  tidyterra::geom_spatraster(data = cluster_map, aes(fill = cluster)) +
+  scale_fill_manual(values=c("#E6E1C5", "#D4CB92", "#80A4ED")) +
+  labs(fill = "Cluster") +
+  theme_minimal(base_size = 12) +
+  theme(legend.position="right",
+        axis.text = element_blank(),
+        plot.title = element_text(hjust = 0.5)) +
+  scale_y_continuous(expand = c(0,0)) +
+  scale_x_continuous(expand = c(0,0)) +
+  ggspatial::annotation_scale(location = "bl") +
+  ggspatial::annotation_north_arrow(location = "br", height = grid::unit(0.6, "cm"), width = grid::unit(0.6, "cm"))
+forest_cluster_map
+```
+
+
+```{r}
+#| label: fig-cluster
+#| fig-cap: Maps and MDS plots demonstrating the clustering analysis of terrain attributes for the forest site (a, b) and the agricultural site (c, d).
+
+cluster_plots <- forest_mds_plot + forest_cluster_map + ag_mds_plot + ag_cluster_map + plot_annotation(tag_levels = 'a', tag_suffix = ')') + plot_layout(heights = c(1, 1.05))
+cluster_plots
+
+# 
+# (forest_cluster_map + ag_cluster_map)
+
+#forest_cluster_map + ag_cluster_map + forest_pc + ag_pc + plot_annotation(tag_levels = 'a', tag_suffix = ')') + plot_layout(height = c(1, 1))
+
+#ggsave(filename = "./Submission/Figure 4.png", plot = cluster_plots, height = 150, width = 200, units = "mm", dpi = 600)
+```
+
+```{r}
+
+#| label: tbl-cluster-summary
+#| tbl-cap: Summary of terrain attributes by land-use cluster. Each value is the cluster mean, with the standard deviation given in parentheses.
+
+cluster_summary |>
+  mutate(site = "Forest") |>
+  bind_rows(ag_cluster_summary |>  mutate(site = "Agriculture"))|>
+  mutate(attribute = as.character(fct_recode(attribute,  "Elevation" = "elevation", "Catchment Area" = "catchment_area", "Plan Curvature" = "plan_curvature", "Profile Curvature" = "profile_curvature", "Rel. Slope Position" = "relative_slope_position", "SAGA Wetness Index" = "saga_wetness_index", "Vert. Dist. Channel" = "channel_network_distance"))) |>
+  mutate(attribute = factor(attribute, levels = c("Elevation", "SAGA Wetness Index", "Rel. Slope Position", "Vert. Dist. Channel", "Catchment Area", "Profile Curvature", "Plan Curvature"))) |>
+  arrange(attribute) |> 
+  rename(Attribute = attribute)|>
+  group_by(site) |>
+  gt() |>
+  sub_missing(missing_text = "") |>
+  tab_spanner(label = "Cluster",columns = c(2,3,4)) |>
+  row_group_order(groups = c("Agriculture", "Forest")) |>
+  tab_style(style =  cell_text(weight = "bold", align = "center"), locations =  cells_row_groups()) |>
+  tab_style(style =  cell_text(weight = "bold", align = "left"), locations =  cells_column_labels()) |> 
+  tab_style(style =  cell_text(align = "left"), locations =  cells_body())
+
+```
+
+```{r}
+
+elbow_p <- k_plot_ag + k_plot_forest
+
+#ggsave(filename = "./images/elbows.png", plot = elbow_p, height = 150, width = 200, units = "mm", dpi = 600)
+
+```
+
