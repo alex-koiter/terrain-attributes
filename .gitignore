@@ -17,3 +17,5 @@
 /notebooks/canvec_190514_89905
 /notebooks/lcv_minnedosa_2004_2006_shp
 .positai
+
+**/*.quarto_ipynb

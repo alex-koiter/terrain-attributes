@@ -215,24 +215,67 @@ ag_topo <- read_csv(here::here("./notebooks/ag_terrain_data.csv"), show_col_type
 ag_topo <- rast(ag_topo)
 crs(x = ag_topo, warn=FALSE) <- "epsg:26914"
 
+# p4 <- ggplot() +
+#   tidyterra::geom_spatraster(data = ag_topo, aes(fill = elevation)) +
+#   scale_fill_viridis_c(name = "Elev. (m)", option = "viridis", limits = c(309, 312), breaks = seq(309, 312, 1)) +
+#   geom_sf(data = filter(coords, site == "Agriculture"), size =1) +
+#   theme_bw(base_size = 10) +
+# theme(axis.text = element_blank(),
+#         axis.ticks = element_blank(),
+#         axis.title = element_blank(),
+#         plot.margin = unit(c(0,0,0,0), "mm"),
+#         legend.position = "bottom",
+#         legend.box.spacing = unit(0, "pt")) +
+#   scale_y_continuous(expand = c(0,0)) +
+#   scale_x_continuous(expand = c(0,0)) +
+#   annotation_scale(location = "bl",
+#                    height = unit(0.05, "cm")) +
+#   annotation_north_arrow(location = "br", 
+#                          height = unit(0.5, "cm"),
+#                          width = unit(0.5, "cm"))
+
 p4 <- ggplot() +
   tidyterra::geom_spatraster(data = ag_topo, aes(fill = elevation)) +
-  scale_fill_viridis_c(name = "Elev. (m)", option = "viridis", limits = c(309, 312), breaks = seq(309, 312, 1)) +
-  geom_sf(data = filter(coords, site == "Agriculture"), size =1) +
+  scale_fill_viridis_c(
+    name   = "Elev. (m)",
+    option = "viridis",
+    limits = c(309, 312),
+    breaks = seq(309, 312, 1)
+  ) +
+  geom_sf(
+    data  = dplyr::filter(coords, site == "Agriculture"),
+    aes(shape = "Sampling location"),
+    size = 1, color = "black", fill = "black", stroke = 0.5
+  ) +
+  scale_shape_manual(
+    name   = NULL,
+    values = c("Sampling location" = 21)
+  ) +
+  guides(
+    shape = guide_legend(
+      order = 1,
+      override.aes = list(size = 1, fill = "black", color = "black")
+    ),
+    fill  = guide_colorbar(order = 2)
+  ) +
+  annotation_scale(location = "bl", height = unit(0.05, "cm")) +
+  annotation_north_arrow(
+    location = "br",
+    height   = unit(0.5, "cm"),
+    width    = unit(0.5, "cm")
+  ) +
   theme_bw(base_size = 10) +
-theme(axis.text = element_blank(),
-        axis.ticks = element_blank(),
-        axis.title = element_blank(),
-        plot.margin = unit(c(0,0,0,0), "mm"),
-        legend.position = "bottom",
-        legend.box.spacing = unit(0, "pt")) +
-  scale_y_continuous(expand = c(0,0)) +
-  scale_x_continuous(expand = c(0,0)) +
-  annotation_scale(location = "bl",
-                   height = unit(0.05, "cm")) +
-  annotation_north_arrow(location = "br", 
-                         height = unit(0.5, "cm"),
-                         width = unit(0.5, "cm"))
+  theme(
+    axis.text    = element_blank(),
+    axis.ticks   = element_blank(),
+    axis.title   = element_blank(),
+    legend.position    = "bottom",
+    legend.box.spacing = unit(0, "pt"),
+    legend.box         = "vertical",
+    legend.spacing.x   = unit(6, "pt"),
+  ) +
+  scale_y_continuous(expand = c(0, 0)) +
+  scale_x_continuous(expand = c(0, 0))
 ```
 
 
@@ -242,31 +285,74 @@ forest_topo <- read_csv(here::here("./notebooks/forest_terrain_data.csv"), show_
 forest_topo <- rast(forest_topo)
 crs(x = forest_topo, warn=FALSE) <- "epsg:26914"
 
+# p5 <- ggplot() +
+#   tidyterra::geom_spatraster(data = forest_topo, aes(fill = elevation)) +
+#   scale_fill_viridis_c(name = "Elev. (m)", option = "viridis") +
+#   geom_sf(data = filter(coords, site == "Forest"), size =1) +
+#   theme_bw(base_size = 10) +
+# theme(axis.text = element_blank(),
+#         axis.ticks = element_blank(),
+#         axis.title = element_blank(),
+#         plot.margin = unit(c(0,0,0,0), "mm"),
+#         legend.position = "bottom",
+#         legend.box.spacing = unit(0, "pt")) +
+#   scale_y_continuous(expand = c(0,0)) +
+#   scale_x_continuous(expand = c(0,0)) +
+#   annotation_scale(location = "bl",
+#                    height = unit(0.05, "cm")) +
+#   annotation_north_arrow(location = "br", 
+#                          height = unit(0.5, "cm"),
+#                          width = unit(0.5, "cm"))
+
+
 p5 <- ggplot() +
   tidyterra::geom_spatraster(data = forest_topo, aes(fill = elevation)) +
-  scale_fill_viridis_c(name = "Elev. (m)", option = "viridis") +
-  geom_sf(data = filter(coords, site == "Forest"), size =1) +
+  scale_fill_viridis_c(
+    name   = "Elev. (m)",
+    option = "viridis",
+    breaks = seq(360, 375, 5)
+  ) +
+  geom_sf(
+    data  = dplyr::filter(coords, site == "Forest"),
+    aes(shape = "Sampling location"),
+    size = 1, color = "black", fill = "black", stroke = 0.5
+  ) +
+  scale_shape_manual(
+    name   = NULL,
+    values = c("Sampling location" = 21)
+  ) +
+  guides(
+    shape = guide_legend(
+      order = 1,
+      override.aes = list(size = 1, fill = "black", color = "black")
+    ),
+    fill  = guide_colorbar(order = 2)
+  ) +
+  annotation_scale(location = "bl", height = unit(0.05, "cm")) +
+  annotation_north_arrow(
+    location = "br",
+    height   = unit(0.5, "cm"),
+    width    = unit(0.5, "cm")
+  ) +
   theme_bw(base_size = 10) +
-theme(axis.text = element_blank(),
-        axis.ticks = element_blank(),
-        axis.title = element_blank(),
-        plot.margin = unit(c(0,0,0,0), "mm"),
-        legend.position = "bottom",
-        legend.box.spacing = unit(0, "pt")) +
-  scale_y_continuous(expand = c(0,0)) +
-  scale_x_continuous(expand = c(0,0)) +
-  annotation_scale(location = "bl",
-                   height = unit(0.05, "cm")) +
-  annotation_north_arrow(location = "br", 
-                         height = unit(0.5, "cm"),
-                         width = unit(0.5, "cm"))
+  theme(
+    axis.text    = element_blank(),
+    axis.ticks   = element_blank(),
+    axis.title   = element_blank(),
+    legend.position    = "bottom",
+    legend.box.spacing = unit(0, "pt"),
+    legend.box         = "vertical",
+    legend.spacing.x   = unit(6, "pt"),
+  ) +
+  scale_y_continuous(expand = c(0, 0)) +
+  scale_x_continuous(expand = c(0, 0))
 ```
 
 
 
 ```{r}
 #| label: fig-location_map
-#| fig-cap: a) Map showing the location of the study sites within Canada. Location of the two study sites and nearby town of McCreary, and regional  b) land use, and c) topography. Local topography and soil sampling locations at the d) forested site and e) agricultural site.
+#| fig-cap: a) Map showing the location of the study sites within Canada. b) Location of the two study sites and nearby town of McCreary and regionalland use. Local topography and soil sampling locations at the c) forested site and d) agricultural site at a spacing of approximately 100m.
 
 # p6 <- p1 + guide_area() + p2 + p3 + plot_layout(guides = "collect") + plot_annotation(tag_levels = 'a', tag_suffix = ')')
 # 
@@ -282,8 +368,15 @@ theme(axis.text = element_blank(),
 # p8 <- p1 + plot_spacer() + p2 +p3+ p5 + p4 + plot_layout(ncol = 2) + plot_annotation(tag_levels = 'a', tag_suffix = ')')
 # p8
 
-p8 <- p1  + p2 +p3+ p5 + p4 + plot_spacer() + plot_layout(ncol = 3, heights = c(1, 1)) + plot_annotation(tag_levels = 'a', tag_suffix = ')')
+# p8 <- p1  + p2 +p3+ p5 + p4 + plot_spacer() + plot_layout(ncol = 3, heights = c(1, 1)) + plot_annotation(tag_levels = 'a', tag_suffix = ')')
+# p8
+
+
+p8 <- (p1  + p2)/ (p5 + p4) + plot_annotation(tag_levels = 'a', tag_suffix = ')')
 p8
 
-#ggsave(filename = "./Submission/Figure 1.png", plot = p8, height = 130, width = 200, units = "mm", dpi = 600)
+
+
+#ggsave(filename = "./Submission/Figure 1.png", plot = p8, height = 200, width = 150, units = "mm", dpi = 600)
+
 ```
